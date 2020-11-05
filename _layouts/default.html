@@ -5,13 +5,6 @@
 
   <body>
 
-    {% if site.google_analytics %}
-      <!-- Google Tag Manager (noscript) -->
-      <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_analytics }}" height="0" width="0"
-        style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
-      <!-- End Google Tag Manager (noscript) -->
-    {% endif %}
-
     <div class="wrapper">
       <div class="svg-sprite hidden">
         <svg width="0" height="0" style="position:absolute">
@@ -81,46 +74,8 @@
 
         {{ content }}  
 
-        {% include block-callout.html %}
       </main>
 
-
-
-      {% include footer.html %}
-
-      <script>
-        (function () {
-          function maybePrefixUrlField() {
-            if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
-              this.value = "http://" + this.value;
-            }
-          }
-          var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
-          if (urlFields) {
-            for (var j = 0; j < urlFields.length; j++) {
-              urlFields[j].addEventListener('blur', maybePrefixUrlField);
-            }
-          }
-        })();
-      </script>
-      <script type="text/javascript"
-        src="https://fioprotocol.io/wp-content/plugins/mailchimp-for-wp/assets/js/forms.min.js?ver=4.7.8"></script>
-
-      <div id="cookie-notice" role="banner"
-        class="cookie-notice-hidden cookie-revoke-hidden cn-position-bottom cn-effect-fade" aria-label="Cookie Notice"
-        style="background-color: rgba(0,0,0,0.8);">
-        <div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container">We
-            use cookies to ensure that we give you the best experience on our website. If you continue to use this site we
-            will assume that you are happy with it.</span><span id="cn-notice-buttons" class="cn-buttons-container"><a
-              href="#" onclick="agree()" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button btn btn-primary"
-              aria-label="I Agree">I Agree</a></span><a href="javascript:void()" id="cn-close-notice" class="cn-close-icon" aria-label="I Agree"></a></div>
-
-      </div>
-
-    </div>
-
-    {% include footer-scripts.html %}
-
-    </body>
+  </body>
 
 </html>

@@ -1,21 +1,36 @@
-- title: For Users
-  dropdown:
-    - title: Getting Started
-      url: /getting-started/
-    - title: Demonstrations
-      url: /demonstrations/
-    - title: FIO Token
-      url: /fio-token/
-    - title: Ecosystem
-      url: /ecosystem/
-
 - title: For Integrators
   dropdown:
+    - title: Getting Started
+      url: /pages/getting-started/
+    - title: Wallets
+      url: /demonstrations/
+    - title: Exchanges
+      url: /fio-token/
+    - title: Code Recipes
+      url: /ecosystem/
+    - title: FIO Chain
+      url: /ecosystem/
+    - title: SDKs
+      url: /ecosystem/
+    - title: Tools
+      url: /ecosystem/
+
+- title: APIs
+  dropdown:
+    - title: FIO Protocol API
+      url: /pages/api/fioapi.html
+      blank: false
+    - title: Registration API
+      url: /pages/api/fioapi.html
+      blank: false
+
+- title: FIO
+  dropdown:
+    - title: FIO Website
+      url: https://fioprotocol.io/
+      blank: true
     - title: Knowledge Base
       url: https://kb.fioprotocol.io/
-      blank: true
-    - title: Developer Hub
-      url: https://developers.fioprotocol.io/
       blank: true
     - title: Block Explorer
       url: https://fio.bloks.io/
@@ -23,23 +38,24 @@
     - title: Github
       url: https://github.com/fioprotocol
       blank: true
-
-- title: Foundation
-  dropdown:
-    - title: About FIO
-      url: /about-fio/
+    - title: FIPs
+      url: https://github.com/fioprotocol/fips
+      blank: true
     - title: Blog
       url: https://medium.com/fio-blog
-    - title: Research
-      url: https://medium.com/fio-blog/research/home
-    - title: Press
-      url: /press/
-    - title: Brand Assets
-      url: /brand-assets/
+      blank: true
 
-- title: Contact
-  url: https://fioprotocol.atlassian.net/servicedesk/customer/portal/3/group/-1
-
+- title: Support
+  dropdown:
+  - title: Help Center
+    url: https://fioprotocol.atlassian.net/servicedesk/customer/portals
+    blank: true
+  - title: Discord
+    url: https://discord.gg/CNHzMm2neF
+    blank: true
+  - title: Telegram
+    url: https://t.me/fiointegration
+    blank: true
 
 
 

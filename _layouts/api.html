@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ReDoc</title>
-    <!-- needed for adaptive design -->
+---
+layout: default
+---
+
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
@@ -11,6 +10,8 @@
     ReDoc doesn't change outer page styles
     "https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js
     https://ericbutz.github.io/fio-api/swagger.yaml
+    http://localhost:4000/pages/api/fio-api.yaml
+    ../../node_modules/redoc/bundles/redoc.standalone.js
     -->
     <style>
       body {
@@ -20,7 +21,6 @@
     </style>
   </head>
   <body>
-    <redoc spec-url='http://localhost:4000/pages/api/fio-api.yaml'></redoc>
-    <script src="../../node_modules/redoc/bundles/redoc.standalone.js"> </script>
+    <redoc spec-url='https://ericbutz.github.io/fio-api/swagger.yaml'></redoc>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
   </body>
-</html>
