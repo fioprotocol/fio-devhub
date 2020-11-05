@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<section class="section section-features">
+  <div class="section__inner">
+    <div class="container">
+      <div class="section__body">
+        <div class="features">
+          {% for feature in page.features %}
+            {% include block-feature.html %}
+          {% endfor %}
+        </div><!-- /.features -->
+      </div><!-- /.section__body -->
+    </div><!-- /.container -->
+  </div><!-- /.section__inner -->
+
+  <div class="section__bg"
+    style="background-image:url({{ '/assets/img/bg-features.png' | absolute_url }})"></div>
+  <!-- /.section__bg -->
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="section__head">
+      <h3 class="section__title">{{page.trading.heading}}</h3><!-- /.section__title -->
+      <p>
+        {% for item in page.trading.images %}
+          <a href="{{item.url}}" target="_blank" rel="noopener"><img class="alignnone size-full" src="{{item.image | absolute_url}}" alt="{{item.alt}}" width="100" height="100" data-pagespeed-url-hash="3389633686" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a><br>
+        {% endfor %}
+      </p>
+    </header><!-- /.section__head -->
+  </div><!-- /.container -->
+</section>

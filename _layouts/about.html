@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<section class="section">
+  <div class="section__inner">
+    <div class="container">
+      <div class="section__body">
+        <div class="features">
+          <div class="feature">
+            <div class="feature__inner row not-gutters">
+              <div class="feature__content col-12 col-md-6">
+                <header class="feature__head">
+                  <h2 class="feature__title">{{page.feature.heading}}</h2><!-- /.feature__title -->
+                </header><!-- /.feature__head -->
+
+                <div class="feature__entry">
+                  <p></p>
+                  <div>{{page.feature.description | markdownify}}</div>
+                  {% if page.feature.button.url %}
+                    <div class="feature__actions">
+                      <p><a href="{% if page.feature.button.url contains 'http' %}{{page.feature.button.url}}{% else %}{{ page.feature.button.url | relative_url }}{% endif %}" class="btn btn-default btn--purple" target="_blank"><span>{{page.feature.button.text}}</span></a></p>
+                    </div><!-- /.feature__actions -->
+                  {% endif %}
+                  {% if page.feature.heading_2 %}
+                    <hr>
+                    <header class="feature__head">
+                      <h2 class="feature__title">{{page.feature.heading_2}}</h2><!-- /.feature__title -->
+                    </header><!-- /.feature__head -->
+                  {% endif %}
+                  {% if page.feature.description_2 %}
+                    <div>{{page.feature.description_2 | markdownify}}</div>
+                  {% endif %}
+                </div><!-- /.feature__entry -->
+              </div><!-- /.feature__content col-12 col-md-6 -->
+
+              <div class="feature__image col-12 col-md-6">
+                {% if page.feature.image %}
+                  <img src="{{ page.feature.image | absolute_url }}"
+                    style="max-height:535px;" alt="{{page.feature.heading}}" data-pagespeed-url-hash="3091891063"
+                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                {% endif %}
+              </div><!-- /.feature__image col-12 col-md-6 -->
+            </div><!-- /.feature__inner row not-gutters -->
+          </div><!-- /.feature -->
+        </div><!-- /.features -->
+      </div><!-- /.section__body -->
+    </div><!-- /.container -->
+  </div><!-- /.section__inner -->
+</section>

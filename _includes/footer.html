@@ -1,0 +1,40 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner row">
+      {% for column in site.data.footer %}
+        <div class="col-12 col-md-3">
+          <h4>{{column.heading}}</h4>
+          <ul>
+            {% for link in column.links %}
+              {% if link.url contains 'http' %}
+                {% assign domain = '' %}
+              {% else %}
+                {% assign domain = '' | relative_url %}
+              {% endif %}
+              {% if link.title %}
+                <li>
+                  <a href="{{ domain }}{{ link.url }}"{% if link.blank %} target="_blank" rel="noopener" {% endif %}>
+                    <i class="ico-arrow-right">
+                      <svg>
+                        <use xlink:href="#ico-arrow-right"></use>
+                      </svg>
+                    </i>
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div><!-- /.footer__inner -->
+
+    <div class="footer__bar">
+      <ul id="menu-sub-footer-menu" class="list-links">
+        <li id="menu-item-449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-449"><a
+            href="{{ site.footer.link.url | relative_url }}">{{ site.footer.link.title }}</a></li>
+      </ul>
+      <p class="copyright">{{ site.footer.copyright }}</p><!-- /.copyright -->
+    </div><!-- /.footer__bar -->
+  </div><!-- /.container -->
+</footer><!-- /.footer -->

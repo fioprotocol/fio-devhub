@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<section class="section">
+  <div class="container">
+
+    <header class="section__head">
+      <h3 class="section__title">{{page.addresses.heading}}</h3><!-- /.section__title -->
+      <p>{{page.addresses.description}}</p>
+      <h4>{{page.addresses.subheading}}</h4>
+
+      {% for category in site.data.ecosystem %}
+        {% for item in category.items %}
+          {% unless item.featured_addresses %}
+            {% continue %}
+          {% endunless %}
+          <p><a href="{{item.url}}"><img
+                src="{{ item.image| absolute_url }}" alt="{{item.heading}} Logo" width="100"
+                height="100" class="alignnone size-full" style="margin-right:30px">{{item.heading}}</a></p>
+          {% endfor %}
+        {% endfor %}
+    </header><!-- /.section__head -->
+
+  </div><!-- /.container -->
+</section>
+
+<section class="section section-features">
+  <div class="section__inner">
+    <div class="container">
+      <div class="section__body">
+        <div class="features">
+          {% for feature in page.features %}
+            {% include block-feature.html %}
+          {% endfor %}
+        </div><!-- /.features -->
+      </div><!-- /.section__body -->
+    </div><!-- /.container -->
+  </div><!-- /.section__inner -->
+
+  <div class="section__bg"
+    style="background-image:url({{ '/assets/img/bg-features.png' | absolute_url }})"></div>
+  <!-- /.section__bg -->
+</section>

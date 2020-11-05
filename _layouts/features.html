@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<section class="section section-features">
+  <div class="section__inner">
+    <div class="container">
+      <div class="section__body">
+        <div class="features">
+          {% for feature in page.features %}
+            {% include block-feature.html %}
+          {% endfor %}
+        </div><!-- /.features -->
+      </div><!-- /.section__body -->
+    </div><!-- /.container -->
+  </div><!-- /.section__inner -->
+
+  <div class="section__bg"
+    style="background-image:url({{ '/assets/img/bg-features.png' | absolute_url }})"></div>
+  <!-- /.section__bg -->
+</section>

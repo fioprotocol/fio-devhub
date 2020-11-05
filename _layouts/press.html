@@ -1,0 +1,76 @@
+---
+layout: default
+---
+
+<section class="section section--news">
+  <div class="container">
+    <header class="section__head">
+      <h3 class="section__title">{{page.featured.heading}}</h3><!-- /.section__title -->
+      <div>{{page.featured.description | markdownify}}</div>
+    </header><!-- /.section__head -->
+    <div class="section__body">
+      <div class="section__body-inner row no-gutters">
+        <div class="section__body-aside col-12 col-md-12">
+          <div class="cards cols">
+            {% assign featured = site.data.press | where: 'featured', true %}
+            {% for item in featured %}
+              <div class="col-12 col-md-4" style="margin-bottom:20px;">
+                <div class="card card--sm" style="height:200px;">
+                  <a href="{% if item.url contains 'http' %}{{item.url}}{% else %}{{ item.url | relative_url }}{% endif %}"
+                    target="_blank">
+                    <div class="card-image">
+                      <img src="{% if item.image contains 'http' %}{{item.image}}{% else %}{{ item.image | absolute_url }}{% endif %}" class="card-img-top"
+                        alt="{{item.title}}" data-pagespeed-url-hash="4176563656"
+                        onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                    </div><!-- /.card-image -->
+
+                    <div class="card-body">
+                      <p>{{item.date}} - {{item.title}}</p>
+
+                    </div><!-- /.card-body -->
+                  </a>
+                </div><!-- /.card -->
+              </div><!-- /.col col-/-size2 -->
+            {% endfor %}
+          </div> <!-- /.cards -->
+        </div> <!-- /.section__body-aside -->
+
+      </div><!-- /.section__body-inner row no-gutters -->
+
+    </div><!-- /.section__body -->
+
+
+    <div class="section__actions">
+      <div class="Accordian">
+        <section class="AccordianSection is-open">
+          <h3 class="AccordianSection__title">{{page.all.heading}}<span class=""><i class="pe-7s-close-circle"></i></span></h3>
+          <div class="AccordianSection__content" style="display: block;">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Publication</th>
+                    <th scope="col">Title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% assign all = site.data.press %}
+                  {% for item in featured %}
+                  <tr>
+                    <td>{{item.date}}</td>
+                    <td>{{item.publication}}</td>
+                    <td><a href="{% if item.url contains 'http' %}{{item.url}}{% else %}{{ item.url | relative_url }}{% endif %}" target="_blank">{{item.title}}</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div><!-- /.section__actions -->
+
+  </div><!-- /.container -->
+</section>
