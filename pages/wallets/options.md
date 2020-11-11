@@ -6,9 +6,7 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-Wallet integration options
-
-Summary
+## Summary
 
 It is up to the integrating wallet to decide which features of the FIO Protocol they want to implement and how. The following are common functionality groups.
 
@@ -21,7 +19,8 @@ FIO Request	View, approve, reject incoming FIO Requests (including showing attac
 FIO Data	Send and display FIO Data when crypto sent using FIO Address.	Cross-chain, cross-wallet memo capability for any crypto.	~24 hours
 FIO Domain Registration	Registering FIO Domain (in wallet or via Link-off to external registration site).	User can register a custom FIO Domain.	~8 hours
 Register FIO Address on Custom Domain	Registering FIO Address inside wallet and on custom domains.	Users can register a FIO Address on a custom FIO Domain and utilize it fro Sending and Receiving.	~32 hours
-Send to FIO Address
+
+## Send to FIO Address
 
 The most basic level of integration with FIO Protocol is to enable sending of crypto currency using human-readable FIO Address instead of long cryptic native blockchain public addresses (NBPAs).
 
@@ -31,7 +30,7 @@ Once FIO Address is entered, it can be resolved to NBPA on a specific blockchain
 
 Once NBPA is obtained, the Send transaction executes as if the user entered or scanned the NBPA.
 
-Multi-level addressing
+### Multi-level addressing
 
 It is important to note, that the returned NBPA can have parameters appended to it like this:
 
@@ -43,21 +42,13 @@ The parameters represent additional information required to execute a send, e.g.
 
 Please review Multi-level Addressing section of the Integration Guide for more details.
 
-Sample UX
+### Sample UX
 
 See Sending Bitcoin using FIO Address
-Test drive /get-pub-address
-Send
-POST
 
-Settings
-Headers [1]
-Body
-Code Generation
-Send requests directly from the browser (CORS must be enabled)
-$$.env
-No $$.env variables are being used in this request.
-Register FIO Address
+
+
+## Register FIO Address
 
 Most FIO Protocol functionality requires a user to have a FIO Address. A FIO Address is an NFT owned by owner FIO Public Key and consists of a username and a domain delimited by an @
 
@@ -65,22 +56,23 @@ username@domain
 
 The easiest way to facilitate a FIO Address registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Address can be properly assigned to the owner. To learn more see FIO registration site.
 
-FIO Private/Public Key
+### FIO Private/Public Key
 
 You will require a FIO Private/Public key pair to be generated and stored inside the wallet. See Private/Public Keys for more information including testing examples.
 
-Fetching user’s FIO Addresses
+### Fetching user’s FIO Addresses
 
 FIO Addresses currently owned by the user (even if registered outside of the wallet) may be fetched using /get_fio_names API method.
 
 Please note that a user may have multiple FIO Addresses owned by a single key, the UX should accommodate that.
 
-TPID
+### TPID
 
 Do not forget to include your TPID in the request to earn portion of fees paid.
-FIO Token Support
 
-FIO token
+## FIO Token Support
+
+### FIO token
 
 FIO Chain’s native token is FIO. FIO is the only token present on the FIO Chain.
 
@@ -89,7 +81,8 @@ There are 1,000,000,000 Smallest Units of FIO (SUFs) inside 1 FIO. All transacti
 Ticker: FIO
 Symbol: ᵮ
 Brand Assets
-Transferring FIO token
+
+### Transferring FIO token
 
 Tokens on the FIO Chain are transferred using /transfer_tokens_pub_key method.
 
@@ -97,26 +90,27 @@ The method requires payee FIO Public Key. The key is hashed down to an account n
 
 The native EOSIO transfer action is not supported.
 
-Transaction memo
+### Transaction memo
 
 /transfer_tokens_pub_key does not accept a memo field. To attach a memo to a FIO token transfer, a /record_obt_data transaction should be sent after the tokens are transferred and include the token transfer transaction id. /record_obt_data requires that both payer and payee have a FIO Address. If either party does not have a FIO Address transfer of memo is not supported.
 
-Checking token balance
+### Checking token balance
 
 Token balance can be obtained by passing FIO Public Key to /get_fio_balance API method.
 
-Transaction history
+### Transaction history
 
 See History node
 
-TPID
+### TPID
 
 Do not forget to include your TPID in the request to earn portion of fees paid.
 
-Additional Resources
+### Additional Resources
 
 Account balances and history
-Receive to FIO Address
+
+## Receive to FIO Address
 
 In order allow others to send crypto currency using the user’s FIO Address, it has to be mapped to native blockchain public addresses (NBPAs). This has to be done from within the wallet using /add_pub_address API method as it needs to be signed with user’s private key. For now, this mapping is stored unencrypted, but a privacy mode is being worked on.
 
@@ -126,10 +120,11 @@ Please read Mapping Public Addresses to better understand how public address map
 
 Please note that a user may have multiple FIO Addresses owned by a single key, the UX should accommodate that.
 
-Sample UX
+### Sample UX
 
 See Connecting FIO Address to public keys
-FIO Request and FIO Data
+
+## FIO Request and FIO Data
 
 One of the key features of FIO Protocol is the ability to request crypto using FIO Request. The user requesting funds (Payee) can send a FIO Request to a user who is asked to pay (Payer), by only using the Payer’s FIO Address.
 
@@ -139,23 +134,23 @@ NOTE: public address specified in FIO Request does not have to be the same as pu
 
 Please read Encrypting FIO Data to better understand how encryption works.
 
-Submitting new FIO Request
+### Submitting new FIO Request
 
 To request funds, Payee’s wallet should submit a new FIO Request using /new_funds_request API method.
 
-Fetching pending FIO Requests
+### Fetching pending FIO Requests
 
 The Payer’s wallet can fetch all new and pending FIO Requests using /get_pending_fio_requests API method.
 
-Rejecting a FIO Request
+### Rejecting a FIO Request
 
 The Payer’s wallet can reject a FIO Request, which will remove it from the pending list, using /reject_funds_request API Method.
 
-Fetching sent FIO Requests
+### Fetching sent FIO Requests
 
 The Payee’s wallet can fetch all sent FIO Requests and its current status using /get_sent_fio_requests API method.
 
-Recording FIO Data
+### Recording FIO Data
 
 Anytime crypto is sent using FIO Address, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
 
@@ -167,7 +162,7 @@ It is strongly encouraged that /record_obt_data is sent at least when the user p
 
 When sending FIO tokens using FIO Address you must submit record_obt_data following transfer_tokens_pub_key to ensure FIO Addresses are attached to the transaction. Some wallets and exchanges may be relying on this information to properly account the FIO tokens, e.g. exchange deposit.
 
-Retrieving FIO Data
+### Retrieving FIO Data
 
 OBT data can be retrieved using /get_obt_data
 
@@ -175,94 +170,102 @@ This call will return all metadata relevant to the provided FIO Public key, incl
 
 Outbound data. Payer’s FIO Address is owned by provided FIO Public key
 Inbound data. Payee’s FIO Address is owned by provided FIO Public key
-Sample UX
+
+### Sample UX
 
 See Requesting Bitcoin using FIO Address and Displaying incoming FIO Requests
 
-Example flow
+### Example flow
 
-Alice requests 1 BTC from Bob and adds a “Invoice 123” memo
+#### Alice requests 1 BTC from Bob and adds a “Invoice 123” memo
 
 BTC public address, amount, memo and other data are encrypted
 /new_funds_request is submitted to FIO Chain.
 /get_sent_fio_requests will return the request just sent with the status requested and all encrypted data including “Invoice 123” memo. We recommend wallets show this request with a status of “pending”.
 /get_pending_fio_requests will not return anything as this request was for Bob, not for Alice.
-Bob checks his wallet for new requests
+
+#### Bob checks his wallet for new requests
 
 /get_sent_fio_requests will not return anything as this request was sent by Alice not by Bob.
 /get_pending_fio_requests will return the request just sent with the status requested and all encrypted data including “Invoice 123” memo. We recommend wallets show this request for Bob to act on.
-Bob accepts the request and pays Alice
 
-Step 1
+#### Bob accepts the request and pays Alice
+
+##### Step 1
 
 BTC public address, amount and memo are decrypted
 Wallet creates a payment for 1 BTC to provided BTC public address and “Invoice 123” memo.
 User has the option to modify amount or memo.
 Once user approves, the transaction is broadcasted to Bitcoin blockchain.
-Step 2
+
+##### Step 2
 
 Actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data are encrypted
 /record_obt_data is sent to FIO Chain
-Alice checks payment
+
+#### Alice checks payment
 
 /get_sent_fio_requests will return the request with the status sent_to_blockchain. We recommend wallets show this request as “received”.
 /get_obt_data will return important encrypted metadata wallets should attach to the request and/or the actual Bitcoin transaction including actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data. obt_id may be used to match the information with the actual Bitcoin blockchain transaction.
-In Bob’s wallet
+
+#### In Bob’s wallet
 
 /get_sent_fio_requests will not return anything as Bob never sent a request.
 /get_pending_fio_requests will not return anything as Bob already responded to Alice’s request.
-FIO Domain Registration
 
-Via link-off
+## FIO Domain Registration
+
+### Via link-off
 
 The easiest way to facilitate a FIO Domain registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Domain can be properly assigned to the owner. To learn more see FIO registration site.
 
 When a new FIO Domain is registered, it is set to Private, meaning only the owner of the FIO Domain can register FIO Addresses on it. Therefore, FIO Address registrations on custom domains have to be implemented inside the wallet (not via FIO registration site). See next section for details.
 
-Via API
+### Via API
 
 FIO Domain can be registered using /register_fio_domain API method and renewed using /renew_fio_domain API method.
 
-TPID
+### TPID
 
 Do not forget to include your TPID in the request to earn portion of fees paid.
-Register FIO Address on Custom Domain
+
+## Register FIO Address on Custom Domain
 
 For wallets desiring full control over the registration user experience or wanting to support FIO Address registrations on custom (set to Private) FIO Domains, a full suite of FIO Address registration and renewal API methods are available.
 
-Registering/renewing FIO Address
+### Registering/renewing FIO Address
 
 FIO Address can be registered using /register_fio_address API method renewed using /renew_fio_address API method.
 
-Fetching user’s FIO Addresses and Domains
+### Fetching user’s FIO Addresses and Domains
 
 FIO Addresses and Domains currently owned by the user may be fetched using /get_fio_names API method.
 
-Fetching user’s FIO Addresses only
+### Fetching user’s FIO Addresses only
 
 FIO Addresses currently owned by the user may be fetched using /get_fio_addresses API method.
 
-Fetching user’s FIO Domains only
+### Fetching user’s FIO Domains only
 
 FIO Domains currently owned by the user may be fetched using /get_fio_addresses API method.
 
-Checking FIO Address or Domain availability
+### Checking FIO Address or Domain availability
 
 To enable the registering wallet to easily check if a FIO Address or Domain is available for registration, /avail_check API method may be called.
 
-Paying for FIO Addresses on behalf of users
+### Paying for FIO Addresses on behalf of users
 
 Wallets may also decide to cover the cost of FIO Address for their users. For that purpose Foundation for Interwallet Operability has develop server code which enables the wallet to run their own registration server.
 
-Enabling payments in other currencies
+### Enabling payments in other currencies
 
 The FIO registration site allows wallets to integrate FIO Address and Domain registration via an API with payment occurring with common crypto currencies.
 
-Technology Provider ID
+### Technology Provider ID
 
 Please review the Technology Provider ID section for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
 
-Fees
+### Fees
 
 FIO Address has annual fee associated with them. Fees in the FIO Chain are set by block producers.
 
@@ -270,7 +273,7 @@ Every FIO Address comes with a set number of bundled transactions annually. The 
 
 In order to ensure a particular action is covered by the bundle, the wallet should execute /get_fee API method before submitting any signed transaction.
 
-Sample UX
+### Sample UX
 
 See In-wallet FIO Address registration
 

@@ -6,8 +6,6 @@ title: How is FIO Chain different from EOSIO
 
 ---
 
-## How is FIO Chain different from EOSIO
-
 |Feature|EOSIO|FIOChain|
 |---|---|---|
 |Active block producers|21|21|

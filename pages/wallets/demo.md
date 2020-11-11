@@ -6,8 +6,6 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-Demo
-
 Wallet demo
 
 

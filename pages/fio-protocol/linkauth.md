@@ -6,16 +6,14 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-linkauth
-
-Overview
+## Overview
 
 linkauth allows secondary account to execute a specific action on behalf of the primary account. For example if Account Domain Owner owns a domain and that domain is private, it can authorize Account Registrar to register FIO Addresses on that domain, without making it public. Here’s an example of how this can be acomplished.
 
-Add new permission
+## Add new permission
 
 First start by adding a new permission, let’s call it regaddress, to the account which owns the domain.
-
+```
 {
 	"account": "eosio",
 	"name": "updateauth",
@@ -46,10 +44,12 @@ First start by adding a new permission, let’s call it regaddress, to the accou
 	}
 
 }
-Link the new permission
+```
+
+## Link the new permission
 
 Once the new permission is created, we link it to the Register FIO Address action.
-
+```
 {
 	"account": "eosio",
 	"name": "linkauth",
@@ -67,10 +67,12 @@ Once the new permission is created, we link it to the Register FIO Address actio
 	}
 
 }
-Register FIO Address on behalf of owner
+```
+
+## Register FIO Address on behalf of owner
 
 You can now register FIO Address, but you have to do so with the owner’s actor and the new permission as authorization and signature of the active permission of registrar.
-
+```
 {
 	"account": "fio.address",
 	"name": "regaddress",
@@ -87,3 +89,4 @@ You can now register FIO Address, but you have to do so with the owner’s actor
 		"actor": "account_name_of_domain_owner"
 	}
 }
+```

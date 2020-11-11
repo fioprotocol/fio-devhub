@@ -6,17 +6,15 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-Testnet
-
-Monitor
+## Monitor
 
 Monitor is available at https://monitor.testnet.fioprotocol.io/
 
-Block Explorer
+## Block Explorer
 
 Block Explorer is available at https://fio-test.bloks.io/
 
-Joining Testnet
+## Joining Testnet
 
 Join Testnet Telegram Channel
 
