@@ -1,0 +1,89 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% include head.html %}
+
+</head>
+
+<body data-spy="scroll" data-target="nav#toc" data-offset="20">
+
+    {% include header.html %}
+    
+<div class="page-container">
+
+    <!-- Navigation -->
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-left">
+
+            <!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                {% include sidebar.html %}
+            </div>
+
+            <!-- main area -->
+            <div class="col-xs-12 col-sm-7">
+                {% if page.type == "search" %}
+                <h1>{{page.product}} {{site.uistring.search_results_page_title}}</h2>
+                  {% else %}
+                <h1>{{page.title}}</h1>
+                 {% endif %}
+                 <div class="toc-main-column">
+                 {% include toc2.html %}
+               </div>
+                {{content}}
+                <div class="toc-main-column">
+                {% include tags.html %}
+              </div>
+            </div><!-- /.col-xs-12 main -->
+
+            <div class="col-xs-12 col-sm-2 right-lane">
+              {% include toc.html %}
+              {% include tags.html %}
+        </div><!--/.row-->
+    </div><!--/.container-->
+</div><!--/.page-container-->
+
+
+
+<!--scripts loaded here-->
+
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script src="/assets/js/anchor.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        $("#docnavsidebar").navgoco({
+            caretHtml: '',
+            accordion: true,
+            openClass: 'open', // open
+            save: false, // leave false or nav highlighting doesn't work right
+            cookie: {
+                name: 'navgoco',
+                expires: false,
+                path: '/'
+            },
+            slide: {
+                duration: 300,
+                easing: 'swing'
+            }
+        });
+
+    });
+
+</script>
+<script src="/assets/js/customscripts.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+        });
+    });
+</script>
+
+</body>
+
+</html>

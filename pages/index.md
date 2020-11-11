@@ -1,7 +1,8 @@
 ---
-layout: default
 id: index
 title: Overview
+layout: sidenav
+sidebar: sidebars
 sidebar_label: Overview
 ---
 ## Getting Started

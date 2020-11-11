@@ -1,28 +1,14 @@
 - title: For Integrators
-  dropdown:
-    - title: Getting Started
-      url: /pages/getting-started/
-    - title: Wallets
-      url: /demonstrations/
-    - title: Exchanges
-      url: /fio-token/
-    - title: Code Recipes
-      url: /ecosystem/
-    - title: FIO Chain
-      url: /ecosystem/
-    - title: SDKs
-      url: /ecosystem/
-    - title: Tools
-      url: /ecosystem/
+  url: /pages/
 
 - title: APIs
   dropdown:
     - title: FIO Protocol API
       url: /pages/api/fioapi.html
-      blank: false
+      blank: true
     - title: Registration API
       url: /pages/api/fioapi.html
-      blank: false
+      blank: true
 
 - title: FIO
   dropdown:
