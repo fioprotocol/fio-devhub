@@ -1,9 +1,10 @@
 ---
 id: code
 title: Code
+sidebar_label: Code
 layout: sidenav
 sidebar: sidebars
-sidebar_label: Code
+
 ---
 
 ## Access

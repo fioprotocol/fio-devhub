@@ -1,7 +1,7 @@
 ---
 id: encryption
-title: Encryptiong FIO Data
-sidebar_label: Encryptiong FIO Data
+title: Encrypting FIO Data
+sidebar_label: Encrypting FIO Data
 layout: sidenav
 sidebar: sidebars
 
