@@ -1,79 +1,34 @@
 ---
-layout: home
-title: Foundation for Interwallet Operability
-
-intro:
-  heading: Making Crypto Products <span>Easier</span> So&nbsp;<span>Anyone</span>&nbsp;Can Use Them
-  image: /assets/img/fio-protocol.svg
-  button_1:
-    text: Get Started
-    url: /getting-started/
-  button_2:
-    text: Integrate the FIO Protocol
-    url: https://developers.fioprotocol.io
+layout: features
+title: FIO Developer Hub
 
 features:
-  - heading: One Identity for all your Crypto
-    subheading: FIO Addresses
-    image: /assets/img/fio-addresses.svg
-    description: FIO Addresses are a single identifier that eliminates the need to see, or even know about, blockchain public addresses. It’s simple to register, easy to use, and works with every token/coin automatically.
-    button:
-      text: Register a FIO Address
-      url: /getting-started/
-
-  - heading: Don't just Send, Request
-    subheading: FIO Requests
-    subheading_style: light
-    image: /assets/img/fio-requests.svg
+  - heading: Learn
+    subheading: 001 FIO Protocol
+    video_id: nYp5QLEjDeY
     align: left
-    description: Stop asking people what you owe them – let them tell you. Enjoy in-app requests for funds, done in an encrypted and private manner – specify the type and amount and eliminate confusion for the sender
-    subtext: Included with a FIO Address
+    description: The FIO Protocol is bridging the gap between wallets (both exchange-based and self-sovereign) as well as crypto payment processing platforms providing an industry standard decentralized service layer of data, requests and confirmations that abstract away the complexities of the underlying blockchains. The FIO Protocol is not a wallet, not an exchange and not a crypto payment processor, rather, it enables them all to deliver a dramatically improved user experience. The FIO Protocol does not compete with other blockchains nor does it send value on or integrate with other blockchains but, rather, it enables them all to be more successful. Technically speaking, all other blockchains do not even know that the FIO Protocol exists.
 
-  - heading: Transactions with Context
-    subheading: FIO Data
+  - heading: Identify
+    subheading: 002 FIO Addresses
     subheading_style: light
-    image: /assets/img/fio-data.svg
-    description: Attach standardized metadata to any crypto transaction, ranging from a simple note to structured data like an order card or invoice. Remember the “why” behind every transaction
-    subtext: Included with a FIO Address
+    image: /assets/img/getting-started/register.svg
+    description: FIO Addresses act as the human readable “wallet names” and user identifiers on the network. In addition, FIO Addresses are the gateway to all other capabilities of the FIO Protocol. Registration of a FIO Address is done in a FIO enabled wallet or exchange where a FIO Private/Public Key pair is generated. The FIO Address and all actions on the FIO Chain are self-sovereign via the FIO Private Key. Without a FIO Address, users cannot access any of the other FIO protocol capabilities.
+    button:
+      text: Get a Free FIO Address
+      url: /free-fio-addresses/
 
-features_cta: 
-  text: See the Roadmap for more...
-  url: https://kb.fioprotocol.io/foundation/future-projects
+  - heading: Interact
+    subheading: 003 FIO Request
+    align: left
+    image: /assets/img/getting-started/protocol-use.svg
+    description: A FIO Request is a transaction in which a payee is requesting funds from payer using FIO Addresses. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
 
-integrate:
-  heading: Integrate the FIO Protocol
-  description: Make your users' lives easier by improving usability
-  cards:
-    - heading: Reduce Customer Service Issues
-      description: Eliminate mistakes in sending and receiving crypto and focus on your core product
-      image: /assets/img/feature-image1.png
-    - heading: Create New Experiences
-      description: Don't be limited to hard-to-use user flows - automate the pain away
-      image: /assets/img/feature-image2.png
-    - heading: Support Blockchain Usability
-      description: The FIO Protocol is designed to serve the entire blockchain ecosystem, join the cause!
-      image: /assets/img/feature-image3.png
-  button:
-    text: Go to Developer Hub
-    url: https://developers.fioprotocol.io
-
-companies:
-  heading: The FIO Ecosystem
-  description: The companies, organizations, and foundations that support the ongoing development of the FIO Protocol
-  button:
-    text: View All
-    url: /ecosystem/
-
-testimonials:
-  heading: Testimonials
-
-news:
-  heading: News and Events
-  heading_blog: Featured Blog
-  heading_media: Featured Media
-  heading_news: Featured News
-  button:
-    text: View All
-    url: /press/
+  - heading: Understand
+    subheading: 004 FIO Data
+    subheading_style: light
+    image: /assets/img/getting-started/protocol-use.svg
+    description: In addition, the payer places a metadata about the native blockchain transaction (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
 
 ---
+

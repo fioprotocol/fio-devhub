@@ -3,22 +3,22 @@
 <div class="mydocsidebar">
 <div class="sidebar-inner">
 <div class="productTitle">{{sidebar.sidebarTitle}}</div>
-<!-- search bar 
+
 {% unless page.search == false %}
 <div class="sidebarSearchBar">
-<form action="search-{{page.sidebar}}.html" method="get">
-  <div class="input-group search">
-    <input type="text" id="search-box" name="query" class="form-control" placeholder="{{site.uistring.search_placeholder_product}}">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit" value="search">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
+  <form action="search.html" method="get">
+    <div class="input-group search">
+      <input type="text" id="search-box" name="query" class="form-control" placeholder="{{site.uistring.search_placeholder_product}}">
+      <div class="input-group-btn">
+        <button class="search" type="submit" value="search">
+          Search
+        </button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
 </div>
 {% endunless %}
- end search bar -->
+
 <ul id="docnavsidebar" class="docnav">
     <a href="{{sidebar.landingUrl }}">{{sidebar.landingPage}}</a>
     {% for folder in sidebar.folders %}
