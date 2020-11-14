@@ -1,65 +1,67 @@
    
-sidebarTitle: For Integrators
-
-landingPage: Getting started
-landingUrl: /pages/
+sidebarTitle: FIO Developer Hub
 
 folders:
 - title: FIO Protocol
   folderitems: 
-    - title: Code
-      url: /pages/fio-protocol/code/
-    - title: How is FIO Chain different from EOSIO
-      url: /pages/fio-protocol/eosio/
-    - title: Keys, accounts and permissions
-      url: /pages/fio-protocol/keys-accounts/
+    - title: What is FIO Protocol?
+      url: /pages/
     - title: Linkauth
-      url: /pages/fio-protocol/linkauth/
+      url: /pages/linkauth/
     - title: Multisig
-      url: /pages/fio-protocol/multisig/
+      url: /pages/multisig/
     - title: Resource management
-      url: /pages/fio-protocol/resources/
+      url: /pages/resources/
     - title: Technology Provider ID
-      url: /pages/fio-protocol/tpid/
+      url: /pages/tpid/
 
 - title: Wallet Integration Guide
   folderitems: 
     - title: Integration options
-      url: /pages/wallets/options/
+      url: /pages/integration-options/
     - title: Sample wallet UX
-      url: /pages/wallets/sample/
+      url: /pages/sample/
     - title: Demo
-      url: /pages/wallets/demo/
+      url: /pages/demo/
     - title: Mapping Public Addresses
-      url: /pages/wallets/mapping/
+      url: /pages/mapping/
     - title: Encrypting FIO Data
-      url: /pages/wallets/encryption/
+      url: /pages/encryption/
     - title: FIO registration site
-      url: /pages/wallets/reg-site/
+      url: /pages/reg-site/
 
 - title: Exchange Integration Guide
   folderitems: 
     - title: Listing integration
-      url: /pages/exchanges/listing-integration/
+      url: /pages/listing-integration/
     - title: FIO integration
-      url: /pages/exchanges/fio-integration/
+      url: /pages/fio-integration/
+
+- title: Recipes
+  folderitems: 
+    - title: Code
+      url: /pages/code/
 
 - title: FIO Chain
   folderitems: 
+    - title: How is FIO Chain different from EOSIO
+      url: /pages/eosio/
+    - title: Keys, accounts and permissions
+      url: /pages/keys-accounts/
     - title: Building a node
-      url: /pages/fio-chain/node-build/
+      url: /pages/node-build/
     - title: History node
-      url: /pages/fio-chain/node-history/
+      url: /pages/node-history/
     - title: Testnet
-      url: /pages/fio-chain/testnet/
+      url: /pages/testnet/
     - title: Mainnet
-      url: /pages/fio-chain/mainnet/
+      url: /pages/mainnet/
     - title: Voting for block producers
-      url: /pages/fio-chain/voting/
+      url: /pages/voting/
     - title: Being a block producer
-      url: /pages/fio-chain/bp/
+      url: /pages/bp/
     - title: Vulnerability disclosure policy
-      url: /pages/fio-chain/disclosure/
+      url: /pages/disclosure/
 
 
       
