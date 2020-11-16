@@ -1,7 +1,7 @@
 ---
 layout: sidenav
 sidebar: sidebars
-title: How is FIO Chain different from EOSIO
+title: FIO vs. EOSIO
 
 
 ---

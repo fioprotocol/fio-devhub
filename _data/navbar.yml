@@ -4,11 +4,11 @@
 - title: APIs
   dropdown:
     - title: FIO Protocol API
-      url: /pages/api/fioapi.html
-      blank: true
+      url: /pages/api/fio-api/
+      blank: false
     - title: Registration API
-      url: /pages/api/fioapi.html
-      blank: true
+      url: /pages/api/fio-reg-api/
+      blank: false
 
 - title: FIO
   dropdown:

@@ -6,8 +6,6 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-## Summary
-
 It is up to the integrating wallet to decide which features of the FIO Protocol they want to implement and how. The following are common functionality groups.
 
 |---|---|---|---|
@@ -27,19 +25,19 @@ The most basic level of integration with FIO Protocol is to enable sending of cr
 
 This level typically requires updates to the Send crypto currency screen to allow for a FIO Address to be entered in addition to NBPA. FIO Address can be easily identified by looking for a @ (at sign) in the string.
 
-Once FIO Address is entered, it can be resolved to NBPA on a specific blockchain using /get_pub_address API method.
+Once a FIO Address is entered, it can be resolved to NBPA on a specific blockchain using /get_pub_address API method.
 
-Once NBPA is obtained, the Send transaction executes as if the user entered or scanned the NBPA.
+Once the NBPA is obtained, the wallet Send transaction should execute as if the user entered or scanned the NBPA.
 
 ### Multi-level addressing
 
-It is important to note, that the returned NBPA can have parameters appended to it like this:
+It is important to note, that the native blockchain public addresses returned by /get_pub_address can have additional parameters appended to it like this:
 
-NBPA_string?parameter_name=value
+`NBPA_string?parameter_name=value`
 
-Example: rGVV5nh9UjJckufycb6WZAGUsZGFvPsTpX?dt=test.do.not.send.funds
+For example: `rGVV5nh9UjJckufycb6WZAGUsZGFvPsTpX?dt=test.do.not.send.funds`
 
-The parameters represent additional information required to execute a send, e.g. destination tag for XRP. Therefore the string has to be parsed for uri-like parameters.
+The parameters represent additional information required to execute a send, for example a destination tag for XRP. Therefore the string has to be parsed for uri-like parameters.
 
 Please review Multi-level Addressing section of the Integration Guide for more details.
 

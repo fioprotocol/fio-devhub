@@ -57,4 +57,4 @@ It is important to note that the only way to send tokens is to use /transfer_tok
 
 ### linkauth
 
-Example of how to use linkauth to allow specific account to register FIO Addresses on private domain.
+[Example of how to use linkauth](/pages/recipes/linkauth/) to allow specific account to register FIO Addresses on private domain.

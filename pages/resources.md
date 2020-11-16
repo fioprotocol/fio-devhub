@@ -1,7 +1,7 @@
 ---
 id: resources
-title: Resource Management
-sidebar_label: Resource Management
+title: RAM, CPU, and NET limits
+sidebar_label: RAM, CPU, and NET limits
 layout: sidenav
 sidebar: sidebars
 ---
