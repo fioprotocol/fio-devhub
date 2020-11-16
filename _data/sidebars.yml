@@ -1,0 +1,72 @@
+   
+sidebarTitle: FIO Developer Hub
+
+folders:
+- title: FIO Protocol
+  folderitems: 
+    - title: What is FIO Protocol?
+      url: /pages/
+    - title: Keys, accounts and permissions
+      url: /pages/keys-accounts/
+    - title: Voting
+      url: /pages/voting/
+    - title: Multisig
+      url: /pages/multisig/
+    - title: Technology Provider ID
+      url: /pages/tpid/
+
+- title: Wallet Integration Guide
+  folderitems: 
+    - title: Integration options
+      url: /pages/integration-options/
+    - title: Sample wallet UX
+      url: /pages/sample/
+    - title: Demo
+      url: /pages/demo/
+    - title: Mapping Public Addresses
+      url: /pages/mapping/
+    - title: Encrypting FIO Data
+      url: /pages/encryption/
+    - title: FIO registration site
+      url: /pages/reg-site/
+
+- title: Exchange Integration Guide
+  folderitems: 
+    - title: Listing integration
+      url: /pages/listing-integration/
+    - title: FIO integration
+      url: /pages/fio-integration/
+
+- title: Recipes
+  folderitems: 
+    - title: Code
+      url: /pages/code/
+    - title: linkauth - Adding permissions
+      url: /pages/recipes/linkauth/
+
+
+- title: FIO Chain
+  folderitems: 
+    - title: FIO vs. EOSIO
+      url: /pages/eosio/
+    - title: RAM, CPU, and NET limits
+      url: /pages/resources/
+    - title: Building a node
+      url: /pages/node-build/
+    - title: History node
+      url: /pages/node-history/
+    - title: Testnet
+      url: /pages/testnet/
+    - title: Mainnet
+      url: /pages/mainnet/
+    - title: Being a block producer
+      url: /pages/bp/
+    - title: Vulnerability disclosure policy
+      url: /pages/disclosure/
+
+
+      
+
+
+
+

@@ -1,0 +1,43 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <meta property="og:image" content="{% if site.logo contains 'http' %}{{ site.logo }}{% else %}{{ site.logo | absolute_url }}{% endif %}"/>
+  <link rel="stylesheet" href="{{ '/assets/css/devhub.css' | relative_url }}">
+  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
+
+<!--stylesheets / link tags loaded here-->
+<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/assets/css/sidebar.css" />
+<!--<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />-->
+
+
+<link rel="stylesheet" href="/assets/css/customstyles.css" />
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/navgoco.jquery.min.js"></script>
+
+
+<!--
+  
+
+<link rel="stylesheet" id="cookie-notice-front-css" href="{{ '/assets/css/front.css' | relative_url }}" type="text/css" media="all">
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/css/{{site.highlighting_css}}.css" />
+<link rel="stylesheet" href="/assets/css/{{site.navbar_style}}.css" />
+  
+-->
+
+
+</head>

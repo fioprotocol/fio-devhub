@@ -1,0 +1,70 @@
+---
+  title:                    FIO
+  tagline: 
+  description:              Foundation for Interwallet Operability
+  url: 
+  baseurl: 
+  lang:                     en
+  logo:                     /assets/img/logo.png
+  permalink:                "/:title/"
+  
+  favicon:                  /assets/img/favicon.ico
+    
+  footer:
+    copyright:              "&copy; 2020 FIO"
+    link:
+      title:                Privacy Policy
+      url:                  /privacy-policy/
+  
+  google_analytics:         GTM-WWSZ8NR
+  
+  mailchimp:
+    form_action:            https://foundation.us19.list-manage.com/subscribe/post?u=83e722420b22435be258e8ea5&amp;id=0849d2c011
+    hidden_name:            b_83e722420b22435be258e8ea5_0849d2c011
+  
+  social_networks:
+    telegram:               https://t.me/joinFIO
+    discord:                https://discord.gg/pHBmJCc
+    facebook:               https://www.facebook.com/officialFIO
+    reddit:                 https://www.reddit.com/r/officialFIO
+    linkedin:               https://www.linkedin.com/company/officialfio/
+    twitter:                https://twitter.com/joinFIO
+  
+  callout:
+    heading:                Keep in Touch
+    description:            Sign up for our monthly newsletter and join us on social!
+    placeholder:            Enter Email Address
+    
+  markdown:                 kramdown
+  highlighter:              rouge
+  plugins:
+  - jekyll-seo-tag
+  
+  exclude:
+  - vendor
+  - ".bundle"
+  - ".sass-cache"
+  - ".jekyll-cache"
+  - config
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - log
+  - tmp
+  - Rakefile
+  - package.json
+  - package-lock.json
+  - CHANGELOG
+  - LICENSE
+  - README
+  - "/docs"
+  - "/assets/js/custom.js"
+  
+  sass:
+    style:                  compressed
+  
+  livereload:               true
+  
+  collections:
+    testimonials:
+      output: false

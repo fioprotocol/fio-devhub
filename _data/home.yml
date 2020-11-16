@@ -1,0 +1,26 @@
+- category: FIO Protocol
+  items:
+  - heading: How FIO Works
+    text: Get familiar with the key concepts behind FIO protocol
+    button: LEARN FIO
+    url: /pages/
+  - heading: For Wallets
+    text: Get started with integrating FIO protocol into your wallet
+    button: INTEGRATE WALLET
+    url: /pages/integration-options/
+  - heading: For Exchanges
+    text: Get started with integrating FIO protocol into your exchange
+    button: INTEGRATE EXCHANGE
+    url: /pages/listing-integration/
+  - heading: API References
+    text: Consult our documentation for FIO APIs and SDKs
+    button: EXPLORE APIs
+    url: /pages/api/fioapi/
+  - heading: Recipes
+    text: Use our library of API and SDK code examples to jumpstart your integration
+    button: RECIPES
+    url: /pages/code/
+  - heading: FIO Chain
+    text: Learn about and contribute to the FIO blockchain, become a FIO block producer, register as a proxy, and vote for block producers
+    button: EXPLORE THE PLATFORM
+    url: /pages/api/

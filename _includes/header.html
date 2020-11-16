@@ -1,0 +1,58 @@
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+
+      <div class="header__aside">
+        <a href="{{ "/" | relative_url }}" class="logo">
+        
+          <img src="{{ site.logo | absolute_url }}" alt="{{ site.title }}">
+          FIO
+        </a>
+      </div><!-- /.header__aside -->
+
+      <div class="header__content">
+        
+        <nav class="nav">
+
+          <ul id="menu-main-menu" class="menu">
+            {% for link in site.data.navbar %}
+              {% if link.url contains 'http' %}
+                {% assign domain = '' %}
+              {% else %}
+                {% assign domain = '' | relative_url %}
+              {% endif %}
+              {% if link.title %}
+                <li class="menu-item{% if link.dropdown != null %} menu-item-has-children has--dropdown{% endif %}">
+                  {% if link.url %}
+                    <a href="{{ domain }}{{ link.url }}"{% if link.blank %} target="_blank" rel="noopener" {% endif %}>{{ link.title }}</a>
+                  {% else %}
+                    <a href="#">{{ link.title }}</a>
+                  {% endif %}
+                  {% if link.dropdown != null %}
+                    <ul class="sub-menu">
+                      {% for child in link.dropdown %}
+                        {% if child.url != null %}
+                          {% if child.url contains 'http' %}
+                            {% assign domain = '' %}
+                          {% else %}
+                            {% assign domain = '' | relative_url %}
+                          {% endif %}
+                          <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ domain }}{{ child.url }}"{% if child.blank %} target="_blank" rel="noopener" {% endif %}>{{ child.title }}</a></li>
+                        {% else %}
+                          <li class="uk-nav-header">{{ child.title }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav><!-- /.nav -->
+
+      </div><!-- /.header__content col-10 -->
+    </div><!-- /.header__inner row -->
+  </div><!-- /.container -->
+</header><!-- /.header -->
+
+
