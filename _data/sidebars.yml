@@ -6,12 +6,12 @@ folders:
   folderitems: 
     - title: What is FIO Protocol?
       url: /pages/
-    - title: Linkauth
-      url: /pages/linkauth/
+    - title: Keys, accounts and permissions
+      url: /pages/keys-accounts/
+    - title: Voting
+      url: /pages/voting/
     - title: Multisig
       url: /pages/multisig/
-    - title: Resource management
-      url: /pages/resources/
     - title: Technology Provider ID
       url: /pages/tpid/
 
@@ -41,13 +41,16 @@ folders:
   folderitems: 
     - title: Code
       url: /pages/code/
+    - title: linkauth - Adding permissions
+      url: /pages/recipes/linkauth/
+
 
 - title: FIO Chain
   folderitems: 
-    - title: How is FIO Chain different from EOSIO
+    - title: FIO vs. EOSIO
       url: /pages/eosio/
-    - title: Keys, accounts and permissions
-      url: /pages/keys-accounts/
+    - title: RAM, CPU, and NET limits
+      url: /pages/resources/
     - title: Building a node
       url: /pages/node-build/
     - title: History node
@@ -56,8 +59,6 @@ folders:
       url: /pages/testnet/
     - title: Mainnet
       url: /pages/mainnet/
-    - title: Voting for block producers
-      url: /pages/voting/
     - title: Being a block producer
       url: /pages/bp/
     - title: Vulnerability disclosure policy

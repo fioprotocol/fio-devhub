@@ -1,0 +1,661 @@
+swagger: '2.0'
+info:
+  title: FIO Address Registration API
+  version: '1.0'
+  contact:
+    url: http://fioprotocol.io
+    email: info@fioprotocol.io
+    name: FIO
+  license:
+    name: MIT
+  description: Registration site is operated by the Foundation and enables FIO Address
+    registration with payment in supported crypto currencies.
+host: fio-registrations.herokuapp.com
+paths:
+  "/buy-address":
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              success:
+                type: object
+                properties:
+                  charge:
+                    type: object
+                    properties:
+                      pending:
+                        type: boolean
+                      event_id:
+                        type: string
+                        description: Always zero on create, incremental event IDs
+                          used in webhook
+                      extern_status:
+                        type: string
+                        description: Payment processor's status 'NEW'
+                      extern_time:
+                        type: string
+                      metadata:
+                        type: 'null'
+                      extern_id:
+                        type: string
+                        description: Payment processor's ID 'L3WFJJTC'
+                      forward_url:
+                        type: string
+                        description: URL where to redirect user for payment screens
+                      pricing:
+                        type: object
+                        description: Price of registration in supported currencies
+                        properties:
+                          local:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          bitcoincash:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          litecoin:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          bitcoin:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          ethereum:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          usdc:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          dai:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                      addresses:
+                        type: object
+                        description: Addresses where to send supported currency payments
+                        properties:
+                          bitcoincash:
+                            type: string
+                          litecoin:
+                            type: string
+                          bitcoin:
+                            type: string
+                          ethereum:
+                            type: string
+                          usdc:
+                            type: string
+                          dai:
+                            type: string
+                      pay_source:
+                        type: string
+                        description: "'coinbase', 'free', future payment processor"
+              account_id:
+                type: integer
+              error:
+                type: boolean
+          examples:
+            application/json:
+              success:
+                charge:
+                  pending: true
+                  event_id: '0'
+                  extern_status: NEW
+                  extern_time: '2020-02-23T20:47:17Z'
+                  metadata: 
+                  extern_id: JAWX4MP6
+                  forward_url: https://commerce.coinbase.com/charges/JAWX4MP6
+                  pricing:
+                    local:
+                      amount: '0.030000'
+                      currency: USDC
+                    bitcoincash:
+                      amount: '0.00007572'
+                      currency: BCH
+                    litecoin:
+                      amount: '0.00038234'
+                      currency: LTC
+                    bitcoin:
+                      amount: '0.00000304'
+                      currency: BTC
+                    ethereum:
+                      amount: '0.000111000'
+                      currency: ETH
+                    usdc:
+                      amount: '0.030000'
+                      currency: USDC
+                    dai:
+                      amount: '0.029994016193769343'
+                      currency: DAI
+                  addresses:
+                    bitcoincash: qzxw2naaqyqm3a2gmaduzr85n7n5drg6m5en00dauu
+                    litecoin: MAMHbmmcEe6vjk9G9dQ75ThCC7zSAvtBxx
+                    bitcoin: 32AAXntNK7FkeZDQ66kCTwtBqqSqZFx4HA
+                    ethereum: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                    usdc: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                    dai: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                  pay_source: coinbase
+              account_id: 36
+              error: false
+        '400':
+          description: |-
+            Possible error messages:
+            * This referral code is not selling domains.
+            * This referral code is not selling accounts.
+            * Invalid domain
+            * Invalid account
+            * Already registered
+            * Due to the referral code sale price, a user API Bearer Token is required
+            * Price is too low
+        '404':
+          description: ''
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              success:
+                type: boolean
+          examples:
+            application/json:
+              error: Referral code not found
+              success: false
+      summary: Register FIO Address/Domain
+      description: Creates FIO Address/Domain registration order and returns payment
+        information.
+      operationId: buy-address
+      parameters:
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            address:
+              type: string
+              description: Valid FIO Address or FIO Domain
+            referralCode:
+              type: string
+              description: Referral code provided by Foundation
+            publicKey:
+              type: string
+              description: FIO public key for the ownership of the FIO Address
+            redirectUrl:
+              type: string
+              description: This url will be shown to users upon redirection from Coinbase
+                payment screen. Irrelevant if you are showing payment screens inside
+                app.
+            apiToken:
+              type: string
+              description: Only required for Free Address Registration. Will be provided
+                by the Foundation.
+          required:
+          - address
+          - referralCode
+          - publicKey
+        x-examples:
+          application/json:
+            address: alice@fiotestnet
+            referralCode: fio
+            publicKey: FIO7aRzwPbADL4VqaFULPDQPLDuZzAogxLbjryLoPihXgMLZrApyV
+            redirectUrl: https://fio.foundation
+            apiToken: XXXXXXXXXXXX
+  "/renew-address":
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              success:
+                type: object
+                properties:
+                  charge:
+                    type: object
+                    properties:
+                      pending:
+                        type: boolean
+                      event_id:
+                        type: string
+                        description: Always zero on create, incremental event IDs
+                          used in webhook
+                      extern_status:
+                        type: string
+                        description: Payment processor's status 'NEW'
+                      extern_time:
+                        type: string
+                      metadata:
+                        type: 'null'
+                      extern_id:
+                        type: string
+                        description: Payment processor's ID 'L3WFJJTC'
+                      forward_url:
+                        type: string
+                        description: URL where to redirect user for payment screens
+                      pricing:
+                        type: object
+                        description: Price of renewal in supported currencies
+                        properties:
+                          local:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          bitcoincash:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          litecoin:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          bitcoin:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          ethereum:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          usdc:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                          dai:
+                            type: object
+                            properties:
+                              amount:
+                                type: string
+                              currency:
+                                type: string
+                      addresses:
+                        type: object
+                        description: Addresses where to send supported currency payments
+                        properties:
+                          bitcoincash:
+                            type: string
+                          litecoin:
+                            type: string
+                          bitcoin:
+                            type: string
+                          ethereum:
+                            type: string
+                          usdc:
+                            type: string
+                          dai:
+                            type: string
+                      pay_source:
+                        type: string
+                        description: "'coinbase', 'free', future payment processor"
+              account_id:
+                type: integer
+              error:
+                type: boolean
+          examples:
+            application/json:
+              success:
+                charge:
+                  pending: true
+                  event_id: '0'
+                  extern_status: NEW
+                  extern_time: '2020-02-23T20:47:17Z'
+                  metadata: 
+                  extern_id: JAWX4MP6
+                  forward_url: https://commerce.coinbase.com/charges/JAWX4MP6
+                  pricing:
+                    local:
+                      amount: '0.030000'
+                      currency: USDC
+                    bitcoincash:
+                      amount: '0.00007572'
+                      currency: BCH
+                    litecoin:
+                      amount: '0.00038234'
+                      currency: LTC
+                    bitcoin:
+                      amount: '0.00000304'
+                      currency: BTC
+                    ethereum:
+                      amount: '0.000111000'
+                      currency: ETH
+                    usdc:
+                      amount: '0.030000'
+                      currency: USDC
+                    dai:
+                      amount: '0.029994016193769343'
+                      currency: DAI
+                  addresses:
+                    bitcoincash: qzxw2naaqyqm3a2gmaduzr85n7n5drg6m5en00dauu
+                    litecoin: MAMHbmmcEe6vjk9G9dQ75ThCC7zSAvtBxx
+                    bitcoin: 32AAXntNK7FkeZDQ66kCTwtBqqSqZFx4HA
+                    ethereum: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                    usdc: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                    dai: '0x9ee29c8d8e245e61a32ccb647ad091b3b6c9ffc9'
+                  pay_source: coinbase
+              account_id: 36
+              error: false
+        '400':
+          description: |-
+            Possible error messages:
+            * Invalid domain
+            * Invalid account
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              success:
+                type: boolean
+          examples:
+            application/json:
+              error: Invalid domain
+              success: false
+        '404':
+          description: ''
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              success:
+                type: boolean
+          examples:
+            application/json:
+              error: Referral code not found
+              success: false
+      summary: Renew FIO Address/Domain
+      description: Creates FIO Address/Domain renewal order and returns payment information.
+      operationId: renew-address
+      parameters:
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            address:
+              type: string
+              description: Existing FIO Address or Domain
+            referralCode:
+              type: string
+              description: Referral code provided by Foundation
+            publicKey:
+              type: string
+              description: FIO public key for the user paying or the owner of domain/address.
+                This is only used for accounting of funds and is not required for
+                renewal, but recommended if available.
+            redirectUrl:
+              type: string
+              description: This url will be shown to users upon redirection from Coinbase
+                payment screen. Irrelevant if you are showing payment screens inside
+                app.
+          required:
+          - address
+          - referralCode
+        x-examples:
+          application/json:
+            address: alice@fiotestnet
+            referralCode: fio
+            publicKey: FIO7aRzwPbADL4VqaFULPDQPLDuZzAogxLbjryLoPihXgMLZrApyV
+            redirectUrl: https://fio.foundation
+  "/summary":
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                address:
+                  type: string
+                domain:
+                  type: string
+                owner_key:
+                  type: string
+                trx_type:
+                  type: 'null'
+                trx_id:
+                  type: 'null'
+                expiration:
+                  type: 'null'
+                block_num:
+                  type: 'null'
+                trx_status:
+                  type: 'null'
+                trx_status_notes:
+                  type: 'null'
+                pay_source:
+                  type: string
+                forward_url:
+                  type: string
+                buy_price:
+                  type: string
+                pay_metadata:
+                  type: 'null'
+                extern_id:
+                  type: string
+                pay_status:
+                  type: string
+                pay_status_notes:
+                  type: 'null'
+                extern_time:
+                  type: string
+                extern_status:
+                  type: string
+          examples:
+            application/json:
+            - address: alice
+              domain: fiotestnet
+              owner_key: FIO7aRzwPbADL4VqaFULPDQPLDuZzAogxLbjryLoPihXgMLZrApyV
+              trx_type: 
+              trx_id: 
+              expiration: 
+              block_num: 
+              trx_status: 
+              trx_status_notes: 
+              pay_source: coinbase
+              forward_url: https://commerce.coinbase.com/charges/A3CNQXVW
+              buy_price: '0.03'
+              pay_metadata: 
+              extern_id: A3CNQXVW
+              pay_status: pending
+              pay_status_notes: 
+              extern_time: '2020-02-23T20:59:47.000Z'
+              extern_status: NEW
+            - address: bob
+              domain: fiotestnet
+              owner_key: FIO7aRzwPbADL4VqaFULPDQPLDuZzAogxLbjryLoPihXgMLZrApyV
+              trx_type: 
+              trx_id: 
+              expiration: 
+              block_num: 
+              trx_status: 
+              trx_status_notes: 
+              pay_source: coinbase
+              forward_url: https://commerce.coinbase.com/charges/JAWX4MP6
+              buy_price: '0.03'
+              pay_metadata: 
+              extern_id: JAWX4MP6
+              pay_status: pending
+              pay_status_notes: 
+              extern_time: '2020-02-23T20:47:17.000Z'
+              extern_status: NEW
+      summary: Check registration status
+      description: Checks status of registrations for provided FIO Address
+      operationId: summary
+      parameters:
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            publicKey:
+              type: string
+        x-examples:
+          application/json:
+            publicKey: FIO7aRzwPbADL4VqaFULPDQPLDuZzAogxLbjryLoPihXgMLZrApyV
+  "/get-domains/{referralCode}":
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              domains:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    free:
+                      type: boolean
+              error:
+                type: boolean
+          examples:
+            application/json:
+              success: true
+              domains:
+              - domain: fiotestnet
+                free: false
+              - domain: edge
+                free: false
+              error: false
+        '400':
+          description: ''
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              success:
+                type: boolean
+          examples:
+            application/json:
+              error: This referral code is not selling accounts
+              success: false
+      summary: Returns domains refferal code
+      description: Returns domains which are available for FIO Address registrations
+        for provided referral code.
+      operationId: get-domains
+      parameters:
+      - in: path
+        name: referralCode
+        type: string
+        required: true
+    parameters:
+    - name: referralCode
+      in: path
+      type: string
+      required: true
+  "/balance/{publicKey}":
+    get:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              balance:
+                type: object
+                properties:
+                  total:
+                    type: string
+                  pending:
+                    type: string
+              error:
+                type: boolean
+          examples:
+            application/json:
+              success: true
+              balance:
+                total: '0.03'
+                pending: '0.00'
+              error: false
+        '400':
+          description: ''
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              success:
+                type: boolean
+          examples:
+            application/json:
+              error: Invalid public key
+              success: false
+      summary: Returns user's balance
+      description: Returns user's balance associated with provided FIO Public Address
+      operationId: balance
+      parameters:
+      - in: path
+        name: publicKey
+        type: string
+        required: true
+        description: FIO Public Key
+    parameters:
+    - name: publicKey
+      in: path
+      type: string
+      required: true
+basePath: "/public-api/"
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+x-stoplight:
+  docs:
+    includeDownloadLink: true

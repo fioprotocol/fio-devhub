@@ -1,16 +1,17 @@
-Access-Control-Allow-Origin: *
 swagger: '2.0'
 info:
-  title: API Spec V1.0
+  title: FIO Protocol API
   version: '1.0'
-  description: FIO Protocol API spec
+  description: FIO Protocol API
   license:
     name: MIT
   contact:
-    url: 'http://fio.foundation'
-    email: getinfo@fio.foundation
+    url: http://fioprotocol.io
+    email: info@fioprotocol.io
     name: FIO
-host: testnet.fioprotocol.io
+servers:
+- url: http://testnet.fioprotocol.io/v1/chain
+  description: FIO Testnet server
 paths:
   /get_pub_address:
     post:
@@ -106,8 +107,7 @@ paths:
                 minLength: 1
                 maxLength: 10
                 pattern: '^[A-Z0-9]+$'
-          x-examples:
-            application/json:
+            example:
               fio_address: purse@alice
               chain_code: FIO
               token_code: FIO
@@ -179,8 +179,7 @@ paths:
               fio_name:
                 type: string
                 description: FIO Address or FIO Domain to check.
-          x-examples:
-            application/json:
+            example:
               fio_name: purse@alice
       operationId: avail_check
   /get_fio_names:
@@ -301,8 +300,7 @@ paths:
                 description: Valid WIF Public Key with FIO Prefix
             required:
               - fio_public_key
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
       operationId: get_fio_names
   /get_pending_fio_requests:
@@ -488,8 +486,7 @@ paths:
                 minimum: 0
             required:
               - fio_public_key
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit: 100
               offset: 0
@@ -573,8 +570,7 @@ paths:
                 description: Valid WIF Public Key with FIO Prefix
             required:
               - fio_public_key
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
       operationId: get_fio_balance
   /get_fee:
@@ -651,8 +647,7 @@ paths:
             required:
               - end_point
               - fio_address
-          x-examples:
-            application/json:
+            example:
               end_point: add_pub_address
               fio_address: alice@purse
           description: |-
@@ -790,8 +785,7 @@ paths:
                   /get_info
             required:
               - block_num_or_id
-          x-examples:
-            application/json:
+            example:
               block_num_or_id: '39570'
       description: Retrieves information about the specific block.
       operationId: get_block
@@ -831,8 +825,7 @@ paths:
                 description: Account name. Check request definition for specific call.
             required:
               - account_name
-          x-examples:
-            application/json:
+            example:
               account_name: fio.system
       operationId: get_raw_abi
   /get_producers:
@@ -959,8 +952,7 @@ paths:
               json:
                 type: boolean
                 description: Return result in JSON format?
-          x-examples:
-            application/json:
+            example:
               limit: '10'
               lower_bound: ...........1f
               json: true
@@ -1569,8 +1561,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K3EhDxWwjn4vudBjahWngntyhWgzt7vzm95ni1avnuLNNmWrGnsii2p6TGU3hZGa4SA6JkYNuACs6nZx7wdD88qzDLToGC
@@ -1663,8 +1654,7 @@ paths:
               - max_fee
               - tpid
               - actor
-          x-examples:
-            application/json:
+            example:
               fio_address: purse@alice
               owner_fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               max_fee: 30000000000
@@ -2291,8 +2281,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_JwfF5X2wZG8jED4K3XrhLV1unPaxK16DZR9YRXvJYLiVkKnyAMry5yA5AxNjxMDf5AUGLThHkUA16q3rUSGepNrLCB656n
@@ -2395,8 +2384,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_domain: alice
               owner_fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               max_fee: 2000000000
@@ -3258,8 +3246,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KcK1HYTQUmmiivGovvQJdZF4z7zYVuydaKSTUzF2kzzJ4b7YYdhE1WpPxxwfWWXY3uFFxuBUsaBfseviyd5RURn4zbS4no
@@ -3346,8 +3333,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_domain: alice
               max_fee: 30000000000
               tpid: rewards@wallet
@@ -3843,8 +3829,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K7EuJtJcBVS8QnQdwANtiJJbmbxSLkNVTwtBiL3fWu6UCB96Gpi26iXX6mEqJcsDkbTf5wExV4WQmKwQVJWZi9CjSuobZ9
@@ -3935,8 +3920,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: purse@alice
               max_fee: 30000000000
               tpid: rewards@wallet
@@ -4389,8 +4373,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KenxeQnjCSxaZ58PjvXgYDcQVvT4hUAoQH8ZsciLxyXqGs1skJ9TqXWLn9DKptdrie2mfEd5Dqju2bPjSPkWXjCWaqyRnG
@@ -4533,8 +4516,7 @@ paths:
             Please read [Mapping Public
             Addresses](/wallet-integration-guide/mapping-pub-addresses) to
             better understand how public address mappings work.
-          x-examples:
-            application/json:
+            example:
               fio_address: purse@alice
               public_addresses:
                 - chain_code: BTC
@@ -5438,8 +5420,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_Ka46FDuMXKMDvp27VkKgX68kGwEVb4oxVTaUYVBY9j7LQ9jdDameSniRFhEhBVyUHMcsXjLARfjoVTZ5mKRPUWnL8EPgZx
@@ -5530,8 +5511,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_domain: alice
               is_public: 1
               max_fee: 2000000000
@@ -5998,8 +5978,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KkVQJKCKfobQoV8ngGvVvt7dAP1TMy6fpsk2y9Y1X3WSUv1FUEnZFxUt6cWgNAWS4UkCQTWcCi1JCsKC2F2vm3ubJXN1UN
@@ -6191,8 +6170,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               payer_fio_address: pawel788242@woohoo827390
               payee_fio_address: pawel82825@woohoo827390
               content: >-
@@ -6659,8 +6637,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_Kavk7ZhRMTswXqzp3QBxjedVjFpb1bzocUePKhesDPh3q4E3SeBi8bMCHCMeXEvQFHxkgARt1tqP1AYqBWD7Daxmdpnw9R
@@ -6744,8 +6721,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_request_id: '10'
               max_fee: 0
               tpid: rewards@wallet
@@ -6945,8 +6921,7 @@ paths:
                 minimum: 0
             required:
               - fio_public_key
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit: 100
               offset: 0
@@ -7410,8 +7385,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KV3LnbEH7d8FwqjnXyLmnghac4fCVmd8wND14sZG9Yb1VkSLyfpwABMN6js3gY3VNfZ6zxECox3jmLes31tD2iqZ6QsiNB
@@ -7605,8 +7579,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               payer_fio_address: purse@alice
               payee_fio_address: crypto@bob
               content: >-
@@ -8290,8 +8263,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KaE4Cqh7xfsWq7FNYRm345fDyqR8bokTwFaR4kTep374Byx6Hn6ndCXEJqG9yDYk5Ra6RWAccisBrGpjG29rmCCpCT9h6f
@@ -8372,8 +8344,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               payee_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               amount: '1000000000'
               max_fee: 250000000
@@ -8797,8 +8768,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_JxtaEh5HFWyt6mYeBbCzDsEAHmGDbrowL1BzYhdMfavxn5fwMxB8v3dHCp74QicK8AJJvEgvsnAv8iUFAqGdysBGrysvDZ
@@ -9567,8 +9537,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K4KRoo8t3VeeMjUuxjRe7FPHJc6zE1psYXt3NWoDKK9TwAE3BHVQvrqc7DAvm3uuqTuCMJQRpHPB6X1B2tgVcRRYHZJhpU
@@ -9623,8 +9592,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               actor: aftyershcu22
       operationId: pay_tpid_rewards_model
   /claim_bp_rewards:
@@ -10318,8 +10286,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_Jxy1EQfkkKPx37RU5R2ruG24QHF9i4GkWtVj715NVj229dx9LszEj62aNPZSVU3bCdH98g4knghdRrWdPU27m32H8aaJYJ
@@ -10384,8 +10351,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: producer@bob
               actor: aftyershcu22
   /register_producer:
@@ -10990,8 +10956,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KcYLZkh7imnRGVbbrGAMxMDKfMKnpU6SwhLbMqvJfxuVzA5JH2TZxMYyCX5oW4JDNzNhRrrcoX9gE3Q9rThXdPr1jFuwNw
@@ -11082,8 +11047,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: producer@bob
               fio_pub_key: FIO7tHihSLJVRQ2HsiVGTXAh3RgfXQvVVPpMm8pwQtiTHQHPnY5dH
               url: 'https://bobp.io/'
@@ -11681,8 +11645,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_JzVnQBLXhRC9XwiaficW6UKf2LFRTchm3XNnRru9WVeAzRsCxYE5Ufnvc9GsLiyAUHo985AXv5aUbXXurV5JKg9L1aPZm6
@@ -11760,8 +11723,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: producer@bob
               actor: aftyershcu22
               max_fee: 10000000
@@ -12357,8 +12319,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K81D3Vmwjze5fzzETA2gGzedhwrcrbp5qJddFFKbFBB8DVcsT8aVYY3TQBthYX5aWWg3uWp2x5tbr84Wh675KdsH5rKkGZ
@@ -12446,8 +12407,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               producers:
                 - BP1
                 - BP2
@@ -13049,8 +13009,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_Kb8CpoTp2S3cLbwCQGjDLrydfd16JWgvaRi5gkD7Roj1oiqFdjjPBCJdUJX3cqpfa5EyFXXHhF8kXRdNXDJwqAbo2FUsbT
@@ -13123,8 +13082,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: proxy@bob
               actor: aftyershcu22
               max_fee: 10000000
@@ -13722,8 +13680,7 @@ paths:
               packed_trx:
                 type: string
             title: Signed transaction request
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K8Vz1H4YVUkoZzjYnQ6LXYy5KSa5tXsTggrmekvKhLmfivjP7PT7N5ismo9mdYKv426Yw2zdDoxsqeh2P1a2oVdrDDJdGa
@@ -13802,8 +13759,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fio_address: proxy@bob
               actor: aftyershcu22
               max_fee: 10000000
@@ -14403,8 +14359,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K1oqnEF3xbPX1UgR7SBHEiCzHzdBCuZ2RMSKy1yVvofpoAVyVE7nw3soPPtCoH2AjKdv86r2X5zy4TyjuuHM3cdXgZPkLs
@@ -14487,8 +14442,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               proxy: producer@bob
               fio_address: purse@alice
               actor: aftyershcu22
@@ -14978,8 +14932,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KYatphMGraMSQcbhf2qrZFHsGibQ5Q4ajvkB6juNLUy6ZDk7L7zXvSFUZTqVQ3XWHHjxGUVahCUJsk5geS3smTfRDcmLT5
@@ -15043,8 +14996,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               fee_ratios:
                 - end_point: register_fio_domain
                   value: 40000000000
@@ -15516,8 +15468,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_KXVstJjzHwnNsRHCt9dDeGTKEqTDobmh7DXTHuvyBPSSHNtkmMiZEyFrFoptusiWjZKsk7R4S6SjJHNEo3KZaCEdV5JwCC
@@ -15575,8 +15526,7 @@ paths:
             This section defines the object which needs to be created before
             it's packed and signed. See Signed call section for the definition
             of the actual request.
-          x-examples:
-            application/json:
+            example:
               multiplier: 100
               actor: aftyershcu22
       operationId: submit_fee_multiplier_model
@@ -15998,8 +15948,7 @@ paths:
           description: >-
             This request needs to be packed and signed. See **[CONTENT]** for
             the definition of the object before it's packed and signed.
-          x-examples:
-            application/json:
+            example:
               signatures:
                 - >-
                   SIG_K1_K6QbUBomREk8zLdNJ7uKSs6AEfHPUCo3uXbF7PqKN3xTYpv4basFwM4VY2XuNKhvPYMTpqKRNRwekcwSVy44mLtC7Zn1rT
@@ -16056,8 +16005,7 @@ paths:
             required:
               - bundled_transactions
               - actor
-          x-examples:
-            application/json:
+            example:
               bundled_transactions: 100
               actor: aftyershcu22
           description: >-
@@ -16261,8 +16209,7 @@ paths:
                 minimum: 0
             required:
               - fio_public_key
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit: 100
               offset: 0
@@ -16601,8 +16548,7 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
-          x-examples:
-            application/json:
+            example:
               fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
   /get_table_rows:
     post:
@@ -16688,8 +16634,7 @@ paths:
               - code
               - scope
               - table
-          x-examples:
-            application/json:
+            example:
               code: fio.address
               scope: fio.address
               table: fionames
@@ -16860,8 +16805,7 @@ paths:
                 type: string
             required:
               - account_name
-          x-examples:
-            application/json:
+            example:
               account_name: 5jfctnozulcb
 basePath: /v1/chain/
 schemes:
