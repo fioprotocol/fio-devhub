@@ -94,18 +94,22 @@ FIO Address can also be mapped to bank account information required to route fia
 
 For example to map FIO Address to a ACH bank account:
 ```
-{
-	"chain_code": "FIAT",
-	"token_code": "ACH",
-	"public_address": "{'aba':'102000076','acc':'1234567890'}"
-}
+
+	{
+		"chain_code": "FIAT",
+		"token_code": "ACH",
+		"public_address": "{'aba':'102000076','acc':'1234567890'}"
+	}
+	
 ```
 
 To map FIO Address to an IBAN bank account:
 ```
-{
-	"chain_code": "FIAT",
-	"token_code": "IBAN",
-	"public_address": "{'iban':'DE89370400440532013000'}"
-}
+
+	{
+		"chain_code": "FIAT",
+		"token_code": "IBAN",
+		"public_address": "{'iban':'DE89370400440532013000'}"
+	}
+
 ```
