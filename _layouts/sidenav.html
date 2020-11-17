@@ -44,9 +44,9 @@ layout: default
 
 <!--scripts loaded here-->
 
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/toc.js"></script>
-<script src="/assets/js/anchor.min.js"></script>
+<script src="{{ '/assets/js/bootstrap.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/anchor.min.js' | relative_url }}"></script>
 <script>
     $( document ).ready(function() {
         $("#docnavsidebar").navgoco({
@@ -67,7 +67,7 @@ layout: default
 
     });
 </script>
-<script src="/assets/js/customscripts.js"></script>
+<script src="{{ '/assets/js/customscripts.js' | relative_url }}"></script>
 <script>
     $(document).ready(function() {
         $('[data-toggle=offcanvas]').click(function() {
