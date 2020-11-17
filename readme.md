@@ -57,4 +57,6 @@ If you want to add a new page to the `For Integrators` section:
 
 If you are running the site preview, as described above, your changes will automatically appear in the preview.
 
-## Deploy site to 
+## Deploy site
+
+A push to the `master` branch will automatically update the website (it takes a few seconds to update).
