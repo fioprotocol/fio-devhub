@@ -20,7 +20,7 @@
 {% endunless %}
 
 <ul id="docnavsidebar" class="docnav">
-    <a href="{{sidebar.landingUrl }}">{{sidebar.landingPage}}</a>
+    <a href="{{sidebar.landingUrl | relative_url }}">{{sidebar.landingPage}}</a>
     {% for folder in sidebar.folders %}
     <li class="level1"><a href="#">{{ folder.title }}</a>
         <ul style="display:none">
@@ -28,11 +28,11 @@
 
             {% if folderitem.title %}
             {% if page.url == folderitem.url %}
-            <li class="level1items open"><a href="{{folderitem.url | remove: "/" }}">{{folderitem.title}}</a></li>
+            <li class="level1items open"><a href="{{folderitem.url | remove: '/'  | relative_url }}">{{folderitem.title}}</a></li>
             {% elsif folderitem.url contains "http://" or folderitem.url contains "https://" %}
-            <li class="level1items"><a  class="noCrossRef" href="{{folderitem.url }}">{{folderitem.title}}</a></li>
+            <li class="level1items"><a  class="noCrossRef" href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
             {% else %}
-            <li class="level1items"><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
+            <li class="level1items"><a href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
             {% endif %}
             {% endif %}
 
@@ -46,9 +46,9 @@
                     {% if page.url == subfolderitem.url %}
                     <li class="level2items open"><a href="{{subfolderitem.url | remove: "/" }}">{{subfolderitem.title}}</a></li>
                     {% elsif folderitem.url contains "http://" or folderitem.url contains "https://" %}
-                    <li class="level2items"><a  class="noCrossRef" href="{{subfolderitem.url }}">{{subfolderitem.title}}</a></li>
+                    <li class="level2items"><a  class="noCrossRef" href="{{subfolderitem.url | relative_url }}">{{subfolderitem.title}}</a></li>
                     {% else %}
-                    <li class="level2items"><a href="{{subfolderitem.url | remove: "/" }}">{{subfolderitem.title}}</a></li>
+                    <li class="level2items"><a href="{{subfolderitem.url | remove: '/'  | relative_url }}">{{subfolderitem.title}}</a></li>
                     {% endif %}
                     {% endif %}
 
@@ -59,11 +59,11 @@
 
                             {% if subsubfolderitem.title %}
                             {% if page.url == subsubfolderitem.url %}
-                            <li class="level3items open"><a href="{{subsubfolderitem.url | remove: "/" }}">{{subsubfolderitem.title}}</a></li>
+                            <li class="level3items open"><a href="{{subsubfolderitem.url | remove: '/'  | relative_url }}">{{subsubfolderitem.title}}</a></li>
                             {% elsif folderitem.url contains "http://" or folderitem.url contains "https://" %}
                             <li class="level3items"><a href="{{subsubfolderitem.url }}">{{subsubfolderitem.title}}</a></li>
                             {% else %}
-                            <li class="level3items"><a href="{{subsubfolderitem.url | remove: "/" }}">{{subsubfolderitem.title}}</a></li>
+                            <li class="level3items"><a href="{{subsubfolderitem.url | remove: '/'  | relative_url }}">{{subsubfolderitem.title}}</a></li>
                             {% endif %}
                             {% endif %}
 
