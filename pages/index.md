@@ -7,7 +7,7 @@ sidebar_label: Overview
 ---
 ## Getting Started
 
-[![Getting Started with the FIO Dev Hub](http://img.youtube.com/vi/nYp5QLEjDeY/0.jpg)](https://www.youtube.com/watch?v=nYp5QLEjDeY&feature=emb_logo "Getting Started with the FIO Protocol Website and Integration Documentation")
+[![Getting Started with the FIO Dev Hub](http://img.youtube.com/vi/nYp5QLEjDeY/0.jpg)](https://www.youtube.com/watch?v=nYp5QLEjDeY&feature=emb_logo)
 
 ## What is FIO Protocol? 
 
@@ -50,12 +50,12 @@ We have a Testnet up and running, check it out here.
 ### API endpoints
 
 #### Testnet Chain API
-```
-http://testnet.fioprotocol.io/v1/chain/
-```
+
+`http://testnet.fioprotocol.io/v1/chain/`
+
 #### Mainnet Chain API
 
-[See Github](https://github.com/fioprotocol/fio.mainnet)
+[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
 
 #### Testnet Registration Site API
 ```
@@ -75,47 +75,5 @@ See Github
 
 ### Help
 
-Need help? [Just ask](https://developers.fioprotocol.io/help/contact-us).
-
-## Complete List of Developer Hub Resources
-
-FIO Protocol
-Code
-How is FIO Chain different from EOSIO
-Keys, accounts and permissions
-Multisig
-Resource Management
-Technology Provider ID
-FIO Protocol API
-Latest API Spec
-Getting started
-Packing and signing of transactions
-Generating actor
-Registration API
-Latest Regsitration API Spec
-Getting started
-SDKs
-iOS Swift
-Kotlin
-JavaScript/TypeScript
-Tools
-clio
-Wallet Integration Guide
-Integration options
-Sample wallet UX
-Demo
-Mapping Public Addresses
-Encrypting FIO Data
-FIO registration site
-Exchange Integration Guide
-FIO integration
-Listing integration
-FIO Chain
-Building a node
-History node
-Testnet
-Mainnet
-Voting for block producers
-Being a block producer
-Vulnerability Disclosure Policy
-Help
+* [Telegram Integration Support](https://t.me/fiointegration){:target="_blank"}
+* [Open a Support Ticket](https://fioprotocol.atlassian.net/servicedesk/customer/portal/3/group/4/create/12){:target="_blank"}

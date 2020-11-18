@@ -8,7 +8,7 @@ sidebar: sidebars
 
 ## Private/Public Keys
 
-FIO Chain’s is registered at index 235/0x800000eb on the SLIP-44.
+FIO Chain’s is registered at index 235/0x800000eb on the [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md){:target="_blank"}.
 
 FIO Private Keys follow standard Wallet Import Format (WIF) standard and public keys follow well-known base58 encoding with FIO prefix, e.g.
 
@@ -38,13 +38,14 @@ This is the expected Public Key:
 
 Inherited from EOSIO, FIO Chain has the notion of accounts. In order to make it easier for developers to be able to integrate with the FIO Blockchain, the FIO accounts are created automatically in the following instances:
 
-FIO tokens are being sent to a FIO public key using /transfer_tokens_pub_key and the supplied recipient’s public key is not associated to an account.
-FIO Address or FIO Domain is being registered using /register_fio_domain or /register_fio_address and the supplied owner’s public key is not associated to an account.
+* FIO tokens are being sent to a FIO public key using /transfer_tokens_pub_key and the supplied recipient’s public key is not associated to an account.
+* FIO Address or FIO Domain is being registered using /register_fio_domain or /register_fio_address and the supplied owner’s public key is not associated to an account.
+
 There is no other way to create an account, but to send tokens to a public key or register address/domain to a public key.
 
 ## Account names
 
-FIO Chain uses a custom hash function, which when applied to a public key, produces an EOSIO-compliant default account name. There is no way to create a custom name for an an account.
+FIO Chain uses a [custom hash function](), which when applied to a public key, produces an EOSIO-compliant default account name. There is no way to create a custom name for an an account.
 
 ## Custom permissions
 

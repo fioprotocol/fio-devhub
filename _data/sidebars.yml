@@ -6,6 +6,8 @@ folders:
   folderitems: 
     - title: What is FIO Protocol?
       url: /pages/
+    - title: FIO Token
+      url: /pages/fio-token/
     - title: Keys, accounts and permissions
       url: /pages/keys-accounts/
     - title: Voting
@@ -15,27 +17,43 @@ folders:
     - title: Technology Provider ID
       url: /pages/tpid/
 
-- title: Wallet Integration Guide
+- title: Integration Guide
   folderitems: 
     - title: Integration options
       url: /pages/integration-options/
-    - title: Sample wallet UX
-      url: /pages/sample/
-    - title: Demo
-      url: /pages/demo/
+    - title: FIO Token Support
+      url: /pages/fio-token-support/
+    - title: Registering Addresses / Domains
+      url: /pages/registration/
+    - title: Send to FIO Address
+      url: /pages/fio-send/
+    - title: Receive to FIO Address
+      url: /pages/fio-send/
     - title: Mapping Public Addresses
       url: /pages/mapping/
-    - title: Encrypting FIO Data
+    - title: FIO Requests and Data
+      url: /pages/fio-request/
+    - title: Encrypting Data
       url: /pages/encryption/
-    - title: FIO registration site
-      url: /pages/reg-site/
-
-- title: Exchange Integration Guide
-  folderitems: 
-    - title: Listing integration
-      url: /pages/listing-integration/
-    - title: FIO integration
-      url: /pages/fio-integration/
+    - title: Demos
+      url: /pages/demo/
+      subfolders:
+        - title: Wallets
+          subfolderitems:
+          - title: Sample wallet UX
+            url: /pages/sample/
+        - title: Exchanges
+          subfolderitems:
+          - title: Token deposits
+            url: /pages/exchange-token-deposit/
+          - title: Token withdrawals
+            url: /pages/exchange-token-withdraw/
+          - title: Token transfers
+            url: /pages/exchange-token-transfer/
+          - title: Token supply
+            url: /pages/exchange-token-supply/
+          - title: Transaction history
+            url: /pages/XXXX/
 
 - title: Recipes
   folderitems: 

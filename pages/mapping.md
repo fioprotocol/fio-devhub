@@ -31,6 +31,10 @@ FIO maintains a list of chain and token codes that are being used by other FIO P
 
 If you are using codes which are not yet part of the standard, please submit a pull request to the list to ensure other FIO Protocol integrators are using the same codes.
 
+### Sample UX
+
+See Connecting FIO Address to public keys
+
 ### Multi-level Addressing
 
 Certain blockchains, or accounts on those blockchains, require the use of Multi-level Addressing, when, in addition to public address, additional piece of information is required to properly route a transaction.
