@@ -1,7 +1,6 @@
 ---
-id: options
-title: Integration options
-sidebar_label: Integration options
+title: Overview
+sidebar_label: Overview
 layout: sidenav
 sidebar: sidebars
 ---

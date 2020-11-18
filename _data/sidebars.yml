@@ -19,11 +19,13 @@ folders:
 
 - title: Integration Guide
   folderitems: 
-    - title: Integration options
+    - title: Overview
       url: /pages/integration-options/
+    - title: Quick start guide
+      url: /pages/quick-start/
     - title: FIO Token Support
       url: /pages/fio-token-support/
-    - title: Registering Addresses / Domains
+    - title: Registering Addresses & Domains
       url: /pages/registration/
     - title: Send to FIO Address
       url: /pages/fio-send/
@@ -33,10 +35,14 @@ folders:
       url: /pages/mapping/
     - title: FIO Requests and Data
       url: /pages/fio-request/
+    - title: Accessing FIO Nodes
+      url: /pages/node-access/
     - title: Encrypting Data
       url: /pages/encryption/
     - title: Demos
       url: /pages/demo/
+    - title: Testing and Certification
+      url: /pages/testing-certification/    
       subfolders:
         - title: Wallets
           subfolderitems:
@@ -59,9 +65,10 @@ folders:
   folderitems: 
     - title: Code
       url: /pages/code/
-    - title: linkauth - Adding permissions
+    - title: Adding permissions with linkauth
       url: /pages/recipes/linkauth/
-
+    - title: Validating a FIO Public Key
+      url: /pages/recipes/validation/
 
 - title: FIO Chain
   folderitems: 
