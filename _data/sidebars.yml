@@ -46,10 +46,14 @@ folders:
       subfolders:
         - title: Wallets
           subfolderitems:
+          - title: Wallet integration guide
+            url: /pages/wallet-guide/
           - title: Sample wallet UX
             url: /pages/sample/
         - title: Exchanges
           subfolderitems:
+          - title: Exchange integration guide
+            url: /pages/exchange-guide/
           - title: Token deposits
             url: /pages/exchange-token-deposit/
           - title: Token withdrawals
