@@ -1,0 +1,19 @@
+<div>
+    here
+    {{ snippet }}
+    here2
+    {{ page.snippet1 }}
+
+    here3
+
+    {{ site.data.fio-api.swagger}}
+
+
+here4
+    {{ pages.api.fio-api.paths[0] }}
+
+    here5
+    {% for category in site.data.home %}
+    <h2>{{ category }}</h2>
+    {% endfor %}
+</div>

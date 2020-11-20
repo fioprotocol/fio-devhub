@@ -20,7 +20,9 @@ folders:
 - title: Integration Guide
   folderitems: 
     - title: Overview
-      url: /pages/integration-options/
+      url: /pages/overview/
+    - title: Using the API
+      url: /pages/using-the-api/
     - title: Quick start guide
       url: /pages/quick-start/
     - title: FIO Token Support
@@ -67,6 +69,8 @@ folders:
 
 - title: Recipes
   folderitems: 
+    - title: Generating actor from Pub Key
+      url: /pages/recipes/actor-account/
     - title: Code
       url: /pages/code/
     - title: Adding permissions with linkauth
