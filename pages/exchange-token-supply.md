@@ -9,8 +9,8 @@ sidebar: sidebars
 
 The Foundation operates API end-point which returns token supply statistics, specifically:
 
-|---|---|---|
 |Statistic	|Description	|End-point|
+|---|---|---|
 |Total supply	|All tokens that were ever minted. Maximum token supply is capped at 1,000,000,000 FIO.	|https://fioprotocol.io/supply|
 |Circulating supply	|Total supply less locked tokens.	|https://fioprotocol.io/circulating|
 |Locked tokens	|Tokens which are locked and cannot be transferred.	|https://fioprotocol.io/locked|

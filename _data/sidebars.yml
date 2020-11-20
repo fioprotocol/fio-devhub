@@ -23,8 +23,8 @@ folders:
       url: /pages/overview/
     - title: Using the API
       url: /pages/using-the-api/
-    - title: Quick start guide
-      url: /pages/quick-start/
+#    - title: Quick start guide
+#      url: /pages/quick-start/
     - title: FIO Token Support
       url: /pages/fio-token-support/
     - title: Registering Addresses & Domains
@@ -37,8 +37,8 @@ folders:
       url: /pages/mapping/
     - title: FIO Requests and Data
       url: /pages/fio-request/
-    - title: Accessing FIO Nodes
-      url: /pages/node-access/
+#    - title: Accessing FIO Nodes
+#      url: /pages/node-access/
     - title: Encrypting Data
       url: /pages/encryption/
     - title: Demos
@@ -50,8 +50,8 @@ folders:
           subfolderitems:
           - title: Wallet integration guide
             url: /pages/wallet-guide/
-          - title: Sample wallet UX
-            url: /pages/sample/
+#          - title: Sample wallet UX
+#            url: /pages/sample/
         - title: Exchanges
           subfolderitems:
           - title: Exchange integration guide
@@ -65,14 +65,14 @@ folders:
           - title: Token supply
             url: /pages/exchange-token-supply/
           - title: Transaction history
-            url: /pages/XXXX/
+            url: /pages/txn-history/
 
 - title: Recipes
   folderitems: 
-    - title: Generating actor from Pub Key
-      url: /pages/recipes/actor-account/
     - title: Code
       url: /pages/code/
+    - title: Generating actor from Pub Key
+      url: /pages/recipes/actor-account/
     - title: Adding permissions with linkauth
       url: /pages/recipes/linkauth/
     - title: Validating a FIO Public Key
@@ -80,6 +80,8 @@ folders:
 
 - title: FIO Chain
   folderitems: 
+#    - title: FIO Chain Overview
+#      url: /pages/chain-overview/
     - title: FIO vs. EOSIO
       url: /pages/eosio/
     - title: RAM, CPU, and NET limits

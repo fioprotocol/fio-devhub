@@ -19,7 +19,7 @@ Because the encryption of the data requires the private key of the sender and de
 
 For those unfamiliar with Diffie-Hellman encryption, methods in fiojs SDK make this easy.
 
-> Validating content data
+### Validating content data
 
 The FIO Chain does not see the unencrypted data, so no validation is performed on the data in the content field. It is up to the wallet to ensure the data received is properly formatted and handle any exceptions.
 
@@ -31,15 +31,15 @@ As an example, it is recommended chain_code and token_code be converted to upper
 
 Since the FIO Chain cannot see the encrypted content, it cannot enforce size limitations on the individual field. Size limitation is therefore enforced on the content field containing the encrypted string.
 
+|Method	    |Minimum characters	|Maximum characters|
 |---|---|---|
-|Method	|Minimum characters	|Maximum characters|
-|/new_funds_request	|64	|296|
-|/record_obt_data	|64	|432|
+|/new_funds_request	   |64	|296|
+|/record_obt_data	   |64	|432|
 
 Once you factor encryption overhead the available characters for all parameters are:
 
-|---|---|
 |Method	|Maximum characters|
+|---|---|
 |/new_funds_request	|145|
 |/record_obt_data	|260|
 
@@ -47,8 +47,8 @@ Once you factor encryption overhead the available characters for all parameters 
 
 Assuming typical FIO Request contains the following required parameters:
 
-|---|---|
 |Parameter	|Typical size|
+|---|---|
 |payee_public_address	|50|
 |amount	|8|
 |chain_code	|3|

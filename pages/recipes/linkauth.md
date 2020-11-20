@@ -1,7 +1,6 @@
 ---
-id: linkauth
-title: linkauth - Adding permissions
-sidebar_label: linkauth - Adding permissions
+title: Adding permissions with linkauth
+sidebar_label: Adding permissions with linkauth
 layout: sidenav
 sidebar: sidebars
 ---

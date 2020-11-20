@@ -6,8 +6,8 @@ sidebar: sidebars
 
 snippet1: /push_transaction
 
-{% assign snippet = 'snippet1' %}
-{% include api-snippet.html snippet = snippet %}
+# {% assign snippet = 'snippet1' %}
+# {% include api-snippet.html snippet = snippet %}
 
 ---
 
@@ -21,4 +21,28 @@ The simplest method for accessing the FIO chain is by embedding one of the FIO S
 * [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin)
 * [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios)
 
+## API details
 
+#### Testnet Chain API
+
+`http://testnet.fioprotocol.io/v1/chain/`
+
+#### Mainnet Chain API
+
+[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
+
+#### Testnet Registration Site API
+
+`https://reg.az.fio.dev/public-api/`
+
+### Mainnet Registration Site API
+
+`https://reg.fioprotocol.io/public-api/`
+
+### Testnet History API
+
+`http://testnet.fioprotocol.io/v1/history/`
+
+### Mainnet History API
+
+See Github

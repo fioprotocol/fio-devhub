@@ -25,55 +25,12 @@ A FIO Request is a transaction in which a payee is requesting funds from payer u
 
 In addition, the payer places a metadata about the native blockchain transaction (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
 
-## Key resources
+## Resources
 
-### Learn more
+If you are interested in integrating FIO Protocol check out our [Integration Guide](/pages/overview/), and if you are ready to dive into code, our [API spec](pages/api/fio-api/) will explain all the calls we provide. 
 
-To learn more about the FIO Protocol, please check out the Whitepaper and Knowledge Base.
+If you want to spin-up your own node or even become a block producer, check out the [FIO Chain section](/pages/chain-overview/) for more information about building a node.
 
-### Wallet integration
 
-If you are interested in integrating FIO Protocol into a wallet, check out our Wallet Integration Guide, and if you are ready to dive into code, our API spec will explain all the calls we provide. Alternatively, make it easy on yourself and take a look at some of our SDKs.
 
-### Exchnage integration
 
-If you are an exchange, check out our Exchange Integration Guide.
-
-### FIO Chain
-
-If you want to spin-up your own node or even become a block producer, check out the FIO Chain section for more information about building a node.
-
-### Testnet
-
-We have a Testnet up and running, check it out here.
-
-### API endpoints
-
-#### Testnet Chain API
-
-`http://testnet.fioprotocol.io/v1/chain/`
-
-#### Mainnet Chain API
-
-[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
-
-#### Testnet Registration Site API
-```
-https://reg.az.fio.dev/public-api/
-```
-### Mainnet Registration Site API
-```
-https://reg.fioprotocol.io/public-api/
-```
-### Testnet History API
-```
-http://testnet.fioprotocol.io/v1/history/
-```
-### Mainnet History API
-
-See Github
-
-### Help
-
-* [Telegram Integration Support](https://t.me/fiointegration){:target="_blank"}
-* [Open a Support Ticket](https://fioprotocol.atlassian.net/servicedesk/customer/portal/3/group/4/create/12){:target="_blank"}

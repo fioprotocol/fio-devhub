@@ -47,5 +47,5 @@ New user bounties are additional tokens which will be minted and allocated to TP
 
 ## Knowledge Base articles
 
-Fee Setting and Distribution
+[Fee Setting and Distribution](https://kb.fioprotocol.io/fio-chain/fees)
 
