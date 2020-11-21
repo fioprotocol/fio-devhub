@@ -8,6 +8,8 @@ folders:
       url: /pages/
     - title: FIO Token
       url: /pages/fio-token/
+    - title: Fees
+      url: /pages/fio-fees/
     - title: Keys, accounts and permissions
       url: /pages/keys-accounts/
     - title: Voting
@@ -43,8 +45,10 @@ folders:
       url: /pages/encryption/
     - title: Demos
       url: /pages/demo/
-    - title: Testing and Certification
-      url: /pages/testing-certification/    
+    - title: Testing your integration
+      url: /pages/guide-testing/    
+    - title: Integration certification checklist
+      url: /pages/guide-certification/  
       subfolders:
         - title: Wallets
           subfolderitems:
@@ -66,6 +70,13 @@ folders:
             url: /pages/exchange-token-supply/
           - title: Transaction history
             url: /pages/txn-history/
+
+- title: Typescript SDK
+  folderitems: 
+#    - title: Overview
+#      url: /pages/sdk-js-overview/
+    - title: Using the Typescript SDK
+      url: /pages/sdk-js-using/
 
 - title: Recipes
   folderitems: 

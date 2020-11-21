@@ -1,17 +1,9 @@
 ---
-title: Testing and certification
-sidebar_label: Testing and certification
+title: Certification checklist
+sidebar_label: Certification checklist
 layout: sidenav
 sidebar: sidebars
 ---
-
-## Testing with Cryptonym
-
-https://github.com/blockpane/cryptonym. Recommend using it against a local node, otherwise it can seem slow.
-
-## Testing with Anchor
-
-## Certification checklist
 
 The following lists the items that should be tested to confirm support for different FIO features. Some of the items may not be relevant depending on the specific requirements of the wallet or exchange.
 

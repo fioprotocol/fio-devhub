@@ -7,11 +7,11 @@ sidebar: sidebars
 
 ## Register FIO Address
 
-Most FIO Protocol functionality requires a user to have a FIO Address. A FIO Address is an NFT owned by owner FIO Public Key and consists of a username and a domain delimited by an @
+Most FIO Protocol functionality requires a user to have a FIO Address. A FIO Address is an NFT owned by owner FIO Public Key and consists of a username and a domain delimited by an @:
 
-username@domain
+`username@domain`
 
-The easiest way to facilitate a FIO Address registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Address can be properly assigned to the owner. To learn more see FIO registration site.
+The easiest way to facilitate a FIO Address registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. A FIO Public Key needs to be passed to the website, so that the FIO Address can be properly assigned to the owner. To learn more see FIO registration site.
 
 ### FIO Private/Public Key
 
