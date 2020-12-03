@@ -38,7 +38,6 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
 * `privateKey/publicKey` - The wallet user's private/public keys
 * `baseURL` - The base URL to a FIO Protocol blockchain API node
 * `fetchjson` - A reference to fetchJson, used for http post/get calls 
-* `registerMockUrl` - the URL of the server used to auto-register FIO names for wallet users. This is only used by wallets that have deployed a central server used to register names on their domain. It is used by the registerOnBehalfOfUser method. **Note that this parameter is being deprecated in Version 2.0 of the Typescript SDK.**
 
 ## Example: Transfer FIO tokens using a FIO Address
 
@@ -79,15 +78,7 @@ Use /get_fee to look up the payer fee for /transfer_tokens_pub_key (trnsfiopubky
     const { fee } = await fioSdk.getFee('transfer_tokens_pub_key', payerFioAddress);
 ```
 
-### Step 3. Look up actor
-
-In Version 1 of the SDK the 'actor' must be passed in to pushTransaction. To retrieve the actor:
-
-```javascript
-    const actor = fioSdk.Transactions.getActor()
-```
-
-### Step 4. Transfer FIO
+### Step 3. Transfer FIO
 
 *pushTransaction* is used to sign and push transactions onto the blockchain.
 
@@ -101,8 +92,7 @@ In Version 1 of the SDK the 'actor' must be passed in to pushTransaction. To ret
             payee_public_key: payeePublicKey,
             amount: transferAmount,
             max_fee: fee,
-            tpid: "rewards@wallet",
-            actor: "aftyershcu22"
+            tpid: "rewards@wallet"
         }
     )
 ```
@@ -148,8 +138,7 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
                     payee_public_key: payeePublicKey,
                     amount: transferAmount,
                     max_fee: fee,
-                    tpid: "rewards@wallet",
-                    actor: "aftyershcu22"
+                    tpid: "rewards@wallet"
                 }
             )
         } catch (e) {
