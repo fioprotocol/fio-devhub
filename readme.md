@@ -14,6 +14,7 @@
 
 ```
 $ cd fio-devhub
+$ bundle install
 $ bundle exec jekyll serve
 
 > Configuration file: /Users/octocat/my-site/_config.yml

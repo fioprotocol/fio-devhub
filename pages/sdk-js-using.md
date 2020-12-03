@@ -9,32 +9,30 @@ sidebar: sidebars
 
 Importing using commonJS syntax is supported by Node.js out of the box:
 
-```
-const { FIOSDK } = require('@fioprotocol/fiosdk');
-const { fetch } = require('node-fetch');
+```javascript
+    const { FIOSDK } = require('@fioprotocol/fiosdk');
+    const { fetch } = require('node-fetch');
 ```
 
 ## Initializing the SDK
 
 The Typescript SDK uses a singleton model requiring initialization in the constructor as these parameters are referenced in subsequent SDK Calls.
 
-```
-const fetchJson = async (uri, opts = {}) => {
-    return fetch(uri, opts)
-}
-
-const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
-const baseUrl = 'http://testnet.fioprotocol.io/v1/';
-const registerMockUrl = '';
-
-fioSdk = new FIOSDK(
-    privateKey,
-    publicKey,
-    baseUrl,
-    fetchJson,
-    registerMockUrl
-  )
+```javascript
+    const fetchJson = async (uri, opts = {}) => {
+        return fetch(uri, opts)
+    }
+    
+    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
+    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const baseUrl = 'http://testnet.fioprotocol.io/v1/';
+    
+    fioSdk = new FIOSDK(
+        privateKey,
+        publicKey,
+        baseUrl,
+        fetchJson
+     )
 ```
 
 * `privateKey/publicKey` - The wallet user's private/public keys
@@ -52,128 +50,114 @@ In this example we will use the SDK to transfer FIO from a payer (the user sendi
 
 In this step we use the payee's FIO Address and the token and chain code for FIO to look up the payee's FIO Public Key.
 
-```
-const payeeFioAddress = 'payee@fiotestnet'
-
-const result = await fiosdk.genericAction('getPublicAddress', {
-    fioAddress: payeeFioAddress,
-    chainCode: "FIO",
-    tokenCode: "FIO"
-})
+```javascript
+    const payeeFioAddress = 'payee@fiotestnet'
+    
+    const result = await fioSdk.getPublicAddress(payeeFioAddress, "FIO", "FIO")
 ```
 
 This returns the following JSON:
-```
-{
-  "public_address": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
-}
+```javascript
+    {
+        "public_address": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+    }
 ```
 
 We capture the payee's FIO Public Key:
 
-```
-payeePublicKey = result.public_address
-
+```javascript
+    payeePublicKey = result.public_address
 ```
 
 ### Step 2. Get FIO fee
 
 Use /get_fee to look up the payer fee for /transfer_tokens_pub_key (trnsfiopubky)
 
-```
-const payerFioAddress = 'payer@fiotestnet'
-
-const { fee } = await fiosdk.getFee('transfer_tokens_pub_key', payerFioAddress);
+```javascript
+    const payerFioAddress = 'payer@fiotestnet'
+    
+    const { fee } = await fioSdk.getFee('transfer_tokens_pub_key', payerFioAddress);
 ```
 
 ### Step 3. Look up actor
 
 In Version 1 of the SDK the 'actor' must be passed in to pushTransaction. To retrieve the actor:
 
-```
-Need to complete
+```javascript
+    const actor = fioSdk.Transactions.getActor()
 ```
 
 ### Step 4. Transfer FIO
 
 *pushTransaction* is used to sign and push transactions onto the blockchain.
 
-```
-const transferAmount = 1000000000   // 1 FIO
-
-const result = await fiosdk.genericAction('pushTransaction', {
-    action: 'trnsfiopubky',
-    account: 'fio.token',
-    data: {
-        payee_public_key: payeePublicKey,
-        amount: transferAmount,
-        max_fee: fee,
-        tpid: "rewards@wallet",
-        actor: "aftyershcu22"
-    }
-}
-```
-
-### Final code
-
-The following summarizes the steps to transfer FIO tokens using a FIO Address:
-
-```
-
-const { FIOSDK } = require('@fioprotocol/fiosdk');
-const { fetch } = require('node-fetch');
-
-const fetchJson = async (uri, opts = {}) => {
-    return fetch(uri, opts)
-}
-
-const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
-const baseUrl = 'http://testnet.fioprotocol.io/v1/';
-const registerMockUrl = '';
-
-const payerFioAddress = 'payer@fiotestnet'
-const payeeFioAddress = 'payee@fiotestnet';
-
-async function main () {
-
-
-    fioSdk = new FIOSDK(
-        privateKey,
-        publicKey,
-        baseUrl,
-        fetchJson,
-        registerMockUrl
-    )
-
-    const result = await fiosdk.genericAction('getPublicAddress', {
-        fioAddress: payeeFioAddress,
-        chainCode: "FIO",
-        tokenCode: "FIO"
-    })
-
-    payeePublicKey = result.public_address
-
-    const { fee } = await fiosdk.getFee('transfer_tokens_pub_key', payerFioAddress);
-
+```javascript
     const transferAmount = 1000000000   // 1 FIO
-
-    const result = await fiosdk.genericAction('pushTransaction', {
-        action: 'trnsfiopubky',
-        account: 'fio.token',
-        data: {
+    
+    await fioSdk.pushTransaction(
+        'fio.token',
+        'trnsfiopubky',
+        {
             payee_public_key: payeePublicKey,
             amount: transferAmount,
             max_fee: fee,
             tpid: "rewards@wallet",
             actor: "aftyershcu22"
         }
+    )
+```
+
+### Final code
+
+The following summarizes the steps to transfer FIO tokens using a FIO Address:
+
+```javascript
+    const { FIOSDK } = require('@fioprotocol/fiosdk');
+    const { fetch } = require('node-fetch');
+    
+    const fetchJson = async (uri, opts = {}) => {
+        return fetch(uri, opts)
     }
+    
+    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
+    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const baseUrl = 'http://testnet.fioprotocol.io/v1/';
+    
+    const payerFioAddress = 'payer@fiotestnet'
+    const payeeFioAddress = 'payee@fiotestnet';
+    
+    async function main() {
+        const fioSdk = new FIOSDK(
+            privateKey,
+            publicKey,
+            baseUrl,
+            fetchJson
+        )
 
-}
-
-main()
-
+        try {
+            const { public_address: payeePublicKey } = await fioSdk.getPublicAddress(payeeFioAddress, "FIO", "FIO")
+        
+            const { fee } = await fioSdk.getFee('transfer_tokens_pub_key', payerFioAddress);
+        
+            const transferAmount = 1000000000   // 1 FIO
+        
+            await fioSdk.pushTransaction(
+                'fio.token',
+                'trnsfiopubky',
+                {
+                    payee_public_key: payeePublicKey,
+                    amount: transferAmount,
+                    max_fee: fee,
+                    tpid: "rewards@wallet",
+                    actor: "aftyershcu22"
+                }
+            )
+        } catch (e) {
+          console.log(e);
+        }
+    }
+    
+    main()
 ```
 
 
