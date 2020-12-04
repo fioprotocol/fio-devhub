@@ -15,7 +15,8 @@ The following lists the items that should be tested to confirm support for diffe
 
 **FIO Address**
 
--  User can register a new FIO Address
+-  User can register a new FIO Address with FIO
+-  User can register a FIO address using other crypto
 -  User can register additional FIO Addresses
 -  User can renew their existing FIO Addresses
 
