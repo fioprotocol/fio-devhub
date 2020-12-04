@@ -1,0 +1,126 @@
+- title: Documentation
+  url: docs
+  links:
+    - title: "Getting Started"
+      url: "docs/getting-started"
+      children:
+        - title: Features
+          url: "docs/getting-started#getting-started"
+        - title: Development
+          url: "docs/getting-started#development"
+        - title: Customization
+          url: "docs/getting-started#customization"
+    - title: "Extras"
+      url: "docs/extras"
+      children:
+        - title: Quizzes
+          url: "docs/extras/example-quiz"
+        - title: Tags Page
+          url: "tags"
+    - title: "About"
+      url: "about"
+    - title: "News"
+      url: "news"
+    - title: "FIO Protocol"
+      url: "docs/fio-protocol"
+      children: 
+        - title: FIO Token
+          url: "docs/fio-protocol/fio-token"
+        - title: Fees
+          url: "docs/fio-protocol/fio-fees"
+        - title: Keys, accounts and permissions
+          url: "docs/fio-protocol/keys-accounts"
+        - title: Voting
+          url: "docs/fio-protocol/voting"
+        - title: Multisig
+          url: "docs/fio-protocol/multisig"
+        - title: Technology Provider ID
+          url: "docs/fio-protocol/tpid"
+    - title: "Integration Guide"
+      url: "docs/integration-guide"
+      children: 
+        - title: Using the API
+          url: "docs/integration-guide/using-the-api"
+    #    - title: Quick start guide
+    #      url: "docs/integration-guide/quick-start"
+        - title: Send to FIO Address
+          url: "docs/integration-guide/fio-send"
+        - title: Registering Addresses & Domains
+          url: "docs/integration-guide/registration"
+        - title: FIO Token Support
+          url: "docs/integration-guide/fio-token-support"
+        - title: Receive to FIO Address
+          url: "docs/integration-guide/fio-send"
+        - title: Mapping Public Addresses
+          url: "docs/integration-guide/mapping"
+        - title: FIO Requests and Data
+          url: "docs/integration-guide/fio-request"
+    #    - title: Accessing FIO Nodes
+    #      url: "docs/integration-guide/node-access"
+        - title: Encrypting Data
+          url: "docs/integration-guide/encryption"
+        - title: Demos
+          url: "docs/integration-guide/demo"
+        - title: Testing your integration
+          url: "docs/integration-guide/guide-testing"
+        - title: Integration certification checklist
+          url: "docs/integration-guide/guide-certification"
+    - title: Wallets
+      url: "docs/wallets"
+      children:
+      - title: Wallet integration examples
+        url: "docs/wallets/wallet-examples"
+    - title: Exchanges
+      url: "docs/exchanges"
+      children:
+      - title: Token deposits
+        url: "docs/exchanges/exchange-token-deposit"
+      - title: Token withdrawals
+        url: "docs/exchanges/exchange-token-withdraw"
+      - title: Token transfers
+        url: "docs/exchanges/exchange-token-transfer"
+      - title: Token supply
+        url: "docs/exchanges/exchange-token-supply"
+      - title: Transaction history
+        url: "docs/exchanges/txn-history"
+    - title: "Typescript SDK"
+      url: "docs/typescript"
+      children: 
+    #    - title: Overview
+    #      url: "pages/sdk-js-overview/
+        - title: Using the Typescript SDK
+          url: "docs/typescript/sdk-js-using"
+    - title: "Recipes"
+      url: "docs/recipes"
+      children: 
+        - title: Code
+          url: "docs/recipes/code"
+        - title: Generating actor from Pub Key
+          url: "docs/recipes/actor-account"
+        - title: Adding permissions with linkauth
+          url: "docs/recipes/linkauth"
+        - title: Validating a FIO Public Key
+          url: "docs/recipes/validation"
+    - title: "FIO Chain"
+      url: "docs/chain"
+      children: 
+    #    - title: FIO Chain Overview
+    #      url: "docs/chain/chain-overview"
+        - title: FIO vs. EOSIO
+          url: "docs/chain/eosio"
+        - title: RAM, CPU, and NET limits
+          url: "docs/chain/resources"
+        - title: Building a node
+          url: "docs/chain/node-build"
+        - title: History node
+          url: "docs/chain/node-history"
+        - title: Testnet
+          url: "docs/chain/testnet"
+        - title: Mainnet
+          url: "docs/chain/mainnet"
+        - title: Being a block producer
+          url: "docs/chain/bp"
+        - title: clio
+          url: "docs/chain/clio"
+        - title: Vulnerability disclosure policy
+          url: "docs/chain/disclosure"

@@ -1,63 +1,98 @@
-## Set up local dev environment
+# Docsy Jekyll Theme
 
-1. Install the prerequesites:
+[![CircleCI](https://circleci.com/gh/vsoch/docsy-jekyll/tree/master.svg?style=svg)](https://circleci.com/gh/vsoch/docsy-jekyll/tree/master)
+<a href="https://jekyll-themes.com/docsy-jekyll/">
+    <img src="https://img.shields.io/badge/featured%20on-JT-red.svg" height="20" alt="Jekyll Themes Shield" >
+</a>
 
-* Install [Jekyll](https://jekyllrb.com/docs/installation/)
-* Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* Install [Bundler](https://bundler.io/)
+![https://raw.githubusercontent.com/vsoch/docsy-jekyll/master/assets/img/docsy-jekyll.png](https://raw.githubusercontent.com/vsoch/docsy-jekyll/master/assets/img/docsy-jekyll.png)
 
-2. Clone the repository:
+This is a [starter template](https://vsoch.github.com/docsy-jekyll/) for a Docsy jekyll theme, based
+on the Beautiful [Docsy](https://github.com/google/docsy) that renders with Hugo. This version is intended for
+native deployment on GitHub pages. The original [Apache License](https://github.com/vsoch/docsy-jekyll/blob/master/LICENSE) is included.
 
-` $ git clone https://github.com/fioprotocol/fio-devhub --recursive `
+## Changes
 
-3. Navigate to your local site and run the Jekyll site locally:
+The site is intended for purely documentation, so while the front page banner
+is useful for business or similar, this author (@vsoch) preferred to have
+the main site page go directly to the Documentation view. Posts
+are still provided via a feed.
 
+## Usage
+
+### 1. Get the code
+
+You can clone the repository right to where you want to host the docs:
+
+```bash
+git clone https://github.com/vsoch/docsy-jekyll.git docs
+cd docs
 ```
-$ cd fio-devhub
-$ bundle install
-$ bundle exec jekyll serve
 
-> Configuration file: /Users/octocat/my-site/_config.yml
->            Source: /Users/octocat/my-site
->       Destination: /Users/octocat/my-site/_site
-> Incremental build: disabled. Enable with --incremental
->      Generating...
->                    done in 0.309 seconds.
-> Auto-regeneration: enabled for '/Users/octocat/my-site'
-> Configuration file: /Users/octocat/my-site/_config.yml
->    Server address: http://127.0.0.1:4000/
->  Server running... press ctrl-c to stop.
+### 2. Customize
+
+To edit configuration values, customize the [_config.yml](https://github.com/vsoch/docsy-jekyll/blob/master/_config.yml).
+To add pages, write them into the [pages](https://github.com/vsoch/docsy-jekyll/blob/master/pages) folder. 
+You define urls based on the `permalink` attribute in your pages,
+and then add them to the navigation by adding to the content of [_data/toc.myl](https://github.com/vsoch/docsy-jekyll/blob/master/_data/toc.yml).
+The top navigation is controlled by [_data/navigation.yml](https://github.com/vsoch/docsy-jekyll/blob/master/_data/navigation.yml)
+
+### 3. Options
+
+Most of the configuration values in the [_config.yml](https://github.com/vsoch/docsy-jekyll/blob/master/_config.yml) are self explanatory,
+and for more details, see the [getting started page](https://vsoch.github.io/docsy-jekyll/docs/getting-started)
+rendered on the site.
+
+### 4. Serve
+
+Depending on how you installed jekyll:
+
+```bash
+jekyll serve
+# or
+bundle exec jekyll serve
 ```
 
-4. To preview your site, in your web browser, navigate to `http://localhost:4000`
+### 5. Run as a container in dev or prod
 
-Additional resources:
+#### Software Dependencies
 
-* [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll)
+If you want to run docsy jekyll via a container for development (dev) or production (prod) you can use containers. This approach requires installing [docker-ce](https://docs.docker.com/engine/install/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/). 
 
-## Edit content
+#### Customization
 
-Site layout:
+Note that the [docker-compose.yml](docker-compose.yml) file is using the [jekyll/jekyll:3.8](https://hub.docker.com/r/jekyll/jekyll/tags) image. If you want to make your build more reproducible, you can specify a particular version for jekyll (tag). Note that at the development time of writing this documentation, the latest was tag 4.0.0,
+and it [had a bug](https://github.com/fastai/fastpages/issues/267#issuecomment-620612896) that prevented the server from deploying.
 
+If you are deploying a container to production, you should remove the line to
+mount the bundles directory to the host in the docker-compose.yml. Change:
+
+```yaml
+    volumes: 
+      - "./:/srv/jekyll"
+      - "./vendor/bundle:/usr/local/bundle"
+      # remove "./vendor/bundle:/usr/local/bundle" volume when deploying in production
 ```
-FIO-DEVHUB
-  |-- _data (The yaml data used by the site)
-  |-- _includes (Reusable html code)
-  |-- _layouts (Layouts for different content sections.)
-  |-- assets (css, js, and images)
-  |-- pages (The main markdown content pages)
-  ```
 
-To update a page, edit the markdown file in the `pages` directory.
+to:
 
-If you want to add a new page to the `For Integrators` section:
+```yaml
+    volumes: 
+      - "./:/srv/jekyll"
+```
 
-1. Create the .md file in the `pages` directory.
-2. Reference the correct `_layout` html file at the top of the new page.
-3. Include the new page in `_data/sidebars.yml` 
+This additional volume is optimal for development so you can cache the bundle dependencies,
+but should be removed for production. 
 
-If you are running the site preview, as described above, your changes will automatically appear in the preview.
+#### Start Container
 
-## Deploy site
+Once your docker-compose to download the base container and bring up the server:
 
-A push to the `master` branch will automatically update the website (it takes a few seconds to update).
+```bash
+docker-compose up -d
+```
+
+You can then open your browser to [http://localhost:4000](http://localhost:4000)
+to see the server running.
+
+> Node : changes `baseurl: ""` in _config.yml  when you are running in local and prod according to the requirement.

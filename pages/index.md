@@ -1,36 +1,41 @@
 ---
-id: index
-title: Overview
-layout: sidenav
-sidebar: sidebars
-sidebar_label: Overview
+layout: page
+title: Docsy Jekyll Theme
+permalink: /
 ---
-## Getting Started
 
-[![Getting Started with the FIO Dev Hub](http://img.youtube.com/vi/nYp5QLEjDeY/0.jpg)](https://www.youtube.com/watch?v=nYp5QLEjDeY&feature=emb_logo)
+# Welcome to Docsy Jekyll
 
-## What is FIO Protocol? 
+This is a starter template for a docsy jekyll theme.
 
-The FIO Protocol is bridging the gap between wallets (both exchange-based and self-sovereign) as well as crypto payment processing platforms providing an industry standard decentralized service layer of data, requests and confirmations that abstract away the complexities of the underlying blockchains. The FIO Protocol is not a wallet, not an exchange and not a crypto payment processor, rather, it enables them all to deliver a dramatically improved user experience. The FIO Protocol does not compete with other blockchains nor does it send value on or integrate with other blockchains but, rather, it enables them all to be more successful. Technically speaking, all other blockchains do not even know that the FIO Protocol exists.
+![assets/img/docsy-jekyll.png](assets/img/docsy-jekyll.png)
 
-### FIO Address
+## Purpose
 
-FIO Addresses act as the human readable “wallet names” and user identifiers on the network. In addition, FIO Addresses are the gateway to all other capabilities of the FIO Protocol. Registration of a FIO Address is done in a FIO enabled wallet or exchange where a FIO Private/Public Key pair is generated. The FIO Address and all actions on the FIO Chain are self-sovereign via the FIO Private Key. Without a FIO Address, users cannot access any of the other FIO protocol capabilities.
+GitHub pages uses Jekyll natively, so when I make documentation, I typically
+look for Jekyll templates. Why? Using Jekyll means that I can use markdown,
+and allow for users to easily contribute, and build automatically just by
+way of pushing to a master branch (or general GitHub pages).
+I found Docsy, a beautiful Hugo template, but it requires hugo with GoLang
+which doesn't render natively on GitHub pages. For this reason, I've spent
+some time creating a custom Jekyll template that is (almost) as beautiful,
+and includes all the features that I might want.
 
-### FIO Request
+## Features
 
-A FIO Request is a transaction in which a payee is requesting funds from payer using FIO Addresses. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
+What are these features? You should see the {% include doc.html name="Getting Started" path="getting-started" %}
+guide for a complete summary. Briefly:
 
-### FIO Data
-
-In addition, the payer places a metadata about the native blockchain transaction (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
-
-## Resources
-
-If you are interested in integrating FIO Protocol check out our [Integration Guide](/pages/overview/), and if you are ready to dive into code, our [API spec](pages/api/fio-api/) will explain all the calls we provide. 
-
-If you want to spin-up your own node or even become a block producer, check out the [FIO Chain section](/pages/chain-overview/) for more information about building a node.
-
-
+ - *User interaction* including consistent permalinks, links to ask questions via GitHub issues, and edit the file on GitHub directly.
+ - *Search* across posts, documentation, and other site pages, with an ability to exclude from search.
+ - *External Search* meaning an ability to link any page tag to trigger an external search.
+ - *Documentation* A documentation collection that was easy to organize on the filesystem, render with nested headings for the user, and refer to in markdown.
+ - *Pages* A separate folder for more traditional pages (e.g, about).
+ - *Navigation*: Control over the main navigation on the left of the page, and automatic generation of table of contents for each page on the right.
+ - *News* A posts feed for news and updates, along with an archive (organized by year).
+ - *Templates* or specifically, "includes" that make it easy to create an alert, documentation link, or other content.
+ - *Continuous Integration* recipes to preview the site
 
 
+For features, getting started with development, see the {% include doc.html name="Getting Started" path="getting-started" %} page. Would you like to request a feature or contribute?
+[Open an issue]({{ site.repo }}/issues)
