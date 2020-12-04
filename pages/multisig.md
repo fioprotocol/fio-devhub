@@ -6,8 +6,6 @@ layout: sidenav
 sidebar: sidebars
 ---
 
-## Overview
-
 The following is a step-by-step guide for how to convert a regular FIO account into a “2 out of 3” multisig (any 2 signatures of the 3 provided accounts are required to execute a transaction) on the FIO Chain. All transactions in the steps below are submitted using /push_transaction API method.
 
 ## Step 1: Change owner permissions of account

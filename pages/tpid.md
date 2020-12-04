@@ -1,12 +1,9 @@
 ---
-id: tpid
 title: Technology Provider ID
 sidebar_label: Technology Provider ID
 layout: sidenav
 sidebar: sidebars
 ---
-
-## Overview
 
 To increase the adoption of the FIO Protocol among existing blockchain ecosystem participants, every interaction with the FIO blockchain can be tagged with an optional Technology Provider ID (tpid), which is a valid FIO Address. When submitted, this Address will receive a portion of fees collected from the transactions with that TPID. TPIDs will not get paid when a transaction is processed as a bundled transaction and no fee was charged.
 

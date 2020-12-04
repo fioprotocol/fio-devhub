@@ -27,12 +27,12 @@ folders:
       url: /pages/using-the-api/
 #    - title: Quick start guide
 #      url: /pages/quick-start/
-    - title: FIO Token Support
-      url: /pages/fio-token-support/
-    - title: Registering Addresses & Domains
-      url: /pages/registration/
     - title: Send to FIO Address
       url: /pages/fio-send/
+    - title: Registering Addresses & Domains
+      url: /pages/registration/
+    - title: FIO Token Support
+      url: /pages/fio-token-support/
     - title: Receive to FIO Address
       url: /pages/fio-send/
     - title: Mapping Public Addresses
@@ -52,14 +52,14 @@ folders:
       subfolders:
         - title: Wallets
           subfolderitems:
-          - title: Wallet integration guide
-            url: /pages/wallet-guide/
-#          - title: Sample wallet UX
-#            url: /pages/sample/
+#          - title: Wallet integration guide
+#            url: /pages/wallet-guide/
+          - title: Wallet integration examples
+            url: /pages/wallet-examples/
         - title: Exchanges
           subfolderitems:
-          - title: Exchange integration guide
-            url: /pages/exchange-guide/
+#          - title: Exchange integration guide
+#            url: /pages/exchange-guide/
           - title: Token deposits
             url: /pages/exchange-token-deposit/
           - title: Token withdrawals

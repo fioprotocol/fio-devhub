@@ -10,21 +10,19 @@ Token holders are encouraged to vote for a proxy or directly vote for block prod
 
 ## Voting using clio
 
-### API node url
-
  Examples below require a url to an API endpoint. For Mainnet, you can find the list of current API nodes here: [https://github.com/fioprotocol/fio.mainnet](https://github.com/fioprotocol/fio.mainnet)
 
-### Download Clio
+### 1) Download Clio
 
-Download clio executable for MAC with latest OS installed.
+[Download clio executable](https://github.com/fioprotocol/fio.ready) for MAC with latest OS installed.
 
 You will have to grant an exception for a blocked app by clicking the Open Anyway button in the General pane of Security & Privacy preferences. This button is available for about an hour after you try to open the app.
 
 To open this pane on your Mac, choose Apple menu > System Preferences, click Security & Privacy, then click General.
 
-### Derive private key from seed phrase
+### 2) Derive private key from seed phrase
 
-**If you alreday have a private key, skip this step**
+*If you already have a private key, skip this step*
 
 If you only have seed phrases you will need to derive your private key from the seed phrases.
 
@@ -32,15 +30,15 @@ Please make sure you do this on a secure computer, ideally not connected to the 
 
 **bip39 tool**
 
-The easiest way to do this is to download the latest bip39 standalone tool.
+The easiest way to derive your public key from a seed phrase is to [download the latest bip39 standalone tool](https://github.com/iancoleman/bip39/releases).
 
 * Enter BIP39 Mnemonic
 * Select FIO Coin
 * See Derived Addresses
 
-### Typescript SDK
+**Typescript SDK**
 
-You can also use Typescript SDK.
+You can also use [Typescript SDK](/pages/sdk-js-using/) to derive your public key from a seed phrase.
 
 Once you install Typescript SDK run
 
@@ -75,7 +73,7 @@ Where index.js is:
 
 ```
 
-### Create wallet
+### 3) Create wallet
 
 `./clio wallet create -n nameforyourwallet --to-console`
 
@@ -83,15 +81,15 @@ Make sure you save the automatically generated password. You will need it in the
 
 `./clio wallet unlock -n nameforyourwallet`
 
-### Import your private key
+### 4) Import your private key
 
 `./clio wallet import --private-key privatekeytoimport -n nameforyourwallet`
 
-### Display list of producers
+### 5) Display list of producers
 
 `./clio -u https://APINODEURL system listproducers`
 
-### Vote for producers
+### 6) Vote for producers
 
 `./clio -u https://APINODEURL system voteproducer prods voter@fio myactorname 600000000 bp1@producer bp2@producer`
 
@@ -207,7 +205,7 @@ If your transaction was successful you will receive a transaction ID and confirm
 
 ## Voting using Typescript SDK + air gapped signing
 
-Download and install fioprotocol.localsign repo. It contains instrcutions on how to configure the script to:
+Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol/fio.localsign). It contains instructions on how to configure the script to:
 
 * Build the voting transaction
 * Sign the transaction on an air gapped computer
@@ -217,7 +215,7 @@ Download and install fioprotocol.localsign repo. It contains instrcutions on how
 
 ### Download Anchor Wallet
 
-Download the latest release of the Anchor Wallet. Please note that as of 18-MAR-2020, Anchor Wallet is in a Pre-release.
+Download the [latest release of the Anchor Wallet](https://greymass.com/en/anchor/).
 
 ### Enable FIO Blockchain
 

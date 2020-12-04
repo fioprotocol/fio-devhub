@@ -76,7 +76,7 @@ paths:
           examples:
             application/json:
               message: Public address not found
-      summary: FIO Address lookup
+      summary: /get_pub_address
       description: Returns a public address for specified token code and FIO Address.
       parameters:
         - in: body
