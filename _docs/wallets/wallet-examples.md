@@ -1,9 +1,9 @@
 ---
 title: Wallet examples
-sidebar_label: Wallet examples
-layout: sidenav
-sidebar: sidebars
+description: Wallet examples
 ---
+
+# Wallet examples
 
 Every wallet has approached FIO integration in a unique way. We encourage you to explore the current FIO-integrated wallets for inspiration on your integration!
 

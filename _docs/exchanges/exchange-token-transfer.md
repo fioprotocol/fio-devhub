@@ -1,9 +1,9 @@
 ---
 title: Token transfers
-sidebar_label: Token transfers
-layout: sidenav
-sidebar: sidebars
+description: Token transfers
 ---
+
+# Token transfers
 
 ## FIO token transfer transactions
 

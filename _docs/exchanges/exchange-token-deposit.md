@@ -1,9 +1,9 @@
 ---
 title: Token deposits
-sidebar_label: Token deposits
-layout: sidenav
-sidebar: sidebars
+description: Token deposits
 ---
+
+# Token deposits
 
 ## Using a FIO Public Key
 
@@ -39,14 +39,12 @@ It is important to note that /get_block will not return trnsfiopubky transaction
 
 In order to properly recognize transfers made using Multisig you should monitor /get_block for executed transaction status:
 ```
-
-   "transactions": [   {
-         "status": "executed",
-         "cpu_usage_us": 7929,
-         "net_usage_words": 0,
-         "trx": "fa206c2e47af50873dfe08a03802918113c1832e3f42b26e1b20ad77b66ccf20"
-      }]
-
+"transactions": [   {
+      "status": "executed",
+      "cpu_usage_us": 7929,
+      "net_usage_words": 0,
+      "trx": "fa206c2e47af50873dfe08a03802918113c1832e3f42b26e1b20ad77b66ccf20"
+}]
 ```
 
 and then fetch inline traces using /v1/history/get_transaction and returned trx. This requires History node.

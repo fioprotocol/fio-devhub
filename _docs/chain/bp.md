@@ -36,7 +36,7 @@ This transaction volume would result in:
 * 950,000 FIO allocated to a Top 21 BP that has maintained a server for the entire 12 months.
 * 400,000 FIO allocated to Standby (22-42) BP that has maintained a server for the entire 12 months.
 
-![Image](/assets/img/integration/node-specs.png)
+![Image](assets/img/integration/node-specs.png)
 
 All projected numbers are rough approximations and do not account for post-Mainnet RAM optimization improvements that are currently on the development roadmap. These will reduce or eliminate the amount of RAM required by some Transactions.
 

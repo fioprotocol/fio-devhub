@@ -1,11 +1,11 @@
 ---
 title: Validating a FIO Public Key
-sidebar_label: Validating a FIO Public Key
-layout: sidenav
-sidebar: sidebars
+description: Validating a FIO Public Key
 
 sampletext: An FIO private key is WIF encoded, but with a small caveat. So to get the raw private key from an EOS private key, simply Base58 decode the key. Once decoded, you will find a prefix byte on the front (0x80) which is the same as Bitcoin. The last 4 bytes of this decoded data is a checksum which is made up of a SHA256(SHA256(decoded data minus the last 4 bytes)). So to get the raw private key, Base58 decode, trim the first byte and the last 4 bytes and you should be left with a 32 byte raw private key.
 ---
+
+# Validating a FIO Public Key
 
 Integrators will need to validate the FIO Public Keys used for sending and receiving FIO and interacting with the FIO blockchain. 
 

@@ -1,9 +1,9 @@
 ---
 title: Token withdrawals
-sidebar_label: Token withdrawals
-layout: sidenav
-sidebar: sidebars
+description: Token withdrawals
 ---
+
+# Token withdrawals
 
 ## Using a FIO Public Key
 

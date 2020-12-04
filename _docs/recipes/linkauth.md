@@ -1,9 +1,9 @@
 ---
 title: Adding permissions with linkauth
-sidebar_label: Adding permissions with linkauth
-layout: sidenav
-sidebar: sidebars
+description: Adding permissions with linkauth
 ---
+
+# Adding permissions with linkauth
 
 ## Overview
 

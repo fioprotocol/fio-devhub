@@ -9,6 +9,8 @@ snippet1: /push_transaction
 
 ---
 
+# Using the FIO API
+
 There are several ways to interact with the FIO Chain. You may directly call the FIO API, you may integrate one of the FIO SDKs which handles interfacing to the API, or you may interact through a third-party application. 
 
 ## Using the SDK

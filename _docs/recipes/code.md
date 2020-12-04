@@ -3,7 +3,7 @@ title: Code
 description: How to add interactive quizzes to your site.
 ---
 
-## Access
+# Code
 
 All of FIO Protocol code is open source:
 

@@ -1,9 +1,9 @@
 ---
 title: Token supply
-sidebar_label: Token supply
-layout: sidenav
-sidebar: sidebars
+description: Token supply
 ---
+
+# Token supply
 
 ## Obtaining token supply in real-time
 
