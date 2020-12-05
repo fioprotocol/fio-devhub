@@ -1,9 +1,3 @@
-# OS or Editor folders
-.DS_Store
-node_modules
-
-# Jekyllg
+vendor
 _site
-.sass-cache
-.jekyll-metadata
-.jekyll-cache
+Gemfile.lock

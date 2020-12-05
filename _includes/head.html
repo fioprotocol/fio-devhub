@@ -1,43 +1,41 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% seo %}
-  <meta property="og:image" content="{% if site.logo contains 'http' %}{{ site.logo }}{% else %}{{ site.logo | absolute_url }}{% endif %}"/>
-  <link rel="stylesheet" href="{{ '/assets/css/devhub.css' | relative_url }}">
-  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.55.6" />
 
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
-<!--stylesheets / link tags loaded here-->
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/index.xml">
 
-<link rel="stylesheet" type="text/css" href="{{ '/assets/css/font-awesome.min.css' | relative_url }}">
+<link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-96x196.png" sizes="96x196">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/favicons/android-192x192.png"sizes="192x192">
 
-<link rel="stylesheet" href="{{ '/assets/css/sidebar.css' | relative_url }}">
-<!--<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />-->
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}" />
+<meta property="og:site_name" content="{{ site.url }}" />
 
-<link rel="stylesheet" href="{{ '/assets/css/customstyles.css' | relative_url }}">
+<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta itemprop="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/navgoco.jquery.min.js' | relative_url }}"></script>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"/>
 
-
-<!--
-  
-
-<link rel="stylesheet" id="cookie-notice-front-css" href="{{ '/assets/css/front.css' | relative_url }}" type="text/css" media="all">
-
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js"></script>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link rel="stylesheet" href="/assets/css/{{site.highlighting_css}}.css" />
-<link rel="stylesheet" href="/assets/css/{{site.navbar_style}}.css" />
-  
--->
-
-
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/palette.css">
+<script
+  src="{{ site.baseurl }}/assets/js/jquery-3.3.1/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 </head>

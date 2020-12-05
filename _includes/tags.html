@@ -1,18 +1,2 @@
-{% if page.tags[0] %}
-
-<div class="tags">
-<div class="tags_title">{{site.uistring.tags_title}}</div>
-{% for tag in page.tags %}
-{% assign doctags = site.data[page.tag_group] %}
-{% for folder in doctags.folders %}
-{% for folderitem in folder.folderitems %}
-{% if folderitem.tag_name == tag %}
-<span class="tag-button">
-<a href="{{ "tag-" | append: tag | append: ".html" }}"><span class="label label-default">{{folderitem.title}}</span></a>
-</span>
-{% endif %}
-{% endfor %}
-{% endfor %}
-{% endfor %}
-</div>
-{% endif %}
+{% if page.tags %}<script>
+$('h1').first().append('<div>{% for tag in page.tags %}<span style="font-size:12px" class="badge badge-{{ site.tag_color }}"><a style="cursor:pointer; color:white" href="{% if site.tag_search_endpoint %}{{ site.tag_search_endpoint }}{{ tag }}{% else %}{{ site.url }}{{ site.baseurl }}/tags#{{ tag }} {% endif %}">{{ tag }}</a></span>{% endfor %}</div>')</script>{% endif %}

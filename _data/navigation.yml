@@ -1,0 +1,41 @@
+- title: Documentation
+  url: docs
+- title: APIs
+  dropdown:
+    - title: FIO Protocol API
+      url: /pages/api/fio-api/
+      blank: false
+    - title: Registration API
+      url: /pages/api/fio-reg-api/
+      blank: false
+- title: FIO
+  dropdown:
+    - title: FIO Website
+      url: https://fioprotocol.io/
+      blank: true
+    - title: Knowledge Base
+      url: https://kb.fioprotocol.io/
+      blank: true
+    - title: Block Explorer
+      url: https://fio.bloks.io/
+      blank: true
+    - title: Github
+      url: https://github.com/fioprotocol
+      blank: true
+    - title: FIPs
+      url: https://github.com/fioprotocol/fips
+      blank: true
+    - title: Blog
+      url: https://medium.com/fio-blog
+      blank: true
+- title: Support
+  dropdown:
+  - title: Help Center
+    url: https://fioprotocol.atlassian.net/servicedesk/customer/portals
+    blank: true
+  - title: Discord
+    url: https://discord.gg/CNHzMm2neF
+    blank: true
+  - title: Telegram
+    url: https://t.me/fiointegration
+    blank: true
