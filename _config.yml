@@ -28,7 +28,7 @@ url: "https://fioprotocol.github.io/fio-devhub/" # the base hostname & protocol 
 
 # Social (First three Required)
 repo: "https://github.com/fioprotocol/fio-devhub"
-github_user: "fioprotocol"
+github_user: "fio-devhub"
 github_repo: "fioprotocol"
 
 # Optional
