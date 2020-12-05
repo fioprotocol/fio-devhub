@@ -1,8 +1,6 @@
 ---
 title: FIO Chain Overview
-sidebar_label: FIO Chain Overview
-layout: sidenav
-sidebar: sidebars
+description: FIO Chain Overview
 ---
 
-TBD
+# TBD
