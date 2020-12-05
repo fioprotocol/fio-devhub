@@ -21,10 +21,10 @@ description: > # this means to ignore newlines until "baseurl:"
   Documentation for developers integrating FIO protocol.
 
 # DO NOT CHANGE THE LINE OF THIS FILE without editing .circleci/circle_urls.sh
-baseurl: "/fioprotocol" # the subpath of your site, e.g. /blog
+baseurl: "/fio-devhub" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
-url: "https://vsoch.github.io" # the base hostname & protocol for your site
+url: "https://fioprotocol.github.io/fio-devhub/" # the base hostname & protocol for your site
 
 # Social (First three Required)
 repo: "https://github.com/fioprotocol/fio-devhub"
