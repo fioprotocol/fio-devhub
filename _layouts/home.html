@@ -1,0 +1,44 @@
+---
+layout: general
+---
+
+<section class="section section__bg-image2">
+  <div class="container">
+    <header class="section__head">
+        <h1 class="section__title">{{page.join.heading}}</h1><!-- /.section__title -->
+        <p>{{page.join.description}}</p>
+    </header><!-- /.section__head -->
+
+    {% for category in site.data.home %}
+    <div class="section__body">
+      <div class="section__body-inner row no-gutters">
+          <div class="section__body-aside col-12 col-md-12">
+              <span class="angled-bg angled-bg--md bg--blue">
+                  <span>{{category.category}}</span>
+              </span>
+              <div class="boxes row no-gutters">
+                {% for item in category.items %}
+                {% assign status = 'box__inner--three' %}
+                  <div class="box col-12 col-md-4">
+                      <a href="{{item.url | relative_url }}" class="box__inner {{status}}">
+                        <div class="box__content">
+                          <h4>{{item.heading}}</h4>
+                          <p>
+                          </p>
+                          <p><em>
+                            {{item.text}}
+                          </em></p> 
+                          <div class="btn btn-default btn--blue">
+                            {{item.button}}
+                          </div>                                 
+                        </div><!-- /.box__content -->
+                      </a><!-- /.box__inner -->
+                  </div><!-- /.box -->
+                {% endfor %}
+              </div><!-- /.boxes -->
+          </div><!-- /.section__body-aside col-12 col-md-12 -->
+      </div><!-- /.section__body-inner row no-gutters -->
+    </div><!-- /.section__body -->
+  {% endfor %}
+  </div><!-- /.container -->
+</section><!-- /.section -->
