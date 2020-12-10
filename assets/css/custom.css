@@ -1,0 +1,18 @@
+.navbar-nav {
+    font-size: 1rem;
+}
+.subnavbar-nav {
+    background-color: #30638e;
+    padding-top: 10px;
+    min-width: 200px;
+    border: none;
+    box-shadow: none;
+    font-size: 0.8rem;
+}
+.nav-item {
+    position: relative;
+}
+
+.navbar-nav .nav-item:hover .subnavbar-nav {
+    display: block;
+}
