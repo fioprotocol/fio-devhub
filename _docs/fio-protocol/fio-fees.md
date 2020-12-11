@@ -15,7 +15,7 @@ To accommodate this, fee amounts are set based on bids from block producers in t
 * Each of the 21 scheduled BPs submits their desired fee amount of FIO Tokens for each blockchain interaction and amount of bundled transactions to be included with every FIO Address.
 * Amounts submitted by active block producers are analyzed, and the fee is set at median of all submitted amounts.
 
-**Fee Types**
+#### Fee Types
 
 |End point |Bundled tx used|
 |---|---|
@@ -61,7 +61,7 @@ To accommodate this, fee amounts are set based on bids from block producers in t
 
 ### Current fees
 
-See [https://www.alohaeos.com/tools/fiofees​](https://www.alohaeos.com/tools/fiofees)
+See [https://www.alohaeos.com/tools/fiofees​](https://www.alohaeos.com/tools/fiofees){:target="_blank"}
 
 
 

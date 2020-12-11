@@ -6,14 +6,20 @@ permalink: /docs/
 
 # Documentation
 
-Welcome to the {{ site.title }} Documentation pages! Here you can quickly jump to a 
-particular page.
+Welcome to the {{ site.title }} Documentation pages!
 
-<div class="section-index">
-    <hr class="panel-line">
-    {% for post in site.docs  %}        
-    <div class="entry">
-    <h5><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h5>
-    <p>{{ post.description }}</p>
-    </div>{% endfor %}
-</div>
+## Table of Contents
+
+ <div class="section-index">
+    {% for section in site.data.toc %}
+        {% if section.links %}
+            {% for entry in section.links %}
+                <div class="entry">
+                    <li class="td-sidebar-nav__section-title">
+                        <h5><a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ entry.title }}</a></h5>
+                    </li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+ </div>
