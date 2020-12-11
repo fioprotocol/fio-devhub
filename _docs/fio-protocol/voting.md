@@ -7,11 +7,11 @@ Token holders are encouraged to vote for a proxy or directly vote for block prod
 
 ## Voting using clio
 
- Examples below require a url to an API endpoint. For Mainnet, you can find the list of current API nodes here: [https://github.com/fioprotocol/fio.mainnet](https://github.com/fioprotocol/fio.mainnet)
+ Examples below require a url to an API endpoint. For Mainnet, you can find the list of current API nodes here: [https://github.com/fioprotocol/fio.mainnet](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
 
 ### 1) Download Clio
 
-[Download clio executable](https://github.com/fioprotocol/fio.ready) for MAC with latest OS installed.
+[Download clio executable](https://github.com/fioprotocol/fio.ready){:target="_blank"} for MAC with latest OS installed.
 
 You will have to grant an exception for a blocked app by clicking the Open Anyway button in the General pane of Security & Privacy preferences. This button is available for about an hour after you try to open the app.
 
@@ -27,7 +27,7 @@ Please make sure you do this on a secure computer, ideally not connected to the 
 
 **bip39 tool**
 
-The easiest way to derive your public key from a seed phrase is to [download the latest bip39 standalone tool](https://github.com/iancoleman/bip39/releases).
+The easiest way to derive your public key from a seed phrase is to [download the latest bip39 standalone tool](https://github.com/iancoleman/bip39/releases){:target="_blank"}.
 
 * Enter BIP39 Mnemonic
 * Select FIO Coin
@@ -35,7 +35,7 @@ The easiest way to derive your public key from a seed phrase is to [download the
 
 **Typescript SDK**
 
-You can also use [Typescript SDK](/pages/sdk-js-using/) to derive your public key from a seed phrase.
+You can also use [Typescript SDK]({{ site.baseurl }}/docs/typescript/sdk-js-using/) to derive your public key from a seed phrase.
 
 Once you install Typescript SDK run
 
@@ -44,30 +44,28 @@ Once you install Typescript SDK run
 Where index.js is:
 
 ```
+const fio = require('@fioprotocol/fiosdk');
+const mnemonic = 'valley alien library bread worry brother bundle hammer loyal barely dune brave'
 
-  const fio = require('@fioprotocol/fiosdk');
-  const mnemonic = 'valley alien library bread worry brother bundle hammer loyal barely dune brave'
+async function genKeysFromMnemonic () {
 
-  async function genKeysFromMnemonic () {
+  console.log("")
+  console.log("From This Mnemonic:")
+  console.log(mnemonic)
+  console.log("")
 
-    console.log("")
-    console.log("From This Mnemonic:")
-    console.log(mnemonic)
-    console.log("")
+  const privateKeyRes = await fio.FIOSDK.createPrivateKeyMnemonic(mnemonic)
+  console.log("private key generated:")
+  console.log((privateKeyRes.fioKey))
+  console.log("")
 
-    const privateKeyRes = await fio.FIOSDK.createPrivateKeyMnemonic(mnemonic)
-    console.log("private key generated:")
-    console.log((privateKeyRes.fioKey))
-    console.log("")
+  const publicKeyRes = fio.FIOSDK.derivedPublicKey(privateKeyRes.fioKey)
+  console.log("public key generated")
+  console.log((publicKeyRes.publicKey))
+  console.log("")
+}
 
-    const publicKeyRes = fio.FIOSDK.derivedPublicKey(privateKeyRes.fioKey)
-    console.log("public key generated")
-    console.log((publicKeyRes.publicKey))
-    console.log("")
-  }
-
-  genKeysFromMnemonic()
-
+genKeysFromMnemonic()
 ```
 
 ### 3) Create wallet
@@ -115,31 +113,29 @@ Copy the returned transaction and transfer it to the air gapped computer.
 
 Sign the transaction
 ```
-
-  ./clio sign '{
-    "expiration": "2020-03-24T19:56:06",
-    "ref_block_num": 47854,
-    "ref_block_prefix": 2830093167,
-    "max_net_usage_words": 0,
-    "max_cpu_usage_ms": 0,
-    "delay_sec": 0,
-    "context_free_actions": [],
-    "actions": [{
-        "account": "eosio",
-        "name": "voteproducer",
-        "authorization": [{
-            "actor": "gr1aogzftpll",
-            "permission": "active"
-          }
-        ],
-        "data": "010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c32300000000"
-      }
-    ],
-    "transaction_extensions": [],
-    "signatures": [],
-    "context_free_data": []
-  }'  -k YOURPRIVATEKEY -c CHAINID
-
+./clio sign '{
+  "expiration": "2020-03-24T19:56:06",
+  "ref_block_num": 47854,
+  "ref_block_prefix": 2830093167,
+  "max_net_usage_words": 0,
+  "max_cpu_usage_ms": 0,
+  "delay_sec": 0,
+  "context_free_actions": [],
+  "actions": [{
+      "account": "eosio",
+      "name": "voteproducer",
+      "authorization": [{
+          "actor": "gr1aogzftpll",
+          "permission": "active"
+        }
+      ],
+      "data": "010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c32300000000"
+    }
+  ],
+  "transaction_extensions": [],
+  "signatures": [],
+  "context_free_data": []
+}'  -k YOURPRIVATEKEY -c CHAINID
 ```
 
 Where:
@@ -154,55 +150,51 @@ Copy the returned transaction and transfer it to the computer connected to the i
 Pack the transaction
 
 ```
-
-  ./clio -u https://APINODEURL convert pack_transaction '{
-    "expiration": "2020-03-24T19:56:06",
-    "ref_block_num": 47854,
-    "ref_block_prefix": 2830093167,
-    "max_net_usage_words": 0,
-    "max_cpu_usage_ms": 0,
-    "delay_sec": 0,
-    "context_free_actions": [],
-    "actions": [{
-        "account": "eosio",
-        "name": "voteproducer",
-        "authorization": [{
-            "actor": "gr1aogzftpll",
-            "permission": "active"
-          }
-        ],
-        "data": "010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c32300000000"
-      }
-    ],
-    "transaction_extensions": [],
-    "signatures": [
-      "SIG_K1_JxxUhhDRVw7eXHqYcd9TEBaDEjMo3bBs669tUbt2Fpu74neTJZGsTxva1dpWZukhn8VBQiHHYfhdwhJYdoaBLsYwa7McWV"
-    ],
-    "context_free_data": []
-  }'
-
+./clio -u https://APINODEURL convert pack_transaction '{
+  "expiration": "2020-03-24T19:56:06",
+  "ref_block_num": 47854,
+  "ref_block_prefix": 2830093167,
+  "max_net_usage_words": 0,
+  "max_cpu_usage_ms": 0,
+  "delay_sec": 0,
+  "context_free_actions": [],
+  "actions": [{
+      "account": "eosio",
+      "name": "voteproducer",
+      "authorization": [{
+          "actor": "gr1aogzftpll",
+          "permission": "active"
+        }
+      ],
+      "data": "010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c32300000000"
+    }
+  ],
+  "transaction_extensions": [],
+  "signatures": [
+    "SIG_K1_JxxUhhDRVw7eXHqYcd9TEBaDEjMo3bBs669tUbt2Fpu74neTJZGsTxva1dpWZukhn8VBQiHHYfhdwhJYdoaBLsYwa7McWV"
+  ],
+  "context_free_data": []
+}'
 ```
 
 Submit the transaction to the chain using curl.
 
 ```
-
-  curl -d '{
-    "signatures": [
-      "SIG_K1_JxxUhhDRVw7eXHqYcd9TEBaDEjMo3bBs669tUbt2Fpu74neTJZGsTxva1dpWZukhn8VBQiHHYfhdwhJYdoaBLsYwa7McWV"
-    ],
-    "compression": "none",
-    "packed_context_free_data": "",
-    "packed_trx": "d6657a5eeeba6fcbafa800000000010000000000ea30557015d289deaa32dd011063cdeb336ac26500000000a8ed323230010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c3230000000000"
-  }' https://APINODEURL/v1/chain/push_transaction
-
+curl -d '{
+  "signatures": [
+    "SIG_K1_JxxUhhDRVw7eXHqYcd9TEBaDEjMo3bBs669tUbt2Fpu74neTJZGsTxva1dpWZukhn8VBQiHHYfhdwhJYdoaBLsYwa7McWV"
+  ],
+  "compression": "none",
+  "packed_context_free_data": "",
+  "packed_trx": "d6657a5eeeba6fcbafa800000000010000000000ea30557015d289deaa32dd011063cdeb336ac26500000000a8ed323230010e6774674066696f746573746e65740f766f74654066696f746573746e65741063cdeb336ac2650046c3230000000000"
+}' https://APINODEURL/v1/chain/push_transaction
 ```
 
 If your transaction was successful you will receive a transaction ID and confirmation inside a Signed transaction response.
 
 ## Voting using Typescript SDK + air gapped signing
 
-Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol/fio.localsign). It contains instructions on how to configure the script to:
+Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol/fio.localsign){:target="_blank"}. It contains instructions on how to configure the script to:
 
 * Build the voting transaction
 * Sign the transaction on an air gapped computer
@@ -212,7 +204,7 @@ Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol
 
 ### Download Anchor Wallet
 
-Download the [latest release of the Anchor Wallet](https://greymass.com/en/anchor/).
+Download the [latest release of the Anchor Wallet](https://greymass.com/en/anchor/){:target="_blank"}.
 
 ### Enable FIO Blockchain
 

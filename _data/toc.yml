@@ -37,6 +37,8 @@
           url: "docs/integration-guide/fio-request"
     #    - title: Accessing FIO Nodes
     #      url: "docs/integration-guide/node-access"
+        - title: Generating Actor
+          url: "docs/integration-guide/generating-actor"
         - title: Encrypting Data
           url: "docs/integration-guide/encryption"
         - title: Demos
