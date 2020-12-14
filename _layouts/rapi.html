@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{% include head.html %}
+
+<body>
+<script type="module" src="{{ page.rapidoc-source | relative_url }}"></script>
+{% include header.html %}
+
+<rapi-doc
+        spec-url="{{ page.spec-url | relative_url }}"
+        render-style="read"
+        primary-color="#3176d9"
+        schema-description-expanded="true"
+>
+</rapi-doc>
+
+</body>
+
+</html>
