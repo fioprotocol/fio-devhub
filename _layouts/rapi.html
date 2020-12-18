@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{% include head.html %}
+
+<body>
+<script type="module" src="{{ page.rapidoc-source | relative_url }}"></script>
+{% include header.html %}
+
+<rapi-doc
+        id="spec"
+        spec-url="{{ page.spec-url | relative_url }}"
+        render-style="read"
+        primary-color="#3176d9"
+        schema-description-expanded="true"
+>
+</rapi-doc>
+
+<script>
+  // hide OPTIONS method name for Actions list
+  const specEl = document.getElementById("spec");
+  specEl.addEventListener('spec-loaded', () => {
+    const styles = document.createElement("style");
+    styles.innerHTML = '.method-fg.options{ display: none; }'
+    specEl.shadowRoot.appendChild(styles)
+  });
+</script>
+</body>
+
+</html>

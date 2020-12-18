@@ -1,8 +1,8 @@
 ---
-layout: api
+layout: rapi
 title: Address Registration API
 
 spec-url: /pages/api/fio-reg-api.yaml
-redoc-source: /assets/js/redoc.standalone.js
+rapidoc-source: /assets/js/rapidoc-min.js
 
 ---
