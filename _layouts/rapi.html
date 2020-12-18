@@ -13,6 +13,7 @@
         render-style="read"
         primary-color="#3176d9"
         schema-description-expanded="true"
+        sort-endpoints-by="method"
 >
 </rapi-doc>
 
@@ -23,6 +24,26 @@
     const styles = document.createElement("style");
     styles.innerHTML = '.method-fg.options{ display: none; }'
     specEl.shadowRoot.appendChild(styles)
+    hideTryForActions();
+
+    function hideTryForActions() {
+      try {
+        const specNodes = specEl.shadowRoot.getRootNode().childNodes
+        const apiRequestNodes = specNodes[11].getElementsByTagName('api-request')
+        if (apiRequestNodes.length === 0) {
+          return setTimeout(hideTryForActions, 5000)
+        }
+        for (const apiRequestNode of apiRequestNodes) {
+          if (apiRequestNode.attributes['method'].value === 'options') {
+            const styles = document.createElement("style");
+            styles.innerHTML = '.m-btn.primary{ display: none; }'
+            apiRequestNode.shadowRoot.childNodes[2].appendChild(styles)
+          }
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
   });
 </script>
 </body>
