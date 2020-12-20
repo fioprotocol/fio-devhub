@@ -2,7 +2,7 @@
 title: Overview
 description: Overview
 ---
-# Overview
+# Integration Overview
 
 It is up to the integrating wallet to decide which features of the FIO Protocol they want to implement and how. The following are common functionality groups.
 

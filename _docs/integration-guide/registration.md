@@ -66,7 +66,7 @@ Before you can get started with option 1 or 2, a profile for your wallet has to 
 
 ## Example
 
-![Image](/assets/img/integration/reg-example.png)
+![Image]({{ site.baseurl }}/assets/img/integration/reg-example.png)
 
 ## FIO Domain Registration
 

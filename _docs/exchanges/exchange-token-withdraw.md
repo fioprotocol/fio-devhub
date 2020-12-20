@@ -5,10 +5,6 @@ description: Token withdrawals
 
 # Token withdrawals
 
-## Using a FIO Public Key
-
-With this option, the user’s withdrawal area on the exchange would ask for a FIO Public Key and the amount of withdrawals. The transfer would be executed using /transfer_tokens_pub_key and metadata recorded using /record_obt_data.
-
 ## Using a FIO Address
 
 With this option, the user’s withdrawal area on the exchange would ask for a FIO Address and the amount of withdrawals of any token. Once FIO Address is entered, the corresponding public address for that chain is looked-up using /get_pub_address and the transfer is executed on the native chain.
