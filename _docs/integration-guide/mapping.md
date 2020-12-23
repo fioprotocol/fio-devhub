@@ -7,7 +7,7 @@ description: Mapping Public Addresses
 
 ## Overview
 
-One of the key utilities of the FIO Protocol is the ability to send crypto using a FIO Address, instead of complicated Native Blockchain Public Address (NBPA) such as 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B on Ethereum.
+One of the key utilities of the FIO Protocol is the ability to send crypto using a [FIO Address](https://kb.fioprotocol.io/fio-protocol/fio-addresses){:target="_blank"}, instead of complicated Native Blockchain Public Address (NBPA) such as 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B on Ethereum.
 
 A wallet can very easily look-up the NBPA using the /get_pub_address method.
 
@@ -17,22 +17,18 @@ However, before this can happen the wallet hosting the FIO Address must first ma
 
 To map NBPA to a FIO Address use the /add_pub_address method.
 
-You may pass up to 5 public addresses in a single call. The call is eligible for bundled transactions, so in most cases there will not be a fee to the user.
+You may pass up to 5 public addresses in a single call. The call is eligible for [bundled transactions](https://kb.fioprotocol.io/fio-protocol/fio-addresses/bundling-and-fees){:target="_blank"}, so in most cases there will not be a fee to the user.
 
 Each NBPA is identified with:
 
 * *chain_code* identifies the blockchain, such as Bitcoin (BTC), or Ethereum (ETH).
-* *token_code* identifies the token on that blockchain, for example USDC represents ERC20 token on Ethereum.
+* *token_code* identifies the token on that blockchain, for example USDC represents [ERC20 token on Ethereum](https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48){:target="_blank"}.
 
 For blockchains that only have one token use the same value for blockchain and token, e.g. for Bitcoin use chaincode: BTC, tokencode: BTC.
 
-FIO maintains a list of chain and token codes that are being used by other FIO Protocol integrators. It is recommended that you follow this standard any time you submit a transaction on the FIO Protocol. If you are using different codes please map them to those published.
+FIO [maintains a list of chain and token codes](https://github.com/fioprotocol/fips/blob/master/fip-0015.md){:target="_blank"} that are being used by other FIO Protocol integrators. It is recommended that you follow this standard any time you submit a transaction on the FIO Protocol. If you are using different codes please map them to those published.
 
 If you are using codes which are not yet part of the standard, please submit a pull request to the list to ensure other FIO Protocol integrators are using the same codes.
-
-### Sample UX
-
-See Connecting FIO Address to public keys
 
 ### Multi-level Addressing
 
@@ -53,11 +49,11 @@ Please refer to the proposed [Chain and Token Code Standard](https://github.com/
 
 #### URI Parameters
 
-FIO maintains a list of uri parameters that are being used by other FIO Protocol integrators. It is recommended that you follow this standard any time you submit a transaction on the FIO Protocol.
+FIO [maintains a list of uri parameters](https://github.com/fioprotocol/fips/blob/master/fip-0015.md){:target="_blank"} that are being used by other FIO Protocol integrators. It is recommended that you follow this standard any time you submit a transaction on the FIO Protocol.
 
 If you are using parameters which are not yet part of the standard, please submit a pull request to the list to ensure other FIO Protocol integrators are using the same parameters.
 
-See example of a FIO Address which has public addresses with parameters.
+[See example of a FIO Address which has public addresses with parameters](https://fio.bloks.io/address/multilevel@fiotest){:target="_blank"}.
 
 #### What should a wallet do?
 

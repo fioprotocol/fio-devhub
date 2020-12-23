@@ -41,7 +41,9 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
 
 ## Example: Transfer FIO tokens using a FIO Address
 
-**(The following example user Version 1.x of the Typescript SDK. Version 2.x introduced non-backward compatible changes and a different syntax for pushing transaction to the blockchain.)**
+{% include alert.html type="warning" title="Typescript SDK version compatability" 
+content = "The following example uses Version 1.x of the Typescript SDK. Version 2.x introduced non-backward compatible changes and a different syntax for pushing transaction to the blockchain."
+%}
 
 In this example we will use the SDK to transfer FIO from a payer (the user sending the funds) to a payee (the user receiving the funds) using the payee's FIO Address.
 

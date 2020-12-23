@@ -17,11 +17,13 @@ Because the encryption of the data requires the private key of the sender and de
 
 For those unfamiliar with Diffie-Hellman encryption, methods in fiojs SDK make this easy.
 
-### Validating content data
+{% include alert.html type="warning" title="Validating content data" 
 
-The FIO Chain does not see the unencrypted data, so no validation is performed on the data in the content field. It is up to the wallet to ensure the data received is properly formatted and handle any exceptions.
+content = "The FIO Chain does not see the unencrypted data, so no validation is performed on the data in the content field. It is up to the wallet to ensure the data received is properly formatted and handle any exceptions. <br> <br>
 
-As an example, it is recommended chain_code and token_code be converted to upper case to mitigate the risk that the sending entity used lower case.
+As an example, it is recommended chain_code and token_code be converted to upper case to mitigate the risk that the sending entity used lower case."
+
+%}
 
 ![Image]({{ site.baseurl }}/assets/img/integration/wallet-encryption.png)
 

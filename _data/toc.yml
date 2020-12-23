@@ -16,13 +16,13 @@
           url: "docs/fio-protocol/multisig"
         - title: Technology Provider ID
           url: "docs/fio-protocol/tpid"
+        - title: FIO Improvement Proposals
+          url: "docs/fio-protocol/fips"
     - title: "Integration Guide"
       url: "docs/integration-guide"
       children: 
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
-    #    - title: Quick start guide
-    #      url: "docs/integration-guide/quick-start"
         - title: Send to FIO Address
           url: "docs/integration-guide/fio-send"
         - title: Registering Addresses & Domains
@@ -30,13 +30,11 @@
         - title: FIO Token Support
           url: "docs/integration-guide/fio-token-support"
         - title: Receive to FIO Address
-          url: "docs/integration-guide/fio-send"
+          url: "docs/integration-guide/fio-receive"
         - title: Mapping Public Addresses
           url: "docs/integration-guide/mapping"
         - title: FIO Requests and Data
           url: "docs/integration-guide/fio-request"
-    #    - title: Accessing FIO Nodes
-    #      url: "docs/integration-guide/node-access"
         - title: Generating Actor
           url: "docs/integration-guide/generating-actor"
         - title: Encrypting Data
@@ -45,38 +43,36 @@
           url: "docs/integration-guide/demo"
         - title: Testing your integration
           url: "docs/integration-guide/guide-testing"
-        - title: Integration certification checklist
+        - title: Integration checklist
           url: "docs/integration-guide/guide-certification"
-    - title: Wallets
-      url: "docs/wallets"
+        - title: Sample UX
+          url: "docs/integration-guide/sample-ux"
+    - title: "Wallets"
+      url: "docs/wallets/wallet-examples"
       children:
-      - title: Wallet integration examples
-        url: "docs/wallets/wallet-examples"
-    - title: Exchanges
+        - title: Wallet integration examples
+          url: "docs/wallets/wallet-examples"
+    - title: "Exchanges"
       url: "docs/exchanges"
       children:
-      - title: Token deposits
-        url: "docs/exchanges/exchange-token-deposit"
-      - title: Token withdrawals
-        url: "docs/exchanges/exchange-token-withdraw"
-      - title: Token transfers
-        url: "docs/exchanges/exchange-token-transfer"
-      - title: Token supply
-        url: "docs/exchanges/exchange-token-supply"
-      - title: Transaction history
-        url: "docs/exchanges/txn-history"
+        - title: Token deposits
+          url: "docs/exchanges/exchange-token-deposit"
+        - title: Token withdrawals
+          url: "docs/exchanges/exchange-token-withdraw"
+        - title: Token transfers
+          url: "docs/exchanges/exchange-token-transfer"
+        - title: Token supply
+          url: "docs/exchanges/exchange-token-supply"
+        - title: Transaction history
+          url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
-      url: "docs/typescript"
+      url: "docs/typescript/sdk-js-using"
       children: 
-    #    - title: Overview
-    #      url: "pages/sdk-js-overview/
         - title: Using the Typescript SDK
           url: "docs/typescript/sdk-js-using"
     - title: "Recipes"
       url: "docs/recipes"
       children: 
-        - title: Code
-          url: "docs/recipes/code"
         - title: Generating actor from Pub Key
           url: "docs/recipes/actor-account"
         - title: Adding permissions with linkauth
@@ -86,8 +82,6 @@
     - title: "FIO Chain"
       url: "docs/chain"
       children: 
-    #    - title: FIO Chain Overview
-    #      url: "docs/chain/chain-overview"
         - title: FIO vs. EOSIO
           url: "docs/chain/eosio"
         - title: RAM, CPU, and NET limits
