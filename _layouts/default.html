@@ -20,33 +20,37 @@
               </ul></li>
               </ul></nav>
           </div>
-          <main class="col-12 col-md-9 col-xl-6-hlf pl-md-5" role="main">
+          <main class="col-12 col-md-9 col-xl-7-hlf pl-md-5" role="main">
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
-	      <ol class="breadcrumb spb-1">
-              {% assign crumbs = page.url | append: "/"  | replace: '//', '/' | split: '/' %}
-              {% for crumb in crumbs offset: 1 %}{% if crumb != "index" %}{% if forloop.last %}
-                <li class="breadcrumb-item active" aria-current="page">
-	          <a href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
-                </li>{% else %}
-                {% if page.url != "/docs/" %}<li class="breadcrumb-item">
-                  <a href="{{ site.url }}{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{% if crumb == "docs" %}Documentation{% else %}{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}{% endif %}</a>
-                </li>{% endif %}{% endif %}
-                {% endif %}{% endfor %}
-	      </ol>
-           </nav>
-           <div class="td-content">
-	      {{ content }}	
-              {% if section.links %}<div class="section-index">
-               <hr class="panel-line">{% for child in section.links %}
-                 <div class="entry">
-                    <h5>
-                        <a href="{% if child.url %}{{ site.baseurl }}{{ child.url }}{% else %}{{ child.external_url }}{% endif %}">{{ child.title }}</a>
-                    </h5>
-                    <p>{{ child.description }}</p>
-                 </div>{% endfor %}
-              </div>{% endif %}
+              <ol class="breadcrumb spb-1">
+                {% assign crumbs = page.url | append: "/"  | replace: '//', '/' | split: '/' %}
+                {% for crumb in crumbs offset: 1 %}{% if crumb != "index" %}{% if forloop.last %}
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <a href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
+                  </li>{% else %}
+                  {% if page.url != "/docs/" %}<li class="breadcrumb-item">
+                    <a href="{{ site.url }}{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{% if crumb == "docs" %}Documentation{% else %}{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}{% endif %}</a>
+                  </li>{% endif %}{% endif %}
+                  {% endif %}{% endfor %}
+              </ol>
+            </nav>
+            <div class="td-content">
+	            {{ content }}	
+              {% if section.links %}
+                <div class="section-index">
+                  <hr class="panel-line">
+                  {% for child in section.links %}
+                    <div class="entry">
+                      <h5>
+                          <a href="{% if child.url %}{{ site.baseurl }}{{ child.url }}{% else %}{{ child.external_url }}{% endif %}">{{ child.title }}</a>
+                      </h5>
+                      <p>{{ child.description }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
               {% include feedback.html %}
-           </div>
+            </div>
           </main>
         </div>
       </div>

@@ -32,7 +32,7 @@ The following lists the items that should be tested to confirm support for diffe
 
 -  User is able to connect their FIO Address to wallets
 -  User is able to disconnect their FIO Address from wallets
--  Disconnecting the main FIO wallet is disabled (see [FIP Public Key mapping]({{site.baseurl}}/docs/integration-guide/mapping))
+-  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/mapping))
 
 **Receive to FIO Address**
 

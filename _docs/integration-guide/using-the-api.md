@@ -45,4 +45,4 @@ The simplest method for accessing the FIO chain is by embedding one of the FIO S
 
 ### Mainnet History API
 
-See Github
+[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}

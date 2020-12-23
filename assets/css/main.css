@@ -814,6 +814,7 @@ pre code {
 .col-xl-6,
 .col-xl-6-hlf,
 .col-xl-7,
+.col-xl-7-hlf,
 .col-xl-8,
 .col-xl-9,
 .col-xl-10,
@@ -1867,6 +1868,13 @@ pre code {
         -ms-flex: 0 0 58.33333333%;
         flex: 0 0 58.33333333%;
         max-width: 58.33333333%
+    }
+    .col-xl-7-hlf {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 62.5%;
+        -ms-flex: 0 0 62.5%;
+        flex: 0 0 62.5%;
+        max-width: 62.5%
     }
     .col-xl-8 {
         -webkit-box-flex: 0;
@@ -18379,7 +18387,7 @@ html body .md-typeset .headerlink {
 }
 
 .td-content>h2:not(:first-child) {
-    margin-top: 3rem
+    margin-top: 1rem
 }
 
 .td-content>h2+h3 {

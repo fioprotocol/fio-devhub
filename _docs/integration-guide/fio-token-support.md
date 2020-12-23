@@ -23,7 +23,7 @@ Token balance can be obtained by passing FIO Public Key to /get_fio_balance API 
 
 ### Transaction history
 
-See History node
+See [History node]({{site.baseurl}}/docs/chain/node-history)
 
 ### TPID
 
@@ -31,4 +31,4 @@ Do not forget to include your TPID in the request to earn portion of fees paid.
 
 ### Additional Resources
 
-Account balances and history
+* [Account balances and history](https://gist.github.com/blockpane/a5a62539ceeae963ce3ed69a9dd53663){:target="_blank"}

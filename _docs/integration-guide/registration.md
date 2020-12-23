@@ -129,8 +129,4 @@ Every FIO Address comes with a set number of bundled transactions annually. The 
 
 In order to ensure a particular action is covered by the bundle, the wallet should execute /get_fee API method before submitting any signed transaction.
 
-### Sample UX
-
-See [https://kb.fioprotocol.io/user-guides/user-guides](https://kb.fioprotocol.io/user-guides/user-guides){:target="_blank"}
-
 

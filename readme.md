@@ -274,7 +274,7 @@ and primary.
 {%raw%}{% include alert.html type="info" title="Here is another!" %}{%endraw%}
 ```
 
-Just for fun, here are all the types:
+Here are all the types:
 
 {% include alert.html type="warning" content="This is a warning" %}
 {% include alert.html type="danger" content="This alerts danger!" %}

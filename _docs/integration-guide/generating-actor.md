@@ -15,7 +15,9 @@ You can use /get_actor API method to convert FIO Public Key to actor.
 
 Using [clio]({{ site.baseurl }}/docs/chain/clio) the following command will convert the FIO Public Key to actor:
 
-`clio convert fiokey_to_account FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg`
+```
+./clio convert fiokey_to_account FIO8VHb3sQ52KqjjLfGAyy31E6dAZv9Y8Mo4KsJTmyNEhXZGvG7Zg
+```
 
 ## Custom code
 
