@@ -6,47 +6,11 @@ tags:
 description: Getting started with FIO Devhup using Docsy Jekyll
 ---
 
-# old content:
-## Set up local dev environment
+This site was forked from [vsoch docsy-jekyll](https://github.com/vsoch/docsy-jekyll). Documentation can be found at <https://vsoch.github.io/docsy-jekyll/>.
 
-1. Install the prerequesites:
+# Getting Started with FIO Developers Hub 
 
-* Install [Jekyll](https://jekyllrb.com/docs/installation/)
-* Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* Install [Bundler](https://bundler.io/)
-
-2. Clone the repository:
-
-` $ git clone https://github.com/fioprotocol/fio-devhub --recursive `
-
-3. Navigate to your local site and run the Jekyll site locally:
-
-```
-$ cd fio-devhub
-$ bundle install
-$ bundle exec jekyll serve
-
-> Configuration file: /Users/octocat/my-site/_config.yml
->            Source: /Users/octocat/my-site
->       Destination: /Users/octocat/my-site/_site
-> Incremental build: disabled. Enable with --incremental
->      Generating...
->                    done in 0.309 seconds.
-> Auto-regeneration: enabled for '/Users/octocat/my-site'
-> Configuration file: /Users/octocat/my-site/_config.yml
->    Server address: http://127.0.0.1:4000/
->  Server running... press ctrl-c to stop.
-```
-
-4. To preview your site, in your web browser, navigate to `http://localhost:4000`
-
-Additional resources:
-
-* [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll)
-
-## Edit content
-
-Site layout:
+## Site layout:
 
 ```
 FIO-DEVHUB
@@ -57,31 +21,9 @@ FIO-DEVHUB
   |-- _posts (Not used. Possible future dev blog.)
   |-- assets (css, js, and images)
   |-- pages (The API and other markdown content pages)
-  ```
+```
 
-To update a page, edit the markdown file in the `pages` directory.
-
-If you want to add a new page to the `For Integrators` section:
-
-1. Create the .md file in the `pages` directory.
-2. Reference the correct `_layout` html file at the top of the new page.
-3. Include the new page in `_data/sidebars.yml` 
-
-If you are running the site preview, as described above, your changes will automatically appear in the preview.
-
-## Deploy site
-
-A push to the `master` branch will automatically update the website (it takes a few seconds to update).
-
-
-
-
-
-# Getting Started
-
-## Features
-
-### User Interaction
+## User Interaction
 
 
 On the right side of any Documentation page, you'll notice links to edit the page, or
@@ -90,7 +32,7 @@ suggest or request a change, you can do so immediately and link directly
 to the section of interest. The sections on the page also have permalinks so
 you can link directly to them.
 
-### Search
+## Search
 
 The entire site, including posts and documentation, is indexed and then available
 for search at the top or side of the page. Give it a try! The content is rendered
@@ -107,14 +49,14 @@ excluded_in_search: true
 The example above is for a javascript file in the assets folder that is used as a template,
 but should not be included in search.
 
-### Documentation
+## Documentation
 
 Documentation pages should be written in the `docs` folder of the repository,
 and you are allowed to use whatever level of nesting (subfolders) that 
 works for you! It's a Jekyll [collection](https://jekyllrb.com/docs/collections/), which means that you
 can add other content (images, scripts) and it will be included for linking to.
 
-#### Organization
+### Organization
 
 The url that will render is based on the path. For example, if we had the following structure:
 
@@ -130,7 +72,7 @@ The first page (akin to the one you are reading) would render at it's path,
 `/docs/getting-started/`.
 
 
-#### Linking
+### Linking
 
 From that page, we could provide the
 direct path in markdown to any subfolder to link to it, such as the second
@@ -162,13 +104,13 @@ template to do the same based on the path to create a link:
 ```
 The path should be relative to the docs folder.
 
-### Pages
+## Pages
 
 The `pages` folder uses the same page layout, but is not part of the docs collection.
 The two are provided to create a distinction between website pages (e.g., about,
 feed.xml) and documentation pages.  
 
-### Navigation
+## Navigation
 
 Whether you place your page under "pages" or "docs," for those pages that you want added to the navigation, 
 you should add them to `_data/toc.yml`. If you've defined a `permalink` in the
@@ -207,7 +149,7 @@ If you want to add an external url for a parent or child, do this:
     external_url: https://www.github.com/vsoch/mkdocs-jekyll
 ```
 
-### News Posts
+## News Posts (Future)
 
 It might be the case that your site or group has news items that would
 warrent sharing with the community, and should be available as a feed.
@@ -216,7 +158,7 @@ folder that will parse into the site [feed]({{ site.baseurl }}/feed.xml)
 The bottom of the page links the user to a post archive, where posts are organized
 according to the year.
 
-### Buttons
+## Buttons
 
 Buttons come in a nice array of colors. Here is the code for a basic example,
 and you'd want to vary the `.btn-<tag>` to get different classes.
@@ -232,7 +174,7 @@ and you'd want to vary the `.btn-<tag>` to get different classes.
 <button class="btn btn-danger">.btn-danger</button>
 <button class="btn btn-warning">.btn-warning</button>
 
-### Badges
+## Badges
 
 For news post items, it's nice to be able to tag it with something that indicates
 a status, such as "warning" or "alert." For this reason, you can add badges to
@@ -266,7 +208,7 @@ and primary.
 <span class="badge badge-secondary">secondary-badge</span>
 <span class="badge badge-primary">primary-badge</span>
 
-### Alerts
+## Alerts
 
 {% include alert.html type="info" title="What is an alert?" content="An alert is a box that can stand out to indicate important information. You can choose from levels success, warning, danger, info, and primary. This example is an info box, and the code for another might look like this:" %}
 
@@ -283,30 +225,19 @@ Here are all the types:
 {% include alert.html type="primary" content="This is a primary alert" %}
 {% include alert.html type="secondary" content="This is a secondary alert" %}
 
-### Quotes
+## Quotes
 
 You can include block quotes to emphasize text. 
 
 > Here is an example. Isn't this much more prominent to the user?
 
-## Development
+## Setting up your local dev environment
 
 Initially (on OS X), you will need to setup [Brew](http://brew.sh/) which is a package manager for OS X and [Git](https://git-scm.com/). To install Brew and Git, run the following commands:
 
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install git
-```
-
-If you are on Debian/Ubuntu, then you can easily install git with `apt-get`
-
-```bash
-apt-get update && apt-get install -y git
-```
-
 ### Install Jekyll
 
-You can also install Jekyll with brew.
+You can install Jekyll with brew.
 
 ```bash
 $ brew install ruby
@@ -315,7 +246,7 @@ $ gem install bundler
 $ bundle install
 ```
 
-On Ubuntu I do a different method:
+On Ubuntu, a different method may work better:
 
 ```bash
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -341,21 +272,27 @@ gem install jekyll-sass-converter
 rbenv rehash
 ```
 
-### Set up local dev environment
+### Clone repository
 
-1. Install the prerequesites:
-
-2. Clone the repository:
+Next, clone the fio-devhub repository:
 
 ` $ git clone https://github.com/fioprotocol/fio-devhub --recursive `
 
-3. Navigate to your local site and run the Jekyll site locally:
+All development should occur off of the **develop** branch.
+
+### Serve
+
+To review your fixes, navigate to your local github site and run the Jekyll site locally. Depending on how you installed jekyll:
+
+```bash
+$ jekyll serve
+ or
+$ bundle exec jekyll serve
+```
+
+This should serve the site and display the local site information.
 
 ```
-$ cd fio-devhub
-$ bundle install
-$ bundle exec jekyll serve
-
 > Configuration file: /Users/octocat/my-site/_config.yml
 >            Source: /Users/octocat/my-site
 >       Destination: /Users/octocat/my-site/_site
@@ -368,64 +305,9 @@ $ bundle exec jekyll serve
 >  Server running... press ctrl-c to stop.
 ```
 
-4. To preview your site, in your web browser, navigate to `http://localhost:4000`
+To preview your site, in your web browser, navigate to `http://127.0.0.1:4000/`
 
 Additional resources:
 
 * [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/testing-your-github-pages-site-locally-with-jekyll)
-
-
-### Serve
-
-Depending on how you installed jekyll:
-
-```bash
-jekyll serve
-# or
-bundle exec jekyll serve
-```
-
-## Customization
-
-#### config.yml
-
-To edit configuration values, customize the [_config.yml](_config.yml).
-Most are documented there, and please [open an issue](https://www.github.com/{{ site.github_user }}/{{ site.github_user }}/issues) if you have questions.
-
-#### Adding pages
-
-To add pages, write them into the [pages](pages) folder. 
-You define urls based on the `permalink` attribute in your pages,
-and then add them to the navigation by adding to the content of [_data/toc.yml](_data/toc.yml).
-
-#### Tags
-
-If you include tags on a page, by default they will link to the [tags page]({{ site.url }}{{ site.baseurl }}/tags) on the site. However, if you define a `tag_search_endpoint` url in your configuration file, by clicking
-the tag, the user will be taken to this page to search for it. As an example,
-we define the current search endpoint to be Ask Cyberinfrastructure, and
-page tags link to a search on it:
-
-```yaml
-tag_search_endpoint: https://ask.cyberinfrastructure.org/search?q=
-tag_color: danger # danger, success, warning, primary, secondary, info
-```
-
-Note that you can also choose a color! The tags appear at the top of the page,
-as they do on this page. The tags should be defined like this in the front end
-matter:
-
-```yaml
-tags: 
- - jekyll
- - github
-```
-
-They are appended to the first h1 block, so generally your pages should have a header.
-If you comment out this variable, then each of your tags will link to it's appropriate
-spot on the tags page linked above.
-
-```yaml
-#tag_search_endpoint: https://ask.cyberinfrastructure.org/search?q=
-tag_color: primary # danger, success, warning, primary, info, secondary
-```
 
