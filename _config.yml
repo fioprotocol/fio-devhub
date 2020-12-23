@@ -20,7 +20,7 @@ author: Eric Butz
 description: > # this means to ignore newlines until "baseurl:"
   Documentation for developers integrating FIO protocol.
 
-# DO NOT CHANGE THE LINE OF THIS FILE without editing .circleci/circle_urls.sh
+# Base url. Leave blank if you don't want the extra path.
 baseurl: "/fio-devhub" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing

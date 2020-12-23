@@ -17,9 +17,9 @@ There are several ways to interact with the FIO Chain. You may directly call the
 
 The simplest method for accessing the FIO chain is by embedding one of the FIO SDKs. Three SDKs are currently supported:
 
-* [React native / Typescript](https://github.com/fioprotocol/fiosdk_typescript)
-* [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin)
-* [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios)
+* [React native / Typescript](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"}
+* [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin){:target="_blank"}
+* [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios){:target="_blank"}
 
 ## API details
 

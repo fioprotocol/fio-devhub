@@ -7,7 +7,7 @@
     <div class="container-fluid td-outer">
       <div class="td-main">
         <div class="row flex-xl-nowrap">
-          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+          <div class="col-12 col-md-3 col-xl-2-hlf td-sidebar d-print-none">
           {% include sidebar.html %}
           </div>
           <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
@@ -20,7 +20,7 @@
               </ul></li>
               </ul></nav>
           </div>
-          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+          <main class="col-12 col-md-9 col-xl-6-hlf pl-md-5" role="main">
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	      <ol class="breadcrumb spb-1">
               {% assign crumbs = page.url | append: "/"  | replace: '//', '/' | split: '/' %}

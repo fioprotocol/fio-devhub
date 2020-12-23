@@ -23,7 +23,7 @@ The FIO Chain does not see the unencrypted data, so no validation is performed o
 
 As an example, it is recommended chain_code and token_code be converted to upper case to mitigate the risk that the sending entity used lower case.
 
-![Image](/assets/img/integration/wallet-encryption.png)
+![Image]({{ site.baseurl }}/assets/img/integration/wallet-encryption.png)
 
 ## Size limitations on encrypted data
 

@@ -48,11 +48,11 @@ The easiest integration option is to simply link off to the registration site an
 
 If you prefer to have full control over the payment process, you can simply obtain the crypto currency payment address and amount in different currencies and build payment screens inside the wallet. Once the payment is received, the FIO Domain/Address is automatically registered.
 
-See the [Registration API](/pages/api/fio-reg-api/) for more details
+See the [Registration API]({{ site.baseurl }}/pages/api/fio-reg-api/) for more details
 
 ## Running an instance of the registration site
 
-See the [Github registration repository](https://github.com/fioprotocol/fio-registrations)
+See the [Github registration repository](https://github.com/fioprotocol/fio-registrations){:target="_blank"}
 
 ## Getting set-up
 
@@ -66,7 +66,7 @@ Before you can get started with option 1 or 2, a profile for your wallet has to 
 
 ## Example
 
-![Image](/assets/img/integration/reg-example.png)
+![Image]({{ site.baseurl }}/assets/img/integration/reg-example.png)
 
 ## FIO Domain Registration
 
@@ -131,6 +131,6 @@ In order to ensure a particular action is covered by the bundle, the wallet shou
 
 ### Sample UX
 
-See In-wallet FIO Address registration
+See [https://kb.fioprotocol.io/user-guides/user-guides](https://kb.fioprotocol.io/user-guides/user-guides){:target="_blank"}
 
 
