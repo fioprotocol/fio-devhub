@@ -49,7 +49,7 @@ There is not a clear standard on how to properly communicate these additional pr
 * **Integrated Address** - an integrated address may be passed in just like standard public address. The FIO protocol does not perform validation on the passed string.
 * **URI Scheme** - the FIO Protocol will support the formatting of public addresses using URI Schemes, where certain attributes are appended to the public address following a ‘?’ and delimited with ‘&’.
 
-Please refer to the proposed [Chain and Token Code Standard](https://github.com/fioprotocol/fips/blob/master/fip-0015.md) for the proposed standard way to code chain and token codes as well as multi-level addressing parameters in FIO Protocol.
+Please refer to the proposed [Chain and Token Code Standard](https://github.com/fioprotocol/fips/blob/master/fip-0015.md){:target="_blank"} for the proposed standard way to code chain and token codes as well as multi-level addressing parameters in FIO Protocol.
 
 #### URI Parameters
 
@@ -97,22 +97,18 @@ FIO Address can also be mapped to bank account information required to route fia
 
 For example to map FIO Address to a ACH bank account:
 ```
-
-	{
-		"chain_code": "FIAT",
-		"token_code": "ACH",
-		"public_address": "{'aba':'102000076','acc':'1234567890'}"
-	}
-	
+{
+	"chain_code": "FIAT",
+	"token_code": "ACH",
+	"public_address": "{'aba':'102000076','acc':'1234567890'}"
+}
 ```
 
 To map FIO Address to an IBAN bank account:
 ```
-
-	{
-		"chain_code": "FIAT",
-		"token_code": "IBAN",
-		"public_address": "{'iban':'DE89370400440532013000'}"
-	}
-
+{
+	"chain_code": "FIAT",
+	"token_code": "IBAN",
+	"public_address": "{'iban':'DE89370400440532013000'}"
+}
 ```

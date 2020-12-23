@@ -26,13 +26,13 @@ The following lists the items that should be tested to confirm support for diffe
 -  User is able to attach a FIO Memo when both the sending and receving user have FIO Addresses (optional)
 -  User selects an invalid FIO Address, results in error
 -  User selects valid FIO Address, but the Chain or Token Code has not been mapped for that FIO Address, results in error
--  Additional parameters returned from a FIO Address mapped to a [multi-level address](/pages/mapping/#multi-level-addressing) are handled as expected
+-  Additional parameters returned from a FIO Address mapped to a [multi-level address]({{site.baseurl}}/docs/integration-guide/mapping#multi-level-addressing) are handled as expected
 
 **Mapping blockchain public addresses**
 
 -  User is able to connect their FIO Address to wallets
 -  User is able to disconnect their FIO Address from wallets
--  Disconnecting the main FIO wallet is disabled (see [FIP Public Key mapping](/pages/mapping/#fio-public-key-mapping))
+-  Disconnecting the main FIO wallet is disabled (see [FIP Public Key mapping]({{site.baseurl}}/docs/integration-guide/mapping))
 
 **Receive to FIO Address**
 
