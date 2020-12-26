@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{% include head.html %}
+
+<body>
+<script type="module" src="{{ page.rapidoc-source | relative_url }}"></script>
+{% include header.html %}
+
+<rapi-doc
+        id="spec"
+        spec-url="{{ page.spec-url | relative_url }}"
+        render-style="read"
+        primary-color="#3176d9"
+        schema-description-expanded="true"
+        show-header="false"
+        sort-endpoints-by="method"
+>
+</rapi-doc>
+
+<script>
+  // hide OPTIONS method name for Actions list
+  const specEl = document.getElementById("spec");
+  specEl.addEventListener('spec-loaded', () => {
+    const styles = document.createElement("style");
+    styles.innerHTML = '.method-fg.options{ display: none; } .nav-bar input, .nav-bar button {min-height: 30px}'
+    specEl.shadowRoot.appendChild(styles)
+    hideTryForActions();
+
+    function hideTryForActions() {
+      try {
+        const specNodes = specEl.shadowRoot.getRootNode().childNodes
+        const apiRequestNodes = specNodes[11].getElementsByTagName('api-request')
+        if (apiRequestNodes.length === 0) {
+          return setTimeout(hideTryForActions, 5000)
+        }
+        for (const apiRequestNode of apiRequestNodes) {
+          if (apiRequestNode.attributes['method'].value === 'options') {
+            const styles = document.createElement("style");
+            styles.innerHTML = '.m-btn.primary{ display: none; }'
+            apiRequestNode.shadowRoot.childNodes[2].appendChild(styles)
+          }
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  });
+</script>
+</body>
+
+</html>

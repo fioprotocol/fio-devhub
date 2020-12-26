@@ -1,62 +1,108 @@
-(function() {
-  function displaySearchResults(results, store) {
-    var searchResults = document.getElementById('search-results');
+---
+layout: null
+excluded_in_search: true
+---
+(function () {
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1),
+			vars = query.split("&");
 
-    if (results.length) { // Are there any results?
-      var appendString = '';
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
 
-      for (var i = 0; i < results.length; i++) {  // Iterate over the results
-        var item = store[results[i].ref];
-        appendString += '<a href="' + item.url + '"><h4>' + item.title + '</h4></a>';
-        appendString += '<p>' + item.content.substring(0, 150) + '... <span class="productSubtitle">[' + item.product + ']</span></p>';
-      }
+			if (pair[0] === variable) {
+				return decodeURIComponent(pair[1].replace(/\+/g, '%20')).trim();
+			}
+		}
+	}
 
-      searchResults.innerHTML = appendString;
-    } else {
-      // this is a hack for the inability to submit different language strings here
-      searchResults.innerHTML = '<span style="color: red"><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i></span>';
-    }
-  }
+	function getPreview(query, content, previewLength) {
+		previewLength = previewLength || (content.length * 2);
 
-  function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
+		var parts = query.split(" "),
+			match = content.toLowerCase().indexOf(query.toLowerCase()),
+			matchLength = query.length,
+			preview;
 
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split('=');
+		// Find a relevant location in content
+		for (var i = 0; i < parts.length; i++) {
+			if (match >= 0) {
+				break;
+			}
 
-      if (pair[0] === variable) {
-        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
-      }
-    }
-  }
+			match = content.toLowerCase().indexOf(parts[i].toLowerCase());
+			matchLength = parts[i].length;
+		}
 
-  var searchTerm = getQueryVariable('query');
+		// Create preview
+		if (match >= 0) {
+			var start = match - (previewLength / 2),
+				end = start > 0 ? match + matchLength + (previewLength / 2) : previewLength;
 
-  if (searchTerm) {
-    document.getElementById('search-box').setAttribute("value", searchTerm);
+			preview = content.substring(start, end).trim();
 
-    // Initalize lunr with the fields it will be searching on. I've given title
-    // a boost of 10 to indicate matches on this field are more important.
-    var idx = lunr(function () {
-      this.field('id');
-      this.field('title', { boost: 10 });
-      this.field('product');
-      this.field('tags');
-      this.field('content');
-    });
+			if (start > 0) {
+				preview = "..." + preview;
+			}
 
-    for (var key in window.store) { // Add the data to lunr
-      idx.add({
-        'id': key,
-        'title': window.store[key].title,
-        'tags': window.store[key].tags,
-        'content': window.store[key].content,
-        'product': window.store[key].product
-      });
+			if (end < content.length) {
+				preview = preview + "...";
+			}
 
-      var results = idx.search(searchTerm); // Get lunr to perform a search
-      displaySearchResults(results, window.store); // We'll write this in the next section
-    }
-  }
+			// Highlight query parts
+			preview = preview.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<strong>$1</strong>");
+		} else {
+			// Use start of content if no match found
+			preview = content.substring(0, previewLength).trim() + (content.length > previewLength ? "..." : "");
+		}
+
+		return preview;
+	}
+
+	function displaySearchResults(results, query) {
+		var searchResultsEl = document.getElementById("search-results"),
+			searchProcessEl = document.getElementById("search-process");
+
+		if (results.length) {
+			var resultsHTML = "";
+			results.forEach(function (result) {
+
+  				var item = window.data[result.ref]
+                                if (item.title) {
+					contentPreview = getPreview(query, item.content, 170),
+					titlePreview = getPreview(query, item.title);
+					resultsHTML += "<li><h4><a href='{{ site.baseurl }}" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+				}
+			});
+
+			searchResultsEl.innerHTML = resultsHTML;
+			searchProcessEl.innerText = "Showing";
+		} else {
+			searchResultsEl.style.display = "none";
+			searchProcessEl.innerText = "No";
+		}
+	}
+
+	window.index = lunr(function () {
+		this.field("id");
+		this.field("title", {boost: 10});
+		this.field("categories");
+		this.field("url");
+		this.field("content");
+	});
+
+	var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),
+		searchQueryContainerEl = document.getElementById("search-query-container"),
+		searchQueryEl = document.getElementById("search-query");
+
+	searchQueryEl.innerText = query;
+        if (query != ""){
+   		searchQueryContainerEl.style.display = "inline";
+        }
+
+	for (var key in window.data) {
+		window.index.add(window.data[key]);
+	}
+
+	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
 })();

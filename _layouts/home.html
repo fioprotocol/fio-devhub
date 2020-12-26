@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: general
 ---
 
 <section class="section section__bg-image2">
@@ -18,9 +18,9 @@ layout: default
               </span>
               <div class="boxes row no-gutters">
                 {% for item in category.items %}
-                {% assign status = 'box__inner--four' %}
+                {% assign status = 'box__inner--three' %}
                   <div class="box col-12 col-md-4">
-                      <a href="{{item.url}}" target="_blank" class="box__inner {{status}}">
+                      <a href="{{item.url | relative_url }}" class="box__inner {{status}}">
                         <div class="box__content">
                           <h4>{{item.heading}}</h4>
                           <p>

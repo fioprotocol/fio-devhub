@@ -3,24 +3,24 @@
   - heading: How FIO Works
     text: Get familiar with the key concepts behind FIO protocol
     button: LEARN FIO
-    url: /pages/
+    url: docs/fio-protocol
   - heading: For Wallets
     text: Get started with integrating FIO protocol into your wallet
     button: INTEGRATE WALLET
-    url: /pages/integration-options/
+    url: docs/wallets
   - heading: For Exchanges
     text: Get started with integrating FIO protocol into your exchange
     button: INTEGRATE EXCHANGE
-    url: /pages/listing-integration/
+    url: docs/exchanges
   - heading: API References
     text: Consult our documentation for FIO APIs and SDKs
     button: EXPLORE APIs
-    url: /pages/api/fioapi/
+    url: /pages/api/fio-api/
   - heading: Recipes
     text: Use our library of API and SDK code examples to jumpstart your integration
     button: RECIPES
-    url: /pages/code/
+    url: docs/recipes
   - heading: FIO Chain
     text: Learn about and contribute to the FIO blockchain, become a FIO block producer, register as a proxy, and vote for block producers
     button: EXPLORE THE PLATFORM
-    url: /pages/api/
+    url: docs/chain
