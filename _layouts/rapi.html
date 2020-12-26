@@ -13,6 +13,7 @@
         render-style="read"
         primary-color="#3176d9"
         schema-description-expanded="true"
+        show-header="false"
         sort-endpoints-by="method"
 >
 </rapi-doc>
@@ -22,7 +23,7 @@
   const specEl = document.getElementById("spec");
   specEl.addEventListener('spec-loaded', () => {
     const styles = document.createElement("style");
-    styles.innerHTML = '.method-fg.options{ display: none; }'
+    styles.innerHTML = '.method-fg.options{ display: none; } .nav-bar input, .nav-bar button {min-height: 30px}'
     specEl.shadowRoot.appendChild(styles)
     hideTryForActions();
 
