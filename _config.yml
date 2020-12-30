@@ -27,7 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://devhub.fioprotocol.io" # the base hostname & protocol for your site
 
 # Social (First three Required)
-repo: "https://github.com/fioprotocol/fio-devhub"
+repo: "https://devhub.fioprotocol.io"
 github_user: "fio-devhub"
 github_repo: "fioprotocol"
 
