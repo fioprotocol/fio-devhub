@@ -30,6 +30,8 @@ This is the expected Public Key:
 
 `FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o`
 
+To obtain a private key from a seed phrase, you can use [the BIP 39 tool by Ian Coleman](https://github.com/iancoleman/bip39#standalone-offline-version){:target="_blank"} as described in [this video](https://www.youtube.com/watch?v=eAXdLEZFbiw){:target="_blank"}.
+
 ## FIO Accounts
 
 FIO keys are tied to FIO accounts. FIO uses a [custom hash function]({{ site.baseurl }}/docs/integration-guide/generating-actor), which when applied to a FIO Public Key, produces a FIO account name (a FIO account is equivalent to a FIO actor). There is no way to create a custom name for an account.
