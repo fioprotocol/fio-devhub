@@ -23,31 +23,34 @@ FIO-DEVHUB
   |-- pages (The API and other markdown content pages)
 ```
 
+
+## Quickstart
+
+The website is structured in a way to have the code (HTML/CSS) separated from the content ([Markdown](https://kramdown.gettalong.org/syntax.html)), so that contributors only need to edit easily readable markdown files and not touch any program code.
+
+### Before you start
+
+Before you can edit any code or content of this website, you need to create your copy of this git repository. This can be done by forking the repo into your Github account, via the **"Fork"** button at the top right of the Github Web-UI: <https://help.github.com/articles/fork-a-repo>
+
+This fork/copy of the website is just for you. You can experiment with it, change files, submit git commits – all without the fear of breaking anything on the upstream (original) Devhub website repository. Once you're happy with your changes, you can submit a pull request from your fork (`origin`) to the original Devhub website git repository (`upstream`).
+
+All changes should be made to the **develop** branch.
+
+### Quickly change a page online
+
+If you want to quickly update a page, find the page and section of your content. The documentation is located in `/docs`. Assets, such as images, are located in `/assets`. You can also use the search functionality inside the GitHub header menu.
+
+Once you found the relevant page, you can use the integrated Github Markdown online-editor to propose a change directly from within the Github Web-UI.
+
+### Working on the website
+
+If you want to do regular work on the website, like adding pages, changing pages, updating translations, ... you should not do this via the (limited Github Online-Editor), but rather use a real text or [Markdown editor](https://jbt.github.io/markdown-editor/), like [VS Code](https://code.visualstudio.com/) or [Atom](https://atom.io/), and add, remove or modify the files in there. Using a text editor like **VS Code** allows you to use it's full-text search across all website files, so that you can quickly find the content, which you would like to modify: <https://code.visualstudio.com/docs/editor/codebasics#_search-across-files>.
+
+Refer to the "Setting up your local dev environment" section below for more information on setting up a local dev environment. 
+
 ## User Interaction
 
-
-On the right side of any Documentation page, you'll notice links to edit the page, or
-open an issue. This ensures that any time you have a question or want to 
-suggest or request a change, you can do so immediately and link directly
-to the section of interest. The sections on the page also have permalinks so
-you can link directly to them.
-
-## Search
-
-The entire site, including posts and documentation, is indexed and then available
-for search at the top or side of the page. Give it a try! The content is rendered
-into window data that is used by lunr.js to generate the search results.
-If you want to exclude any file from search, add this to its front end matter:
-
-```
----
-layout: null
-excluded_in_search: true
----
-```
-
-The example above is for a javascript file in the assets folder that is used as a template,
-but should not be included in search.
+On the right side of any Documentation page, you'll notice links to edit the page, or open an issue. This ensures that any time you have a question or want to suggest or request a change, you can do so immediately and link directly to the section of interest. The sections on the page also have permalinks so you can link directly to them.
 
 ## Documentation
 
@@ -71,6 +74,7 @@ docs/
 The first page (akin to the one you are reading) would render at it's path,
 `/docs/getting-started/`.
 
+## Editing Tips
 
 ### Linking
 
@@ -148,6 +152,23 @@ If you want to add an external url for a parent or child, do this:
   - title: GitHub Repository
     external_url: https://www.github.com/vsoch/mkdocs-jekyll
 ```
+
+## Search
+
+The entire site, including posts and documentation, is indexed and then available
+for search at the top or side of the page. Give it a try! The content is rendered
+into window data that is used by lunr.js to generate the search results.
+If you want to exclude any file from search, add this to its front end matter:
+
+```
+---
+layout: null
+excluded_in_search: true
+---
+```
+
+The example above is for a javascript file in the assets folder that is used as a template,
+but should not be included in search.
 
 ## News Posts (Future)
 

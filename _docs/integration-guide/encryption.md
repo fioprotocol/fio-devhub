@@ -15,7 +15,7 @@ The data is further serialized to reduce size. Currently there is no abi for tha
 
 Because the encryption of the data requires the private key of the sender and decryption requires the private key of the receiver, it can only be done inside the wallet. This is an important component of the FIO Protocol integration.
 
-For those unfamiliar with Diffie-Hellman encryption, methods in fiojs SDK make this easy.
+For those unfamiliar with Diffie-Hellman encryption, [methods in fiojs SDK](https://github.com/fioprotocol/fiojs/blob/master/src/tests/encryption-fio.test.ts) make this easy.
 
 {% include alert.html type="warning" title="Validating content data" 
 
