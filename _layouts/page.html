@@ -5,3 +5,28 @@ layout: default
 {% include toc.html %}
 {% include permalinks.html %}
 {% include tags.html %}
+
+<script src="{{ site.baseurl }}/assets/js/fiosdk/bundle.js"></script>
+<script>
+    console.log('dfsdfsd===========')
+    let privateKey = '5JpbpZ7SScKHXrLwvhzCbP4Cj3Beqo8QwWyazDoyXHZuTjb4ZyK',
+      publicKey = 'FIO5ReMUvFM9X12eSuAR4QKjHsGJ6qponQP36xtV7WZLPBG35dJTr';
+
+    const baseUrl = 'https://testnet.fioprotocol.io:443/v1/'
+
+    const fiosdkInit = () => {
+      try {
+        const fioSdk = new window.FIOSDK.FIOSDK(
+          privateKey,
+          publicKey,
+          baseUrl,
+          fetch
+        )
+        console.log(fioSdk);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    setTimeout(fiosdkInit, 3000)
+</script>
