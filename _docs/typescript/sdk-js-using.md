@@ -5,6 +5,8 @@ description: Using the Typescript SDK
 
 # Using the Typescript SDK
 
+The following is an example of how to use the [FIO Typescript SDK](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"}. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet).
+
 ## Import
 
 Importing using commonJS syntax is supported by Node.js out of the box:
@@ -23,8 +25,8 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
         return fetch(uri, opts)
     }
     
-    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const privateKey = 'PrivateKeyFromTestnetMonitor';
+    const publicKey = 'PublicKeyFromTestnetMonitor';
     const baseUrl = 'http://testnet.fioprotocol.io/v1/';
     
     fioSdk = new FIOSDK(
@@ -111,8 +113,8 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
         return fetch(uri, opts)
     }
     
-    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const privateKey = 'PrivateKeyFromTestnetMonitor';
+    const publicKey = 'PublicKeyFromTestnetMonitor';
     const baseUrl = 'http://testnet.fioprotocol.io/v1/';
     
     const payerFioAddress = 'payer@fiotestnet'
