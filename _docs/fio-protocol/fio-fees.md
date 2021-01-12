@@ -61,7 +61,7 @@ To accommodate this, fee amounts are set based on bids from block producers in t
 
 ### Current fees
 
-See [https://www.alohaeos.com/tools/fiofees​](https://www.alohaeos.com/tools/fiofees){:target="_blank"}
+See [https://www.alohaeos.com/tools/fiofees​](https://www.alohaeos.com/tools/fiofees){:rel="nofollow noopener noreferrer" target="_blank"}
 
 
 

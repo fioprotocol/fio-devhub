@@ -6,7 +6,7 @@ description: Keys, accounts, and permissions
 
 ## FIO Private/Public Keys
 
-FIO Chain’s is registered at index 235/0x800000eb on the [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md){:target="_blank"}.
+FIO Chain’s is registered at index 235/0x800000eb on the [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 FIO Private Keys follow standard Wallet Import Format (WIF) standard and public keys follow well-known base58 encoding with FIO prefix, for example:
 
@@ -30,7 +30,7 @@ This is the expected Public Key:
 
 `FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o`
 
-To obtain a private key from a seed phrase, you can use [the BIP 39 tool by Ian Coleman](https://github.com/iancoleman/bip39#standalone-offline-version){:target="_blank"} as described in [this video](https://www.youtube.com/watch?v=eAXdLEZFbiw){:target="_blank"}.
+To obtain a private key from a seed phrase, you can use [the BIP 39 tool by Ian Coleman](https://github.com/iancoleman/bip39#standalone-offline-version){:rel="nofollow noopener noreferrer" target="_blank"} as described in [this video](https://www.youtube.com/watch?v=eAXdLEZFbiw){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ## FIO Accounts
 

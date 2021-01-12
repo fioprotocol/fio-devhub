@@ -17,9 +17,9 @@ There are several ways to interact with the FIO Chain. You may directly call the
 
 The simplest method for accessing the FIO chain is by embedding one of the FIO SDKs. Three SDKs are currently supported:
 
-* [React native / Typescript](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"}
-* [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin){:target="_blank"}
-* [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios){:target="_blank"}
+* [React native / Typescript](https://github.com/fioprotocol/fiosdk_typescript){:rel="nofollow noopener noreferrer" target="_blank"}
+* [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin){:rel="nofollow noopener noreferrer" target="_blank"}
+* [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios){:rel="nofollow noopener noreferrer" target="_blank"}
 
 ## API details
 
@@ -29,7 +29,7 @@ The simplest method for accessing the FIO chain is by embedding one of the FIO S
 
 #### Mainnet Chain API
 
-[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
+[See Github](https://github.com/fioprotocol/fio.mainnet){:rel="nofollow noopener noreferrer" target="_blank"}
 
 #### Testnet Registration Site API
 
@@ -45,4 +45,4 @@ The simplest method for accessing the FIO chain is by embedding one of the FIO S
 
 ### Mainnet History API
 
-[See Github](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
+[See Github](https://github.com/fioprotocol/fio.mainnet){:rel="nofollow noopener noreferrer" target="_blank"}
