@@ -36,6 +36,6 @@ When running a test you will want to register addresses and transfer funds. But,
 
 ## Testing with Cryptonym
 
-<https://github.com/blockpane/cryptonym>{:target="_blank"}. Recommend using it against a local node, otherwise it can seem slow.
+<https://github.com/blockpane/cryptonym>{:rel="nofollow noopener noreferrer" target="_blank"}. Recommend using it against a local node, otherwise it can seem slow.
 
 

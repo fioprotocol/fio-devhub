@@ -100,3 +100,8 @@
           url: "docs/chain/clio"
         - title: Vulnerability disclosure policy
           url: "docs/chain/disclosure"
+    - title: "Blog"
+      url: Blog
+      children: 
+        - title: FIO Token
+          url: "docs/fio-protocol/fio-token"

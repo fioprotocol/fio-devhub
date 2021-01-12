@@ -87,7 +87,7 @@ defaults:
       layout: "page"
   -
     scope:
-      path: "posts"
+      path: "pages/news"
       type: "posts"
     values:
       layout: "post"

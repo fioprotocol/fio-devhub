@@ -1,14 +1,13 @@
 ---
-title: News
-permalink: /news/
+layout: page
+title: Blog
+permalink: /blog/
 ---
 
-# News
+# FIO Developer Blog
 
-<p>Subscribe with <a href="{{ site.baseurl }}/feed.xml">RSS</a> to keep up with the latest news.
-For site changes, see the <a href="https://github.com/{{ site.github_user }}/{{ site.github_repo }}/blob/master/CHANGELOG.md">changelog</a> kept with the code base.</p>
-
-<br>
+For more FIO news visit the [FIO Blog](https://medium.com/fio-blog){:rel="nofollow noopener noreferrer" target="_blank"}
+<br><br>
 
 {% for post in site.posts limit:10 %}
    <div class="post-preview">
@@ -23,4 +22,4 @@ For site changes, see the <a href="https://github.com/{{ site.github_user }}/{{ 
    <hr>
 {% endfor %}
 
-Want to see more? See the <a href="{{ site.baseurl }}/archive/">News Archive</a>.
+Want to see more? See the <a href="{{ site.baseurl }}/archive/">Blog Archive</a>.
