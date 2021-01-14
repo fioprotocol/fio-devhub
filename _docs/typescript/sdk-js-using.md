@@ -1,6 +1,7 @@
 ---
 title: Using the Typescript SDK
 description: Using the Typescript SDK
+layout: page-sdk
 ---
 
 # Using the Typescript SDK
@@ -150,6 +151,4 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
     
     main()
 ```
-
-
-
+<button id="try">Try</button>
