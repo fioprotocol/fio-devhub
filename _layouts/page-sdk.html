@@ -6,5 +6,38 @@ layout: default
 {% include permalinks.html %}
 {% include tags.html %}
 
+
+<div class="row position-relative">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="transfer-pk">Private Key</label>
+            <input type="text" class="form-control" id="transfer-pk"
+                   placeholder="5JpbpZ7SScKHXrLwvhzCbP4Cj3Beqo8QwWyazDoyXHZuTjb4ZyK">
+        </div>
+        <div class="form-group">
+            <label for="transfer-pubkey">Public Key</label>
+            <input type="text" class="form-control" id="transfer-pubkey"
+                   placeholder="FIO5ReMUvFM9X12eSuAR4QKjHsGJ6qponQP36xtV7WZLPBG35dJTr">
+        </div>
+        <div class="form-group">
+            <label for="transfer-payer">Payer FIO Address</label>
+            <input type="text" class="form-control" id="transfer-payer" placeholder="payer@fiotestnet">
+        </div>
+        <div class="form-group">
+            <label for="transfer-payee">Payee FIO Address</label>
+            <input type="text" class="form-control" id="transfer-payee" placeholder="payee@fiotestnet">
+        </div>
+        <button id="try-transfer" class="btn btn-default btn--blue">Try</button>
+    </div>
+    <div id="spinner" class="fa-3x d-none" role="status">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+
+<div id="logs" class="mt-4">
+
+</div>
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />-->
 <script src="{{ site.baseurl }}/assets/js/fiosdk/bundle.js"></script>
 <script src="{{ site.baseurl }}/assets/js/fiosdk-examples.js"></script>
