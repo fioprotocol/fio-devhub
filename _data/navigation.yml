@@ -9,6 +9,9 @@
     - title: Registration API
       url: "pages/api/fio-reg-api"
       blank: false
+- title: Blog
+  url: blog
+  blank: false
 - title: FIO
   external_url: https://fioprotocol.io/
   dropdown:
@@ -27,7 +30,7 @@
     - title: FIPs
       external_url: https://github.com/fioprotocol/fips
       blank: true
-    - title: Blog
+    - title: FIO Blog
       external_url: https://medium.com/fio-blog
       blank: true
 - title: Support

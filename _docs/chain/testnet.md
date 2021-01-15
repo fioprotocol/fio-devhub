@@ -5,11 +5,11 @@ description: Testnet
 # FIO Testnet
 ## Overview
 
-Testnet Monitor: <https://monitor.testnet.fioprotocol.io/>{:target="_blank"}
+Monitor is available at <https://monitor.testnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
-Testnet Block Explorer: <https://fio-test.bloks.io/>{:target="_blank"}
+Testnet Block Explorer: <https://fio-test.bloks.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
-Testnet Block Producer Telegram Channel: <https://t.me/fiotestnet>{:target="_blank"}
+Testnet Block Producer Telegram Channel: <https://t.me/fiotestnet>{:rel="nofollow noopener noreferrer" target="_blank"}
 
 ## Integration testing with FIO Testnet
 

@@ -7,11 +7,11 @@ Token holders are encouraged to vote for a proxy or directly vote for block prod
 
 ## Voting using clio
 
- Examples below require a url to an API endpoint. For Mainnet, you can find the list of current API nodes here: [https://github.com/fioprotocol/fio.mainnet](https://github.com/fioprotocol/fio.mainnet){:target="_blank"}
+ Examples below require a url to an API endpoint. For Mainnet, you can find the list of current API nodes here: [https://github.com/fioprotocol/fio.mainnet](https://github.com/fioprotocol/fio.mainnet){:rel="nofollow noopener noreferrer" target="_blank"}
 
 ### 1) Download Clio
 
-[Download clio executable](https://github.com/fioprotocol/fio.ready){:target="_blank"} for MAC with latest OS installed.
+[Download clio executable](https://github.com/fioprotocol/fio.ready){:rel="nofollow noopener noreferrer" target="_blank"} for MAC with latest OS installed.
 
 You will have to grant an exception for a blocked app by clicking the Open Anyway button in the General pane of Security & Privacy preferences. This button is available for about an hour after you try to open the app.
 
@@ -27,7 +27,7 @@ Please make sure you do this on a secure computer, ideally not connected to the 
 
 **bip39 tool**
 
-The easiest way to derive your public key from a seed phrase is to [download the latest bip39 standalone tool](https://github.com/iancoleman/bip39/releases){:target="_blank"}.
+The easiest way to derive your public key from a seed phrase is to [download the latest bip39 standalone tool](https://github.com/iancoleman/bip39/releases){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 * Enter BIP39 Mnemonic
 * Select FIO Coin
@@ -194,7 +194,7 @@ If your transaction was successful you will receive a transaction ID and confirm
 
 ## Voting using Typescript SDK + air gapped signing
 
-Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol/fio.localsign){:target="_blank"}. It contains instructions on how to configure the script to:
+Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol/fio.localsign){:rel="nofollow noopener noreferrer" target="_blank"}. It contains instructions on how to configure the script to:
 
 * Build the voting transaction
 * Sign the transaction on an air gapped computer
@@ -204,7 +204,7 @@ Download and install [fioprotocol.localsign repo](https://github.com/fioprotocol
 
 ### Download Anchor Wallet
 
-Download the [latest release of the Anchor Wallet](https://greymass.com/en/anchor/){:target="_blank"}.
+Download the [latest release of the Anchor Wallet](https://greymass.com/en/anchor/){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ### Enable FIO Blockchain
 

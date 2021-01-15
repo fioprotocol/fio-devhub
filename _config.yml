@@ -15,8 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 
 title: FIO Dev Hub
-email: your-email@domain.com
-author: Eric Butz
+# email: 
+author: FIO
 description: > # this means to ignore newlines until "baseurl:"
   Documentation for developers integrating FIO protocol.
 
@@ -87,7 +87,7 @@ defaults:
       layout: "page"
   -
     scope:
-      path: "posts"
+      path: "pages/news"
       type: "posts"
     values:
       layout: "post"
