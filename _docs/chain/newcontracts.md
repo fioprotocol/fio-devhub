@@ -7,7 +7,7 @@ description: Information about adding new FIO contracts to the development envir
 
 It is recommend to branch from develop on all repositories when developing to stay on pace with code updates
 
-## Set_code and set_abi permissions:
+## 1 - Set_code and set_abi permissions:
 
 The contract name must be added to the authorization lists for set_abi and set_code actions.
 FIO Contracts - https://github.com/fioprotocol/fio.contracts
@@ -19,7 +19,7 @@ https://github.com/fioprotocol/fio.contracts/blob/develop/contracts/fio.common/f
 Authorization: https://github.com/fioprotocol/fio.contracts/blob/develop/contracts/fio.system/src/fio.system.cpp#L177
 
 
-### Set_code authorizations are defined in the fio core library
+### 2 - Set_code authorizations are defined in the fio core library
 
 FIO Core library - https://github.com/fioprotocol/fio/libraries/chain
 
@@ -27,11 +27,11 @@ FIO Core library - https://github.com/fioprotocol/fio/libraries/chain
 
 https://github.com/fioprotocol/fio/blob/develop/libraries/chain/include/eosio/chain/eosio_contract.hpp#L40
 
-###Add the contract name as an authorizer 
+### Add the contract name as an authorizer 
 
 https://github.com/fioprotocol/fio/blob/develop/libraries/chain/eosio_contract.cpp#L246
 
-## Update fio.devtools
+## 3 - Update fio.devtools
 
 FIO Devtools launcher - https://github.com/fioprotocol/fio.devtools
 
@@ -51,7 +51,7 @@ Deploy the contract on 19_bind_dev_contracts.sh. It should be the final contract
 https://github.com/fioprotocol/fio.devtools/blob/develop/scripts/launch/19_bind_dev_contracts.sh#L17
 
 
-##  Action list 
+## 4 - Action list 
 
 ### System Contracts
 If the new contract is a system contract and is loaded in 05_bind_contracts.sh of fio.devtools and needs to be initialized at genesis, the call to add the contract action will need to be added to the chain controller:
@@ -61,7 +61,7 @@ https://github.com/fioprotocol/fio/blob/develop/libraries/chain/controller.cpp#L
 Simply call addaction for the new contract action (can be called before or after contract has been loaded.)
 https://github.com/fioprotocol/fio.devtools/blob/develop/scripts/launch/12_add_actions.sh#L54
 
-## Wrapping up
+## 5 - Wrapping up
 
 Rebuild the FIO blockchain with scripts/fio_build.sh, and install with fio_install.sh
 
