@@ -10,12 +10,15 @@ It is recommend to branch from develop on all repositories when developing to st
 ## 1 - Set_code and set_abi permissions:
 
 The contract name must be added to the authorization lists for set_abi and set_code actions.
+
 FIO Contracts - https://github.com/fioprotocol/fio.contracts
 
 ### Create new contract account entry
+
 https://github.com/fioprotocol/fio.contracts/blob/develop/contracts/fio.common/fio.accounts.hpp#L40
  
 ### Insert account authorization
+
 Authorization: https://github.com/fioprotocol/fio.contracts/blob/develop/contracts/fio.system/src/fio.system.cpp#L177
 
 
@@ -54,10 +57,12 @@ https://github.com/fioprotocol/fio.devtools/blob/develop/scripts/launch/19_bind_
 ## 4 - Action list 
 
 ### System Contracts
+
 If the new contract is a system contract and is loaded in 05_bind_contracts.sh of fio.devtools and needs to be initialized at genesis, the call to add the contract action will need to be added to the chain controller:
 https://github.com/fioprotocol/fio/blob/develop/libraries/chain/controller.cpp#L1345
 
 ### New feature contracts
+
 Simply call addaction for the new contract action (can be called before or after contract has been loaded.)
 https://github.com/fioprotocol/fio.devtools/blob/develop/scripts/launch/12_add_actions.sh#L54
 
@@ -69,6 +74,7 @@ Run fio.devtools options 3 to clear existing configuring, option 2 to build the 
 
 
 ### Notes:
+
 On the FIO Testnet and Mainnet, the contract owner will always be an multisig account controlled by all active block producers. On the development and test environments, these accounts are simply loaded into the local wallet in fio.devtools.
 
 
