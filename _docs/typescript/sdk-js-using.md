@@ -76,9 +76,7 @@ We capture the payee's FIO Public Key:
 Use /get_fee to look up the payer fee for /transfer_tokens_pub_key (trnsfiopubky)
 
 ```javascript
-    const payerFioAddress = 'payer@fiotestnet'
-    
-    const { fee } = await fioSdk.getFee('transfer_tokens_pub_key', payerFioAddress);
+    const { fee } = await fioSdk.getFee('transfer_tokens_pub_key');
 ```
 
 ### Step 3. Transfer FIO
@@ -116,7 +114,6 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
     const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
     const baseUrl = 'http://testnet.fioprotocol.io/v1/';
     
-    const payerFioAddress = 'payer@fiotestnet'
     const payeeFioAddress = 'payee@fiotestnet';
     
     async function main() {
@@ -130,7 +127,7 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
         try {
             const { public_address: payeePublicKey } = await fioSdk.getPublicAddress(payeeFioAddress, "FIO", "FIO")
         
-            const { fee } = await fioSdk.getFee('transfer_tokens_pub_key', payerFioAddress);
+            const { fee } = await fioSdk.getFee('transfer_tokens_pub_key');
         
             const transferAmount = 1000000000   // 1 FIO
         

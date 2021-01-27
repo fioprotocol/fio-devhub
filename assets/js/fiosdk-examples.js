@@ -54,15 +54,9 @@ try {
     try {
       showLoading()
       document.getElementById('logs').innerHTML = ''
-      const payerFioAddress = document.getElementById('transfer-payer').value
       const payeeFioAddress = document.getElementById('transfer-payee').value;
       const privateKey = document.getElementById('transfer-pk').value
       const publicKey = document.getElementById('transfer-pubkey').value;
-      // const payerFioAddress = 'testing7t@fiotestnet';
-      // const payeeFioAddress = 'testing55t@fiotestnet';
-      // const privateKey = '5JfqKNmKpRBJZgzGZY2UuWjEEDEERohAiDeNQudty1SGdEFoUKn';
-      // const publicKey = 'FIO7DaqRKziahVEALTZYyp2sAHf1wsCH4eqdAsUGh7y8ZMByG4feD';
-      console.log(payerFioAddress, payeeFioAddress, privateKey, publicKey);
 
       const fioSdk = await fiosdkInit(privateKey, publicKey)
       const { public_address: payeePublicKey } = await fioSdk.getPublicAddress(payeeFioAddress, "FIO", "FIO")
