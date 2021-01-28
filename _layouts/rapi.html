@@ -30,7 +30,7 @@
     function hideTryForActions() {
       try {
         const specNodes = specEl.shadowRoot.getRootNode().childNodes
-        const apiRequestNodes = specNodes[11].getElementsByTagName('api-request')
+        const apiRequestNodes = specNodes[10].getElementsByTagName('api-request')
         if (apiRequestNodes.length === 0) {
           return setTimeout(hideTryForActions, 5000)
         }
