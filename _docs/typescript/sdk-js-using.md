@@ -24,8 +24,8 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
         return fetch(uri, opts)
     }
     
-    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const privateKey = 'your_private_key';
+    const publicKey = 'your_public_key';
     const baseUrl = 'http://testnet.fioprotocol.io/v1/';
     
     fioSdk = new FIOSDK(
@@ -110,8 +110,8 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
         return fetch(uri, opts)
     }
     
-    const privateKey = '5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu';
-    const publicKey = 'FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o';
+    const privateKey = 'your_private_key';
+    const publicKey = 'your_public_key';
     const baseUrl = 'http://testnet.fioprotocol.io/v1/';
     
     const payeeFioAddress = 'payee@fiotestnet';
