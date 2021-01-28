@@ -70,7 +70,9 @@ paths:
             * "Public key not found"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -193,7 +195,9 @@ paths:
             * "No FIO names"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -202,7 +206,7 @@ paths:
             application/json:
               message: No FIO names
       summary: Get Domains/Addresses linked to public key
-      description: Returns FIO Addresses and FIO Domains owned by this public key.
+      description: Returns FIO Addresses and FIO Domains owned by a public key.
       parameters:
         - in: body
           name: body
@@ -347,7 +351,9 @@ paths:
             * "Public address not found"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -553,7 +559,9 @@ paths:
             * "No FIO Requests"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -563,8 +571,7 @@ paths:
               message: No FIO Requests
       summary: Get sent Requests
       description: >-
-        Sent requests call polls for any requests sent by provided FIO public
-        key.
+        Returns FIO Requests that have been sent by provided FIO public key.
       operationId: get_sent_fio_requests
       parameters:
         - in: body
@@ -745,7 +752,9 @@ paths:
             * "No pending FIO Requests"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -941,7 +950,9 @@ paths:
           description: ''
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -955,9 +966,9 @@ paths:
         /record_obt_data. This call will return all metadata relevant to the
         provided FIO Public key, including:
 
-        * Outbound data. Payer's FIO Address is owned by provided FIO Public key
+        * Outbound transactions where the Payer's FIO Address matches the provided FIO Public key
 
-        * Inbound data. Payee's FIO Address is owned by provided FIO Public key
+        * Inbound transactions where the Payee's FIO Address matches the provided FIO Public key
       operationId: get_obt_data
       parameters:
         - in: body
@@ -1090,9 +1101,9 @@ paths:
               actor: gev2yeim1cjy
       summary: Get actor/account from public key
       description: >-
-        Convenience method, which returns [actor](/api/actor) for supplied FIO
+        Convenience method, which returns the [actor](/docs/integration-guide/generating-actor) for the supplied FIO
         Public Key. The FIO Chain is not checked for existence of this actor, it
-        simply converts the key to actor using [hash function](/api/actor).
+        simply converts the key to actor using [hash function](/docs/integration-guide/generating-actor).
       operationId: get_actor
       parameters:
         - in: body
@@ -1254,7 +1265,7 @@ paths:
       summary: Get account information
       description: >-
         Returns information about the
-        [account](https://developers.fioprotocol.io/fio-protocol/accounts), such
+        [account](/docs/fio-protocol/keys-accounts#fio-accounts), such
         as creation date and permissions.
 
 
@@ -1616,7 +1627,7 @@ paths:
                   bundleeligiblecountdown: 100
               more: true
       summary: Get content of FIO state table
-      description: "This call can be used to return any data from the state table.\n\n## Returning all public addresses example\nHere's an advance example of a query returning all public addresses mapped to a single FIO Address.\n\nThe data is contained in *fionames* table in *fio.address* contract and *fio.address* scope.\n\nThe FIO Address is index position *5* of index_type *i128*.\n\n### Compute index\nThe hash is a truncated sha1 hash, in big-endian order, as a hex-string.\n1. Calculate the sha1 sum of the address\n2. Take the first 16 bytes\n3. Reverse the byte order\n4. Convert to a hexadecimal string, and prepend \"0x\"\n\nExample for \"test@fiotestnet\"\n1. sha1 hash: 58df646ca7a4c9be1e1436b9ae1608eb62e653a0\n2. First 16 bytes: 58df646ca7a4c9be1e1436b9ae1608eb\n3. Reverse byte order (big endian): eb0816aeb936141ebec9a4a76c64df58\n4. Prepend 0x\n\n```\nfunction nameHash(name) {\n    const hash = require('crypto').createHash('sha1')\n    return '0x' + hash.update(name).digest().slice(0,16).reverse().toString(\"hex\")\n}\n\nconsole.log( nameHash('test@fiotestnet') )\n// outputs: 0xeb0816aeb936141ebec9a4a76c64df58\n```\n\n### Query table\nTo query the table, specify index 5, with a type of i128, using the hash as the upper and lower bounds:\n```\n{\n\t\"code\": \"fio.address\",\n\t\"scope\": \"fio.address\",\n\t\"table\": \"fionames\",\n\t\"lower_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"upper_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"key_type\": \"i128\",\n\t\"index_position\": \"5\",\n\t\"json\": true\n}\n```"
+      description: "This call can be used to return any data from the state table.\n\n### Example: Returning all public addresses\nHere's an advanced example of a query returning all public addresses mapped to a single FIO Address.\n\nThe data is contained in *fionames* table in *fio.address* contract and *fio.address* scope.\n\nThe FIO Address is index position *5* of index_type *i128*.\n\n### Compute index\nThe hash is a truncated sha1 hash, in big-endian order, as a hex-string.\n1. Calculate the sha1 sum of the address\n2. Take the first 16 bytes\n3. Reverse the byte order\n4. Convert to a hexadecimal string, and prepend \"0x\"\n\nExample for \"test@fiotestnet\"\n1. sha1 hash: 58df646ca7a4c9be1e1436b9ae1608eb62e653a0\n2. First 16 bytes: 58df646ca7a4c9be1e1436b9ae1608eb\n3. Reverse byte order (big endian): eb0816aeb936141ebec9a4a76c64df58\n4. Prepend 0x\n\n```\nfunction nameHash(name) {\n    const hash = require('crypto').createHash('sha1')\n    return '0x' + hash.update(name).digest().slice(0,16).reverse().toString(\"hex\")\n}\n\nconsole.log( nameHash('test@fiotestnet') )\n// outputs: 0xeb0816aeb936141ebec9a4a76c64df58\n```\n\n### Query table\nTo query the table, specify index 5, with a type of i128, using the hash as the upper and lower bounds:\n```\n{\n\t\"code\": \"fio.address\",\n\t\"scope\": \"fio.address\",\n\t\"table\": \"fionames\",\n\t\"lower_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"upper_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"key_type\": \"i128\",\n\t\"index_position\": \"5\",\n\t\"json\": true\n}\n```"
       operationId: get_table_rows
       parameters:
         - in: body
@@ -6074,7 +6085,7 @@ tags:
   - name: Getters
     description: API endpoints to retrieve data from the FIO blockchain.
   - name: Transactions
-    description: Creates transaction in the chain
+    description: Sending transactions to the FIO blockchain
   - name: Actions
     description: List of actions to sign for [push_transaction](#post-/push_transaction)
 x-stoplight:
