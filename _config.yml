@@ -15,8 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 
 title: FIO Dev Hub
-email: your-email@domain.com
-author: Eric Butz
+# email: 
+author: FIO
 description: > # this means to ignore newlines until "baseurl:"
   Documentation for developers integrating FIO protocol.
 
@@ -27,7 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://devhub.fioprotocol.io" # the base hostname & protocol for your site
 
 # Social (First three Required)
-repo: "https://devhub.fioprotocol.io"
+repo: "https://github.com/fioprotocol/fio-devhub"
 github_user: "fio-devhub"
 github_repo: "fioprotocol"
 
@@ -45,7 +45,7 @@ feedback: false
 # google-analytics: UA-XXXXXXXXXX
 # Image and (square) dimension for logo (don't start with /)
 # If commented, will use material hat theme
-# logo: "assets/img/logo/SRCC-square-red.png"
+logo: "assets/img/logo.png"
 logo_pixels: 34
 color: "#30638e"
 # color: "#8c1515" # primary color for header, buttons
@@ -87,7 +87,7 @@ defaults:
       layout: "page"
   -
     scope:
-      path: "posts"
+      path: "pages/news"
       type: "posts"
     values:
       layout: "post"

@@ -23,6 +23,8 @@
       children: 
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
+        - title: Submitting Transactions
+          url: "docs/integration-guide/transactions"          
         - title: Send to FIO Address
           url: "docs/integration-guide/fio-send"
         - title: Registering Addresses & Domains
@@ -100,3 +102,10 @@
           url: "docs/chain/clio"
         - title: Vulnerability disclosure policy
           url: "docs/chain/disclosure"
+        - title: New FIO Contracts
+          url: "docs/chain/newcontracts"
+    - title: "Blog"
+      url: Blog
+      children: 
+        - title: FIO Token
+          url: "docs/fio-protocol/fio-token"

@@ -52,7 +52,7 @@ See the [Registration API]({{ site.baseurl }}/pages/api/fio-reg-api/) for more d
 
 ## Running an instance of the registration site
 
-See the [Github registration repository](https://github.com/fioprotocol/fio-registrations){:target="_blank"}
+See the [Github registration repository](https://github.com/fioprotocol/fio-registrations){:rel="nofollow noopener noreferrer" target="_blank"}
 
 ## Getting set-up
 

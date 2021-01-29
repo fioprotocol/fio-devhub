@@ -6,6 +6,8 @@ layout: page-sdk
 
 # Using the Typescript SDK
 
+The following is an example of how to use the [FIO Typescript SDK](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"}. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet).
+
 ## Import
 
 Importing using commonJS syntax is supported by Node.js out of the box:
