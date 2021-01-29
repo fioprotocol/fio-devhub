@@ -1776,6 +1776,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        trnsfiopubky action data may also be sent to the `/transfer_tokens_pub_key` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.token`
@@ -1811,7 +1814,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             example:
               payee_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               amount: '1000000000'
@@ -1819,8 +1822,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: transfer_tokens_pub_key_model
       tags:
         - Actions
@@ -1934,6 +1936,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        addaddress action data may also be sent to the `/add_pub_address` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.address`
@@ -2020,7 +2025,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_address
               - public_addresses
@@ -2040,8 +2045,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
 
 
             Please read [Mapping Public
@@ -2147,6 +2151,9 @@ paths:
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        newfundsreq action data may also be sent to the `/new_funds_request` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2282,7 +2289,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - payer_fio_address
               - payee_fio_address
@@ -2298,8 +2305,7 @@ paths:
               tpid: rewards@wallet
               actor: gev2yeim1cjy
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: new_funds_request_model
       tags:
         - Actions
@@ -2399,6 +2405,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        rejectfndreq action data may also be sent to the `/reject_funds_request` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.reqobt`
@@ -2429,7 +2438,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_request_id
               - max_fee
@@ -2441,8 +2450,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Actions
   recordobt:
@@ -2533,6 +2541,9 @@ paths:
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        recordobt action data may also be sent to the `/record_obt_data` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2674,7 +2685,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - payer_fio_address
               - payee_fio_address
@@ -2693,8 +2704,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: record_obt_data_model
       tags:
         - Actions
@@ -2833,7 +2843,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_address
               - owner_fio_public_key
@@ -2847,12 +2857,14 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       description: >-
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        regaddress action data may also be sent to the `/register_fio_address` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2952,6 +2964,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        renewaddress action data may also be sent to the `/renew_fio_address` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.address`
@@ -2987,7 +3002,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_address
               - max_fee
@@ -2999,8 +3014,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: renew_fio_address_model
       tags:
         - Actions
@@ -3095,6 +3109,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        regdomain action data may also be sent to the `/register_fio_domain` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.address`
@@ -3141,7 +3158,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_domain
               - owner_fio_public_key
@@ -3155,8 +3172,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: register_fio_domain_model
       tags:
         - Actions
@@ -3249,6 +3265,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        renewdomain action data may also be sent to the `/renew_fio_domain` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.address`
@@ -3283,7 +3302,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_domain
               - max_fee
@@ -3295,8 +3314,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: renew_fio_domain_model
       tags:
         - Actions
@@ -3386,6 +3404,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        setdomainpub action data may also be sent to the `/set_fio_domain_public` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: "fio.address"
@@ -3425,7 +3446,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - fio_domain
               - is_public
@@ -3439,8 +3460,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: set_fio_domain_public_model
       tags:
         - Actions
@@ -3527,6 +3547,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        voteproducer action data may also be sent to the `/vote_producer` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `eosio`
@@ -3566,7 +3589,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
               max_fee:
                 type: integer
                 title: Max fee
@@ -3582,8 +3605,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: vote_producer_model
       tags:
         - Actions
@@ -3674,6 +3696,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        voteproxy action data may also be sent to the `/proxy_vote` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `eosio`
@@ -3708,7 +3733,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
               max_fee:
                 type: integer
                 title: Max fee
@@ -3721,9 +3746,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
-
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Actions
   regproxy:
@@ -3810,12 +3833,12 @@ paths:
               message: Request signature not valid or not allowed.
       summary: 'Register as a proxy'
       description: >-
-        ## This is not an actual api endpoint
-
         This section defines the object which needs to be created before it's
-        packed and signed and the response object returned in
-        processed->action_traces->receipt->response string. See Signed call
-        section for the definition of the actual request and response.
+        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        regproxy action data may also be sent to the `/register_proxy` action-specific endpoint.
 
         ### "actions" parameters
 
@@ -3838,7 +3861,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
               max_fee:
                 type: integer
                 title: Max fee
@@ -3850,8 +3873,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: register_proxy_model
       tags:
         - Actions
@@ -3943,6 +3965,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        unregproxy action data may also be sent to the `/unregister_proxy` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `eosio`
@@ -3982,8 +4007,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: unregister_proxy_model
       tags:
         - Actions
@@ -4080,6 +4104,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        regproducer action data may also be sent to the `/register_producer` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `eosio`
@@ -4112,7 +4139,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
               max_fee:
                 type: integer
                 title: Max fee
@@ -4134,8 +4161,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
        - Block Producer Actions
   unregprod:
@@ -4227,6 +4253,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        unregprod action data may also be sent to the `/unregister_producer` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `eosio`
@@ -4248,7 +4277,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
               max_fee:
                 type: integer
                 title: Max fee
@@ -4264,8 +4293,7 @@ paths:
               actor: aftyershcu22
               max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Block Producer Actions
   setfeevote:
@@ -4346,6 +4374,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        setfeevote action data may also be sent to the `/submit_fee_ratios` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.fee`
@@ -4372,7 +4403,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             example:
               fee_ratios:
                 - end_point: register_fio_domain
@@ -4427,8 +4458,7 @@ paths:
                   value: 20000000
               actor: BP_ACTOR
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_ratios_model
       tags:
         - Block Producer Actions
@@ -4508,6 +4538,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        setfeemult action data may also be sent to the `/submit_fee_multiplier` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.fee`
@@ -4525,7 +4558,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - multiplier
               - actor
@@ -4533,8 +4566,7 @@ paths:
               multiplier: 100
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_multiplier_model
       tags:
         - Block Producer Actions
@@ -4614,6 +4646,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        bundlevote action data may also be sent to the `/submit_bundled_transaction` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.fee`
@@ -4634,7 +4669,7 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             required:
               - bundled_transactions
               - actor
@@ -4642,8 +4677,7 @@ paths:
               bundled_transactions: 100
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Block Producer Actions
   tpidclaim:
@@ -4724,6 +4758,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        tpidclaim action data may also be sent to the `/pay_tpid_rewards` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.treasury`
@@ -4738,12 +4775,11 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             example:
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: pay_tpid_rewards_model
       tags:
         - Block Producer Actions
@@ -4830,6 +4866,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        bpclaim action data may also be sent to the `/claim_bp_rewards` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.treasury`
@@ -4852,13 +4891,12 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
             example:
               fio_address: producer@bob
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
        - Block Producer Actions
   burnexpired:
@@ -4936,6 +4974,9 @@ paths:
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
 
+
+        burnexpired action data may also be sent to the `/burn_expired` action-specific endpoint.
+
         ### `actions` parameters
 
         * account: `fio.address`
@@ -4944,7 +4985,7 @@ paths:
       operationId: burn_expired_model
       parameters: []
       tags:
-        - Block Producer Actions
+        - Block Producer Actions                                     
   /push_transaction:
     post:
       responses:
@@ -5457,10 +5498,18 @@ paths:
                         inline_traces: []
                 except: null
       description: >-
-        Allows advance user to send their own content directly to FIO contracts.
+        push_transaction is a generic API endpoint that accepts all [FIO action data objects](/pages/api/fio-api/#tag--Actions). 
+        It is an alternative to sending transactions to [action-specific FIO API endpoints](/pages/api/fio-api/#post-/fio_api_endpoint).
+        
+
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+        and transaction extensions that make the actual transaction.
+        
+
+        All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to /push_transaction.
 
 
-        This request needs to be packed and signed.
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
 
         ```
           {
@@ -5477,9 +5526,11 @@ paths:
           }
         ```
 
-        For every ACTION that described below, the `Request` object should be set to `data` in `actions` array,
-        also `account` and `name` are provided for each action.
-      summary: Push transaction
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+        The `account` and `name` are provided for each action.
+      summary: Push Transaction
       operationId: push_transaction
       parameters:
         - in: body
@@ -5500,6 +5551,686 @@ paths:
             title: Signed transaction request
       tags:
         - Transactions
+  /fio_api_endpoint:
+    post:
+      description: >-
+        FIO protocol also includes action-specific FIO API endpoints for convenience. 
+        These action-specific endpoints may be used as an alternative to [push_transaction](/pages/api/fio-api/#post-/push_transaction). 
+
+
+        Action-specific API endpoints are identified in the [Actions](/pages/api/fio-api/#tag--Actions) section of the API alongside their associated action.
+
+
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+        and transaction extensions that make the actual transaction.
+        
+
+        All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to a FIO API endpoint.
+
+
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
+
+
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+      summary: Action-specific API Endpoints
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              signatures:
+                type: array of strings
+                items:
+                  type: string
+                description: Digital signatures after transaction is signed
+              compression:
+                type: string
+                description: Compression method used
+              packed_context_free_data:
+                type: string
+                description: Compressed context-free data (if transaction compressed)
+              packed_trx:
+                type: string
+                description: Compressed transaction (if compressed)
+            title: Signed transaction request
+            example:
+              signatures: >-
+                  SIG_K1_KcK1HYTQUmmiivGovvQJdZF4z7zYVuydaKSTUzF2kzzJ4b7YYdhE1WpPxxwfWWXY3uFFxuBUsaBfseviyd5RURn4zbS4no
+              compression: none
+              packed_context_free_data: ''
+              packed_trx: >-
+                c32b8e5df85573265d5e0000000001008054197b0ca85b00a6339226aea6ba01e01f0ad2292fb66200000000a8ed3232340b776f6f686f6f353633313100902f500900000017706177656c3336363638383a776f6f686f6f3536333131e01f0ad2292fb66200
+          description: >-
+            This is a signed and packed transaction that is ready to be sent to an action-specific FIO API endpoint.         
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              transaction_id:
+                type: string
+              processed:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  block_num:
+                    type: integer
+                  block_time:
+                    type: string
+                  producer_block_id:
+                    type: string
+                  receipt:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                      cpu_usage_us:
+                        type: integer
+                      net_usage_words:
+                        type: integer
+                  elapsed:
+                    type: integer
+                  net_usage:
+                    type: integer
+                  scheduled:
+                    type: boolean
+                  action_traces:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        receipt:
+                          type: object
+                          properties:
+                            receiver:
+                              type: string
+                            response:
+                              type: string
+                            act_digest:
+                              type: string
+                            global_sequence:
+                              type: integer
+                            recv_sequence:
+                              type: integer
+                            auth_sequence:
+                              type: array
+                              items:
+                                type: integer
+                            code_sequence:
+                              type: integer
+                            abi_sequence:
+                              type: integer
+                        act:
+                          type: object
+                          properties:
+                            account:
+                              type: string
+                            name:
+                              type: string
+                            authorization:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  actor:
+                                    type: string
+                                  permission:
+                                    type: string
+                            data:
+                              type: object
+                              properties:
+                                fio_domain:
+                                  type: string
+                                owner_fio_public_key:
+                                  type: string
+                                max_fee:
+                                  type: integer
+                                actor:
+                                  type: string
+                                tpid:
+                                  type: string
+                            hex_data:
+                              type: string
+                        context_free:
+                          type: boolean
+                        elapsed:
+                          type: integer
+                        console:
+                          type: string
+                        trx_id:
+                          type: string
+                        block_num:
+                          type: integer
+                        block_time:
+                          type: string
+                        producer_block_id:
+                          type: string
+                        account_ram_deltas:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              account:
+                                type: string
+                              delta:
+                                type: integer
+                        inline_traces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              receipt:
+                                type: object
+                                properties:
+                                  receiver:
+                                    type: string
+                                  response:
+                                    type: string
+                                  act_digest:
+                                    type: string
+                                  global_sequence:
+                                    type: integer
+                                  recv_sequence:
+                                    type: integer
+                                  auth_sequence:
+                                    type: array
+                                    items:
+                                      type: integer
+                                  code_sequence:
+                                    type: integer
+                                  abi_sequence:
+                                    type: integer
+                              act:
+                                type: object
+                                properties:
+                                  account:
+                                    type: string
+                                  name:
+                                    type: string
+                                  authorization:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        actor:
+                                          type: string
+                                        permission:
+                                          type: string
+                                  data:
+                                    type:
+                                      - object
+                                      - string
+                                    properties:
+                                      from:
+                                        type: string
+                                      to:
+                                        type: string
+                                      quantity:
+                                        type: string
+                                      memo:
+                                        type: string
+                                  hex_data:
+                                    type: string
+                              context_free:
+                                type: boolean
+                              elapsed:
+                                type: integer
+                              console:
+                                type: string
+                              trx_id:
+                                type: string
+                              block_num:
+                                type: integer
+                              block_time:
+                                type: string
+                              producer_block_id:
+                                type: string
+                              account_ram_deltas:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    account:
+                                      type: string
+                                    delta:
+                                      type: integer
+                              inline_traces:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    receipt:
+                                      type: object
+                                      properties:
+                                        receiver:
+                                          type: string
+                                        response:
+                                          type: string
+                                        act_digest:
+                                          type: string
+                                        global_sequence:
+                                          type: integer
+                                        recv_sequence:
+                                          type: integer
+                                        auth_sequence:
+                                          type: array
+                                          items:
+                                            type: integer
+                                        code_sequence:
+                                          type: integer
+                                        abi_sequence:
+                                          type: integer
+                                    act:
+                                      type: object
+                                      properties:
+                                        account:
+                                          type: string
+                                        name:
+                                          type: string
+                                        authorization:
+                                          type: array
+                                          items:
+                                            type: object
+                                            properties:
+                                              actor:
+                                                type: string
+                                              permission:
+                                                type: string
+                                        data:
+                                          type: object
+                                          properties:
+                                            from:
+                                              type: string
+                                            to:
+                                              type: string
+                                            quantity:
+                                              type: string
+                                            memo:
+                                              type: string
+                                        hex_data:
+                                          type: string
+                                    context_free:
+                                      type: boolean
+                                    elapsed:
+                                      type: integer
+                                    console:
+                                      type: string
+                                    trx_id:
+                                      type: string
+                                    block_num:
+                                      type: integer
+                                    block_time:
+                                      type: string
+                                    producer_block_id:
+                                      type: string
+                                    account_ram_deltas:
+                                      type: array
+                                      items:
+                                        type: object
+                                    inline_traces:
+                                      type: array
+                                      items:
+                                        type: object
+          examples:
+            application/json:
+              transaction_id: 84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+              processed:
+                id: >-
+                  84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                block_num: 1201721
+                block_time: '2019-09-27T15:28:56.000'
+                producer_block_id: null
+                receipt:
+                  status: executed
+                  cpu_usage_us: 2403
+                  net_usage_words: 17
+                elapsed: 2403
+                net_usage: 136
+                scheduled: false
+                action_traces:
+                  - receipt:
+                      receiver: fio.address
+                      response: >-
+                        {"expiration":"2020-09-26T15:28:56","fee_collected":5000000000,"status":"OK"}
+                      act_digest: >-
+                        51b6825f1b8c639a3071c0267d29d6ff40b11a9cbcd094885dcd69da92d2a6a1
+                      global_sequence: 1212122
+                      recv_sequence: 42
+                      auth_sequence:
+                        - - gev2yeim1cjy
+                          - 75
+                      code_sequence: 1
+                      abi_sequence: 1
+                    act:
+                      account: fio.address
+                      name: regaddress
+                      authorization:
+                        - actor: gev2yeim1cjy
+                          permission: active
+                      data:
+                        fio_address: pawel554427@woohoo56311
+                        owner_fio_public_key: ''
+                        max_fee: 5000000000
+                        actor: gev2yeim1cjy
+                        tpid: ''
+                      hex_data: >-
+                        17706177656c3535343432373a776f6f686f6f35363331310000f2052a01000000e01f0ad2292fb66200
+                    context_free: false
+                    elapsed: 1913
+                    console: >
+                      OWNER:gev2yeim1cjy...Value:7112924518142320608...Key:FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj...hash:18446744073642438656
+
+                      1601134136 INSIDE.   2020   TESTINSIDE.   5000000000
+
+                      fionamefound:
+
+                      Cannot register TPID or FIO Address not found. The
+                      transaction will continue without TPID payment.
+                    trx_id: >-
+                      84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                    block_num: 1201721
+                    block_time: '2019-09-27T15:28:56.000'
+                    producer_block_id: null
+                    account_ram_deltas:
+                      - account: fio.address
+                        delta: 646
+                    except: null
+                    inline_traces:
+                      - receipt:
+                          receiver: fio.token
+                          response: ''
+                          act_digest: >-
+                            41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                          global_sequence: 1212123
+                          recv_sequence: 84
+                          auth_sequence:
+                            - - gev2yeim1cjy
+                              - 76
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.token
+                          name: transfer
+                          authorization:
+                            - actor: gev2yeim1cjy
+                              permission: active
+                          data:
+                            from: gev2yeim1cjy
+                            to: fio.treasury
+                            quantity: 5.000000000 FIO
+                            memo: FIO API fees. Thank you.
+                          hex_data: >-
+                            e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                        context_free: false
+                        elapsed: 129
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas: []
+                        except: null
+                        inline_traces:
+                          - receipt:
+                              receiver: gev2yeim1cjy
+                              response: ''
+                              act_digest: >-
+                                41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                              global_sequence: 1212124
+                              recv_sequence: 19
+                              auth_sequence:
+                                - - gev2yeim1cjy
+                                  - 77
+                              code_sequence: 1
+                              abi_sequence: 1
+                            act:
+                              account: fio.token
+                              name: transfer
+                              authorization:
+                                - actor: gev2yeim1cjy
+                                  permission: active
+                              data:
+                                from: gev2yeim1cjy
+                                to: fio.treasury
+                                quantity: 5.000000000 FIO
+                                memo: FIO API fees. Thank you.
+                              hex_data: >-
+                                e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                            context_free: false
+                            elapsed: 3
+                            console: ''
+                            trx_id: >-
+                              84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                            block_num: 1201721
+                            block_time: '2019-09-27T15:28:56.000'
+                            producer_block_id: null
+                            account_ram_deltas: []
+                            except: null
+                            inline_traces: []
+                          - receipt:
+                              receiver: fio.treasury
+                              response: ''
+                              act_digest: >-
+                                41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                              global_sequence: 1212125
+                              recv_sequence: 113
+                              auth_sequence:
+                                - - gev2yeim1cjy
+                                  - 78
+                              code_sequence: 1
+                              abi_sequence: 1
+                            act:
+                              account: fio.token
+                              name: transfer
+                              authorization:
+                                - actor: gev2yeim1cjy
+                                  permission: active
+                              data:
+                                from: gev2yeim1cjy
+                                to: fio.treasury
+                                quantity: 5.000000000 FIO
+                                memo: FIO API fees. Thank you.
+                              hex_data: >-
+                                e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                            context_free: false
+                            elapsed: 11
+                            console: ''
+                            trx_id: >-
+                              84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                            block_num: 1201721
+                            block_time: '2019-09-27T15:28:56.000'
+                            producer_block_id: null
+                            account_ram_deltas: []
+                            except: null
+                            inline_traces: []
+                      - receipt:
+                          receiver: fio.treasury
+                          response: ''
+                          act_digest: >-
+                            1a7775344923ca0ff6340e6c0ae2d246ef2899f908a550741d0cfe02d4ce2c0d
+                          global_sequence: 1212126
+                          recv_sequence: 114
+                          auth_sequence:
+                            - - fio.system
+                              - 51
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.treasury
+                          name: fdtnrwdupdat
+                          authorization:
+                            - actor: fio.system
+                              permission: active
+                          data: 00e1f50500000000
+                        context_free: false
+                        elapsed: 51
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas:
+                          - account: fio.treasury
+                            delta: 0
+                        except: null
+                        inline_traces: []
+                      - receipt:
+                          receiver: fio.treasury
+                          response: ''
+                          act_digest: >-
+                            f549782fb7ac5903d111ca2e52dd25599b4220ff6958431da5c493cdc97cefca
+                          global_sequence: 1212127
+                          recv_sequence: 115
+                          auth_sequence:
+                            - - fio.system
+                              - 52
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.treasury
+                          name: bppoolupdate
+                          authorization:
+                            - actor: fio.system
+                              permission: active
+                          data: '0011102401000000'
+                        context_free: false
+                        elapsed: 34
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas:
+                          - account: fio.treasury
+                            delta: 0
+                        except: null
+                        inline_traces: []
+                except: null
+      tags:
+        - Transactions   
+  transaction:
+    options:
+      description: >-
+        A transaction instance consists of a transaction header and the list of action instances and transaction 
+        extensions that make the actual transaction. The transaction header includes information necessary to assess 
+        the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution.
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
+      summary: Transaction schema
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:            
+              expiration:
+                type: time_point_sec
+                description: The time the transaction must be confirmed by before it expires
+              ref_block_num:
+                type: uint16_t
+                description: Lower 16 bits of a block number                
+              ref_block_prefix:
+                type: uint32_t
+                description: Lower 32 bits of block id referred by ref_block_num          
+              max_net_usage_words:
+                type: unsigned_int
+                description: Upper limit on total network bandwidth billed (in 64-bit words)  
+              max_cpu_usage_ms:
+                type: uint8_t
+                description: Upper limit on total CPU time billed (in milliseconds) 
+              delay_sec:
+                type: unsigned_int
+                description: Number of seconds to delay transaction for  
+              context_free_actions:
+                type: array of action
+                items:
+                  type: action
+                description: List of context-free actions if any
+              actions:
+                type: array of action
+                items:
+                  type: action
+                description: List of action instances
+              transaction_extensions:
+                type: extensions_type
+                description: Extends fields to support additional features   
+            title: Signed transaction request
+            example:
+              chain_id: cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f
+              expiration: 2018-09-04T18:42:49
+              ref_block_num: 38096
+              ref_block_prefix: 505360011
+              max_net_usage_words: 0
+              max_cpu_usage_ms: 0
+              delay_sec: 0
+              context_free_actions: []
+              actions:
+                - account: fio.token
+                  name: trnsfiopubky
+                  authorization:
+                    - actor: "aftyershcu22"
+                      permission: "active"
+                  data:
+                    payee_public_key: "FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj"
+                    amount: 1000000000
+                    max_fee: 250000000
+                    tpid: "rewards@wallet"
+                    actor: "aftyershcu22"  
+              transaction_extensions: 
+          description: >-
+            This request needs to be packed and signed. See [Packed Transaction Schema](/pages/api/fio-api/#options-packed_transaction) for
+            the definition of the object after it has been packed and signed.
+      tags:
+        - Transactions      
+  packed_transaction:
+    options:
+      description: >-
+            A packed transaction is a compressed and signed [transaction](http://127.0.0.1:4000/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint 
+            and block size in the long run. A packed transaction forms the most generic type of transaction in the FIO blockchain. 
+      summary: Packed transaction schema
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              signatures:
+                type: array of strings
+                items:
+                  type: string
+                description: Digital signatures after transaction is signed
+              compression:
+                type: string
+                description: Compression method used
+              packed_context_free_data:
+                type: string
+                description: Compressed context-free data (if transaction compressed)
+              packed_trx:
+                type: string
+                description: Compressed transaction (if compressed)
+            title: Signed transaction request
+            example:
+              signatures: >-
+                  SIG_K1_KcK1HYTQUmmiivGovvQJdZF4z7zYVuydaKSTUzF2kzzJ4b7YYdhE1WpPxxwfWWXY3uFFxuBUsaBfseviyd5RURn4zbS4no
+              compression: none
+              packed_context_free_data: ''
+              packed_trx: >-
+                c32b8e5df85573265d5e0000000001008054197b0ca85b00a6339226aea6ba01e01f0ad2292fb66200000000a8ed3232340b776f6f686f6f353633313100902f500900000017706177656c3336363638383a776f6f686f6f3536333131e01f0ad2292fb66200
+          description: >-
+            This is a signed and packed transaction that is ready to be sent to a FIO API transaction endpoint (e.g., /push_transaction)
+
+      tags:
+        - Transactions
 basePath: /v1/chain/
 schemes:
   - http
@@ -5507,6 +6238,12 @@ consumes:
   - application/json
 produces:
   - application/json
+components:
+  parameters: 
+    actor:
+      type: string
+      title: Actor
+      description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
 definitions:
   error-400:
     type: object
@@ -5549,11 +6286,11 @@ definitions:
   tpid:
     type: string
     title: TPID
-    description: 'See [Technology Provider ID](/fio-protocol/tpid)'
+    description: 'See [Technology Provider ID](/docs/fio-protocol/tpid)'
   actor:
     type: string
     title: Actor
-    description: 'See [Generating actor](/api/actor)'
+    description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
   fio-address:
     type: string
     title: FIO Address
@@ -5943,7 +6680,7 @@ definitions:
       Max 296 characters
 
 
-      See [Encrypting FIO Data](/wallet-integration-guide/encrypting-fio-data)
+      See [Encrypting FIO Data](/docs/integration-guide/encryption)
       for more information.
     properties:
       payee_public_address:
