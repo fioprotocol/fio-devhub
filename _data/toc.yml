@@ -106,6 +106,3 @@
           url: "docs/chain/newcontracts"
     - title: "Blog"
       url: Blog
-      children: 
-        - title: FIO Token
-          url: "docs/fio-protocol/fio-token"
