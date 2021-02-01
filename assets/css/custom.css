@@ -39,3 +39,14 @@
 #spec {
     padding-top: 62px;
 }
+
+#spinner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.1);
+    height: 100%;
+    width: 100%;
+    top: 0;
+}

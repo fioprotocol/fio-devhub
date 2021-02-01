@@ -6,12 +6,12 @@ info:
   license:
     name: MIT
   contact:
-    url: http://fioprotocol.io
+    url: 'http://fioprotocol.io'
     email: info@fioprotocol.io
     name: FIO
 servers:
-- url: http://testnet.fioprotocol.io/v1/chain
-  description: FIO Testnet server
+  - url: 'http://testnet.fioprotocol.io/v1/chain'
+    description: FIO Testnet server
 paths:
   /get_fio_balance:
     post:
@@ -70,7 +70,9 @@ paths:
             * "Public key not found"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -90,10 +92,9 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
             required:
               - fio_public_key
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
       operationId: get_fio_balance
       tags:
         - Getters
@@ -193,7 +194,9 @@ paths:
             * "No FIO names"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -202,7 +205,7 @@ paths:
             application/json:
               message: No FIO names
       summary: Get Domains/Addresses linked to public key
-      description: Returns FIO Addresses and FIO Domains owned by this public key.
+      description: Returns FIO Addresses and FIO Domains owned by a public key.
       parameters:
         - in: body
           name: body
@@ -213,10 +216,9 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
             required:
               - fio_public_key
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
       operationId: get_fio_names
       tags:
         - Getters
@@ -287,8 +289,7 @@ paths:
               fio_name:
                 type: string
                 description: FIO Address or FIO Domain to check.
-            example:
-              fio_name: purse@alice
+                example: purse@alice
       operationId: avail_check
       tags:
         - Getters
@@ -347,7 +348,9 @@ paths:
             * "Public address not found"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -374,22 +377,21 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
               chain_code:
                 type: string
                 title: Token/chain code
                 minLength: 1
                 maxLength: 10
                 pattern: '^[A-Z0-9]+$'
+                example: FIO
               token_code:
                 type: string
                 title: Token/chain code
                 minLength: 1
                 maxLength: 10
                 pattern: '^[A-Z0-9]+$'
-            example:
-              fio_address: purse@alice
-              chain_code: FIO
-              token_code: FIO
+                example: FIO
       operationId: get_pub_address
       tags:
         - Getters
@@ -553,7 +555,9 @@ paths:
             * "No FIO Requests"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -563,8 +567,7 @@ paths:
               message: No FIO Requests
       summary: Get sent Requests
       description: >-
-        Sent requests call polls for any requests sent by provided FIO public
-        key.
+        Returns FIO Requests that have been sent by provided FIO public key.
       operationId: get_sent_fio_requests
       parameters:
         - in: body
@@ -576,22 +579,21 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit:
                 type: integer
                 description: >-
                   Number of requests to return. If omitted, all requests will be
                   returned.
                 minimum: 0
+                example: 100
               offset:
                 type: integer
                 description: 'First request from list to return. If omitted, 0 is assumed.'
                 minimum: 0
+                example: 0
             required:
               - fio_public_key
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
-              limit: 100
-              offset: 0
       tags:
         - Getters
   /get_pending_fio_requests:
@@ -745,7 +747,9 @@ paths:
             * "No pending FIO Requests"
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -765,22 +769,21 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit:
                 type: integer
                 description: >-
                   Number of requests to return. If omitted, all requests will be
                   returned.
                 minimum: 0
+                example: 100
               offset:
                 type: integer
                 description: 'First request from list to return. If omitted, 0 is assumed.'
                 minimum: 0
+                example: 0
             required:
               - fio_public_key
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
-              limit: 100
-              offset: 0
       operationId: get_pending_fio_requests
       tags:
         - Getters
@@ -941,7 +944,9 @@ paths:
           description: ''
           schema:
             type: object
-            properties: {}
+            properties:
+              message:
+                type: string
             title: Error 404
             description: >-
               HTTP code 404 is returned when the requested information could not
@@ -955,9 +960,9 @@ paths:
         /record_obt_data. This call will return all metadata relevant to the
         provided FIO Public key, including:
 
-        * Outbound data. Payer's FIO Address is owned by provided FIO Public key
+        * Outbound transactions where the Payer's FIO Address matches the provided FIO Public key
 
-        * Inbound data. Payee's FIO Address is owned by provided FIO Public key
+        * Inbound transactions where the Payee's FIO Address matches the provided FIO Public key
       operationId: get_obt_data
       parameters:
         - in: body
@@ -969,22 +974,21 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               limit:
                 type: integer
                 description: >-
                   Number of requests to return. If omitted, all requests will be
                   returned.
                 minimum: 0
+                example: 100
               offset:
                 type: integer
                 description: 'First request from list to return. If omitted, 0 is assumed.'
                 minimum: 0
+                example: 0
             required:
               - fio_public_key
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
-              limit: 100
-              offset: 0
       tags:
         - Getters
   /get_fee:
@@ -1051,6 +1055,7 @@ paths:
               end_point:
                 type: string
                 description: 'Name of API call end point, e.g. add_pub_address'
+                example: add_pub_address
               fio_address:
                 type: string
                 title: FIO Address
@@ -1058,12 +1063,10 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: alice@purse
             required:
               - end_point
               - fio_address
-            example:
-              end_point: add_pub_address
-              fio_address: alice@purse
           description: |-
             Valid FIO Address required on the following calls:
             * add_pub_address
@@ -1090,9 +1093,9 @@ paths:
               actor: gev2yeim1cjy
       summary: Get actor/account from public key
       description: >-
-        Convenience method, which returns [actor](/api/actor) for supplied FIO
+        Convenience method, which returns the [actor](/docs/integration-guide/generating-actor) for the supplied FIO
         Public Key. The FIO Chain is not checked for existence of this actor, it
-        simply converts the key to actor using [hash function](/api/actor).
+        simply converts the key to actor using [hash function](/docs/integration-guide/generating-actor).
       operationId: get_actor
       parameters:
         - in: body
@@ -1106,8 +1109,7 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
-            example:
-              fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
       tags:
         - Getters
   /get_account:
@@ -1254,7 +1256,7 @@ paths:
       summary: Get account information
       description: >-
         Returns information about the
-        [account](https://developers.fioprotocol.io/fio-protocol/accounts), such
+        [account](/docs/fio-protocol/keys-accounts#fio-accounts), such
         as creation date and permissions.
 
 
@@ -1270,10 +1272,9 @@ paths:
             properties:
               account_name:
                 type: string
+                example: 5jfctnozulcb
             required:
               - account_name
-            example:
-              account_name: 5jfctnozulcb
       tags:
         - Getters
   /get_info:
@@ -1404,10 +1405,9 @@ paths:
                 description: >-
                   last_irreversible_block_num or last_irreversible_block_id from
                   /get_info
+                example: '39570'
             required:
               - block_num_or_id
-            example:
-              block_num_or_id: '39570'
       description: Retrieves information about the specific block.
       operationId: get_block
       tags:
@@ -1446,10 +1446,9 @@ paths:
               account_name:
                 type: string
                 description: Account name. Check request definition for specific call.
+                example: fio.system
             required:
               - account_name
-            example:
-              account_name: fio.system
       operationId: get_raw_abi
       tags:
         - Getters
@@ -1572,15 +1571,14 @@ paths:
               limit:
                 type: string
                 description: Total number of producers to retrieve
+                example: '10'
               lower_bound:
                 type: string
+                example: ...........1f
               json:
                 type: boolean
                 description: Return result in JSON format?
-            example:
-              limit: '10'
-              lower_bound: ...........1f
-              json: true
+                example: true
       operationId: get_producers
       tags:
         - Getters
@@ -1616,7 +1614,7 @@ paths:
                   bundleeligiblecountdown: 100
               more: true
       summary: Get content of FIO state table
-      description: "This call can be used to return any data from the state table.\n\n## Returning all public addresses example\nHere's an advance example of a query returning all public addresses mapped to a single FIO Address.\n\nThe data is contained in *fionames* table in *fio.address* contract and *fio.address* scope.\n\nThe FIO Address is index position *5* of index_type *i128*.\n\n### Compute index\nThe hash is a truncated sha1 hash, in big-endian order, as a hex-string.\n1. Calculate the sha1 sum of the address\n2. Take the first 16 bytes\n3. Reverse the byte order\n4. Convert to a hexadecimal string, and prepend \"0x\"\n\nExample for \"test@fiotestnet\"\n1. sha1 hash: 58df646ca7a4c9be1e1436b9ae1608eb62e653a0\n2. First 16 bytes: 58df646ca7a4c9be1e1436b9ae1608eb\n3. Reverse byte order (big endian): eb0816aeb936141ebec9a4a76c64df58\n4. Prepend 0x\n\n```\nfunction nameHash(name) {\n    const hash = require('crypto').createHash('sha1')\n    return '0x' + hash.update(name).digest().slice(0,16).reverse().toString(\"hex\")\n}\n\nconsole.log( nameHash('test@fiotestnet') )\n// outputs: 0xeb0816aeb936141ebec9a4a76c64df58\n```\n\n### Query table\nTo query the table, specify index 5, with a type of i128, using the hash as the upper and lower bounds:\n```\n{\n\t\"code\": \"fio.address\",\n\t\"scope\": \"fio.address\",\n\t\"table\": \"fionames\",\n\t\"lower_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"upper_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"key_type\": \"i128\",\n\t\"index_position\": \"5\",\n\t\"json\": true\n}\n```"
+      description: "This call can be used to return any data from the state table.\n\n### Example: Returning all public addresses\nHere's an advanced example of a query returning all public addresses mapped to a single FIO Address.\n\nThe data is contained in *fionames* table in *fio.address* contract and *fio.address* scope.\n\nThe FIO Address is index position *5* of index_type *i128*.\n\n### Compute index\nThe hash is a truncated sha1 hash, in big-endian order, as a hex-string.\n1. Calculate the sha1 sum of the address\n2. Take the first 16 bytes\n3. Reverse the byte order\n4. Convert to a hexadecimal string, and prepend \"0x\"\n\nExample for \"test@fiotestnet\"\n1. sha1 hash: 58df646ca7a4c9be1e1436b9ae1608eb62e653a0\n2. First 16 bytes: 58df646ca7a4c9be1e1436b9ae1608eb\n3. Reverse byte order (big endian): eb0816aeb936141ebec9a4a76c64df58\n4. Prepend 0x\n\n```\nfunction nameHash(name) {\n    const hash = require('crypto').createHash('sha1')\n    return '0x' + hash.update(name).digest().slice(0,16).reverse().toString(\"hex\")\n}\n\nconsole.log( nameHash('test@fiotestnet') )\n// outputs: 0xeb0816aeb936141ebec9a4a76c64df58\n```\n\n### Query table\nTo query the table, specify index 5, with a type of i128, using the hash as the upper and lower bounds:\n```\n{\n\t\"code\": \"fio.address\",\n\t\"scope\": \"fio.address\",\n\t\"table\": \"fionames\",\n\t\"lower_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"upper_bound\": \"0xeb0816aeb936141ebec9a4a76c64df58\",\n\t\"key_type\": \"i128\",\n\t\"index_position\": \"5\",\n\t\"json\": true\n}\n```"
       operationId: get_table_rows
       parameters:
         - in: body
@@ -1629,30 +1627,37 @@ paths:
                 description: >-
                   The name of the smart contract that controls the provided
                   table.
+                example: fio.address
               scope:
                 type: string
                 description: The account to which this data belongs.
+                example: fio.address
               table:
                 type: string
                 description: The name of the table as specified by the contract abi.
+                example: fionames
               lower_bound:
                 type: string
                 description: >-
                   Filters results to return the first element that is not less
                   than provided value in set.
+                example: '0xeb0816aeb936141ebec9a4a76c64df58'
               upper_bound:
                 type: string
                 description: >-
                   Filters results to return the first element that is greater
                   than provided value in set.
+                example: '0xeb0816aeb936141ebec9a4a76c64df58'
               key_type:
                 type: string
                 description: >-
                   Type of key specified by index_position (for example -
                   uint64_t or name).
+                example: i128
               index_position:
                 type: string
                 description: Position of the index used.
+                example: '5'
               limit:
                 type: integer
                 description: >-
@@ -1661,6 +1666,7 @@ paths:
               json:
                 type: boolean
                 description: Get the response as json.
+                example: true
               reverse:
                 type: boolean
                 description: Return data in reverse order.
@@ -1668,15 +1674,6 @@ paths:
               - code
               - scope
               - table
-            example:
-              code: fio.address
-              scope: fio.address
-              table: fionames
-              lower_bound: '0xeb0816aeb936141ebec9a4a76c64df58'
-              upper_bound: '0xeb0816aeb936141ebec9a4a76c64df58'
-              key_type: i128
-              index_position: '5'
-              json: true
       tags:
         - Getters
   trnsfiopubky:
@@ -1685,8 +1682,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -1759,11 +1757,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Transfer FIO tokens'
+      summary: Transfer FIO tokens
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        trnsfiopubky action data may also be sent to the `/transfer_tokens_pub_key` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -1780,15 +1782,18 @@ paths:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               amount:
                 type: integer
                 description: Amount sent in SUFs
+                example: '1000000000'
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 250000000
               tpid:
                 type: string
                 title: TPID
@@ -1797,10 +1802,12 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             example:
               payee_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               amount: '1000000000'
@@ -1808,8 +1815,7 @@ paths:
               tpid: rewards@wallet
               actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: transfer_tokens_pub_key_model
       tags:
         - Actions
@@ -1819,8 +1825,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -1917,11 +1924,15 @@ paths:
           examples:
             application/json:
               message: FIO Address not found
-      summary: 'Map blockchain public address'
+      summary: Map blockchain public address
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        addaddress action data may also be sent to the `/add_pub_address` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -1941,6 +1952,7 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
               public_addresses:
                 type: array
                 uniqueItems: true
@@ -1992,12 +2004,20 @@ paths:
                     - chain_code
                     - token_code
                     - public_address
+                example:
+                  - chain_code: BTC
+                    token_code: BTC
+                    public_address: 1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs
+                  - chain_code: ETH
+                    token_code: ETH
+                    public_address: '0xab5801a7d398351b8be11c439e05c5b3259aec9b'
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 0
               tpid:
                 type: string
                 title: TPID
@@ -2006,31 +2026,20 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_address
               - public_addresses
               - max_fee
               - tpid
               - actor
-            example:
-              fio_address: purse@alice
-              public_addresses:
-                - chain_code: BTC
-                  token_code: BTC
-                  public_address: 1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs
-                - chain_code: ETH
-                  token_code: ETH
-                  public_address: '0xab5801a7d398351b8be11c439e05c5b3259aec9b'
-              max_fee: 0
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
 
 
             Please read [Mapping Public
@@ -2045,8 +2054,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -2131,11 +2141,15 @@ paths:
               HTTP code 403 is returned when the request signature is not valid
               or this user is not allowed to sign this transaction.
             title: Error 403
-      summary: 'Request funds'
+      summary: Request funds
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        newfundsreq action data may also be sent to the `/new_funds_request` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2155,6 +2169,7 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: pawel788242@woohoo827390
               payee_fio_address:
                 type: string
                 title: FIO Address
@@ -2162,6 +2177,16 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: pawel82825@woohoo827390
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
               content:
                 type: object
                 title: FIO Request encrypted content
@@ -2262,33 +2287,28 @@ paths:
                   future_use5:
                     type: string
                     description: Do not use
+                example: >-
+                  JhTnxX9ntI9n1eucNuJzHS1/JXeLj+GYmPD1uXG/5PBixQeHg40d4p4yHCm6fxfn7eKzcYFlV2AFrQ7j/kRQJUk5OcvJzZtCYuvIx6snciwhOvYtBlN7MWKavxWV3XGAJHBrQxxcHQGW0rtCZM4KzVYYqXWMzihN6mRGDqxGALc=
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 0
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: gev2yeim1cjy
             required:
               - payer_fio_address
               - payee_fio_address
               - content
               - max_fee
               - actor
-            example:
-              payer_fio_address: pawel788242@woohoo827390
-              payee_fio_address: pawel82825@woohoo827390
-              content: >-
-                JhTnxX9ntI9n1eucNuJzHS1/JXeLj+GYmPD1uXG/5PBixQeHg40d4p4yHCm6fxfn7eKzcYFlV2AFrQ7j/kRQJUk5OcvJzZtCYuvIx6snciwhOvYtBlN7MWKavxWV3XGAJHBrQxxcHQGW0rtCZM4KzVYYqXWMzihN6mRGDqxGALc=
-              max_fee: 0
-              tpid: rewards@wallet
-              actor: gev2yeim1cjy
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: new_funds_request_model
       tags:
         - Actions
@@ -2298,8 +2318,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -2381,12 +2402,16 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Reject funds request'
+      summary: Reject funds request
       operationId: reject_funds_request_model
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        rejectfndreq action data may also be sent to the `/reject_funds_request` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2401,12 +2426,14 @@ paths:
             properties:
               fio_request_id:
                 type: string
+                example: '10'
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 0
               tpid:
                 type: string
                 title: TPID
@@ -2415,23 +2442,19 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_request_id
               - max_fee
               - tpid
               - actor
-            example:
-              fio_request_id: '10'
-              max_fee: 0
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Actions
   recordobt:
@@ -2440,8 +2463,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -2517,11 +2541,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Record other blockchain transaction metadata'
+      summary: Record other blockchain transaction metadata
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        recordobt action data may also be sent to the `/record_obt_data` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2539,9 +2567,11 @@ paths:
                 description: >-
                   FIO Address of the payer. This address initiated payment. Also
                   MUST be the same one signing the transaction
+                example: purse@alice
               payee_fio_address:
                 type: string
                 description: FIO Address of the payee. This address is receiving payment.
+                example: crypto@bob
               content:
                 type: object
                 title: FIO Data encrypted content
@@ -2639,6 +2669,8 @@ paths:
                       Url of where to find off-chain data.
 
                       Use either memo or hash/offline_url, but not both.
+                example: >-
+                  JhTnxX9ntI9n1eucNuJzHS1/JXeLj+GYmPD1uXG/5PBixQeHg40d4p4yHCm6fxfn7eKzcYFlV2AFrQ7j/kRQJUk5OcvJzZtCYuvIx6snciwhOvYtBlN7MWKavxWV3XGAJHBrQxxcHQGW0rtCZM4KzVYYqXWMzihN6mRGDqxGALc=
               fio_request_id:
                 type: string
                 description: >-
@@ -2646,12 +2678,14 @@ paths:
 
                   * ID of FIO Request, if this Record Send transaction is in
                   response to a previously received FIO Request.
+                example: '10'
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 0
               tpid:
                 type: string
                 title: TPID
@@ -2660,10 +2694,12 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - payer_fio_address
               - payee_fio_address
@@ -2672,18 +2708,8 @@ paths:
               - max_fee
               - tpid
               - actor
-            example:
-              payer_fio_address: purse@alice
-              payee_fio_address: crypto@bob
-              content: >-
-                JhTnxX9ntI9n1eucNuJzHS1/JXeLj+GYmPD1uXG/5PBixQeHg40d4p4yHCm6fxfn7eKzcYFlV2AFrQ7j/kRQJUk5OcvJzZtCYuvIx6snciwhOvYtBlN7MWKavxWV3XGAJHBrQxxcHQGW0rtCZM4KzVYYqXWMzihN6mRGDqxGALc=
-              fio_request_id: '10'
-              max_fee: 0
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: record_obt_data_model
       tags:
         - Actions
@@ -2693,8 +2719,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -2779,7 +2806,7 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Register Address'
+      summary: Register Address
       parameters:
         - in: body
           name: body
@@ -2801,16 +2828,19 @@ paths:
                   Please note that FIO Address is case insensitive. If upper
                   case characters are passed in, they will be converted to lower
                   case.
+                example: purse@alice
               owner_fio_public_key:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 30000000000
               tpid:
                 type: string
                 title: TPID
@@ -2819,29 +2849,28 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_address
               - owner_fio_public_key
               - max_fee
               - tpid
               - actor
-            example:
-              fio_address: purse@alice
-              owner_fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
-              max_fee: 30000000000
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        regaddress action data may also be sent to the `/register_fio_address` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2857,8 +2886,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -2935,11 +2965,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Renew Address'
+      summary: Renew Address
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        renewaddress action data may also be sent to the `/renew_fio_address` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -2959,12 +2993,14 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 30000000000
               tpid:
                 type: string
                 title: TPID
@@ -2973,23 +3009,19 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_address
               - max_fee
               - tpid
               - actor
-            example:
-              fio_address: purse@alice
-              max_fee: 30000000000
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: renew_fio_address_model
       tags:
         - Actions
@@ -2999,8 +3031,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3078,11 +3111,15 @@ paths:
               HTTP code 403 is returned when the request signature is not valid
               or this user is not allowed to sign this transaction.
             title: Error 403
-      summary: 'Register Domain'
+      summary: Register Domain
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        regdomain action data may also be sent to the `/register_fio_domain` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3109,16 +3146,19 @@ paths:
                   Please note that FIO Domain is case insensitive. If upper case
                   characters are passed in, they will be converted to lower
                   case.
+                example: alice
               owner_fio_public_key:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 2000000000
               tpid:
                 type: string
                 title: TPID
@@ -3127,25 +3167,20 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_domain
               - owner_fio_public_key
               - max_fee
               - tpid
               - actor
-            example:
-              fio_domain: alice
-              owner_fio_public_key: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
-              max_fee: 2000000000
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: register_fio_domain_model
       tags:
         - Actions
@@ -3155,8 +3190,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3232,11 +3268,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Renew Domain'
+      summary: Renew Domain
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        renewdomain action data may also be sent to the `/renew_fio_domain` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3255,12 +3295,14 @@ paths:
                 minLength: 1
                 maxLength: 62
                 pattern: '^[a-z0-9-]+$'
+                example: alice
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 30000000000
               tpid:
                 type: string
                 title: TPID
@@ -3269,23 +3311,19 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_domain
               - max_fee
               - tpid
               - actor
-            example:
-              fio_domain: alice
-              max_fee: 30000000000
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: renew_fio_domain_model
       tags:
         - Actions
@@ -3295,8 +3333,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3369,11 +3408,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Make Domain public'
+      summary: Make Domain public
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        setdomainpub action data may also be sent to the `/set_fio_domain_public` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3392,17 +3435,20 @@ paths:
                 minLength: 1
                 maxLength: 62
                 pattern: '^[a-z0-9-]+$'
+                example: alice
               is_public:
                 type: integer
                 description: |-
                   * 1 - allows anyone to register FIO Address
                   * 0 - only owner of domain can register FIO Address
+                example: 1
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 2000000000
               tpid:
                 type: string
                 title: TPID
@@ -3411,25 +3457,20 @@ paths:
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
+                example: rewards@wallet
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - fio_domain
               - is_public
               - max_fee
               - tpid
               - actor
-            example:
-              fio_domain: alice
-              is_public: 1
-              max_fee: 2000000000
-              tpid: rewards@wallet
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: set_fio_domain_public_model
       tags:
         - Actions
@@ -3439,8 +3480,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3510,11 +3552,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Vote on block producers'
+      summary: Vote on block producers
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        voteproducer action data may also be sent to the `/vote_producer` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3545,6 +3591,10 @@ paths:
                   maxLength: 64
                   pattern: >-
                     ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example:
+                  - BP1
+                  - BP2
+                  - BP3
               fio_address:
                 type: string
                 title: FIO Address
@@ -3552,27 +3602,21 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: alice.purse
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
-            example:
-              producers:
-                - BP1
-                - BP2
-                - BP3
-              fio_address: alice.purse
-              actor: aftyershcu22
-              max_fee: 10000000
+                example: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: vote_producer_model
       tags:
         - Actions
@@ -3582,8 +3626,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3657,11 +3702,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Proxy votes to registered proxy'
+      summary: Proxy votes to registered proxy
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        voteproxy action data may also be sent to the `/proxy_vote` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3687,6 +3736,7 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: producer@bob
               fio_address:
                 type: string
                 title: FIO Address
@@ -3694,25 +3744,21 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
-            example:
-              proxy: producer@bob
-              fio_address: purse@alice
-              actor: aftyershcu22
-              max_fee: 10000000
+                example: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
-
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Actions
   regproxy:
@@ -3721,8 +3767,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3797,14 +3844,14 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Register as a proxy'
+      summary: Register as a proxy
       description: >-
-        ## This is not an actual api endpoint
-
         This section defines the object which needs to be created before it's
-        packed and signed and the response object returned in
-        processed->action_traces->receipt->response string. See Signed call
-        section for the definition of the actual request and response.
+        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        regproxy action data may also be sent to the `/register_proxy` action-specific endpoint.
 
         ### "actions" parameters
 
@@ -3824,23 +3871,21 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: proxy@bob
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
-            example:
-              fio_address: proxy@bob
-              actor: aftyershcu22
-              max_fee: 10000000
+                example: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: register_proxy_model
       tags:
         - Actions
@@ -3850,8 +3895,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -3926,11 +3972,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Unregister as a proxy'
+      summary: Unregister as a proxy
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        unregproxy action data may also be sent to the `/unregister_proxy` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -3950,29 +4000,27 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: proxy@bob
               actor:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 10000000
             required:
               - fio_address
               - actor
               - max_fee
-            example:
-              fio_address: proxy@bob
-              actor: aftyershcu22
-              max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: unregister_proxy_model
       tags:
         - Actions
@@ -3982,8 +4030,9 @@ paths:
         '202':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4063,11 +4112,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Register as block producer'
+      summary: Register as block producer
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        regproducer action data may also be sent to the `/register_producer` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4088,26 +4141,32 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: producer@bob
               fio_pub_key:
                 type: string
                 title: FIO Public Key
                 description: Valid WIF Public Key with FIO Prefix
+                example: FIO7tHihSLJVRQ2HsiVGTXAh3RgfXQvVVPpMm8pwQtiTHQHPnY5dH
               url:
                 type: string
                 description: Url of block producer website
+                example: 'https://bobp.io/'
               location:
                 type: integer
                 description: "Location ID of where BPs servers are located. See table below.\n\nLocations\n* 10\tEast Asia\n* 20\tAustralia\n* 30\tWest Asia\n* 40\tAfrica\n* 50\tEurope\n* 60\tEast North America\n* 70\tSouth America\n* 80\tWest North America"
+                example: 80
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 10000000000
             required:
               - fio_address
               - fio_pub_key
@@ -4115,26 +4174,19 @@ paths:
               - location
               - actor
               - max_fee
-            example:
-              fio_address: producer@bob
-              fio_pub_key: FIO7tHihSLJVRQ2HsiVGTXAh3RgfXQvVVPpMm8pwQtiTHQHPnY5dH
-              url: 'https://bobp.io/'
-              location: 80
-              actor: aftyershcu22
-              max_fee: 10000000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
-       - Block Producer Actions
+        - Block Producer Actions
   unregprod:
     options:
       responses:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4209,12 +4261,16 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Unregister as block producer'
+      summary: Unregister as block producer
       operationId: unregister_producer_model
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        unregprod action data may also be sent to the `/unregister_producer` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4234,27 +4290,25 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: producer@bob
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
               max_fee:
                 type: integer
                 title: Max fee
                 description: >-
                   Maximum amount of SUFs the user is willing to pay for fee.
                   Should be preceded by /get_fee for correct value.
+                example: 10000000
             required:
               - fio_address
               - actor
               - max_fee
-            example:
-              fio_address: producer@bob
-              actor: aftyershcu22
-              max_fee: 10000000
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Block Producer Actions
   setfeevote:
@@ -4263,8 +4317,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4329,11 +4384,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Set fee ratios'
+      summary: Set fee ratios
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        setfeevote action data may also be sent to the `/submit_fee_ratios` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4358,66 +4417,64 @@ paths:
                     value:
                       type: integer
                       description: Fee in SUFs which will be multiplied by multiplier.
+                example:
+                  - end_point: register_fio_domain
+                    value: 40000000000
+                  - end_point: register_fio_address
+                    value: 2000000000
+                  - end_point: renew_fio_domain
+                    value: 40000000000
+                  - end_point: renew_fio_address
+                    value: 2000000000
+                  - end_point: add_pub_address
+                    value: 30000000
+                  - end_point: transfer_tokens_pub_key
+                    value: 100000000
+                  - end_point: new_funds_request
+                    value: 60000000
+                  - end_point: reject_funds_request
+                    value: 30000000
+                  - end_point: record_obt_data
+                    value: 60000000
+                  - end_point: set_fio_domain_public
+                    value: 30000000
+                  - end_point: register_producer
+                    value: 10000000000
+                  - end_point: register_proxy
+                    value: 1000000000
+                  - end_point: unregister_proxy
+                    value: 20000000
+                  - end_point: unregister_producer
+                    value: 20000000
+                  - end_point: proxy_vote
+                    value: 30000000
+                  - end_point: vote_producer
+                    value: 30000000
+                  - end_point: auth_delete
+                    value: 20000000
+                  - end_point: auth_link
+                    value: 20000000
+                  - end_point: auth_update
+                    value: 50000000
+                  - end_point: msig_propose
+                    value: 50000000
+                  - end_point: msig_approve
+                    value: 20000000
+                  - end_point: msig_unapprove
+                    value: 20000000
+                  - end_point: msig_cancel
+                    value: 20000000
+                  - end_point: msig_exec
+                    value: 20000000
+                  - end_point: msig_invalidate
+                    value: 20000000
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
-            example:
-              fee_ratios:
-                - end_point: register_fio_domain
-                  value: 40000000000
-                - end_point: register_fio_address
-                  value: 2000000000
-                - end_point: renew_fio_domain
-                  value: 40000000000
-                - end_point: renew_fio_address
-                  value: 2000000000
-                - end_point: add_pub_address
-                  value: 30000000
-                - end_point: transfer_tokens_pub_key
-                  value: 100000000
-                - end_point: new_funds_request
-                  value: 60000000
-                - end_point: reject_funds_request
-                  value: 30000000
-                - end_point: record_obt_data
-                  value: 60000000
-                - end_point: set_fio_domain_public
-                  value: 30000000
-                - end_point: register_producer
-                  value: 10000000000
-                - end_point: register_proxy
-                  value: 1000000000
-                - end_point: unregister_proxy
-                  value: 20000000
-                - end_point: unregister_producer
-                  value: 20000000
-                - end_point: proxy_vote
-                  value: 30000000
-                - end_point: vote_producer
-                  value: 30000000
-                - end_point: auth_delete
-                  value: 20000000
-                - end_point: auth_link
-                  value: 20000000
-                - end_point: auth_update
-                  value: 50000000
-                - end_point: msig_propose
-                  value: 50000000
-                - end_point: msig_approve
-                  value: 20000000
-                - end_point: msig_unapprove
-                  value: 20000000
-                - end_point: msig_cancel
-                  value: 20000000
-                - end_point: msig_exec
-                  value: 20000000
-                - end_point: msig_invalidate
-                  value: 20000000
-              actor: BP_ACTOR
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: BP_ACTOR
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_ratios_model
       tags:
         - Block Producer Actions
@@ -4427,8 +4484,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4491,11 +4549,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Set fee multiplier'
+      summary: Set fee multiplier
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        setfeemult action data may also be sent to the `/submit_fee_multiplier` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4511,19 +4573,17 @@ paths:
               multiplier:
                 type: integer
                 description: Multiplier
+                example: 100
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - multiplier
               - actor
-            example:
-              multiplier: 100
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_multiplier_model
       tags:
         - Block Producer Actions
@@ -4533,8 +4593,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4597,11 +4658,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Set bundled transaction count'
+      summary: Set bundled transaction count
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        bundlevote action data may also be sent to the `/submit_bundled_transaction` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4620,19 +4685,17 @@ paths:
                 description: >-
                   Number of bundled transactions which should be included with
                   every FIO Address.
+                example: 100
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
             required:
               - bundled_transactions
               - actor
-            example:
-              bundled_transactions: 100
-              actor: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Block Producer Actions
   tpidclaim:
@@ -4641,8 +4704,9 @@ paths:
         '202':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4707,11 +4771,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Pay rewards to TPIDs'
+      summary: Pay rewards to TPIDs
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        tpidclaim action data may also be sent to the `/pay_tpid_rewards` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4727,12 +4795,10 @@ paths:
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
-            example:
-              actor: aftyershcu22
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       operationId: pay_tpid_rewards_model
       tags:
         - Block Producer Actions
@@ -4742,8 +4808,9 @@ paths:
         '200':
           description: >-
             This section defines only the contents of the response returned in
-            `processed->action_traces->receipt->response` string. See [push_transaction](#post-/push_transaction)
-            section for the definition of the actual response.
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
           schema:
             type: object
             properties:
@@ -4813,11 +4880,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Pay BP rewards'
+      summary: Pay BP rewards
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        bpclaim action data may also be sent to the `/claim_bp_rewards` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4838,18 +4909,16 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: producer@bob
               actor:
                 type: string
                 title: Actor
-                description: 'See [Generating actor](/actor)'
-            example:
-              fio_address: producer@bob
-              actor: aftyershcu22
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
           description: >-
-            This section defines the `data` object which needs to be created before
-            it's packed and signed.
+            The `data` object which needs to be included in the transaction instance.
       tags:
-       - Block Producer Actions
+        - Block Producer Actions
   burnexpired:
     options:
       responses:
@@ -4919,11 +4988,15 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: 'Burn expired FIO Addresses and Domains'
+      summary: Burn expired FIO Addresses and Domains
       description: >-
         This section defines the object which needs to be created before it's
-        packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
         `processed->action_traces->receipt->response` string.
+
+
+        burnexpired action data may also be sent to the `/burn_expired` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -4933,7 +5006,7 @@ paths:
       operationId: burn_expired_model
       parameters: []
       tags:
-        - Block Producer Actions
+        - Block Producer Actions                                     
   /push_transaction:
     post:
       responses:
@@ -5446,29 +5519,25 @@ paths:
                         inline_traces: []
                 except: null
       description: >-
-        Allows advance user to send their own content directly to FIO contracts.
+        push_transaction is a generic API endpoint that accepts all [FIO action data objects](/pages/api/fio-api/#tag--Actions). 
+        It is an alternative to sending transactions to [action-specific FIO API endpoints](/pages/api/fio-api/#post-/fio_api_endpoint).
+        
+
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+        and transaction extensions that make the actual transaction.
+        
+
+        All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to /push_transaction.
 
 
-        This request needs to be packed and signed.
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
 
-        ```
-          {
-            expiration: string,
-            ref_block_num: number,
-            ref_block_prefix: number,
-            actions:
-              {
-                account: string
-                name: string
-                authorization: { actor: string, permission: string }[]
-                data: any
-              }[]
-          }
-        ```
 
-        For every ACTION that described below, the `Request` object should be set to `data` in `actions` array,
-        also `account` and `name` are provided for each action.
-      summary: Push transaction
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+        The `account` and `name` are provided for each action.
+      summary: Push Transaction
       operationId: push_transaction
       parameters:
         - in: body
@@ -5489,6 +5558,686 @@ paths:
             title: Signed transaction request
       tags:
         - Transactions
+  /fio_api_endpoint:
+    post:
+      description: >-
+        FIO protocol also includes action-specific FIO API endpoints for convenience. 
+        These action-specific endpoints may be used as an alternative to [push_transaction](/pages/api/fio-api/#post-/push_transaction). 
+
+
+        Action-specific API endpoints are identified in the [Actions](/pages/api/fio-api/#tag--Actions) section of the API alongside their associated action.
+
+
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+        and transaction extensions that make the actual transaction.
+        
+
+        All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to a FIO API endpoint.
+
+
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
+
+
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+      summary: Action-specific API Endpoints
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              signatures:
+                type: array of strings
+                items:
+                  type: string
+                description: Digital signatures after transaction is signed
+              compression:
+                type: string
+                description: Compression method used
+              packed_context_free_data:
+                type: string
+                description: Compressed context-free data (if transaction compressed)
+              packed_trx:
+                type: string
+                description: Compressed transaction (if compressed)
+            title: Signed transaction request
+            example:
+              signatures: >-
+                  SIG_K1_KcK1HYTQUmmiivGovvQJdZF4z7zYVuydaKSTUzF2kzzJ4b7YYdhE1WpPxxwfWWXY3uFFxuBUsaBfseviyd5RURn4zbS4no
+              compression: none
+              packed_context_free_data: ''
+              packed_trx: >-
+                c32b8e5df85573265d5e0000000001008054197b0ca85b00a6339226aea6ba01e01f0ad2292fb66200000000a8ed3232340b776f6f686f6f353633313100902f500900000017706177656c3336363638383a776f6f686f6f3536333131e01f0ad2292fb66200
+          description: >-
+            This is a signed and packed transaction that is ready to be sent to an action-specific FIO API endpoint.         
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              transaction_id:
+                type: string
+              processed:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  block_num:
+                    type: integer
+                  block_time:
+                    type: string
+                  producer_block_id:
+                    type: string
+                  receipt:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                      cpu_usage_us:
+                        type: integer
+                      net_usage_words:
+                        type: integer
+                  elapsed:
+                    type: integer
+                  net_usage:
+                    type: integer
+                  scheduled:
+                    type: boolean
+                  action_traces:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        receipt:
+                          type: object
+                          properties:
+                            receiver:
+                              type: string
+                            response:
+                              type: string
+                            act_digest:
+                              type: string
+                            global_sequence:
+                              type: integer
+                            recv_sequence:
+                              type: integer
+                            auth_sequence:
+                              type: array
+                              items:
+                                type: integer
+                            code_sequence:
+                              type: integer
+                            abi_sequence:
+                              type: integer
+                        act:
+                          type: object
+                          properties:
+                            account:
+                              type: string
+                            name:
+                              type: string
+                            authorization:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  actor:
+                                    type: string
+                                  permission:
+                                    type: string
+                            data:
+                              type: object
+                              properties:
+                                fio_domain:
+                                  type: string
+                                owner_fio_public_key:
+                                  type: string
+                                max_fee:
+                                  type: integer
+                                actor:
+                                  type: string
+                                tpid:
+                                  type: string
+                            hex_data:
+                              type: string
+                        context_free:
+                          type: boolean
+                        elapsed:
+                          type: integer
+                        console:
+                          type: string
+                        trx_id:
+                          type: string
+                        block_num:
+                          type: integer
+                        block_time:
+                          type: string
+                        producer_block_id:
+                          type: string
+                        account_ram_deltas:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              account:
+                                type: string
+                              delta:
+                                type: integer
+                        inline_traces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              receipt:
+                                type: object
+                                properties:
+                                  receiver:
+                                    type: string
+                                  response:
+                                    type: string
+                                  act_digest:
+                                    type: string
+                                  global_sequence:
+                                    type: integer
+                                  recv_sequence:
+                                    type: integer
+                                  auth_sequence:
+                                    type: array
+                                    items:
+                                      type: integer
+                                  code_sequence:
+                                    type: integer
+                                  abi_sequence:
+                                    type: integer
+                              act:
+                                type: object
+                                properties:
+                                  account:
+                                    type: string
+                                  name:
+                                    type: string
+                                  authorization:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        actor:
+                                          type: string
+                                        permission:
+                                          type: string
+                                  data:
+                                    type:
+                                      - object
+                                      - string
+                                    properties:
+                                      from:
+                                        type: string
+                                      to:
+                                        type: string
+                                      quantity:
+                                        type: string
+                                      memo:
+                                        type: string
+                                  hex_data:
+                                    type: string
+                              context_free:
+                                type: boolean
+                              elapsed:
+                                type: integer
+                              console:
+                                type: string
+                              trx_id:
+                                type: string
+                              block_num:
+                                type: integer
+                              block_time:
+                                type: string
+                              producer_block_id:
+                                type: string
+                              account_ram_deltas:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    account:
+                                      type: string
+                                    delta:
+                                      type: integer
+                              inline_traces:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    receipt:
+                                      type: object
+                                      properties:
+                                        receiver:
+                                          type: string
+                                        response:
+                                          type: string
+                                        act_digest:
+                                          type: string
+                                        global_sequence:
+                                          type: integer
+                                        recv_sequence:
+                                          type: integer
+                                        auth_sequence:
+                                          type: array
+                                          items:
+                                            type: integer
+                                        code_sequence:
+                                          type: integer
+                                        abi_sequence:
+                                          type: integer
+                                    act:
+                                      type: object
+                                      properties:
+                                        account:
+                                          type: string
+                                        name:
+                                          type: string
+                                        authorization:
+                                          type: array
+                                          items:
+                                            type: object
+                                            properties:
+                                              actor:
+                                                type: string
+                                              permission:
+                                                type: string
+                                        data:
+                                          type: object
+                                          properties:
+                                            from:
+                                              type: string
+                                            to:
+                                              type: string
+                                            quantity:
+                                              type: string
+                                            memo:
+                                              type: string
+                                        hex_data:
+                                          type: string
+                                    context_free:
+                                      type: boolean
+                                    elapsed:
+                                      type: integer
+                                    console:
+                                      type: string
+                                    trx_id:
+                                      type: string
+                                    block_num:
+                                      type: integer
+                                    block_time:
+                                      type: string
+                                    producer_block_id:
+                                      type: string
+                                    account_ram_deltas:
+                                      type: array
+                                      items:
+                                        type: object
+                                    inline_traces:
+                                      type: array
+                                      items:
+                                        type: object
+          examples:
+            application/json:
+              transaction_id: 84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+              processed:
+                id: >-
+                  84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                block_num: 1201721
+                block_time: '2019-09-27T15:28:56.000'
+                producer_block_id: null
+                receipt:
+                  status: executed
+                  cpu_usage_us: 2403
+                  net_usage_words: 17
+                elapsed: 2403
+                net_usage: 136
+                scheduled: false
+                action_traces:
+                  - receipt:
+                      receiver: fio.address
+                      response: >-
+                        {"expiration":"2020-09-26T15:28:56","fee_collected":5000000000,"status":"OK"}
+                      act_digest: >-
+                        51b6825f1b8c639a3071c0267d29d6ff40b11a9cbcd094885dcd69da92d2a6a1
+                      global_sequence: 1212122
+                      recv_sequence: 42
+                      auth_sequence:
+                        - - gev2yeim1cjy
+                          - 75
+                      code_sequence: 1
+                      abi_sequence: 1
+                    act:
+                      account: fio.address
+                      name: regaddress
+                      authorization:
+                        - actor: gev2yeim1cjy
+                          permission: active
+                      data:
+                        fio_address: pawel554427@woohoo56311
+                        owner_fio_public_key: ''
+                        max_fee: 5000000000
+                        actor: gev2yeim1cjy
+                        tpid: ''
+                      hex_data: >-
+                        17706177656c3535343432373a776f6f686f6f35363331310000f2052a01000000e01f0ad2292fb66200
+                    context_free: false
+                    elapsed: 1913
+                    console: >
+                      OWNER:gev2yeim1cjy...Value:7112924518142320608...Key:FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj...hash:18446744073642438656
+
+                      1601134136 INSIDE.   2020   TESTINSIDE.   5000000000
+
+                      fionamefound:
+
+                      Cannot register TPID or FIO Address not found. The
+                      transaction will continue without TPID payment.
+                    trx_id: >-
+                      84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                    block_num: 1201721
+                    block_time: '2019-09-27T15:28:56.000'
+                    producer_block_id: null
+                    account_ram_deltas:
+                      - account: fio.address
+                        delta: 646
+                    except: null
+                    inline_traces:
+                      - receipt:
+                          receiver: fio.token
+                          response: ''
+                          act_digest: >-
+                            41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                          global_sequence: 1212123
+                          recv_sequence: 84
+                          auth_sequence:
+                            - - gev2yeim1cjy
+                              - 76
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.token
+                          name: transfer
+                          authorization:
+                            - actor: gev2yeim1cjy
+                              permission: active
+                          data:
+                            from: gev2yeim1cjy
+                            to: fio.treasury
+                            quantity: 5.000000000 FIO
+                            memo: FIO API fees. Thank you.
+                          hex_data: >-
+                            e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                        context_free: false
+                        elapsed: 129
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas: []
+                        except: null
+                        inline_traces:
+                          - receipt:
+                              receiver: gev2yeim1cjy
+                              response: ''
+                              act_digest: >-
+                                41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                              global_sequence: 1212124
+                              recv_sequence: 19
+                              auth_sequence:
+                                - - gev2yeim1cjy
+                                  - 77
+                              code_sequence: 1
+                              abi_sequence: 1
+                            act:
+                              account: fio.token
+                              name: transfer
+                              authorization:
+                                - actor: gev2yeim1cjy
+                                  permission: active
+                              data:
+                                from: gev2yeim1cjy
+                                to: fio.treasury
+                                quantity: 5.000000000 FIO
+                                memo: FIO API fees. Thank you.
+                              hex_data: >-
+                                e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                            context_free: false
+                            elapsed: 3
+                            console: ''
+                            trx_id: >-
+                              84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                            block_num: 1201721
+                            block_time: '2019-09-27T15:28:56.000'
+                            producer_block_id: null
+                            account_ram_deltas: []
+                            except: null
+                            inline_traces: []
+                          - receipt:
+                              receiver: fio.treasury
+                              response: ''
+                              act_digest: >-
+                                41051fa782f88f79085466aa9f1aff1f918a69b8a3a82a0554060aaf1e8ea5d2
+                              global_sequence: 1212125
+                              recv_sequence: 113
+                              auth_sequence:
+                                - - gev2yeim1cjy
+                                  - 78
+                              code_sequence: 1
+                              abi_sequence: 1
+                            act:
+                              account: fio.token
+                              name: transfer
+                              authorization:
+                                - actor: gev2yeim1cjy
+                                  permission: active
+                              data:
+                                from: gev2yeim1cjy
+                                to: fio.treasury
+                                quantity: 5.000000000 FIO
+                                memo: FIO API fees. Thank you.
+                              hex_data: >-
+                                e01f0ad2292fb662e0afc646dd0ca85b00f2052a010000000946494f000000001846494f2041504920666565732e205468616e6b20796f752e
+                            context_free: false
+                            elapsed: 11
+                            console: ''
+                            trx_id: >-
+                              84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                            block_num: 1201721
+                            block_time: '2019-09-27T15:28:56.000'
+                            producer_block_id: null
+                            account_ram_deltas: []
+                            except: null
+                            inline_traces: []
+                      - receipt:
+                          receiver: fio.treasury
+                          response: ''
+                          act_digest: >-
+                            1a7775344923ca0ff6340e6c0ae2d246ef2899f908a550741d0cfe02d4ce2c0d
+                          global_sequence: 1212126
+                          recv_sequence: 114
+                          auth_sequence:
+                            - - fio.system
+                              - 51
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.treasury
+                          name: fdtnrwdupdat
+                          authorization:
+                            - actor: fio.system
+                              permission: active
+                          data: 00e1f50500000000
+                        context_free: false
+                        elapsed: 51
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas:
+                          - account: fio.treasury
+                            delta: 0
+                        except: null
+                        inline_traces: []
+                      - receipt:
+                          receiver: fio.treasury
+                          response: ''
+                          act_digest: >-
+                            f549782fb7ac5903d111ca2e52dd25599b4220ff6958431da5c493cdc97cefca
+                          global_sequence: 1212127
+                          recv_sequence: 115
+                          auth_sequence:
+                            - - fio.system
+                              - 52
+                          code_sequence: 1
+                          abi_sequence: 1
+                        act:
+                          account: fio.treasury
+                          name: bppoolupdate
+                          authorization:
+                            - actor: fio.system
+                              permission: active
+                          data: '0011102401000000'
+                        context_free: false
+                        elapsed: 34
+                        console: ''
+                        trx_id: >-
+                          84409d5141043921be9384cd62ddff80d6e9435273cd5c95f96b6ba19c2137cd
+                        block_num: 1201721
+                        block_time: '2019-09-27T15:28:56.000'
+                        producer_block_id: null
+                        account_ram_deltas:
+                          - account: fio.treasury
+                            delta: 0
+                        except: null
+                        inline_traces: []
+                except: null
+      tags:
+        - Transactions   
+  transaction:
+    options:
+      description: >-
+        A transaction instance consists of a transaction header and the list of action instances and transaction 
+        extensions that make the actual transaction. The transaction header includes information necessary to assess 
+        the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution.
+        See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
+      summary: Transaction schema
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:            
+              expiration:
+                type: time_point_sec
+                description: The time the transaction must be confirmed by before it expires
+              ref_block_num:
+                type: uint16_t
+                description: Lower 16 bits of a block number                
+              ref_block_prefix:
+                type: uint32_t
+                description: Lower 32 bits of block id referred by ref_block_num          
+              max_net_usage_words:
+                type: unsigned_int
+                description: Upper limit on total network bandwidth billed (in 64-bit words)  
+              max_cpu_usage_ms:
+                type: uint8_t
+                description: Upper limit on total CPU time billed (in milliseconds) 
+              delay_sec:
+                type: unsigned_int
+                description: Number of seconds to delay transaction for  
+              context_free_actions:
+                type: array of action
+                items:
+                  type: action
+                description: List of context-free actions if any
+              actions:
+                type: array of action
+                items:
+                  type: action
+                description: List of action instances
+              transaction_extensions:
+                type: extensions_type
+                description: Extends fields to support additional features   
+            title: Signed transaction request
+            example:
+              chain_id: cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f
+              expiration: 2018-09-04T18:42:49
+              ref_block_num: 38096
+              ref_block_prefix: 505360011
+              max_net_usage_words: 0
+              max_cpu_usage_ms: 0
+              delay_sec: 0
+              context_free_actions: []
+              actions:
+                - account: fio.token
+                  name: trnsfiopubky
+                  authorization:
+                    - actor: "aftyershcu22"
+                      permission: "active"
+                  data:
+                    payee_public_key: "FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj"
+                    amount: 1000000000
+                    max_fee: 250000000
+                    tpid: "rewards@wallet"
+                    actor: "aftyershcu22"  
+              transaction_extensions: 
+          description: >-
+            This request needs to be packed and signed. See [Packed Transaction Schema](/pages/api/fio-api/#options-packed_transaction) for
+            the definition of the object after it has been packed and signed.
+      tags:
+        - Transactions      
+  packed_transaction:
+    options:
+      description: >-
+            A packed transaction is a compressed and signed [transaction](http://127.0.0.1:4000/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint 
+            and block size in the long run. A packed transaction forms the most generic type of transaction in the FIO blockchain. 
+      summary: Packed transaction schema
+      operationId: 
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              signatures:
+                type: array of strings
+                items:
+                  type: string
+                description: Digital signatures after transaction is signed
+              compression:
+                type: string
+                description: Compression method used
+              packed_context_free_data:
+                type: string
+                description: Compressed context-free data (if transaction compressed)
+              packed_trx:
+                type: string
+                description: Compressed transaction (if compressed)
+            title: Signed transaction request
+            example:
+              signatures: >-
+                  SIG_K1_KcK1HYTQUmmiivGovvQJdZF4z7zYVuydaKSTUzF2kzzJ4b7YYdhE1WpPxxwfWWXY3uFFxuBUsaBfseviyd5RURn4zbS4no
+              compression: none
+              packed_context_free_data: ''
+              packed_trx: >-
+                c32b8e5df85573265d5e0000000001008054197b0ca85b00a6339226aea6ba01e01f0ad2292fb66200000000a8ed3232340b776f6f686f6f353633313100902f500900000017706177656c3336363638383a776f6f686f6f3536333131e01f0ad2292fb66200
+          description: >-
+            This is a signed and packed transaction that is ready to be sent to a FIO API transaction endpoint (e.g., /push_transaction)
+
+      tags:
+        - Transactions
 basePath: /v1/chain/
 schemes:
   - http
@@ -5496,6 +6245,12 @@ consumes:
   - application/json
 produces:
   - application/json
+components:
+  parameters: 
+    actor:
+      type: string
+      title: Actor
+      description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
 definitions:
   error-400:
     type: object
@@ -5538,11 +6293,11 @@ definitions:
   tpid:
     type: string
     title: TPID
-    description: 'See [Technology Provider ID](/fio-protocol/tpid)'
+    description: 'See [Technology Provider ID](/docs/fio-protocol/tpid)'
   actor:
     type: string
     title: Actor
-    description: 'See [Generating actor](/api/actor)'
+    description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
   fio-address:
     type: string
     title: FIO Address
@@ -5932,7 +6687,7 @@ definitions:
       Max 296 characters
 
 
-      See [Encrypting FIO Data](/wallet-integration-guide/encrypting-fio-data)
+      See [Encrypting FIO Data](/docs/integration-guide/encryption)
       for more information.
     properties:
       payee_public_address:
@@ -6074,9 +6829,9 @@ tags:
   - name: Getters
     description: API endpoints to retrieve data from the FIO blockchain.
   - name: Transactions
-    description: Creates transaction in the chain
+    description: Sending transactions to the FIO blockchain
   - name: Actions
-    description: List of actions to sign for [push_transaction](#post-/push_transaction)
+    description: 'List of actions to sign for [push_transaction](#post-/push_transaction)'
 x-stoplight:
   docs:
     includeDownloadLink: true
