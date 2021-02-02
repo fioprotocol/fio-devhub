@@ -151,3 +151,19 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
     main()
 ```
 
+<div class="row position-relative">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="transfer-payee">Payee FIO Address</label>
+            <input type="text" class="form-control" id="transfer-payee" placeholder="payee@fiotestnet">
+        </div>
+        <div class="form-group">
+            <label for="transfer-amount">Amount (FIO)</label>
+            <input type="number" class="form-control" id="transfer-amount" placeholder="1">
+        </div>
+        <button id="try-transfer" class="btn btn-default btn--blue">Try</button>
+    </div>
+    <div id="spinner" class="fa-3x d-none" role="status">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>

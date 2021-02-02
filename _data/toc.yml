@@ -3,7 +3,7 @@
   links:
     - title: "FIO Protocol"
       url: "docs/fio-protocol"
-      children: 
+      children:
         - title: FIO Token
           url: "docs/fio-protocol/fio-token"
         - title: Fees
@@ -20,11 +20,11 @@
           url: "docs/fio-protocol/fips"
     - title: "Integration Guide"
       url: "docs/integration-guide"
-      children: 
+      children:
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
         - title: Submitting Transactions
-          url: "docs/integration-guide/transactions"          
+          url: "docs/integration-guide/transactions"
         - title: Send to FIO Address
           url: "docs/integration-guide/fio-send"
         - title: Registering Addresses & Domains
@@ -68,13 +68,15 @@
         - title: Transaction history
           url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
-      url: "docs/typescript/sdk-js-using"
-      children: 
+      url: "docs/typescript"
+      children:
         - title: Using the Typescript SDK
           url: "docs/typescript/sdk-js-using"
+        - title: Fio Request Example
+          url: "docs/typescript/fio-request-example"
     - title: "Recipes"
       url: "docs/recipes"
-      children: 
+      children:
         - title: Generating actor from Pub Key
           url: "docs/recipes/actor-account"
         - title: Adding permissions with linkauth
@@ -83,7 +85,7 @@
           url: "docs/recipes/validation"
     - title: "FIO Chain"
       url: "docs/chain"
-      children: 
+      children:
         - title: FIO vs. EOSIO
           url: "docs/chain/eosio"
         - title: RAM, CPU, and NET limits
@@ -105,4 +107,4 @@
         - title: New FIO Contracts
           url: "docs/chain/newcontracts"
     - title: "Blog"
-      url: Blog
+      url: blog
