@@ -68,12 +68,18 @@
         - title: Transaction history
           url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
-      url: "docs/typescript"
+      url: "docs/sdk-typescript"
       children:
         - title: Using the Typescript SDK
-          url: "docs/typescript/sdk-js-using"
+          url: "docs/sdk-typescript/sdk-js-using"
         - title: Fio Request Example
-          url: "docs/typescript/fio-request-example"
+          url: "docs/sdk-typescript/fio-request-example"
+    - title: "Go SDK"
+      url: "docs/sdk-go"
+    - title: "Kotlin SDK"
+      url: "docs/sdk-kotlin"
+    - title: "iOS Swift SDK"
+      url: "docs/sdk-swift"
     - title: "Recipes"
       url: "docs/recipes"
       children:
