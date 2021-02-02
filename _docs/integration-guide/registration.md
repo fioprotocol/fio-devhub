@@ -28,7 +28,7 @@ Please note that a user may have multiple FIO Addresses owned by a single key, t
 Do not forget to include your TPID in the request to earn portion of fees paid.
 
 ## FIO Registration Site
-Foundation for Interwallet Operability has developed, is hosting a website which allows for registration of FIO Addresses and Domains in exchange for payment in Bitcoin, Bitcoin Cash, DAI, Ethereum, Litecoin, and USD Coin.
+Foundation for Interwallet Operability has developed and is hosting a website which allows for registration of FIO Addresses and Domains in exchange for payment in Bitcoin, Bitcoin Cash, DAI, Ethereum, Litecoin, and USD Coin.
 
 Wallets wanting to offer their customers ability to purchase FIO Addresses with currencies other than FIO, can use the site. There are several ways to enable FIO Address and Domain registration including linking to the registration site, accessing the registration API, and hosting an internal instance of the registration site.
 

@@ -1759,6 +1759,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Transfer FIO tokens
       description: >-
+        This call transfers FIO tokens using a FIO public key.
+
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -1926,6 +1929,10 @@ paths:
               message: FIO Address not found
       summary: Map blockchain public address
       description: >-
+        This call allows a public address of the specific blockchain type to be added to the FIO Address, 
+        so that it can be returned using /get_pub_address.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2143,6 +2150,9 @@ paths:
             title: Error 403
       summary: Request funds
       description: >-
+        This api method will create a new funds request on the FIO chain.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2405,6 +2415,9 @@ paths:
       summary: Reject funds request
       operationId: reject_funds_request_model
       description: >-
+        Reject a FIO funds request.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2461,7 +2474,7 @@ paths:
     options:
       responses:
         '200':
-          description: >-
+          description: >-           
             This section defines only the contents of the response returned in
             `processed->action_traces->receipt->response` string. See
             [push_transaction](#post-/push_transaction) section for the
@@ -2543,6 +2556,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Record other blockchain transaction metadata
       description: >-
+        This call is made to record Other Blockchain Transaction (OBT) data on the FIO blockchain, 
+        e.g. 1 BTC was sent on Bitcoin Blockchain, and both sender and receiver have FIO Addresses.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2864,6 +2881,9 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       description: >-
+        Registers a FIO Address on the FIO blockchain.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2967,6 +2987,13 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Renew Address
       description: >-
+        Renews a FIO Address. When a FIO Address is renewed:
+
+        * 365 days are added to the current expiration date (not date when renewal is ran)
+
+        * A new bundle of transactions is added to the existing count.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3113,6 +3140,9 @@ paths:
             title: Error 403
       summary: Register Domain
       description: >-
+        Registers a FIO Domain on the FIO blockchain.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3270,6 +3300,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Renew Domain
       description: >-
+        Renews a FIO Domain. When a FIO Domain is renewed 365 days are added to the current expiration date.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3410,6 +3443,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Make Domain public
       description: >-
+        By default all FIO Domains are non-public, meaning only the owner can register FIO Addresses on that domain. 
+        Setting them to public allows anyone to register a FIO Address on that domain.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3554,6 +3591,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Vote on block producers
       description: >-
+        This call submits votes on block producers.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3704,6 +3744,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Proxy votes to registered proxy
       description: >-
+        This call proxies votes of caller to a designated proxy.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3846,6 +3889,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Register as a proxy
       description: >-
+        This call registers an entity as a proxy.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
@@ -3974,6 +4020,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Unregister as a proxy
       description: >-
+        This call unregisters an entity as a proxy.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4114,6 +4163,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Register as block producer
       description: >-
+        This call registers an entity as a block producer, so that they can be voted on.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4264,6 +4316,9 @@ paths:
       summary: Unregister as block producer
       operationId: unregister_producer_model
       description: >-
+        This call unregisters an entity as a block producer.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4386,6 +4441,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set fee ratios
       description: >-
+        This call is only allowed to be made by active BPs and is designed to submit fee ratios. It has no fee.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4551,6 +4609,9 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set fee multiplier
       description: >-
+        This call is only allowed to be made by active BPs and is designed to submit fee multiplier. It has no fee.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4660,6 +4721,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set bundled transaction count
       description: >-
+        This call is only allowed to be made by active BPs and is designed to submit bundled transaction amount 
+        which should be allocated to new FIO Address registrations. It has no fee.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4773,6 +4838,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Pay rewards to TPIDs
       description: >-
+        This is a maintenance call and is intended to pay TPIDs. It is envisioned that this call will be made by BPs 
+        as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4880,8 +4949,12 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: Pay BP rewards
+      summary: Claim BP rewards
       description: >-
+        This is a maintenance call and is intended to pay the calling BP. This call can only be made by BPs once every 24 hours. 
+        This is a signed call, but is free to make.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4990,6 +5063,11 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Burn expired FIO Addresses and Domains
       description: >-
+        This is a maintenance call and is intended to burn FIO Addresses and Domains which have passed their 
+        expiration date and need to be removed from state. It is envisioned that this call will be made by BPs 
+        as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
+        
+        
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in

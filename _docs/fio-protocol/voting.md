@@ -35,7 +35,7 @@ The easiest way to derive your public key from a seed phrase is to [download the
 
 **Typescript SDK**
 
-You can also use [Typescript SDK]({{ site.baseurl }}/docs/typescript/sdk-js-using/) to derive your public key from a seed phrase.
+You can also use [Typescript SDK]({{ site.baseurl }}/docs/sdk-typescript/sdk-js-using/) to derive your public key from a seed phrase.
 
 Once you install Typescript SDK run
 
