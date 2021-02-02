@@ -7,7 +7,7 @@ badges:
    tag: event
 ---
 
-FIO is sponsoring the [ETHDenver Hackathon](https://www.ethdenver.com){:target="_blank"} with $3,000 worth of bounties that will be rewarded to developers who use FIO to simplify their application. 
+FIO is sponsoring the [ETHDenver Hackathon](https://www.ethdenver.com){:target="_blank"} with $5,000 worth of bounties that will be rewarded to developers who use FIO to simplify their application. 
 
 <!--more-->
 
