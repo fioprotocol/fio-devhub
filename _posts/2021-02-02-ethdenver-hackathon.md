@@ -7,16 +7,17 @@ badges:
    tag: event
 ---
 
-FIO is sponsoring the [ETHDenver Hackathon](https://www.ethdenver.com){:target="_blank"} with $3,000 worth of bounties that will be rewarded to developers who use FIO to simplify their application. 
+FIO is sponsoring the [ETHDenver Hackathon](https://www.ethdenver.com){:target="_blank"} with $5,000 worth of bounties that will be rewarded to developers who use FIO to simplify their application. 
 
 <!--more-->
 
 ### ETHDenver Bounty: FIO Open Hack
 FIO is a protocol that makes sending and receiving crypto easier. To that end, FIO bounties will reward developers who have simplified their application by utilizing FIO features. FIO is sponsoring ETHDenver with three open hack bounties:
  
-$1500 - First Prize
-$500 - Second Prize
-$100 - Runner-Ups (10x) 
+$2000 - First Prize
+$1000 - Second Prize
+$500 - Third Prize
+$100 - Runner-Ups (15x) 
 
 The open hack allows participants to use their creative and technical skills to “wow” the judges with their FIO integration. We want to see new and exciting ways FIO can be used to allow for easy and seamless FIO transactions, requests, and address lookups. Prizes will be judged based on the following criteria:
 * Originality - Show us something we’ve never seen before!
