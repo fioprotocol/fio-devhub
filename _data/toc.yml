@@ -74,6 +74,8 @@
           url: "docs/sdk-typescript/sdk-js-using"
         - title: Fio Request Example
           url: "docs/sdk-typescript/fio-request-example"
+        - title: Review Pending Fio Requests Example
+          url: "docs/sdk-typescript/review-pending-fio-requests-example"
     - title: "Go SDK"
       url: "docs/sdk-go"
     - title: "Kotlin SDK"
