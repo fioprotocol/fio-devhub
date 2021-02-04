@@ -19,8 +19,6 @@ Importing using commonJS syntax is supported by Node.js out of the box:
 
 ### Step 1. Initializing the SDK.
 
-In this example you would need 2 key pairs for payee and payer
-
 ```javascript
     
     const fetchJson = async (uri, opts = {}) => {
@@ -33,7 +31,6 @@ In this example you would need 2 key pairs for payee and payer
     const payeePublicKey = '';
     const payeeFioAddress = '';
     const payerFioAddress = '';
-    const payerPrivateKey = '';
     const requestAmount = 1; // set amount
     const memo = ''; // optional
 
@@ -45,13 +42,6 @@ In this example you would need 2 key pairs for payee and payer
     )
 
     const { public_address: payerPublicKey } = await fioSdkPayee.getPublicAddress(payerFioAddress, "FIO", "FIO")
-
-    const fioSdkPayer = new FIOSDK(
-      payerPrivateKey,
-      payerPublicKey,
-      baseUrl,
-      fetchJson
-    )
 ```
 
 * `privateKey/publicKey` - The wallet user's private/public keys
@@ -75,7 +65,7 @@ Call `requestFunds` with needed params. `payeeTokenPublicAddress` could be publi
         payerFioAddress,
         payeeFioAddress,
         payeeTokenPublicAddress: fioSdkPayee.publicKey,
-        payerFioPublicKey: fioSdkPayer.publicKey,
+        payerFioPublicKey: payerPublicKey,
         amount: requestAmount,
         chainCode: 'FIO',
         tokenCode: 'FIO',
@@ -87,7 +77,7 @@ Call `requestFunds` with needed params. `payeeTokenPublicAddress` could be publi
 
 ### Step 4. Check request sent.
 
-You could check that request created for payee and you should be able to retrieve it for payer.
+You could check that request created for payee.
 
 ```javascript
     const { requests: sentRequests } = await fioSdkPayee.getSentFioRequests()
@@ -95,80 +85,11 @@ You could check that request created for payee and you should be able to retriev
     if (sentRequest && sentRequest.fio_request_id) {
       console.log(sentRequest);
     }
-    
-    const { requests: pendingRequests } = await fioSdkPayer.getPendingFioRequests()
-    const pendingRequest = pendingRequests.find(pr => parseInt(pr.fio_request_id) === parseInt(requestId))
-    if (pendingRequest && pendingRequest.fio_request_id) {
-      console.log(pendingRequest);
-    }
-```
-
-### Step 5. Approve FIO Request.
-
-Now you could create a transfer and call `recordObtData` to mark request as approved.
-
-```javascript
-      const { fee: transferFee } = await fioSdkPayer.getFee('transfer_tokens_pub_key');
-      fioSdkPayer.returnPreparedTrx = true
-      const preparedTrx = await fioSdkPayer.pushTransaction(
-        'fio.token',
-        'trnsfiopubky',
-        {
-          payee_public_key: pendingRequest.content.payee_public_address,
-          amount: FIOSDK_LIB.FIOSDK.amountToSUF(pendingRequest.content.amount),
-          max_fee: transferFee,
-          // tpid: "rewards@wallet"
-        }
-      )
-      const transferResult = await fioSdkPayer.executePreparedTrx(
-        'transfer_tokens_pub_key',
-        preparedTrx
-      )
-      fioSdkPayer.returnPreparedTrx = false
-      console.log(transferResult.transaction_id);
-    
-      const { fee: recordObtFee } = await fioSdkPayer.getFeeForRecordObtData(pendingRequest.payer_fio_address);
-      const recordObtDataResult = await fioSdkPayer.genericAction('recordObtData', {
-        fioRequestId: requestId,
-        payerFioAddress: pendingRequest.payer_fio_address,
-        payeeFioAddress: pendingRequest.payee_fio_address,
-        payerTokenPublicAddress: fioSdkPayer.publicKey,
-        payeeTokenPublicAddress: pendingRequest.content.payee_public_address,
-        amount: pendingRequest.content.amount,
-        chainCode: 'FIO',
-        tokenCode: 'FIO',
-        status: 'sent_to_blockchain',
-        obtId: '',
-        maxFee: recordObtFee,
-      })
-      console.log(recordObtDataResult);
-```
-
-### Step 6. Approve FIO Request.
-
-Then you could see that request status changed. Also, now payer would not get this request from `getPendingFiorequests` call.
-
-```javascript
-    const { requests } = await fioSdkPayee.getSentFioRequests()
-    const sentRequest = requests.find(pr => parseInt(pr.fio_request_id) === parseInt(requestId))
-    if (sentRequest && sentRequest.fio_request_id) {
-      console.log(sentRequest.status);
-    }
-```
-
-### Rejecting FIO Requests
-
-FIOSDK has `rejectFundsRequest` method to do it
-
-```javascript
-    const { fee: rejectFee } = await fioSdkPayer.getFeeForRejectFundsRequest(payerFioAddress)
-    const rejectResult = await fioSdkPayer.rejectFundsRequest(requestId, rejectFee)
-    console.log(rejectResult);
 ```
 
 ### Final code
 
-The following summarizes the steps to send, get and approve FIO Request:
+The following summarizes the steps to send and get sent FIO Request:
 
 ```javascript
     const { FIOSDK } = require('@fioprotocol/fiosdk');
@@ -185,7 +106,6 @@ The following summarizes the steps to send, get and approve FIO Request:
       const payeePublicKey = '';
       const payeeFioAddress = '';
       const payerFioAddress = '';
-      const payerPrivateKey = '';
       const requestAmount = 1; // set amount
       const memo = ''; // optional
 
@@ -197,20 +117,13 @@ The following summarizes the steps to send, get and approve FIO Request:
       )
 
       const { public_address: payerPublicKey } = await fioSdkPayee.getPublicAddress(payerFioAddress, "FIO", "FIO")
-    
-      const fioSdkPayer = new FIOSDK(
-        payerPrivateKey,
-        payerPublicKey,
-        baseUrl,
-        fetchJson
-      )
       const { fee: sendRequestFee } = await fioSdkPayee.getFeeForNewFundsRequest(payeeFioAddress)
     
       const requestFundsResult = await fioSdkPayee.genericAction('requestFunds', {
         payerFioAddress,
         payeeFioAddress,
         payeeTokenPublicAddress: fioSdkPayee.publicKey,
-        payerFioPublicKey: fioSdkPayer.publicKey,
+        payerFioPublicKey: payerPublicKey,
         amount: requestAmount,
         chainCode: 'FIO',
         tokenCode: 'FIO',
@@ -231,63 +144,6 @@ The following summarizes the steps to send, get and approve FIO Request:
           console.log(e);
         }
       }
-    
-      let pendingRequest
-      try {
-        const { requests } = await fioSdkPayer.getPendingFioRequests()
-        pendingRequest = requests.find(pr => parseInt(pr.fio_request_id) === parseInt(requestId))
-        if (pendingRequest && pendingRequest.fio_request_id) {
-          console.log(pendingRequest);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    
-      const { fee: transferFee } = await fioSdkPayer.getFee('transfer_tokens_pub_key');
-      fioSdkPayer.returnPreparedTrx = true
-      const preparedTrx = await fioSdkPayer.pushTransaction(
-        'fio.token',
-        'trnsfiopubky',
-        {
-          payee_public_key: pendingRequest.content.payee_public_address,
-          amount: FIOSDK_LIB.FIOSDK.amountToSUF(pendingRequest.content.amount),
-          max_fee: transferFee,
-          // tpid: "rewards@wallet"
-        }
-      )
-      const transferResult = await fioSdkPayer.executePreparedTrx(
-        'transfer_tokens_pub_key',
-        preparedTrx
-      )
-      fioSdkPayer.returnPreparedTrx = false
-      console.log(transferResult.transaction_id);
-    
-      const { fee: recordObtFee } = await fioSdkPayer.getFeeForRecordObtData(pendingRequest.payer_fio_address);
-      const recordObtDataResult = await fioSdkPayer.genericAction('recordObtData', {
-        fioRequestId: requestId,
-        payerFioAddress: pendingRequest.payer_fio_address,
-        payeeFioAddress: pendingRequest.payee_fio_address,
-        payerTokenPublicAddress: fioSdkPayer.publicKey,
-        payeeTokenPublicAddress: pendingRequest.content.payee_public_address,
-        amount: pendingRequest.content.amount,
-        chainCode: 'FIO',
-        tokenCode: 'FIO',
-        status: 'sent_to_blockchain',
-        obtId: '',
-        maxFee: recordObtFee,
-      })
-      console.log(recordObtDataResult);
-    
-      // check sent request has changed status
-      try {
-        const { requests } = await fioSdkPayee.getSentFioRequests()
-        const sentRequest = requests.find(pr => parseInt(pr.fio_request_id) === parseInt(requestId))
-        if (sentRequest && sentRequest.fio_request_id) {
-          console.log(sentRequest);
-        }
-      } catch (e) {
-        console.log(e);
-      }
     }
     
     main()
@@ -296,24 +152,40 @@ The following summarizes the steps to send, get and approve FIO Request:
 <div id="fio-request-example-container" class="row position-relative">
     <div class="col-6">
         <div class="form-group">
-            <label for="fio-request-payer">Sender FIO Address</label>
+            <label for="fio-request-payer">Requestor FIO Address</label>
             <select class="form-control" id="fio-request-payee"></select>
         </div>
         <div class="form-group">
-            <label for="fio-request-payer">Receiver FIO Address</label>
+            <label for="fio-request-payer">Payer FIO Address</label>
             <input type="text" class="form-control" id="fio-request-payer" placeholder="payee@fiotestnet">
         </div>
         <div class="form-group">
-            <label for="fio-request-private">Receiver Private Key</label>
-            <input type="password" class="form-control" id="fio-request-private" placeholder="5Jkeo...">
+            <div class="row">
+                <div class="col-6">
+                    <label>Requested Chain Code</label>
+                    <input type="text" disabled class="form-control" value="FIO" />
+                </div>
+                <div class="col-6">
+                    <label>Requested Token Code</label>
+                    <input type="text" disabled class="form-control" value="FIO" />
+                 </div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="fio-request-amount">Amount (FIO)</label>
-            <input type="number" class="form-control" id="fio-request-amount" placeholder="1">
+            <label>Token Public Address</label>
+            <input type="text" class="form-control" disabled id="fio-request-token-pub-address">
         </div>
         <div class="form-group">
-            <label for="fio-request-memo">Memo</label>
-            <input type="text" class="form-control" id="fio-request-memo" placeholder="Message for receiver">
+            <div class="row">
+                <div class="col-4">
+                    <label for="fio-request-amount">Amount (FIO)</label>
+                    <input type="number" class="form-control" id="fio-request-amount">
+                </div>
+                <div class="col-8">
+                    <label for="fio-request-memo">Memo</label>
+                    <input type="text" class="form-control" id="fio-request-memo" placeholder="Message for payer">
+                 </div>
+            </div>
         </div>
         <button id="try-fio-request" class="btn btn-default btn--blue">Try</button>
     </div>
