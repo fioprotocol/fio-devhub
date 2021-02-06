@@ -411,14 +411,210 @@ try {
   console.log(e);
 }
 
+
+// ETHDenver Pizza Planner
+const pPlannerInit = async () => {
+  try {
+    if (!document.getElementById('p-fio-request-list-container')) return
+    const privateKey = Keys.private
+    const publicKey = Keys.public;
+
+    if (!privateKey || !publicKey) return setTimeout(pPlannerInit, 500)
+
+    let pendingRequests = []
+    let obtData = []
+    const fioSdk = await fiosdkClientInit(Keys.private, Keys.public)
+    const fioRequestTableEl = document.getElementById('p-fio-request-list-table-body')
+    const obtDataTableEl = document.getElementById('p-fio-obt-data-list-table-body')
+    const fioRequestAmountEl = document.getElementById('p-fio-requests-amount')
+    const obtDataAmountEl = document.getElementById('p-obt-data-amount')
+    fioRequestTableEl.innerHTML = null
+    obtDataTableEl.innerHTML = null
+
+    const removeFioRequestEl = id => {
+      document.getElementById(`fio-request-row-${id}`).remove()
+    }
+
+    const showRequestsLoading = (loading = true) => {
+      const spinner = document.getElementById('p-requests-spinner');
+      if (loading) {
+        spinner.classList.remove("d-none");
+      } else {
+        spinner.classList.add("d-none");
+      }
+    }
+
+    const showObtLoading = (loading = true) => {
+      const spinner = document.getElementById('p-obt-spinner');
+      if (loading) {
+        spinner.classList.remove("d-none");
+      } else {
+        spinner.classList.add("d-none");
+      }
+    }
+
+    // Approve FIO Request
+    const approveRequest = async (fioRequest) => {
+      if (!confirm(`Are you sure you want to approve this FIO Request ${fioRequest.fio_request_id}?`)) return
+      showRequestsLoading()
+      try {
+        const { fee: transferFee } = await fioSdk.getFee('transfer_tokens_pub_key');
+        log('Get transfer fee', `${FIOSDK_LIB.FIOSDK.SUFToAmount(transferFee)} FIO`)
+
+        const amount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
+        const memo = document.getElementById(`fio-request-memo-field-${fioRequest.fio_request_id}`).value
+        fioSdk.returnPreparedTrx = true
+        const preparedTrx = await fioSdk.pushTransaction(
+          'fio.token',
+          'trnsfiopubky',
+          {
+            payee_public_key: fioRequest.content.payee_public_address,
+            amount: FIOSDK_LIB.FIOSDK.amountToSUF(amount),
+            max_fee: transferFee,
+            // tpid: "rewards@wallet"
+          }
+        )
+        const transferResult = await fioSdk.executePreparedTrx(
+          'transfer_tokens_pub_key',
+          preparedTrx
+        )
+        fioSdk.returnPreparedTrx = false
+        console.log(getTrxLink(transferResult.transaction_id));
+
+        const { fee: recordObtFee } = await fioSdk.getFeeForRecordObtData(fioRequest.payer_fio_address);
+        const recordObtDataResult = await fioSdk.genericAction('recordObtData', {
+          fioRequestId: fioRequest.fio_request_id,
+          payerFioAddress: fioRequest.payer_fio_address,
+          payeeFioAddress: fioRequest.payee_fio_address,
+          payerTokenPublicAddress: fioSdk.publicKey,
+          payeeTokenPublicAddress: fioRequest.content.payee_public_address,
+          amount: fioRequest.content.amount,
+          memo,
+          chainCode: fioRequest.content.chain_code,
+          tokenCode: fioRequest.content.token_code,
+          status: 'sent_to_blockchain',
+          obtId: '',
+          maxFee: recordObtFee,
+        })
+        removeFioRequestEl(fioRequest.fio_request_id)
+      } catch (e) {
+        console.log(e);
+        alert(`Record OBT data error. ${e.message}`)
+      }
+      showRequestsLoading(false)
+    }
+
+    // Reject FIO Request
+    const rejectRequest = async (fioRequest) => {
+      if (!confirm(`Are you sure you want to reject this FIO Request ${fioRequest.fio_request_id}?`)) return
+      showRequestsLoading()
+      try {
+        const { fee: rejectFee } = await fioSdk.getFeeForRejectFundsRequest(fioRequest.payer_fio_address)
+        const rejectResult = await fioSdk.rejectFundsRequest(fioRequest.fio_request_id, rejectFee)
+        console.log(rejectResult);
+        removeFioRequestEl(fioRequest.fio_request_id)
+      } catch (e) {
+        console.log(e);
+        alert(`Reject error. ${e.message}`)
+      }
+
+      showRequestsLoading(false)
+    }
+
+    // Fill table with fio requests
+    const addFioRequestElToList = (fioRequest) => {
+      const id = fioRequest.fio_request_id
+      const trEl = document.createElement('tr')
+      trEl.id = `fio-request-row-${id}`
+      trEl.innerHTML = `<th scope="row">${id}</th><td>${fioRequest.payee_fio_address}</td><td>${fioRequest.payer_fio_address}</td><td>${fioRequest.content.memo}</td><td><input id="fio-request-amount-field-${id}" class="form-control" type="number" value="${fioRequest.content.amount}" /></td><td><input id="fio-request-memo-field-${id}" class="form-control" type="text" placeholder="Set your memo" /></td><td><button id="fio-request-approve-btn-${id}" class="btn btn-success btn-sm px-3">Send</button></td><td><button id="fio-request-reject-btn-${id}" class="btn btn-danger btn-sm px-3">Reject</button></td>`
+      fioRequestTableEl.appendChild(trEl)
+      document.getElementById(`fio-request-approve-btn-${id}`).onclick = () => approveRequest(fioRequest)
+      document.getElementById(`fio-request-reject-btn-${id}`).onclick = () => rejectRequest(fioRequest)
+    }
+    // Fill table with obt data
+    const addObtDataElToList = (item) => {
+      const trEl = document.createElement('tr')
+      trEl.innerHTML = `<th scope="row" class="" style="overflow-wrap: break-word; width: 125px;"><code style="word-break: break-word;">${item.fio_request_id || item.content.obt_id}</code></th><td>${item.payee_fio_address}</td><td>${item.payer_fio_address}</td><td>${item.content.memo}</td><td>${item.content.amount}</td><td>${item.status}</td>`
+      obtDataTableEl.appendChild(trEl)
+    }
+
+    // Get pending fio requests
+    const getPendingRequests = async () => {
+      pendingRequests = []
+      showRequestsLoading()
+      fioRequestTableEl.innerHTML = null
+      fioRequestAmountEl.innerHTML = null
+      const limit = document.getElementById('p-fio-request-limit').value || null;
+      const offset = document.getElementById('p-fio-request-offset').value || null;
+      try {
+        const { requests } = await fioSdk.getPendingFioRequests(limit, offset)
+        pendingRequests = requests.sort((item1, item2) => new Date(item1.time_stamp) < new Date(item2.time_stamp) ? 1 : -1)
+      } catch (e) {
+        let message = e.message
+        if (e.json && e.json.message) message = e.json.message
+        alert(message)
+      }
+
+      for (const fioRequest of pendingRequests) {
+        addFioRequestElToList(fioRequest)
+      }
+
+      fioRequestAmountEl.innerHTML = `<span>${pendingRequests.length}</span>`
+      showRequestsLoading(false)
+    }
+
+    const getObtData = async () => {
+      obtData = []
+      showObtLoading()
+      obtDataTableEl.innerHTML = null
+      obtDataAmountEl.innerHTML = null
+      const limit = document.getElementById('p-obt-data-limit').value || null;
+      const offset = document.getElementById('p-obt-data-offset').value || null;
+      try {
+        const { obt_data_records } = await fioSdk.getObtData(limit, offset)
+        obtData = obt_data_records.sort((item1, item2) => new Date(item1.time_stamp) < new Date(item2.time_stamp) ? 1 : -1)
+      } catch (e) {
+        let message = e.message
+        if (e.json && e.json.message) message = e.json.message
+        alert(message)
+      }
+
+      for (const item of obtData) {
+        addObtDataElToList(item)
+      }
+
+      obtDataAmountEl.innerHTML = `<span>${obtData.length}</span>`
+      showObtLoading(false)
+    }
+
+    document.getElementById('p-fio-api-base-url').onchange = e => {
+      baseUrl = e.target.value
+      pPlannerInit()
+    }
+    document.getElementById('p-get-pending-requests').onclick = () => getPendingRequests()
+    document.getElementById('p-get-obt-data').onclick = () => getObtData()
+
+    await getPendingRequests()
+    await getObtData()
+
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 const initExamples = async () => {
   if (!window.FIOSDK) return setTimeout(initExamples, 500)
-  document.getElementById('fio-api-base-url').onchange = e => {
-    baseUrl = e.target.value
+  try {
+    document.getElementById('fio-api-base-url').onchange = e => {
+      baseUrl = e.target.value
+    }
+  } catch (e) {
+    //
   }
   FIOSDK_LIB = window.FIOSDK
   await Keys.init()
   fioRequestExampleInit()
+  pPlannerInit()
 }
 
 

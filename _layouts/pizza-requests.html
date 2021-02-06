@@ -1,0 +1,181 @@
+---
+layout: default
+---
+
+<div id="testing-keys-container" class="position-relative mt-2 mb-5">
+    <div class="card">
+        <h5 class="card-header">
+            Keys for testing
+            <select id="p-fio-api-base-url" class="float-right">
+                <option value="https://testnet.fioprotocol.io:443/v1/">https://testnet.fioprotocol.io:443/v1/</option>
+                <option value="https://fio.greymass.com/v1/">https://fio.greymass.com/v1/</option>
+            </select>
+        </h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-9">
+                    <div class="form-group">
+                        <label for="testing-pk">Private Key</label>
+                        <input type="password" class="form-control" id="testing-pk"
+                               placeholder="5JpbpZ7SScKHXrLwvhzCbP4Cj3Beqo8QwWyazDoyXHZuTjb4ZyK">
+                    </div>
+                    <div class="form-group">
+                        <label for="testing-pubkey">Public Key</label>
+                        <input type="text" class="form-control" id="testing-pubkey"
+                               placeholder="FIO5ReMUvFM9X12eSuAR4QKjHsGJ6qponQP36xtV7WZLPBG35dJTr">
+                    </div>
+                </div>
+                <div class="col-3 d-flex justify-content-end align-items-end">
+                    <button id="set-keys" class="btn btn-primary px-5 mb-3">Set</button>
+                    <button id="reset-keys" class="btn btn-primary px-5 mb-3 d-none">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spinner fa-3x d-none" role="status">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+</div>
+
+{{ content }}
+{% include toc.html %}
+{% include permalinks.html %}
+{% include tags.html %}
+
+
+<div id="logs" class="mt-4">
+</div>
+
+<div class="card mb-2 position-relative">
+    <div class="card-header">
+        <div class="row row align-items-center">
+            <div class="col-4">
+                <h5 class="mb-0">
+                    Requests (<span id="p-fio-requests-amount"></span>)
+                    <span id="p-requests-spinner" class="ml-2 d-none" role="status">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </h5>
+            </div>
+            <div class="col-8">
+                <div class="float-right row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-4">
+                        <input id="p-fio-request-limit" type="number" class="form-control" placeholder="Limit"/>
+                    </div>
+                    <div class="col-4">
+                        <input id="p-fio-request-offset" type="number" class="form-control" placeholder="Offset"/>
+                    </div>
+                    <div class="col-2">
+                        <button id="p-get-pending-requests" class="btn btn-sm btn-primary mt-1"><i
+                                class="fa fa-sync"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0 position-relative">
+        <div id="p-fio-request-list-container" class="table-striped table-hover"
+             style="max-height: 400px; overflow: scroll;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Payee FIO Address
+                    </th>
+                    <th>
+                        Payer FIO Address
+                    </th>
+                    <th>
+                        Memo
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="p-fio-request-list-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row row align-items-center">
+            <div class="col-4">
+                <h5 class="mb-0">
+                    Responded list (<span id="p-obt-data-amount"></span>)
+                    <span id="p-obt-spinner" class="ml-2 d-none" role="status">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </h5>
+            </div>
+            <div class="col-8">
+                <div class="float-right row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-4">
+                        <input id="p-obt-data-limit" type="number" class="form-control" placeholder="Limit"/>
+                    </div>
+                    <div class="col-4">
+                        <input id="p-obt-data-offset" type="number" class="form-control" placeholder="Offset"/>
+                    </div>
+                    <div class="col-2">
+                        <button id="p-get-obt-data" class="btn btn-sm btn-primary mt-1"><i class="fa fa-sync"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0 position-relative">
+        <div id="p-fio-obt-data-list-container" class="table-striped table-hover"
+             style="max-height: 400px; overflow: scroll;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        Request Id / OBT Id
+                    </th>
+                    <th>
+                        Payee FIO Address
+                    </th>
+                    <th>
+                        Payer FIO Address
+                    </th>
+                    <th>
+                        Memo
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="p-fio-obt-data-list-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />-->
+<script src="{{ site.baseurl }}/assets/js/fiosdk/fiosdk.bundle.js"></script>
+<script src="{{ site.baseurl }}/assets/js/fiosdk-examples.js"></script>
