@@ -3052,6 +3052,162 @@ paths:
       operationId: renew_fio_address_model
       tags:
         - Actions
+  addbundles:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              expiration:
+                type: string
+                format: date-time
+                title: Date/time
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              expiration: '2020-09-11T18:30:56'
+              fee_collected: 30000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Payee FIO Address invalid, does not exist or is not mapped to a valid FIO Public Key"
+            * "Payer FIO Address invalid or does not exist"
+            * "FIO Address expired"
+            * "FIO Domain expired"
+            * "Invalid fee value"
+            * "Insufficient funds to cover fee"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: max_fee
+                  value: '200'
+                  error: Fee exceeds supplied maximum.
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Buy bundled transactions
+      description: >-
+        Adds bundles of transactions to a FIO Address. When bundles are purchased 
+        one or more sets of bundled transactions are added to the existing count.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `addbundles`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              bundle_sets:
+                type: integer
+                title: Bundles
+                description: >-
+                  Number of sets of bundles to add to FIO Address.
+                example: 5
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 30000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - bundles_sets
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: add_bundled_transactions_model
+      tags:
+        - Actions
   regdomain:
     options:
       responses:
