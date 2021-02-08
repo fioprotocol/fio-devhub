@@ -460,7 +460,7 @@ const pPlannerInit = async () => {
       showRequestsLoading()
       try {
         const { fee: transferFee } = await fioSdk.getFee('transfer_tokens_pub_key');
-        log('Get transfer fee', `${FIOSDK_LIB.FIOSDK.SUFToAmount(transferFee)} FIO`)
+        console.log(transferFee);
 
         const updatedAmount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
         const amount = updatedAmount ? updatedAmount : fioRequest.content.amount
