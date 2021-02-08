@@ -10,7 +10,7 @@ info:
     email: info@fioprotocol.io
     name: FIO
 servers:
-  - url: 'http://testnet.fioprotocol.io/v1/chain'
+  - url: 'https://testnet.fioprotocol.io/v1/chain'
     description: FIO Testnet server
 paths:
   /get_fio_balance:
@@ -1761,7 +1761,7 @@ paths:
       description: >-
         This call transfers FIO tokens using a FIO public key.
 
-        
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -1929,10 +1929,10 @@ paths:
               message: FIO Address not found
       summary: Map blockchain public address
       description: >-
-        This call allows a public address of the specific blockchain type to be added to the FIO Address, 
+        This call allows a public address of the specific blockchain type to be added to the FIO Address,
         so that it can be returned using /get_pub_address.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2151,8 +2151,8 @@ paths:
       summary: Request funds
       description: >-
         This api method will create a new funds request on the FIO chain.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2416,8 +2416,8 @@ paths:
       operationId: reject_funds_request_model
       description: >-
         Reject a FIO funds request.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2474,7 +2474,7 @@ paths:
     options:
       responses:
         '200':
-          description: >-           
+          description: >-
             This section defines only the contents of the response returned in
             `processed->action_traces->receipt->response` string. See
             [push_transaction](#post-/push_transaction) section for the
@@ -2556,10 +2556,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Record other blockchain transaction metadata
       description: >-
-        This call is made to record Other Blockchain Transaction (OBT) data on the FIO blockchain, 
+        This call is made to record Other Blockchain Transaction (OBT) data on the FIO blockchain,
         e.g. 1 BTC was sent on Bitcoin Blockchain, and both sender and receiver have FIO Addresses.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2882,8 +2882,8 @@ paths:
             The `data` object which needs to be included in the transaction instance.
       description: >-
         Registers a FIO Address on the FIO blockchain.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3297,8 +3297,8 @@ paths:
       summary: Register Domain
       description: >-
         Registers a FIO Domain on the FIO blockchain.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3599,10 +3599,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Make Domain public
       description: >-
-        By default all FIO Domains are non-public, meaning only the owner can register FIO Addresses on that domain. 
+        By default all FIO Domains are non-public, meaning only the owner can register FIO Addresses on that domain.
         Setting them to public allows anyone to register a FIO Address on that domain.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3748,8 +3748,8 @@ paths:
       summary: Vote on block producers
       description: >-
         This call submits votes on block producers.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -3901,8 +3901,8 @@ paths:
       summary: Proxy votes to registered proxy
       description: >-
         This call proxies votes of caller to a designated proxy.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4046,8 +4046,8 @@ paths:
       summary: Register as a proxy
       description: >-
         This call registers an entity as a proxy.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and the response object returned in
         `processed->action_traces->receipt->response` string.
@@ -4177,8 +4177,8 @@ paths:
       summary: Unregister as a proxy
       description: >-
         This call unregisters an entity as a proxy.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4320,8 +4320,8 @@ paths:
       summary: Register as block producer
       description: >-
         This call registers an entity as a block producer, so that they can be voted on.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4473,8 +4473,8 @@ paths:
       operationId: unregister_producer_model
       description: >-
         This call unregisters an entity as a block producer.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4598,8 +4598,8 @@ paths:
       summary: Set fee ratios
       description: >-
         This call is only allowed to be made by active BPs and is designed to submit fee ratios. It has no fee.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4766,8 +4766,8 @@ paths:
       summary: Set fee multiplier
       description: >-
         This call is only allowed to be made by active BPs and is designed to submit fee multiplier. It has no fee.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4877,10 +4877,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set bundled transaction count
       description: >-
-        This call is only allowed to be made by active BPs and is designed to submit bundled transaction amount 
+        This call is only allowed to be made by active BPs and is designed to submit bundled transaction amount
         which should be allocated to new FIO Address registrations. It has no fee.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4994,10 +4994,10 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Pay rewards to TPIDs
       description: >-
-        This is a maintenance call and is intended to pay TPIDs. It is envisioned that this call will be made by BPs 
+        This is a maintenance call and is intended to pay TPIDs. It is envisioned that this call will be made by BPs
         as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -5107,7 +5107,7 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Claim BP rewards
       description: >-
-        This is a maintenance call and is intended to pay the calling BP. This call can only be made by BPs once every 24 hours. 
+        This is a maintenance call and is intended to pay the calling BP. This call can only be made by BPs once every 24 hours.
         This is a signed call, but is free to make.
 
 
@@ -5219,11 +5219,11 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Burn expired FIO Addresses and Domains
       description: >-
-        This is a maintenance call and is intended to burn FIO Addresses and Domains which have passed their 
-        expiration date and need to be removed from state. It is envisioned that this call will be made by BPs 
+        This is a maintenance call and is intended to burn FIO Addresses and Domains which have passed their
+        expiration date and need to be removed from state. It is envisioned that this call will be made by BPs
         as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
-        
-        
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -5240,7 +5240,7 @@ paths:
       operationId: burn_expired_model
       parameters: []
       tags:
-        - Block Producer Actions                                     
+        - Block Producer Actions
   /push_transaction:
     post:
       responses:
@@ -5753,13 +5753,13 @@ paths:
                         inline_traces: []
                 except: null
       description: >-
-        push_transaction is a generic API endpoint that accepts all [FIO action data objects](/pages/api/fio-api/#tag--Actions). 
+        push_transaction is a generic API endpoint that accepts all [FIO action data objects](/pages/api/fio-api/#tag--Actions).
         It is an alternative to sending transactions to [action-specific FIO API endpoints](/pages/api/fio-api/#post-/fio_api_endpoint).
-        
 
-        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances,
         and transaction extensions that make the actual transaction.
-        
+
 
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to /push_transaction.
 
@@ -5767,9 +5767,9 @@ paths:
         See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
 
 
-        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
         executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
-        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance.
         The `account` and `name` are provided for each action.
       summary: Push Transaction
       operationId: push_transaction
@@ -5795,16 +5795,16 @@ paths:
   /fio_api_endpoint:
     post:
       description: >-
-        FIO protocol also includes action-specific FIO API endpoints for convenience. 
-        These action-specific endpoints may be used as an alternative to [push_transaction](/pages/api/fio-api/#post-/push_transaction). 
+        FIO protocol also includes action-specific FIO API endpoints for convenience.
+        These action-specific endpoints may be used as an alternative to [push_transaction](/pages/api/fio-api/#post-/push_transaction).
 
 
         Action-specific API endpoints are identified in the [Actions](/pages/api/fio-api/#tag--Actions) section of the API alongside their associated action.
 
 
-        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances, 
+        [Transaction instances](/pages/api/fio-api/#options-transaction) consist of a transaction header, the list of action instances,
         and transaction extensions that make the actual transaction.
-        
+
 
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to a FIO API endpoint.
 
@@ -5812,11 +5812,11 @@ paths:
         See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
 
 
-        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be 
+        Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
         executed on the blockchain (for example, [Register FIO Address](/pages/api/fio-api/#options-regaddress)).
-        FIO Action data object are entered into the `data` in `actions` array of the transaction instance. 
+        FIO Action data object are entered into the `data` in `actions` array of the transaction instance.
       summary: Action-specific API Endpoints
-      operationId: 
+      operationId:
       parameters:
         - in: body
           name: body
@@ -5846,7 +5846,7 @@ paths:
               packed_trx: >-
                 c32b8e5df85573265d5e0000000001008054197b0ca85b00a6339226aea6ba01e01f0ad2292fb66200000000a8ed3232340b776f6f686f6f353633313100902f500900000017706177656c3336363638383a776f6f686f6f3536333131e01f0ad2292fb66200
           description: >-
-            This is a signed and packed transaction that is ready to be sent to an action-specific FIO API endpoint.         
+            This is a signed and packed transaction that is ready to be sent to an action-specific FIO API endpoint.
       responses:
         '200':
           description: ''
@@ -6357,40 +6357,40 @@ paths:
                         inline_traces: []
                 except: null
       tags:
-        - Transactions   
+        - Transactions
   transaction:
     options:
       description: >-
-        A transaction instance consists of a transaction header and the list of action instances and transaction 
-        extensions that make the actual transaction. The transaction header includes information necessary to assess 
+        A transaction instance consists of a transaction header and the list of action instances and transaction
+        extensions that make the actual transaction. The transaction header includes information necessary to assess
         the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution.
         See [Submitting Transactions](/docs/integration-guide/transactions) for more details.
       summary: Transaction schema
-      operationId: 
+      operationId:
       parameters:
         - in: body
           name: body
           schema:
             type: object
-            properties:            
+            properties:
               expiration:
                 type: time_point_sec
                 description: The time the transaction must be confirmed by before it expires
               ref_block_num:
                 type: uint16_t
-                description: Lower 16 bits of a block number                
+                description: Lower 16 bits of a block number
               ref_block_prefix:
                 type: uint32_t
-                description: Lower 32 bits of block id referred by ref_block_num          
+                description: Lower 32 bits of block id referred by ref_block_num
               max_net_usage_words:
                 type: unsigned_int
-                description: Upper limit on total network bandwidth billed (in 64-bit words)  
+                description: Upper limit on total network bandwidth billed (in 64-bit words)
               max_cpu_usage_ms:
                 type: uint8_t
-                description: Upper limit on total CPU time billed (in milliseconds) 
+                description: Upper limit on total CPU time billed (in milliseconds)
               delay_sec:
                 type: unsigned_int
-                description: Number of seconds to delay transaction for  
+                description: Number of seconds to delay transaction for
               context_free_actions:
                 type: array of action
                 items:
@@ -6403,7 +6403,7 @@ paths:
                 description: List of action instances
               transaction_extensions:
                 type: extensions_type
-                description: Extends fields to support additional features   
+                description: Extends fields to support additional features
             title: Signed transaction request
             example:
               chain_id: cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f
@@ -6425,20 +6425,20 @@ paths:
                     amount: 1000000000
                     max_fee: 250000000
                     tpid: "rewards@wallet"
-                    actor: "aftyershcu22"  
-              transaction_extensions: 
+                    actor: "aftyershcu22"
+              transaction_extensions:
           description: >-
             This request needs to be packed and signed. See [Packed Transaction Schema](/pages/api/fio-api/#options-packed_transaction) for
             the definition of the object after it has been packed and signed.
       tags:
-        - Transactions      
+        - Transactions
   packed_transaction:
     options:
       description: >-
-            A packed transaction is a compressed and signed [transaction](http://127.0.0.1:4000/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint 
-            and block size in the long run. A packed transaction forms the most generic type of transaction in the FIO blockchain. 
+            A packed transaction is a compressed and signed [transaction](http://127.0.0.1:4000/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint
+            and block size in the long run. A packed transaction forms the most generic type of transaction in the FIO blockchain.
       summary: Packed transaction schema
-      operationId: 
+      operationId:
       parameters:
         - in: body
           name: body
@@ -6480,7 +6480,7 @@ consumes:
 produces:
   - application/json
 components:
-  parameters: 
+  parameters:
     actor:
       type: string
       title: Actor
