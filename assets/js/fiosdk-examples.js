@@ -312,7 +312,8 @@ try {
         const { fee: transferFee } = await fioSdk.getFee('transfer_tokens_pub_key');
         log('Get transfer fee', `${FIOSDK_LIB.FIOSDK.SUFToAmount(transferFee)} FIO`)
 
-        const amount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
+        const updatedAmount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
+        const amount = updatedAmount ? updatedAmount : fioRequest.content.amount
         const memo = document.getElementById(`fio-request-memo-field-${fioRequest.fio_request_id}`).value
         fioSdk.returnPreparedTrx = true
         const preparedTrx = await fioSdk.pushTransaction(
@@ -340,7 +341,7 @@ try {
           payeeFioAddress: fioRequest.payee_fio_address,
           payerTokenPublicAddress: fioSdk.publicKey,
           payeeTokenPublicAddress: fioRequest.content.payee_public_address,
-          amount: fioRequest.content.amount,
+          amount,
           memo,
           chainCode: 'FIO',
           tokenCode: 'FIO',
@@ -461,7 +462,8 @@ const pPlannerInit = async () => {
         const { fee: transferFee } = await fioSdk.getFee('transfer_tokens_pub_key');
         log('Get transfer fee', `${FIOSDK_LIB.FIOSDK.SUFToAmount(transferFee)} FIO`)
 
-        const amount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
+        const updatedAmount = document.getElementById(`fio-request-amount-field-${fioRequest.fio_request_id}`).value
+        const amount = updatedAmount ? updatedAmount : fioRequest.content.amount
         const memo = document.getElementById(`fio-request-memo-field-${fioRequest.fio_request_id}`).value
         fioSdk.returnPreparedTrx = true
         const preparedTrx = await fioSdk.pushTransaction(
@@ -488,7 +490,7 @@ const pPlannerInit = async () => {
           payeeFioAddress: fioRequest.payee_fio_address,
           payerTokenPublicAddress: fioSdk.publicKey,
           payeeTokenPublicAddress: fioRequest.content.payee_public_address,
-          amount: fioRequest.content.amount,
+          amount,
           memo,
           chainCode: fioRequest.content.chain_code,
           tokenCode: fioRequest.content.token_code,
