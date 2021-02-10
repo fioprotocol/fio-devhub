@@ -204,7 +204,7 @@ paths:
           examples:
             application/json:
               message: No FIO names
-      summary: Get Domains/Addresses linked to public key
+      summary: Get all Domains/Addresses linked to public key
       description: Returns FIO Addresses and FIO Domains owned by a public key.
       parameters:
         - in: body
@@ -220,6 +220,248 @@ paths:
             required:
               - fio_public_key
       operationId: get_fio_names
+      tags:
+        - Getters
+  /get_fio_addresses:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              fio_addresses:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fio_address:
+                      type: string
+                      title: FIO Address
+                      minLength: 3
+                      maxLength: 64
+                      pattern: >-
+                        ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                      example: purse@alice
+                    expiration:
+                      type: string
+                      format: date-time
+                      title: Date/time
+                      example: '2020-09-11T18:30:56'
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+                example: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_public_key
+                  value: FIO123
+                  error: Invalid FIO Public Key
+        '404':
+          description: |-
+            Possible error messages:
+            * "No FIO Addresses"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: No FIO Addresses
+      summary: Get Addresses linked to public key
+      description: >-
+        Returns FIO Addresses owned by this public key (supports paging). 
+        See [FIP-2](https://github.com/fioprotocol/fips/blob/master/fip-0002.md) for a comprehensive description of this functionality.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              limit:
+                type: integer
+                description: >-
+                  Number of requests to return. If omitted, all requests will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First request from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0                
+            required:
+              - fio_public_key
+      operationId: get_fio_addresses
+      tags:
+        - Getters
+  /get_fio_domains:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              fio_domains:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fio_domain:
+                      type: string
+                      title: FIO Domain
+                      minLength: 1
+                      maxLength: 62
+                      pattern: '^[a-z0-9-]+$'
+                    expiration:
+                      type: string
+                      format: date-time
+                      title: Date/time
+                    is_public:
+                      type: integer
+                      description: |-
+                        * 0 - domain is not public
+                        * 1 - domain is public
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              fio_domains:
+                - fio_domain: alice
+                  expiration: '2020-09-11T18:30:56'
+                  is_public: 0
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_public_key
+                  value: FIO123
+                  error: Invalid FIO Public Key
+        '404':
+          description: |-
+            Possible error messages:
+            * "No FIO Domains"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: No FIO Domains
+      summary: Get Domains linked to public key
+      description: >-
+        Returns FIO Domains owned by this public key (supports paging). 
+        See [FIP-2](https://github.com/fioprotocol/fips/blob/master/fip-0002.md) for a comprehensive description of this functionality.      
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              limit:
+                type: integer
+                description: >-
+                  Number of requests to return. If omitted, all requests will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First request from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0                
+            required:
+              - fio_public_key
+      operationId: get_fio_domains
       tags:
         - Getters
   /avail_check:
@@ -785,6 +1027,199 @@ paths:
             required:
               - fio_public_key
       operationId: get_pending_fio_requests
+      tags:
+        - Getters
+  /get_cancelled_fio_requests:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              requests:
+                type: array
+                description: Multiple requests may be returned. All requests are returned.
+                items:
+                  type: object
+                  properties:
+                    fio_request_id:
+                      type: string
+                      description: Id of that funds request.
+                    payer_fio_address:
+                      type: string
+                      description: >-
+                        FIO Address of the payer. This address initiated
+                        payment.
+                    payee_fio_address:
+                      type: string
+                      description: >-
+                        FIO Address of the payee. This address is receiving
+                        payment.
+                    payer_fio_public_key:
+                      type: string
+                      description: FIO public key of the payer.
+                    payee_fio_public_key:
+                      type: string
+                      description: FIO public key of the payee.
+                    content:
+                      type: object
+                      title: FIO Request encrypted content
+                      description: >-
+                        Certain content inside FIO Request is encrypted and
+                        packed into this field.
+
+
+                        Min 64 characters
+
+                        Max 296 characters
+                      properties:
+                        payee_public_address:
+                          type: object
+                          properties: {}
+                          title: Native Blockchain Public Address
+                          description: "This is the public address on another blockchain. Both integrated addresses as well as URI Scheme are supported.\n\n**Integrated Address**\nIf the blockchain supports it, an integrated address may be passed in just like standard public address. The FIO protocol does not perform validation on the passed string.\n\n**URI Scheme**\nFIO Protocol will support formatting of public addresses using URI were certain attributes are appended to the public address following a '?' and delimited with '&'. To allow inter-wallet operability, the following standardized parameters will be supported in official FIO Protocol SDKs.\n\n**Parameters**\n* dt - Ripple\n* memo - Any - use as generic memo field\n* memo_id -\tStellar\n* memo_text -\tStellar\n* memo_hash -\tStellar\n* memo_return -\tStellar\n* payment_id - Monero\n"
+                        amount:
+                          type: string
+                          description: Amount requested.
+                        token_code:
+                          type: string
+                          title: Token/chain code
+                          minLength: 1
+                          maxLength: 10
+                          pattern: '^[A-Z0-9]+$'
+                        memo:
+                          type: string
+                        hash:
+                          type: string
+                        offline_url:
+                          type: string
+                        future_use1:
+                          type: string
+                        future_use2:
+                          type: string
+                        future_use3:
+                          type: string
+                        future_use4:
+                          type: string
+                        future_use5:
+                          type: string
+                      required:
+                        - payee_public_address
+                        - amount
+                        - token_code
+                        - memo
+                        - hash
+                        - offline_url
+                        - future_use1
+                        - future_use2
+                        - future_use3
+                        - future_use4
+                        - future_use5
+                    time_stamp:
+                      type: string
+                      description: Timestamp of request
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              requests:
+                - fio_request_id: '10'
+                  payer_fio_address: purse@alice
+                  payee_fio_address: crypto@bob
+                  payer_fio_public_key: FIO7167ErgCveJvuonvrEvVGhdWnkP4AEMfqvEd8s8raMkbbAXqhx
+                  payee_fio_public_key: FIO7KGdMYj4ZMY2nUX9EaZu3G3GxZhTNXUq1tsNqC5rcP9rcmvWHq
+                  content: ...
+                  time_stamp: '2020-09-11T18:30:56'
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+            * "Invalid limit"
+            * "Invalid offset"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_public_key
+                  value: FIO123
+                  error: Invalid FIO Public Key
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '404':
+          description: |-
+            Possible error messages:
+            * "No cancelled FIO Requests"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: No FIO Requests
+      summary: Get cancelled Requests
+      description: >-
+        Returned cancelled requests sent by provided FIO public key. 
+        See [FIP-3](https://github.com/fioprotocol/fips/blob/master/fip-0003.md) for comprehensive description of this functionality.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              limit:
+                type: integer
+                description: >-
+                  Number of requests to return. If omitted, all requests will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First request from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+            required:
+              - fio_public_key
+      operationId: get_cancelled_fio_requests
       tags:
         - Getters
   /get_obt_data:
@@ -1822,6 +2257,169 @@ paths:
       operationId: transfer_tokens_pub_key_model
       tags:
         - Actions
+  trnsloctoks:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 250000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+            * "Locked tokens can only be transferred to new account."
+            * "Invalid can_vote value."
+            * "Invalid amount."
+            * "Insufficient balance'"
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: amount
+                  value: '100000000000000000'
+                  error: Insufficient balance
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Transfer locked FIO tokens
+      description: >-
+        Transfers tokens to a new account and locks those tokens on a pre-defined schedule.
+        See [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md) for a comprehensive description of this functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.token`
+
+        * name: `trnsloctoks`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              payee_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              can_vote:
+                type: integer
+                title: Can vote or proxy
+                description: This indicates if the locked amount can vote/proxy while locked. 0 = can NOT vote, 1 = can vote.
+                example: 0
+              periods:
+                type: array
+                title: Unlock periods
+                description: Schedule by which tokens become unlocked.
+                items:
+                  type: object
+                  properties:
+                    duration:
+                      type: integer
+                    percent:
+                      type: double
+                example:
+                  - duration: 86400
+                    percent: 50.0
+                  - duration: 172800
+                    percent: 25.0
+                  - duration: 259200
+                    percent: 25.0
+              amount:
+                type: integer
+                description: Amount sent in SUFs
+                example: 40000000000000
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 40000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: transfer_tokens_pub_key_model
+      tags:
+        - Actions      
   addaddress:
     options:
       responses:
@@ -1933,6 +2531,13 @@ paths:
         so that it can be returned using /get_pub_address.
 
 
+        The contract action addaddress was modified to accept chain-level public addresses.
+        See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
+        chain-level public address functionality.
+        Updates to the /add_pub_address, /get_pub_address, and /remove_pub_address API endpoints to support chain-level public
+        addresses will be released in a future FIO chain release.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -1967,8 +2572,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Address
-                  at any one time. See [Mapping Public
-                  Addresses](/wallet-integration-guide/mapping-pub-addresses)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/mapping)
                   for details.
                 items:
                   type: object
@@ -2049,10 +2653,381 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public
-            Addresses](/wallet-integration-guide/mapping-pub-addresses) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/mapping) to
             better understand how public address mappings work.
       operationId: add_pub_address_model
+      tags:
+        - Actions
+  remaddress:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: >-
+            Possible error messages:
+
+            * "Invalid FIO Address"
+
+            * "Invalid Public Addresses"
+
+            * "Insufficient funds to cover fee"
+
+            * "Fee exceeds supplied maximum"
+
+            * "TPID must be empty or valid FIO address"
+
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_address
+                  value: bob
+                  error: Invalid FIO Address
+        '403':
+          description: |-
+            Possible triggers:
+            * Invalid Actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Remove mapped address
+      description: >-
+        This call allows a public address of the specific blockchain type to be removed from list of 
+        public addresses mapped to the FIO Address. Once removed, it will no longer be returned using /get_pub_address. 
+        See [FIP-4](https://github.com/fioprotocol/fips/blob/master/fip-0004.md) for comprehensive description of this functionality.
+
+
+        The contract action remaddress was modified to accept chain-level public addresses.
+        See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
+        chain-level public address functionality.
+        Updates to the /add_pub_address, /get_pub_address, and /remove_pub_address API endpoints to support chain-level public
+        addresses will be released in a future FIO chain release.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        remaddress action data may also be sent to the `/remove_pub_address` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `remaddress`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              public_addresses:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                maxItems: 5
+                description: >-
+                  Maximum of 5 token codes can be mapped to single FIO Address
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/mapping)
+                  for details.
+                items:
+                  type: object
+                  properties:
+                    chain_code:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 10
+                      pattern: '^[A-Z0-9]+$'
+                      description: >
+                        Chain code identifies the blockchain, while token code
+                        identifies a token on that blockchain. For example: for
+                        USDC: chain_code = ETH and token_code = USDC, for BTC:
+                        chain_code = BTC and token_code = BTC. For list of chain
+                        codes you can refer to
+                        [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+                        and for list of token code refer to the specific
+                        blockchain.
+                    token_code:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 10
+                      pattern: '^[A-Z0-9]+$'
+                      description: >
+                        Chain code identifies the blockchain, while token code
+                        identifies a token on that blockchain. For example: for
+                        USDC: chain_code = ETH and token_code = USDC, for BTC:
+                        chain_code = BTC and token_code = BTC. For list of chain
+                        codes you can refer to
+                        [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+                        and for list of token code refer to the specific
+                        blockchain.
+                    public_address:
+                      type: object
+                      title: Native Blockchain Public Address
+                      description: "This is the public address on another blockchain. Both integrated addresses as well as URI Scheme are supported.\n\n**Integrated Address**\nIf the blockchain supports it, an integrated address may be passed in just like standard public address. The FIO protocol does not perform validation on the passed string.\n\n**URI Scheme**\nFIO Protocol will support formatting of public addresses using URI were certain attributes are appended to the public address following a '?' and delimited with '&'. To allow inter-wallet operability, the following standardized parameters will be supported in official FIO Protocol SDKs.\n\n**Parameters**\n* dt - Ripple\n* memo - Any - use as generic memo field\n* memo_id -\tStellar\n* memo_text -\tStellar\n* memo_hash -\tStellar\n* memo_return -\tStellar\n* payment_id - Monero\n"
+                  required:
+                    - chain_code
+                    - token_code
+                    - public_address
+                example:
+                  - chain_code: BTC
+                    token_code: BTC
+                    public_address: 1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs
+                  - chain_code: ETH
+                    token_code: ETH
+                    public_address: '0xab5801a7d398351b8be11c439e05c5b3259aec9b'
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 0
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - public_addresses
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+
+
+            Please read [Mapping Public Addresses](/docs/integration-guide/mapping) to
+            better understand how public address mappings work.
+      operationId: rem_pub_address_model
+      tags:
+        - Actions
+  remalladdr:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: >-
+            Possible error messages:
+
+            * "Invalid FIO Address"
+
+            * "Invalid Public Addresses"
+
+            * "Insufficient funds to cover fee"
+
+            * "Fee exceeds supplied maximum"
+
+            * "TPID must be empty or valid FIO address"
+
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_address
+                  value: bob
+                  error: Invalid FIO Address
+        '403':
+          description: |-
+            Possible triggers:
+            * Invalid Actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Remove ALL mapped addresses
+      description: >-
+        This call removes all public addresses mapped to provided FIO Address. 
+        See [FIP-4](https://github.com/fioprotocol/fips/blob/master/fip-0004.md) for comprehensive description of this functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        remalladdr action data may also be sent to the `/remove_all_pub_addresses` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `remaddremalladdrress`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 0
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+
+
+            Please read [Mapping Public Addresses](/docs/integration-guide/mapping) to
+            better understand how public address mappings work.
+      operationId: rem_all_pub_addresses_model
       tags:
         - Actions
   newfundsreq:
@@ -2322,6 +3297,149 @@ paths:
       operationId: new_funds_request_model
       tags:
         - Actions
+  cancelfndreq:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                title: FIO Request status
+                enum:
+                  - cancelled
+                description: Status of FIO Request
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: cancelled
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "No such FIO Request"
+            * "Only pending requests can be cancelled"
+            * "Fee exceeds maximum"
+            * "TPID must be empty or valid FIO address"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_request_id
+                  value: '10000000000'
+                  error: No such FIO Request
+        '403':
+          description: >-
+            Possible triggers:
+
+            * Signer's FIO Public Key does not match actor
+
+            * Payer's FIO Address in specified fio_request_id is not owned by
+            the public key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Cancel funds request
+      operationId: cancel_funds_request_model
+      description: >-
+        Cancel a FIO funds request.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        cancelfndreq action data may also be sent to the `/cancel_funds_request` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.reqobt`
+
+        * name: `cancelfndreq`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_request_id:
+                type: string
+                example: '10'
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 0
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_request_id
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      tags:
+        - Actions
   rejectfndreq:
     options:
       responses:
@@ -2357,8 +3475,6 @@ paths:
             * "Invalid fee value"
             * "Insufficient funds to cover fee"
             * "Fee exceeds supplied maximum"
-            * "FIO Address expired"
-            * "FIO Domain expired"
             * "TPID must be empty or valid FIO address"
           schema:
             type: object
@@ -3031,7 +4147,7 @@ paths:
               tpid:
                 type: string
                 title: TPID
-                description: |-
+                description: >-
                   * FIO Address of the wallet which generates this transaction.
                   * This FIO Address will be paid 10% of the fee.
                   * See FIO Protocol#TPIDs for details.
@@ -3206,6 +4322,314 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: add_bundled_transactions_model
+      tags:
+        - Actions           
+  xferaddress:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+                example: 30000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO address"
+            * "Invalid FIO Public Key"
+            * "Invalid fee value"
+            * "Insufficient funds to cover fee"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+            * "FIO Address expired. Renew first."
+            * "FIO Address not registered"
+            * "FIO Address is active producer. Unregister first."
+            * "FIO Address is proxy. Unregister first."            
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_address
+                  value: purse@alice
+                  error: FIO Address not registered
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Transfer Address
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                description: >-
+                  See [FIO Address
+                  format](https://kb.fioprotocol.io/fio-protocol/fio-addresses/format)
+
+
+                  Please note that FIO Address is case insensitive. If upper
+                  case characters are passed in, they will be converted to lower
+                  case.
+                example: purse@alice
+              new_owner_fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 30000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - new_owner_fio_public_key
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      description: >-
+        Transfers a FIO Address to a new owner. 
+        See [FIP-1](https://github.com/fioprotocol/fips/blob/master/fip-0001.md) for comprehensive description of this functionality.
+
+
+        Transfer FIO Address released in fio v2.0.0, fio.contracts v2.3.0. For v2.3.0 it is only possible to 
+        transfer a FIO Address that has no associated FIO Request or OBT Record data. 
+        The ability to transfer to any FIO Address will be released in a future contract release.
+
+
+        The transfer_fio_address API endpoint will be released in a future FIO chain release.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `xferaddress`
+      operationId: transfer_fio_address_model
+      tags:
+        - Actions        
+  burnaddress:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+                example: 30000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO address"
+            * "Invalid fee value"
+            * "Insufficient funds to cover fee"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+            * "FIO Address not registered"
+            * "FIO Address is active producer. Unregister first."
+            * "FIO Address is proxy. Unregister first."                                    
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: max_fee
+                  value: '200'
+                  error: Fee exceeds supplied maximum.
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Burn Address
+      description: >-
+        Permanently burns a FIO Address.
+        See [FIP-7](https://github.com/fioprotocol/fips/blob/master/fip-0007.md) for comprehensive description of this functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `burnaddress`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 40000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: burn_fio_address_model
       tags:
         - Actions
   regdomain:
@@ -3665,6 +5089,163 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: set_fio_domain_public_model
+      tags:
+        - Actions
+  xferdomain:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+                example: 2000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO domain"
+            * "Invalid FIO Public Key"
+            * "Invalid fee value"
+            * "Insufficient funds to cover fee"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+            * "FIO Domain expired. Renew first"
+            * "FIO Domain not registered"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_domain
+                  value: '!@#$%'
+                  error: Invalid FIO Domain
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '403':
+          description: |-
+            Possible triggers:
+            * The signer does not own the domain
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+      summary: Transfer Domain
+      description: >-
+        Transfers a FIO Domain to a new owner. 
+        See [FIP-1](https://github.com/fioprotocol/fips/blob/master/fip-0001.md) for comprehensive description of this functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        xferdomain action data may also be sent to the `/transfer_fio_domain` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `xferdomain`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_domain:
+                type: string
+                title: FIO Domain
+                minLength: 1
+                maxLength: 62
+                pattern: '^[a-z0-9-]+$'
+                description: >-
+                  See [FIO Domain
+                  format](https://kb.fioprotocol.io/fio-protocol/fio-addresses/format)
+
+
+                  Please note that FIO Domain is case insensitive. If upper case
+                  characters are passed in, they will be converted to lower
+                  case.
+                example: alice
+              new_owner_fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 2000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_domain
+              - new_owner_fio_public_key
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: transfer_fio_domain_model
       tags:
         - Actions
   voteproducer:
@@ -4802,6 +6383,90 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_multiplier_model
+      tags:
+        - Block Producer Actions
+  computefees:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fees_processed:
+                type: integer
+                description: Number of fees processed
+                example: 7
+        '400':
+          description: |-
+            Possible error messages:
+            * "No Work."
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: compute fees
+                  value: compute fees
+                  error: No Work.
+      summary: Compute fees
+      description: >-
+        Computes and sets fees in the FIO Protocol. It has no fee.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.fee`
+
+        * name: `computefees`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: compute_fees_model
       tags:
         - Block Producer Actions
   bundlevote:
