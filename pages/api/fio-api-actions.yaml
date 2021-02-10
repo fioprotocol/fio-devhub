@@ -3991,6 +3991,148 @@ paths:
       operationId: renew_fio_address_model
       tags:
         - Actions
+  burnaddress:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+                example: 30000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO address"
+            * "Invalid fee value"
+            * "Insufficient funds to cover fee"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"
+            * "FIO Address not registered"
+            * "FIO Address is active producer. Unregister first."
+            * "FIO Address is proxy. Unregister first."                                    
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: max_fee
+                  value: '200'
+                  error: Fee exceeds supplied maximum.
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Burn Address
+      description: >-
+        Permanently burns a FIO Address.
+        See [FIP-7](https://github.com/fioprotocol/fips/blob/master/fip-0007.md) for comprehensive description of this functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `burnaddress`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 40000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/integration-guide/generating-actor)'
+                example: aftyershcu22
+            required:
+              - fio_address
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: burn_fio_address_model
+      tags:
+        - Actions
   addbundles:
     options:
       responses:
@@ -5898,6 +6040,90 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: submit_fee_multiplier_model
+      tags:
+        - Block Producer Actions
+  computefees:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              fees_processed:
+                type: integer
+                description: Number of fees processed
+                example: 7
+        '400':
+          description: |-
+            Possible error messages:
+            * "No Work."
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: compute fees
+                  value: compute fees
+                  error: No Work.
+      summary: Compute fees
+      description: >-
+        Computes and sets fees in the FIO Protocol. It has no fee.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.fee`
+
+        * name: `computefees`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: compute_fees_model
       tags:
         - Block Producer Actions
   bundlevote:
