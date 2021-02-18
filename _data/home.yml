@@ -7,11 +7,11 @@
   - heading: For Wallets
     text: Get started with integrating FIO protocol into your wallet
     button: INTEGRATE WALLET
-    url: docs/wallets
+    url: docs/wallets/wallet-examples
   - heading: For Exchanges
     text: Get started with integrating FIO protocol into your exchange
     button: INTEGRATE EXCHANGE
-    url: docs/exchanges
+    url: docs/exchanges/exchange-token-deposit
   - heading: API References
     text: Consult our documentation for FIO APIs and SDKs
     button: EXPLORE APIs
