@@ -52,4 +52,4 @@ FIO Chain uses the [same permission model as EOSIO](https://developers.eos.io/we
 * Custom permissions are not currently supported by the SDKs, so some wallets may not handle accounts with custom permissions.
 * It is important to note that the only way to send tokens is to use /transfer_tokens_pub_key (trnsfiopubky) which will *always send the funds to the account which is a hash of the public key*. This is true even if that key is set as permission on other accounts.
 
-`linkauth` can be used to set custom permissions. Refer to the [linkauth code example]({{ site.baseurl }}/docs/recipes/linkauth/) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.
+`linkauth` can be used to set custom permissions. Refer to the [linkauth code example]({{ site.baseurl }}/docs/recipes/linkauth) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.
