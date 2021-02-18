@@ -55,7 +55,7 @@
         - title: Wallet integration examples
           url: "docs/wallets/wallet-examples"
     - title: "Exchanges"
-      url: "docs/exchanges"
+      url: "docs/exchanges/exchange-token-deposit"
       children:
         - title: Token deposits
           url: "docs/exchanges/exchange-token-deposit"
@@ -68,7 +68,7 @@
         - title: Transaction history
           url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
-      url: "docs/sdk-typescript"
+      url: "docs/sdk-typescript/sdk-js-using"
       children:
         - title: Using the Typescript SDK
           url: "docs/sdk-typescript/sdk-js-using"
