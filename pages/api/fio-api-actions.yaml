@@ -2531,6 +2531,10 @@ paths:
         so that it can be returned using /get_pub_address.
 
 
+        You may pass up to 5 public addresses in a single call. A maximum of 200 public addresses may be 
+        mapped to a FIO Address.
+
+
         The contract action addaddress was modified to accept chain-level public addresses.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.

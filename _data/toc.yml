@@ -114,5 +114,10 @@
           url: "docs/chain/disclosure"
         - title: New FIO Contracts
           url: "docs/chain/newcontracts"
+    - title: "FIO Developers Guide"
+      url: "docs/developers/git"
+      children:
+        - title: Git Branching and Release
+          url: "docs/developers/git"
     - title: "Blog"
       url: blog
