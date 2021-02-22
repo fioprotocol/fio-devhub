@@ -34,7 +34,7 @@ Before you can edit any code or content of this website, you need to create your
 
 This fork/copy of the website is just for you. You can experiment with it, change files, submit git commits – all without the fear of breaking anything on the upstream (original) Devhub website repository. Once you're happy with your changes, you can submit a pull request from your fork (`origin`) to the original Devhub website git repository (`upstream`).
 
-All changes should be made to the **develop** branch.
+All changes should be made to the **master** branch.
 
 ### Quickly change a page online
 
@@ -299,7 +299,7 @@ Next, clone the fio-devhub repository:
 
 ` $ git clone https://github.com/fioprotocol/fio-devhub --recursive `
 
-All development should occur off of the **develop** branch.
+All development should occur off of the **master** branch.
 
 ### Serve
 
