@@ -1,10 +1,10 @@
 ---
-title: Review Pending FIO Requests Example
-description: Review Pending FIO Requests Example
+title: Example - Review Pending FIO Requests
+description: Example - Review Pending FIO Requests
 layout: page-sdk
 ---
 
-# Review Pending FIO Requests Example
+# Example - Review Pending FIO Requests
 
 The following is an example of how to get, approve or reject pending fio requests. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet) if you haven't registered yet.
 

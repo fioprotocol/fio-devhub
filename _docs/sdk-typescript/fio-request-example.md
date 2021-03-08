@@ -1,14 +1,14 @@
 ---
-title: Fio Request Example
-description: Fio Request Example
+title: Example - FIO Request
+description: Example - FIO Request
 layout: page-sdk
 ---
 
-# Fio Request Example
+# Example - FIO Request
 
-The following is an example of how to send, get, approve or reject fio request. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet) if you haven't registered yet.
+The following is an example of how to send, get, approve or reject a FIO Request. Use the [FIO Testnet Monitor to create your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet).
 
-## Import
+## Import FIO
 
 Importing using commonJS syntax is supported by Node.js out of the box:
 
@@ -17,7 +17,7 @@ Importing using commonJS syntax is supported by Node.js out of the box:
     const { fetch } = require('node-fetch');
 ```
 
-### Step 1. Initializing the SDK.
+### Initialize the SDK.
 
 ```javascript
     
@@ -48,7 +48,7 @@ Importing using commonJS syntax is supported by Node.js out of the box:
 * `baseURL` - The base URL to a FIO Protocol blockchain API node
 * `fetchjson` - A reference to fetchJson, used for http post/get calls 
 
-### Step 2. Get fee for send request.
+### Get fee for send request.
 
 Use /get_fee to look up the payer fee for /new_funds_request. You need to set `payeeFioAddress` for this call
 
