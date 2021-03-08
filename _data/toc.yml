@@ -50,13 +50,17 @@
         - title: Sample UX
           url: "docs/integration-guide/sample-ux"
     - title: "Wallets"
-      url: "docs/wallets/wallet-examples"
+      url: "docs/wallets"
       children:
+        - title: Benefits & Bounties
+          url: "docs/wallets"
         - title: Wallet integration examples
           url: "docs/wallets/wallet-examples"
     - title: "Exchanges"
-      url: "docs/exchanges/exchange-token-deposit"
+      url: "docs/exchanges"
       children:
+        - title: Benefits & Incentives
+          url: "docs/exchanges"
         - title: Token deposits
           url: "docs/exchanges/exchange-token-deposit"
         - title: Token withdrawals
@@ -68,14 +72,16 @@
         - title: Transaction history
           url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
-      url: "docs/sdk-typescript/sdk-js-using"
+      url: "docs/sdk-typescript"
       children:
         - title: Using the Typescript SDK
           url: "docs/sdk-typescript/sdk-js-using"
-        - title: Fio Request Example
+        - title: Example - Transfer FIO Tokens
+          url: "docs/sdk-typescript/transfer-fio-tokens-example"
+        - title: Example - FIO Request
           url: "docs/sdk-typescript/fio-request-example"
-        - title: Review Pending Fio Requests Example
-          url: "docs/sdk-typescript/review-pending-fio-requests-example"
+        - title: Example - Review Pending Requests
+          url: "docs/sdk-typescript/review-pending-fio-requests-example"       
     - title: "Go SDK"
       url: "docs/sdk-go"
     - title: "Kotlin SDK"
@@ -91,6 +97,8 @@
           url: "docs/recipes/linkauth"
         - title: Validating a FIO Public Key
           url: "docs/recipes/validation"
+        - title: Get FIO Names from Table
+          url: "docs/recipes/fio-names-from-table"
     - title: "FIO Chain"
       url: "docs/chain"
       children:
