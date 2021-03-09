@@ -114,14 +114,21 @@
           url: "docs/chain/testnet"
         - title: Mainnet
           url: "docs/chain/mainnet"
-        - title: Being a block producer
-          url: "docs/chain/bp"
         - title: clio
           url: "docs/chain/clio"
         - title: Vulnerability disclosure policy
           url: "docs/chain/disclosure"
         - title: New FIO Contracts
           url: "docs/chain/newcontracts"
+    - title: "Block Production"
+      url: "docs/bp"
+      children:
+        - title: Being a Producer
+          url: "docs/bp/bp"
+        - title: Setting fees
+          url: "docs/bp/fee-setting"
+        - title: Claiming rewards
+          url: "docs/bp/claiming-rewards"
     - title: "FIO Developers Guide"
       url: "docs/developers/git"
       children:
