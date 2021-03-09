@@ -48,7 +48,7 @@ Due to the amount of storage required, two types of transactions will use up two
 * New FIO Request
 * Recording FIO Data
 
-Lastly, block producers are exempt from paying certain transaction fees, including: 
+Lastly, top 21 block producers are exempt from paying certain transaction fees, including: 
 
 * Multisig propose
 
