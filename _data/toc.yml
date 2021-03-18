@@ -14,13 +14,15 @@
           url: "docs/fio-protocol/voting"
         - title: Multisig
           url: "docs/fio-protocol/multisig"
-        - title: Technology Provider ID
-          url: "docs/fio-protocol/tpid"
         - title: FIO Improvement Proposals
           url: "docs/fio-protocol/fips"
     - title: "Integration Guide"
       url: "docs/integration-guide"
       children:
+        - title: Earn FIO with your TPID
+          url: "docs/integration-guide/tpid"
+        - title: Participate in Governance
+          url: "docs/integration-guide/governance"
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
         - title: Submitting Transactions
