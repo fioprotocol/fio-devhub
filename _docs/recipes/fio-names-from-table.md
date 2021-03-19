@@ -108,6 +108,15 @@ func main() {
 
 ```
 
+#### PHP
+
+```php
+$hash = substr(sha1('test@fiotestnet'), 0, 32);
+$hashArray = array_reverse(str_split($hash,2));
+$hashHex = "0x" . implode($hashArray);
+```
+
+
 ### Sending the query
 
 #### Address
