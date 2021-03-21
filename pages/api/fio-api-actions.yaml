@@ -1847,6 +1847,114 @@ paths:
       operationId: get_block
       tags:
         - Getters
+  /get_abi:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: application/json
+            properties:
+              account_name:
+                type: string
+              abi:
+                type: application/json
+                properties:
+                  version:
+                    type: string
+                  types:
+                    type: array of objects
+                  structs:
+                    type: array
+                    properties:
+                      name:
+                        type: string
+                      base:
+                        type: string
+                      fields:
+                        type: array
+                        properties:
+                          name:
+                            type: string
+                          type: 
+                            type: string
+                  actions:
+                    type: array
+                    properties:
+                      name:
+                        type: string
+                      type:
+                        type: string
+                      ricardian_contract:
+                        type: string
+                  tables:
+                    type: array
+                    properties:
+                      name:
+                        type: string
+                      index_type:
+                        type: string
+                      key_names:
+                        type: array of strings
+                      key_types:
+                        type: array of strings
+                      type:
+                        type: string                
+                  ricardian_clauses:
+                    type: array of array
+                  error_messages:
+                    type: array of strings
+                  abi_extensions:
+                    type: array of strings
+                  variants:
+                    type: array of strings
+          examples:
+            application/json:
+              account_name: fio.address
+              abi:
+                version: eosio::abi/1.0
+                types: []
+                structs:
+                  - name: fioname
+                    base: ""
+                    fields:
+                      - name: id
+                        type: uint64
+                      - name: name
+                        type: string                        
+                actions:
+                  - name: regaddress
+                    type: regaddress
+                    ricardian_contract: ""
+                tables:
+                  - name: fionames
+                    index_type: i64
+                    key_names:
+                      - id
+                    key_types:
+                      - string
+                    type: fioname
+                ricardian_clauses: []
+                error_messages: []
+                abi_extensions: []
+                variants: []
+      description: Retrieves the ABI for a contract based on its account name.
+      summary: Get ABI for contract
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              account_name:
+                type: string
+                description: Account name for the contract.
+                example: fio.address
+            required:
+              - account_name
+      operationId: get_abi
+      tags:
+        - Getters
   /get_raw_abi:
     post:
       responses:
@@ -1870,8 +1978,8 @@ paths:
               abi_hash: d98bbfa97018efcdfbbf42b62406707bc17498e630f58e4529029af71042d861
               abi: >-
                 DmVvc2lvOjphYmkvMS4wABMHZmlvbmFtZQAIBG5hbWUGc3RyaW5nCG5hbWVoYXNoBnVpbnQ2NAZkb21haW4Gc3RyaW5nCmRvbWFpbmhhc2gGdWludDY0CmV4cGlyYXRpb24GdWludDY0DW93bmVyX2FjY291bnQEbmFtZQlhZGRyZXNzZXMIc3RyaW5nW10XYnVuZGxlZWxpZ2libGVjb3VudGRvd24GdWludDY0BmRvbWFpbgAFBG5hbWUGc3RyaW5nCmRvbWFpbmhhc2gGdWludDY0CWlzX3B1YmxpYwV1aW50OApleHBpcmF0aW9uBnVpbnQzMgdhY2NvdW50BnVpbnQ2NAljaGFpbkxpc3QAAwRuYW1lBnN0cmluZwJpZAZ1aW50NjQJY2hhaW5oYXNoBnVpbnQzMgplb3Npb19uYW1lAAMHYWNjb3VudARuYW1lCWNsaWVudGtleQZzdHJpbmcHa2V5aGFzaAZ1aW50NjQJY2hhaW5wYWlyAAMFaW5kZXgGdWludDY0CWNoYWlubmFtZQZzdHJpbmcJY2hhaW5oYXNoBnVpbnQ2NApyZWdhZGRyZXNzAAULZmlvX2FkZHJlc3MGc3RyaW5nFG93bmVyX2Zpb19wdWJsaWNfa2V5BnN0cmluZwdtYXhfZmVlBnVpbnQ2NAVhY3RvcgRuYW1lBHRwaWQGc3RyaW5nCmFkZGFkZHJlc3MABgtmaW9fYWRkcmVzcwZzdHJpbmcKdG9rZW5fY29kZQZzdHJpbmcOcHVibGljX2FkZHJlc3MGc3RyaW5nB21heF9mZWUGdWludDY0BWFjdG9yBG5hbWUEdHBpZAZzdHJpbmcJcmVnZG9tYWluAAUKZmlvX2RvbWFpbgZzdHJpbmcUb3duZXJfZmlvX3B1YmxpY19rZXkGc3RyaW5nB21heF9mZWUGdWludDY0BWFjdG9yBG5hbWUEdHBpZAZzdHJpbmcLcmVuZXdkb21haW4ABApmaW9fZG9tYWluBnN0cmluZwdtYXhfZmVlBnVpbnQ2NAR0cGlkBnN0cmluZwVhY3RvcgRuYW1lDHJlbmV3YWRkcmVzcwAEC2Zpb19hZGRyZXNzBnN0cmluZwdtYXhfZmVlBnVpbnQ2NAR0cGlkBnN0cmluZwVhY3RvcgRuYW1lCWV4cGRvbWFpbgACBWFjdG9yBG5hbWUGZG9tYWluBnN0cmluZwxleHBhZGRyZXNzZXMABAVhY3RvcgRuYW1lBmRvbWFpbgZzdHJpbmcOYWRkcmVzc19wcmVmaXgGc3RyaW5nF251bWJlcl9hZGRyZXNzZXNfdG9fYWRkBnVpbnQ2NAxzZXRkb21haW5wdWIABQpmaW9fZG9tYWluBnN0cmluZwlpc19wdWJsaWMFdWludDgHbWF4X2ZlZQZ1aW50NjQFYWN0b3IEbmFtZQR0cGlkBnN0cmluZwtidXJuZXhwaXJlZAAACnJlbW92ZW5hbWUAAAxyZW1vdmVkb21haW4AAApybXZhZGRyZXNzAAALZGVjcmNvdW50ZXIAAQtmaW9fYWRkcmVzcwZzdHJpbmcKYmluZDJlb3NpbwADB2FjY291bnQEbmFtZQpjbGllbnRfa2V5BnN0cmluZwhleGlzdGluZwRib29sDQAAxuqmZJi6CnJlZ2FkZHJlc3MAAADG6qZkUjIKYWRkYWRkcmVzcwAAAJjOSJqYuglyZWdkb21haW4AAKYzkiauproLcmVuZXdkb21haW4AgLG6KRmuproMcmVuZXdhZGRyZXNzAAAAmM5ImmpXCWV4cGRvbWFpbgCAFcbqpmRqVwxleHBhZGRyZXNzZXMAAJK6rnY1rz4LYnVybmV4cGlyZWQAAICSZqpNpboKcmVtb3ZlbmFtZQAwnZE0qU2lugxyZW1vdmVkb21haW4AAADG6qZktrwKcm12YWRkcmVzcwBwdJ3OSJqywgxzZXRkb21haW5wdWIAAAB1mCqRpjsKYmluZDJlb3NpbwAEAAAAWEkzqVsDaTY0AQRuYW1lAQZzdHJpbmcHZmlvbmFtZQAAAABPZyRNA2k2NAEEbmFtZQEGc3RyaW5nBmRvbWFpbgAAAADg6UxDA2k2NAEEbmFtZQEGc3RyaW5nCWNoYWluTGlzdABANTJPTREyA2k2NAEHYWNjb3VudAEGdWludDY0CmVvc2lvX25hbWUAAAAA=
-      description: The ABI is required to properly pack content of signed calls.
-      summary: Get ABI for account
+      description: Returns an object containing the smart contract abi.
+      summary: Get raw ABI for contract
       parameters:
         - in: body
           name: body
