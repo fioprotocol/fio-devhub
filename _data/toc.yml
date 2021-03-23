@@ -6,10 +6,14 @@
       children:
         - title: FIO Token
           url: "docs/fio-protocol/fio-token"
+        - title: FIO Address
+          url: "docs/fio-protocol/fio-address"
+        - title: Public/Private Keys
+          url: "docs/fio-protocol/keys"
         - title: Fees
           url: "docs/fio-protocol/fio-fees"
-        - title: Keys, accounts and permissions
-          url: "docs/fio-protocol/keys-accounts"
+        - title: Accounts and Permissions
+          url: "docs/fio-protocol/accounts-permissions"
         - title: Voting
           url: "docs/fio-protocol/voting"
         - title: Multisig
@@ -45,9 +49,9 @@
           url: "docs/integration-guide/encryption"
         - title: Demos
           url: "docs/integration-guide/demo"
-        - title: Testing your integration
+        - title: Testing your Integration
           url: "docs/integration-guide/guide-testing"
-        - title: Integration checklist
+        - title: Integration Checklist
           url: "docs/integration-guide/guide-certification"
         - title: Sample UX
           url: "docs/integration-guide/sample-ux"
@@ -56,22 +60,22 @@
       children:
         - title: Benefits & Bounties
           url: "docs/wallets"
-        - title: Wallet integration examples
+        - title: Wallet Integration Examples
           url: "docs/wallets/wallet-examples"
     - title: "Exchanges"
       url: "docs/exchanges"
       children:
         - title: Benefits & Incentives
           url: "docs/exchanges"
-        - title: Token deposits
+        - title: Token Deposits
           url: "docs/exchanges/exchange-token-deposit"
-        - title: Token withdrawals
+        - title: Token Withdrawals
           url: "docs/exchanges/exchange-token-withdraw"
-        - title: Token transfers
+        - title: Token Transfers
           url: "docs/exchanges/exchange-token-transfer"
-        - title: Token supply
+        - title: Token Supply
           url: "docs/exchanges/exchange-token-supply"
-        - title: Transaction history
+        - title: Transaction History
           url: "docs/exchanges/txn-history"
     - title: "Typescript SDK"
       url: "docs/sdk-typescript"
@@ -93,12 +97,10 @@
     - title: "Recipes"
       url: "docs/recipes"
       children:
-        - title: Generating actor from Pub Key
+        - title: Generating Actor from Pub Key
           url: "docs/recipes/actor-account"
-        - title: Adding permissions with linkauth
+        - title: Adding Permissions with linkauth
           url: "docs/recipes/linkauth"
-        - title: Validating a FIO Public Key
-          url: "docs/recipes/validation"
         - title: Get FIO Names from Table
           url: "docs/recipes/fio-names-from-table"
     - title: "FIO Chain"
@@ -108,17 +110,17 @@
           url: "docs/chain/eosio"
         - title: RAM, CPU, and NET limits
           url: "docs/chain/resources"
-        - title: Building a node
+        - title: Building a Node
           url: "docs/chain/node-build"
-        - title: History node
+        - title: History Node
           url: "docs/chain/node-history"
         - title: Testnet
           url: "docs/chain/testnet"
         - title: Mainnet
           url: "docs/chain/mainnet"
-        - title: clio
+        - title: CLIO
           url: "docs/chain/clio"
-        - title: Vulnerability disclosure policy
+        - title: Vulnerability Disclosure Policy
           url: "docs/chain/disclosure"
         - title: New FIO Contracts
           url: "docs/chain/newcontracts"
@@ -127,9 +129,9 @@
       children:
         - title: Being a Producer
           url: "docs/bp/bp"
-        - title: Setting fees
+        - title: Setting Fees
           url: "docs/bp/fee-setting"
-        - title: Claiming rewards
+        - title: Claiming Rewards
           url: "docs/bp/claiming-rewards"
     - title: "FIO Developers Guide"
       url: "docs/developers/git"
