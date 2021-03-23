@@ -98,12 +98,6 @@ checksum2 = publicKey.slice(0,4)
 assert(checksum2 = checksum1, 'Checksum failed!')
 ```
 
-### FIO Public Key checksum validation using regex
-
-Regex validation may be used. For example, the following regex may be used to validate a FIO Address: 
-
-`^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)`
-
 ### FIO Public Key checksum validation using the fiojs library
 
 This example uses the fiojs library to validate a FIO public key.
