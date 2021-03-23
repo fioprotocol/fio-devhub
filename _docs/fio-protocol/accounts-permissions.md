@@ -1,36 +1,10 @@
 ---
-title: Keys, accounts, and permissions
-description: Keys, accounts, and permissions
+title: Accounts and permissions
+description: Accounts and permissions
 ---
-# Keys, accounts, and permissions
+# Accounts and permissions
 
-## FIO Private/Public Keys
 
-FIO Chain’s is registered at index 235/0x800000eb on the [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md){:rel="nofollow noopener noreferrer" target="_blank"}.
-
-FIO Private Keys follow standard Wallet Import Format (WIF) standard and public keys follow well-known base58 encoding with FIO prefix, for example:
-
-`FIO7tkpmicyK2YWShSKef6B9XXqBN6LpDJo69oRDfhn67CEnj3L2G`
-
-For those who have integrated EOSIO, FIO public keys follows the same format, except the prefix is FIO instead of EOS.
-
-The derivation path for FIO is:
-
-`"44'/235'/0'/0/0"`
-
-To test your FIO key derivation, use this mnemonic phrase:
-
-`valley alien library bread worry brother bundle hammer loyal barely dune brave`
-
-This is the expected Private Key:
-
-`5Kbb37EAqQgZ9vWUHoPiC2uXYhyGSFNbL6oiDp24Ea1ADxV1qnu`
-
-This is the expected Public Key:
-
-`FIO5kJKNHwctcfUM5XZyiWSqSTM5HTzznJP9F3ZdbhaQAHEVq575o`
-
-To obtain a private key from a seed phrase, you can use [the BIP 39 tool by Ian Coleman](https://github.com/iancoleman/bip39#standalone-offline-version){:rel="nofollow noopener noreferrer" target="_blank"} as described in [this video](https://www.youtube.com/watch?v=eAXdLEZFbiw){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ## FIO Accounts
 
