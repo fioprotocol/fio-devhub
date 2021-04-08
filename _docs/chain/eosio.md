@@ -2,7 +2,7 @@
 title: FIO vs. EOSIO
 description: description
 redirect_from:
-  - /docs/fio-protocol/fio-vs-eosio
+  - /fio-protocol/fio-vs-eosio
 ---
 # FIO vs. EOSIO
 
