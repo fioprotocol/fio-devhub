@@ -4,6 +4,8 @@
     - title: "FIO Protocol"
       url: "docs/fio-protocol"
       children:
+        - title: What is FIO Protocol?
+          url: "docs/fio-protocol"
         - title: FIO Token
           url: "docs/fio-protocol/fio-token"
         - title: FIO Address
@@ -23,10 +25,10 @@
     - title: "Integration Guide"
       url: "docs/integration-guide"
       children:
-        - title: Earn FIO with your TPID
-          url: "docs/integration-guide/tpid"
-        - title: Participate in Governance
-          url: "docs/integration-guide/governance"
+        - title: Integration Guide
+          url: "docs/integration-guide"
+        - title: Sample UX and Demos
+          url: "docs/integration-guide/sample-ux"
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
         - title: Submitting Transactions
@@ -43,18 +45,14 @@
           url: "docs/integration-guide/mapping"
         - title: FIO Requests and Data
           url: "docs/integration-guide/fio-request"
-        - title: Generating Actor
-          url: "docs/integration-guide/generating-actor"
         - title: Encrypting Data
           url: "docs/integration-guide/encryption"
-        - title: Demos
-          url: "docs/integration-guide/demo"
-        - title: Testing your Integration
-          url: "docs/integration-guide/guide-testing"
-        - title: Integration Checklist
+        - title: Integration QA Checklist
           url: "docs/integration-guide/guide-certification"
-        - title: Sample UX
-          url: "docs/integration-guide/sample-ux"
+        - title: Earn FIO with your TPID
+          url: "docs/integration-guide/tpid"
+        - title: Participate in Governance
+          url: "docs/integration-guide/governance"
     - title: "Wallets"
       url: "docs/wallets"
       children:
@@ -81,7 +79,7 @@
       url: "docs/sdk-typescript"
       children:
         - title: Using the Typescript SDK
-          url: "docs/sdk-typescript/sdk-js-using"
+          url: "docs/sdk-typescript"
         - title: Example - Transfer FIO Tokens
           url: "docs/sdk-typescript/transfer-fio-tokens-example"
         - title: Example - FIO Request
