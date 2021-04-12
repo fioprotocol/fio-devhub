@@ -4,9 +4,9 @@ description: Overview
 ---
 # Integration Guide
 
-As you get ready to integrate with the FIO Protocal API, here’s a step-by-step walkthrough of the integration process.
+The following is a step-by-step walkthrough of the integration process. It begins by reviewing FIO Protocol and tools websites available to support integration. Next, it summarizes how to set up a test environment and reviews the different categories of features that are available for integration. Lastly, it outlines the requirements for QA and acceptance testing.
 
-**TBD: Need graphic**
+![Image]({{ site.baseurl }}/assets/img/integration/integration-process.png)
 
 ## Phase 1: Get familiar with FIO Protocol
 
@@ -46,12 +46,12 @@ To set up a FIO public key with FIO tokens in a test environment:
    * Select the 'Faucet' button
    * Paste in the FIO Public Key (created above)
    * Select the 'Send Coins' button
-4. You now have a FIO account with a Public key, a Private key, a FIO Address, and FIO tokens. This account can be used for testing Signed API calls.
+4. You now have a FIO account with a Public key, a Private key, a FIO Address, and FIO tokens. This account can be used for testing [Signed API calls]({{site.baseurl}}/pages/api/fio-api/#tag--Transactions).
 
 
 ## Phase 3: Integrate FIO
 
-FIO Protocol provides a variety of features that make it easier for wallet and exchange users to send and receive crypto. The following are common functionality groups and an estimate of the development effort to integrate them into your product.
+FIO Protocol provides a variety of features that make it easier for wallet and exchange users to send and receive crypto. The following are common functionality groups and estimates of the development effort to integrate them into your product.
 
 |Functionality groups	|Dev description	|User benefit	|Dev effort|
 |---|---|---|---|
@@ -64,23 +64,21 @@ FIO Protocol provides a variety of features that make it easier for wallet and e
 |[FIO Domain Registration]({{site.baseurl}}/docs/integration-guide/registration#fio-domain-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
 |[Register FIO Address on Custom Domain]({{site.baseurl}}/docs/integration-guide/registration#register-fio-address-on-custom-domain)	|Registering FIO Address inside wallet and on custom domains.	|Users can register a FIO Address on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
 
-The functionality groups above are ordered in such a way as to provide a sample integration path that begins with Send to FIO Address, which is one of the easiest features to integrate, and moves on to more complex features that require the building of packed and signed transactions. Nonetheless, it is ultimately up to the integrating wallet to decide which features of the FIO Protocol they want to implement and how. 
+The functionality groups above are ordered in such a way as to provide a sample integration path that begins with Send to FIO Address, which is one of the easiest features to integrate, and moves on to more complex features that require the building of packed and signed transactions. Nonetheless, it is ultimately up to the integrator to decide which features of the FIO Protocol you want to implement and in what order. 
 
 ## Phase 4: Configure your Technology Provider ID (TPID)
 
 Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/integration-guide/tpid).
 
-## Phase 5: Client testing and QA
+## Phase 5: Client testing and FIO acceptance testing
 
 Once you have completed your initial integration you should perform internal testing against the FIO Testnet. 
 
 We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/guide-certification) that should be completed prior to moving to production.
 
-## Phase 6: FIO acceptance testing
-
 When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 
-## Phase 7: Join the FIO community!
+## Join the FIO community!
 
 FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/integration-guide/governance).
 
