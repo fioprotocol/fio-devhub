@@ -4,11 +4,9 @@ description: Accounts and permissions
 ---
 # Accounts and permissions
 
-
-
 ## FIO Accounts
 
-FIO keys are tied to FIO accounts. FIO uses a [custom hash function]({{ site.baseurl }}/docs/integration-guide/generating-actor), which when applied to a FIO Public Key, produces a FIO account name (a FIO account is equivalent to a FIO actor). There is no way to create a custom name for an account.
+FIO keys are tied to FIO accounts. FIO uses a [custom hash function]({{ site.baseurl }}/docs/recipes/actor-account), which when applied to a FIO Public Key, produces a FIO account name (a FIO account is equivalent to a FIO actor). There is no way to create a custom name for an account.
 
 In order to make it easier for developers to be able to integrate with the FIO Blockchain, FIO accounts are created automatically in the following instances:
 

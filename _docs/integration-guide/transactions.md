@@ -18,7 +18,7 @@ After the transaction instance is created at the application level, the transact
 
 ### Sign Transaction
 
-The transaction must be signed by a set of keys sufficient to satisfy the accumulated set of explicit actor:permission pairs specified in all the actions enclosed within the transaction. This linkage is done through the authority table for the given permission (see [Keys, accounts, and permissions]({{site.baseurl}}/docs/fio-protocol/keys-accounts). The actual FIP Private key used for signing is obtained by querying the wallet on the client where the application is run.
+The transaction must be signed by a set of keys sufficient to satisfy the accumulated set of explicit actor:permission pairs specified in all the actions enclosed within the transaction. This linkage is done through the authority table for the given permission (see [Keys, accounts, and permissions]({{site.baseurl}}/docs/fio-protocol/keys-accounts). The actual FIO Private key used for signing is obtained by querying the wallet on the client where the application is run.
 
 The transaction signing process takes three parameters: 
 1. The chain ID
