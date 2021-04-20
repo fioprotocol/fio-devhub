@@ -9,9 +9,11 @@ description: Mapping Public Addresses
 
 One of the key utilities of the FIO Protocol is the ability to send crypto using a [FIO Address](https://kb.fioprotocol.io/fio-protocol/fio-addresses){:rel="nofollow noopener noreferrer" target="_blank"}, instead of complicated Native Blockchain Public Address (NBPA) such as 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B on Ethereum.
 
-A wallet can very easily look-up the NBPA using the /get_pub_address method.
+A wallet can very easily look-up the NBPA using the /get_pub_address method. However, before this can happen the wallet hosting the FIO Address must first map the NBPA to the FIO Address.
 
-However, before this can happen the wallet hosting the FIO Address must first map the NBPA to the FIO Address.
+## How Does a FIO Address map to public addresses?
+
+Applications that enable users to manage their private keys (such as crypto wallets) which integrate the FIO Protocol have two options on enabling mapping of associated public addresses to the human readable FIO Address.  First, the product may automatically map all public addresses enabled in the product to the FIO Address by signing a mapping transaction on the FIO blockchain.  Second, the product may enable users to select which chains to map to their FIO Address through a radio button or similar interface.  In either of these implementations users never have to see nor interact with their public addresses to accomplish mapping.
 
 ## Mapping NBPAs to FIO Address
 
