@@ -1,13 +1,11 @@
 ---
-title:  FIO Release 3.0
+title:  FIO Release 3.0 (Testnet Release)
 date:   2021-04-20
 categories: release
 badges:
  - type: warning
    tag: release
 ---
-
-## v3.0 release summary (Testnet Release)
 
 *(This release is currently in Testnet)*
 
@@ -17,16 +15,11 @@ It has been awhile since we have posted out a development update. The reason is 
 * 8 new API endpoints
 * Modifications to 14 API endpoints
 
-The following gives an overview of the changes included in the release:
-
 <!--more-->
 
-For more information refer to the [Version 3.0 Release Notes](https://github.com/fioprotocol/fio.contracts/releases/tag/v2.3.0){:target="_blank"}.
+For more information refer to the [Version 3.0 Release Notes](https://github.com/fioprotocol/fio/releases/tag/v3.0.0-rc5){:target="_blank"}.
 
-### Detailed Overview
-
-#### FIO Request and OBT Data performance improvements
-
+### Release Overview
 
 #### [FIP-1(b)](https://github.com/fioprotocol/fips/blob/master/fip-0001.md){:target="_blank"} - Transfer FIO Address
 
@@ -48,7 +41,7 @@ This release adds a new **/burn_fio_address** endpoint for the [burnaddress](/pa
 
 #### [FIP-9](https://github.com/fioprotocol/fips/blob/master/fip-0009.md){:target="_blank"} - Allow voting and proxying without a FIO Address
 
-Currently voting for a block producer or assigning your votes to a proxy requires that a user have a FIO Address. The FIO Address is needed to allow payment with bundled transactions instead of FIO tokens. FIP-9 makes voting and proxying votes easier for FIO users by allowing voting and proxying even when the token holder does not have a FIO Address. The FIO Address field can now be left blank when calling vote_producer and proxy_vote.
+Currently voting for a block producer or assigning your votes to a proxy requires that you have a FIO Address. The FIO Address is needed to allow payment with bundled transactions instead of FIO tokens. FIP-9 makes voting and proxying votes easier for FIO users by allowing voting and proxying even when the token holder does not have a FIO Address.
 
 This release updates the [/vote_producer](/pages/api/fio-api/#options-voteproducer) and [/proxy_vote](/pages/api/fio-api/#options-voteproxy) endpoints to allow a blank FIO Address.
 
@@ -60,13 +53,13 @@ This release updates the [/submit_fee_vote](/pages/api/fio-api/#options-setfeevo
 
 #### [FIP-11(a)](https://github.com/fioprotocol/fips/blob/master/fip-0011.md){:target="_blank"} - Enhance bundled transaction usability
 
-Bundled transactions make it easier for everyday users to interact with the FIO Protocol. Users pay a single annual fee for the FIO Address and get with it enough bundled transactions to cover an average amount of annual interaction with the FIO Chain. Currently, users who process more transactions than the annual amount of bundled transactions can either pay a per transaction fee for all additional transactions or renew their FIO Address early, which adds new bundle of transactions and extends FIO Address expiration date. However, heavy users have to run multiple Address renewals in sequence to increase their bundle count. 
+Bundled transactions make it easier for everyday users to interact with the FIO Protocol. Users pay a single annual fee for the FIO Address and get with it enough bundled transactions to cover an average amount of annual interactions with the FIO chain. Currently, users who process more transactions than the annual amount of bundled transactions can either pay a per transaction fee for all additional transactions or renew their FIO Address early, which adds a new bundle of transactions and extends the FIO Address expiration date. However, heavy users have to run multiple Address renewals in sequence to increase their bundle count. 
 
-This release adds a new **/add_bundled_transactions** endpoint for the [addbundles](/pages/api/fio-api/#options-addbundles) action.
+This release adds a new **/add_bundled_transactions** endpoint for the [addbundles](/pages/api/fio-api/#options-addbundles) action. This enables users to purchase multiple sets of bundles with a single transaction.
 
 #### [FIP-13](https://github.com/fioprotocol/fips/blob/master/fip-0013.md){:target="_blank"} - Ability to retrieve all public addresses for a FIO Address
 
-Currently, the [/get_pub_address](/pages/api/fio-api/#post-/get_pub_address) API method returns only the public address for specific chain and token code. This works great for a look-up of a specific token code, but it's not practical for a wallet wanting to fetch and display all public address mappings to the owner of the FIO Address. Even though the mappings can be fetched using /get_table_rows, this call requires index computation, and therefore a native API method is desirable.
+Currently, the [/get_pub_address](/pages/api/fio-api/#post-/get_pub_address) API method returns only the public address for specific chain and token code. This works great for a look-up of a specific token code, but it's not practical for a wallet wanting to fetch and display all public address mappings to the owner of a FIO Address. Even though the mappings can be fetched using /get_table_rows, this call requires index computation, and therefore a native API method is desirable.
 
 This release adds a new **/get_pub_addresses** endpoint that returns all mapped public addreses for a specified FIO Address.
 
@@ -88,7 +81,7 @@ This release updates the [/add_pub_address](/pages/api/fio-api/#options-addaddre
 
 Currently it is possible to retrieve:
 * Received FIO Requests in the *pending* status using [/get_pending_fio_requests](/pages/api/fio-api/#post-/get_pending_fio_requests)
-* All sent FIO Requests using [/get_sent_fio_requests](/pages/api/fio-api/#post-/get_sent_fio_requests)
+* All *sent* FIO Requests using [/get_sent_fio_requests](/pages/api/fio-api/#post-/get_sent_fio_requests)
 
 But, there is no getter to fetch all received FIO Requests irrespective of status. It is possible to use [/get_table_rows](/pages/api/fio-api/#post-/get_table_rows) to retrieve received requests, but this requires hashing of values and potentially a multi-table look-up.
 
@@ -99,3 +92,15 @@ This release adds a new **/get_received_fio_requests** endpoint that enables the
 It is currently difficult to obtain the remaining bundled transaction count for a FIO Address. It can be fetched using [/get_table_rows](/pages/api/fio-api/#post-/get_table_rows), but this requires converting the FIO Address to a hash which is the last 16 bytes of a sha1 hash (of the string), as big-endian hex.
 
 This release updates the [/get_fio_names](/pages/api/fio-api/#post-/get_fio_names) endpoint to return an additional bundle count parameter.
+
+#### FIO Request and OBT Data performance improvements
+
+One of the underlying issues for blockchains is the need to fit transactions and queries into a defined node response time. This limits the number of records that can be returned for a single query and necessitates the use of paging for tables with large numbers of records. These restrictions on searching and querying data directly affect how the wallets that have integrated FIO show FIO data to their users. 
+
+This release updates how FIO Requests and OBT Records are stored with the goal of improving query response time through the use of a new index table.
+
+#### Support for adding new system contracts
+
+FIO Protocol currently relies upon a coded list of known system accounts that are used within the core of the protocol. This list of accounts is used in the addaction, remaction, and setcode actions to ensure proper authorization of these actions. 
+
+This release updates the FIO chain to get this list of well known accounts from the actions table in FIO State. Instead of relying on a hardcoded list at the code level, the protocol now reads the actions table and determines the list of FIO system accounts contained within the actions table. These changes will permit new contracts to be added to the FIO Protocol without any need to upgrade the FIO nodes used by our community of Block producers, wallet integrators, API node managers, exchanges, and other FIO integrators. This will greatly increase the efficiency of deploying future enhancements to FIO.
