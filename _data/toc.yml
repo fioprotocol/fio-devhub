@@ -8,13 +8,13 @@
           url: "docs/fio-protocol"
         - title: FIO Token
           url: "docs/fio-protocol/fio-token"
-        - title: FIO Address
+        - title: FIO Addresses & Domains
           url: "docs/fio-protocol/fio-address"
         - title: Public/Private Keys
           url: "docs/fio-protocol/keys"
-        - title: Fees
+        - title: Fees & Bundled Transactions
           url: "docs/fio-protocol/fio-fees"
-        - title: Accounts and Permissions
+        - title: Accounts & Permissions
           url: "docs/fio-protocol/accounts-permissions"
         - title: Voting
           url: "docs/fio-protocol/voting"
@@ -27,7 +27,7 @@
       children:
         - title: Integration Guide
           url: "docs/integration-guide"
-        - title: Sample UX and Demos
+        - title: Sample UX & Demos
           url: "docs/integration-guide/sample-ux"
         - title: Using the API
           url: "docs/integration-guide/using-the-api"
@@ -43,7 +43,7 @@
           url: "docs/integration-guide/fio-receive"
         - title: Mapping Public Addresses
           url: "docs/integration-guide/mapping"
-        - title: FIO Requests and Data
+        - title: FIO Requests & Data
           url: "docs/integration-guide/fio-request"
         - title: Encrypting Data
           url: "docs/integration-guide/encryption"
@@ -106,7 +106,7 @@
       children:
         - title: FIO vs. EOSIO
           url: "docs/chain/eosio"
-        - title: RAM, CPU, and NET limits
+        - title: RAM, CPU, & NET limits
           url: "docs/chain/resources"
         - title: Building a Node
           url: "docs/chain/node-build"
@@ -134,7 +134,7 @@
     - title: "FIO Developers Guide"
       url: "docs/developers/git"
       children:
-        - title: Git Branching and Release
+        - title: Git Branching & Release
           url: "docs/developers/git"
     - title: "Blog"
       url: blog
