@@ -1,31 +1,13 @@
 ---
-title: History node
-description: History node
+title: History API
+description: History API
 ---
 # History node
 ## Building history node
 
-Debian packages are available in Github.
+Refer to [Building a node]({{site.baseurl}}/docs/chain/node-build) for information on configuring your node with the history_api_plugin (V1 History) feature.
 
-Note the history plugin still needs to be enabled in /etc/fio/nodeos/config.ini.
-
-The fastest way to bring a history node online:
-```
-# assumes root user
-wget https://bin.fioprotocol.io/mainnet/fioprotocol-2.0.x-latest-ubuntu-18.04-amd64.deb
-apt-get install ./fioprotocol-2.0.x-latest-ubuntu-18.04-amd64.deb
-cat >> /etc/fio/nodeos/config.ini << EOF
-plugin = eosio::history_plugin
-plugin = eosio::history_api_plugin
-filter-on = *
-filter-out = eosio:onblock:
-history-per-account = 10000
-EOF
-systemctl enable fio-nodeos.service
-systemctl start fio-nodeos.service
-```
-
-## History node example calls
+## History API
 
 ### Get transaction
 ```
