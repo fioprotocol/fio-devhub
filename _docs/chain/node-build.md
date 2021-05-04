@@ -20,6 +20,7 @@ These are designed for quickly bringing up a node, and have systemd integration,
 The FIO GPG signing key is available on keybase:
 ```
 curl -s 'https://keybase.io/fiosec/pgp_keys.asc?fingerprint=0cfee764b06d009f7574a253c0e61f8441b6aad4' | gpg --import
+
 ```
 
 Releases can be pulled either from the [Github release page](https://github.com/fioprotocol/fio/releases) or the latest version is available at the following URLs:
@@ -31,6 +32,7 @@ curl -sO https://bin.fioprotocol.io/mainnet/fioprotocol-3.0.x-latest-ubuntu-18.0
  Signature verification:
 ```
 gpg --verify fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb.asc fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
+
 ```
 
 Should result in output similar to:
