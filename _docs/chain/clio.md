@@ -3,69 +3,78 @@ title: clio and fio-wallet (keosd)
 description: clio and fio-wallet (keosd)
 ---
 
-# clio
+# clio and fio-wallet (keosd)
+
+## fio-wallet
+
+The EOSIO keosd wallet was renamed to fio-wallet to make it easier for Block Producers to run both EOSIO and FIO commands in the same environment.
+
+## Handling large numbers of FIO keys in fio wallet
+
+If you are using the default settings for fio-wallet, you may encounter errors when attempting to sign a transaction with wallets containing larger numbers of keys (30,000+ keys). The failure is caused because requests to the `nodeos` API are exceeding the maximum payload size allowed for incoming requests.
+
+To prevent this failure, add the following to `/etc/fio/nodeos/config.ini` when using a large number of keys in the wallet:
+
+```
+max-body-size=10485760
+http-max-bytes-in-flight-mb=5000
+```
+
+## clio
 
 clio is the command line interface for FIO.
 
-## Download clio
+### clio Examples
 
-You can download it in a standalone FIO Ready package on Github
+#### Manage wallet
 
-## Manage wallet
+**Create a wallet**
 
-### Create a wallet
+`clio wallet create -n PICK_WALLET_NAME --to-console`
 
-```
-clio wallet create -n PICK_WALLET_NAME --to-console
-```
+**Generate private/public keys**
 
-### Generate private/public keys
-```
-clio create key --to-console
-```
+`clio create key --to-console`
 
-### Import private key into wallet
-```
-clio wallet import --private-key YOUR_PRIVATE_KEY -n PICK_WALLET_NAME
-```
+**Import private key into wallet**
 
-### Remove key from wallet
-```
-clio wallet remove_key YOUR_PUBLIC_KEY -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD
-```
+`clio wallet import --private-key YOUR_PRIVATE_KEY -n PICK_WALLET_NAME`
 
-### Unlock wallet
-```
-clio wallet unlock -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD
-```
+**Remove key from wallet**
 
-## Msig
+`clio wallet remove_key YOUR_PUBLIC_KEY -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
 
-### Propose 1 FIO transfer msig
-```
+**Unlock wallet**
+
+`clio wallet unlock -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
+
+#### Msig
+
+**Propose 1 FIO transfer msig**
+```shell
 clio -u https://API_NODE_URL multisig propose NAME_YOUR_MSIG '[{"actor": "ACCOUNT_OF_FIRST_SIGNER", "permission": "active"},{"actor": "ACCOUNT_OF_SECOND_SIGNER", "permission": "active"}]' '[{"actor": "ACCOUNT_OF_MSIG", "permission": "active"}]' fio.token trnsfiopubky '{"payee_public_key":"PUBLIC_KEY_WHERE_FUNDS_ARE_SENT", "amount":1000000000, "max_fee":2000000000, "actor":"ACCOUNT_OF_MSIG", "tpid":""}' 1000000000 -p ACCOUNT_OF_MSIG@active
 ```
 
-### Approve msig
-```
+**Approve msig**
+
+```shell
 clio -u https://API_NODE_URL multisig approve ACCOUNT_OF_MSIG_PROPOSER NAME_YOUR_MSIG '{"actor": "ACCOUNT_OF_SIGNER", "permission": "active"}' 400000000 -p ACCOUNT_OF_SIGNER@active
 ```
 
-### Execute msig
-```
+**Execute msig**
+```shell
 clio -u https://API_NODE_URL multisig exec ACCOUNT_OF_MSIG_PROPOSER NAME_YOUR_MSIG 400000000 -p ACCOUNT_OF_SIGNER@active
 ```
 
-## Vote using clio
+#### Vote using clio
 
 See [Voting for block producers using clio]({{ site.baseurl }}/docs/fio-protocol/voting)
 
-## Push action
+#### Push action
 
-Using clio you can push any action to the blockchain as follows
-```
-clio -u https://API_NODE_URL push action CONTRACT ACTION DATA -p ACCOUNT_OF_SIGNER@active
-```
+Using clio you can push any action to the blockchain as follows:
+
+`clio -u https://API_NODE_URL push action CONTRACT ACTION DATA -p ACCOUNT_OF_SIGNER@active`
 
 Where:
 
@@ -82,7 +91,7 @@ Where:
 }
 ```
 
-### Registering FIO Address
+#### Registering FIO Address
 
 For full description of fields see /register_fio_address
 ```
@@ -90,7 +99,7 @@ clio -u https://API_NODE_URL push action fio.address regaddress '{"fio_address":
 }' -p ACCOUNT_OF_SIGNER@active
 ```
 
-### Setting domain public
+#### Setting domain public
 
 For full description of fields see /set_fio_domain_public
 ```
@@ -98,7 +107,7 @@ clio -u https://API_NODE_URL push action fio.address setdomainpub '{"fio_domain"
 }' -p ACCOUNT_OF_DOMAIN_OWNER@active
 ```
 
-### Transferring tokens
+#### Transferring tokens
 
 For full description of fields see /transfer_tokens_pub_key
 ```

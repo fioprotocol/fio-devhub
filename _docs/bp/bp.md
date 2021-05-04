@@ -11,7 +11,7 @@ At the start of every round, the 21 block producers with the highest number of v
 ---
 ### Getting started
 
-Start with setting up a Testnet node and join Testnet Telegram Channel.
+Start with setting up a Testnet node and join [Testnet Telegram Channel](https://t.me/fiotestnet){:target="_blank"}.
 
 ---
 ### Code of conduct
