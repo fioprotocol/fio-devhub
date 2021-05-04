@@ -1,6 +1,6 @@
 ---
-title: clio
-description: clio
+title: clio and fio-wallet (keosd)
+description: clio and fio-wallet (keosd)
 ---
 
 # clio

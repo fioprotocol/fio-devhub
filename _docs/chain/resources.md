@@ -3,13 +3,8 @@ title: RAM, CPU, and NET limits
 description: RAM, CPU, and NET limits
 ---
 # RAM, CPU, and NET limits
-## Overview
 
 The FIO Chain inherits EOSIO resource management, but makes a number of modifications to it to remove the user complexity, while supporting its fee model.
-
-## Staking
-
-FIO Chain does not support staking.
 
 ## RAM limits
 
@@ -62,4 +57,3 @@ All accounts are created with unlimited CPU, as only authorized contracts with p
 ## NET limit
 
 All accounts are created with unlimited NET, as there is a transaction size limit.
-
