@@ -85,6 +85,15 @@ history-state-db-size-mb = 4000000
 
 {% include alert.html type="info" content="The `history-per-account` setting will truncate the number of actions stored for an account Given the number of potential internal-actions called in each trace, it may be desirable to decrease this number if the history indexes become too large. Otherwise, keeping it at the max is recommended." %}
 
+### Validating your Node install
+
+First, query `get_info` tagainst your node and confirm the `server_version_string` shows the correct version.
+
+Next, confirm some of the other [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Getters) getter calls.
+
+There is also an advanced FIO table browsing tool called Cryptonym that is useful for testing. You can [download Cryptonym](https://github.com/blockpane/cryptonym){:target="_blank"} from the Blockpane repository.
+
+
 ### Enabling fio-wallet (optional, usually not used on a full node)
 
 Most users won't need to run the fio-wallet (keosd) wallet, which can set to run as a system-controlled daemon running under apparmor confinement, or as a dynamically launched daemon for each user when using the `clio wallet ...` commands.
