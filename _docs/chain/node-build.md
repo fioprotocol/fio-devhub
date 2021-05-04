@@ -100,7 +100,7 @@ history-state-db-size-mb = 4000000
 
 ## Validating your API Node
 
-First, query `get_info` tagainst your node and confirm the `server_version_string` shows the correct version.
+First, query `get_info` against your node and confirm the `server_version_string` shows the correct version.
 
 Next, confirm some of the other [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Getters) getter calls.
 
