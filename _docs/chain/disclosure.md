@@ -13,7 +13,7 @@ We require that all researchers:
 * Use the identified communication channels to report vulnerability information to us; and
 * Keep information about any vulnerabilities you’ve discovered confidential between yourself and FIO until we’ve had 90 days to resolve the issue.
 * Only perform security research against a local node. Instructions for setting up a local node are available on https://github.com/fioprotocol;
-* If you want to perform research against the FIO Testnet, please engage with the FIO Testnet Telegram group and ask for guidance;
+* If you want to perform research against the FIO Testnet, please engage with the [FIO Testnet Telegram group](https://t.me/fiotestnet){:target="_blank"} and ask for guidance;
 * If you follow these guidelines when reporting an issue to us, we commit to:
 
 Not pursue or support any legal action related to your research;
