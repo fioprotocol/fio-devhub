@@ -72,7 +72,7 @@ We capture the payee's FIO Public Key:
 
 ### Get FIO fee
 
-Use /get_fee to look up the payer fee for /transfer_tokens_pub_key (trnsfiopubky)
+Use /get_fee to look up the payer fee for [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) (trnsfiopubky)
 
 ```javascript
     const { fee } = await fioSdk.getFee('transfer_tokens_pub_key');

@@ -7,9 +7,9 @@ description: Encrypting FIO Data
 
 ## Overview
 
-/new_funds_request and /record_obt_data require that certain sensitive data in those messages be encrypted using the Diffie-Hellman key exchnage scheme. This ensures that only the sender and receiver of the data can decrypt it.
+[/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) and [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) require that certain sensitive data in those messages be encrypted using the Diffie-Hellman key exchnage scheme. This ensures that only the sender and receiver of the data can decrypt it.
 
-The data is further serialized to reduce size. Currently there is no abi for that data, but you can find the relevant data elements inside the /new_funds_request and /record_obt_data API method specs.
+The data is further serialized to reduce size. Currently there is no abi for that data, but you can find the relevant data elements inside the [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) and [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) API method specs.
 
 ## Encryption inside wallet
 

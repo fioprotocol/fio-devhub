@@ -19,7 +19,7 @@ You will require a FIO Private/Public key pair to be generated and stored inside
 
 ### Fetching user’s FIO Addresses
 
-FIO Addresses currently owned by the user (even if registered outside of the wallet) may be fetched using /get_fio_names API method.
+FIO Addresses currently owned by the user (even if registered outside of the wallet) may be fetched using [/get_fio_names]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_names) API method.
 
 Please note that a user may have multiple FIO Addresses owned by a single key, the UX should accommodate that.
 
@@ -48,7 +48,7 @@ The easiest integration option is to simply link off to the registration site an
 
 If you prefer to have full control over the payment process, you can simply obtain the crypto currency payment address and amount in different currencies and build payment screens inside the wallet. Once the payment is received, the FIO Domain/Address is automatically registered.
 
-See the [Registration API]({{ site.baseurl }}/pages/api/fio-reg-api/) for more details
+See the [Registration API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
 
 ## Running an instance of the registration site
 
@@ -78,11 +78,11 @@ When a new FIO Domain is registered, it is set to Private, meaning only the owne
 
 ### Via API
 
-FIO Domain can be registered using /register_fio_domain API method and renewed using /renew_fio_domain API method.
+FIO Domain can be registered using [/register_fio_domain]({{site.baseurl}}/pages/api/fio-api/#options-regdomain) API method and renewed using [/renew_fio_domain]({{site.baseurl}}/pages/api/fio-api/#options-renewdomain) API method.
 
 ### TPID
 
-Do not forget to include your TPID in the request to earn portion of fees paid.
+Do not forget to [include your TPID]({{site.baseurl}}/docs/integration-guide/tpid) in the request to earn portion of fees paid.
 
 
 ## Register FIO Address on Custom Domain
@@ -91,23 +91,23 @@ For wallets desiring full control over the registration user experience or wanti
 
 ### Registering/renewing FIO Address
 
-FIO Address can be registered using /register_fio_address API method renewed using /renew_fio_address API method.
+FIO Address can be registered using [/register_fio_address]({{site.baseurl}}/pages/api/fio-api/#options-regaddress) API method renewed using [/renew_fio_address]({{site.baseurl}}/pages/api/fio-api/#options-renewaddress) API method.
 
 ### Fetching user’s FIO Addresses and Domains
 
-FIO Addresses and Domains currently owned by the user may be fetched using /get_fio_names API method.
+FIO Addresses and Domains currently owned by the user may be fetched using [/get_fio_names]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_names) API method.
 
 ### Fetching user’s FIO Addresses only
 
-FIO Addresses currently owned by the user may be fetched using /get_fio_addresses API method.
+FIO Addresses currently owned by the user may be fetched using [/get_fio_addresses]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_addresses) API method.
 
 ### Fetching user’s FIO Domains only
 
-FIO Domains currently owned by the user may be fetched using /get_fio_addresses API method.
+FIO Domains currently owned by the user may be fetched using [/get_fio_domains]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_domains) API method.
 
 ### Checking FIO Address or Domain availability
 
-To enable the registering wallet to easily check if a FIO Address or Domain is available for registration, /avail_check API method may be called.
+To enable the registering wallet to easily check if a FIO Address or Domain is available for registration, [/avail_check]({{site.baseurl}}/pages/api/fio-api/#post-/avail_check) API method may be called.
 
 ### Paying for FIO Addresses on behalf of users
 
@@ -119,7 +119,7 @@ The FIO registration site allows wallets to integrate FIO Address and Domain reg
 
 ### Technology Provider ID
 
-Please review the Technology Provider ID section for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
+Please review the [Technology Provider ID page]({{site.baseurl}}/docs/integration-guide/tpid) for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
 
 ### Fees
 
@@ -127,6 +127,6 @@ FIO Address has annual fee associated with them. Fees in the FIO Chain are set b
 
 Every FIO Address comes with a set number of bundled transactions annually. The specific number is set by the block producers and is currently 100 annually. This bundle is expected to cover most transactions executed by user except token transfer fees and certain governance or domain management fees.
 
-In order to ensure a particular action is covered by the bundle, the wallet should execute /get_fee API method before submitting any signed transaction.
+In order to ensure a particular action is covered by the bundle, the wallet should execute [/get_fee]({{site.baseurl}}/pages/api/fio-api/#post-/get_fee) API method before submitting any signed transaction.
 
 

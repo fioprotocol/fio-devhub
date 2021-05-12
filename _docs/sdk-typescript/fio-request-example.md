@@ -50,7 +50,7 @@ Importing using commonJS syntax is supported by Node.js out of the box:
 
 ### Get fee for send request.
 
-Use /get_fee to look up the payer fee for /new_funds_request. You need to set `payeeFioAddress` for this call
+Use /get_fee to look up the payer fee for [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq). You need to set `payeeFioAddress` for this call
 
 ```javascript
     const { fee: sendRequestFee } = await fioSdkPayee.getFeeForNewFundsRequest(payeeFioAddress)

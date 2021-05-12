@@ -60,7 +60,7 @@ FIO Protocol provides a variety of features that make it easier for wallet and e
 |[FIO Token Support]({{site.baseurl}}/docs/integration-guide/fio-token-support)	|Sending/receiving of FIO tokens and transaction history via dedicated APIs.	|User can receive, hold, send FIO tokens and see history of FIO token transactions.	|~32 hours|
 |[Receive to FIO Address]({{site.baseurl}}/docs/integration-guide/fio-receive)	|Assigning public addresses to FIO Address (automatic with no UI or selected by user) via dedicated APIs.	|User can receive crypto sent to their FIO Address.	|~40 hours|
 |[FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request)	|View, approve, reject incoming FIO Requests (including showing attached FIO Data and send FIO Data on Send in response to request) and send FIO Requests to other FIO users.	|User can accept FIO Requests and respond to them and initiate FIO Requests to other users and participate in contest whereby users can win prizes funded by the Foundation for sending FIO Requests to a specified FIO Address via dedicated APIs.	|~80 hours|
-|[FIO Data]({{site.baseurl}}http://127.0.0.1:4000/docs/integration-guide/fio-request)	|Send and display FIO Data when crypto sent using FIO Address.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
+|[FIO Data]({{site.baseurl}}/docs/integration-guide/fio-request)	|Send and display FIO Data when crypto sent using FIO Address.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
 |[FIO Domain Registration]({{site.baseurl}}/docs/integration-guide/registration#fio-domain-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
 |[Register FIO Address on Custom Domain]({{site.baseurl}}/docs/integration-guide/registration#register-fio-address-on-custom-domain)	|Registering FIO Address inside wallet and on custom domains.	|Users can register a FIO Address on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
 
@@ -68,7 +68,7 @@ The functionality groups above are ordered in such a way as to provide a sample 
 
 ## Phase 4: Configure your Technology Provider ID (TPID)
 
-Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/integration-guide/tpid).
+To take advantage of the benefits of being a FIO Technology provider, make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/integration-guide/tpid). You should also [register your TPID Address as a proxy]({{site.baseurl}}/docs/integration-guide/governance#enable-auto-proxy-of-users-tokens). This will activate the FIO "auto-proxy" feature wherein a user's votes are automatically proxied to your TPID Address when they execute a transaction.
 
 ## Phase 5: Client testing and FIO acceptance testing
 

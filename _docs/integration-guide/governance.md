@@ -4,7 +4,7 @@ description: Participate in governance
 ---
 # Participate in governance by voting your user's tokens
 
-## Default proxy
+## Enable auto-proxy of user's tokens
 
 Wallets can participate in FIO governance by voting on their user’s behalf. This is accomplished by *auto-proxying* a user's votes to the wallet's TPID Address when the user executes a transaction. If a user has never directly voted for a producer or proxied their vote (by executing [/proxy_vote]({{site.baseurl}}/pages/api/fio-api/#options-voteproxy) or [/vote_producer]({{site.baseurl}}/pages/api/fio-api/#options-voteproducer)), **their vote is automatically proxied to the TPID FIO Address.**
 

@@ -19,7 +19,7 @@ There are 1,000,000,000 Smallest Units of FIO (SUFs) inside 1 FIO. All transacti
 
 ### Transferring FIO token
 
-Tokens on the FIO Chain are transferred using /transfer_tokens_pub_key method.
+Tokens on the FIO Chain are transferred using [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) method.
 
 The method requires payee FIO Public Key. The key is hashed down to an account name and funds are transferred to that account. If that account does not exist, it gets created automatically.
 
@@ -27,7 +27,7 @@ The native EOSIO transfer action is not supported.
 
 ### Checking token balance
 
-Token balance can be obtained by passing FIO Public Key to /get_fio_balance API method.
+Token balance can be obtained by passing FIO Public Key to [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance) API method.
 
 ### Transaction history
 
@@ -35,7 +35,7 @@ See History node
 
 ### Transaction memo
 
-/transfer_tokens_pub_key does not accept a memo field. To attach a memo to a FIO token transfer, both payer and payee must have a FIO Address. See FIO integration.
+[/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To attach a memo to a FIO token transfer, both payer and payee must have a FIO Address. See FIO integration.
 
 ### TPID
 
