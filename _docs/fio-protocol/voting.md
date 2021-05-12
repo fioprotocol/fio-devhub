@@ -141,7 +141,7 @@ Sign the transaction
 Where:
 
 * **YOURPRIVATEKEY** is your private key
-* **CHAINID** is the Mainnet chain id which you can obtain by calling /get_info
+* **CHAINID** is the Mainnet chain id which you can obtain by calling [/get_info]({{site.baseurl}}/pages/api/fio-api/#post-/get_info)
 
 Copy the returned transaction and transfer it to the computer connected to the internet.
 

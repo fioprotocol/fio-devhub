@@ -10,7 +10,7 @@ FIO keys are tied to FIO accounts. FIO uses a [custom hash function]({{ site.bas
 
 In order to make it easier for developers to be able to integrate with the FIO Blockchain, FIO accounts are created automatically in the following instances:
 
-* FIO tokens are sent to a FIO public key using /transfer_tokens_pub_key and the supplied recipient’s public key is not associated to an account.
+* FIO tokens are sent to a FIO public key using [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) and the supplied recipient’s public key is not associated to an account.
 * A FIO Address or FIO Domain is registered and the supplied "owner’s public key" does not belong to an existing account.
 
 ## Permissions
@@ -22,6 +22,6 @@ FIO Chain uses the [same permission model as EOSIO](https://developers.eos.io/we
 * Only one public key can be specified for any one account
 * “waits” are not supported
 * Custom permissions are not currently supported by the SDKs, so some wallets may not handle accounts with custom permissions.
-* It is important to note that the only way to send tokens is to use /transfer_tokens_pub_key (trnsfiopubky) which will *always send the funds to the account which is a hash of the public key*. This is true even if that key is set as permission on other accounts.
+* It is important to note that the only way to send tokens is to use [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky)(trnsfiopubky) which will *always send the funds to the account which is a hash of the public key*. This is true even if that key is set as permission on other accounts.
 
 `linkauth` can be used to set custom permissions. Refer to the [linkauth code example]({{ site.baseurl }}/docs/recipes/linkauth) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.

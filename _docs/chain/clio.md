@@ -78,8 +78,8 @@ Using clio you can push any action to the blockchain as follows:
 
 Where:
 
-* CONTRACT and ACTION are specified for every API call in FIO Protocol API Spec. For example CONTRACT and ACTION for /register_fio_domain is fio.address and regdomain respectively.
-* DATA is specified for every API call in FIO Protocol API Spec. For example DATA for /register_fio_domain is:
+* CONTRACT and ACTION are specified for every API call in FIO Protocol API Spec. For example CONTRACT and ACTION for [/register_fio_domain]({{site.baseurl}}/pages/api/fio-api/#options-regdomain) is fio.address and regdomain respectively.
+* DATA is specified for every API call in FIO Protocol API Spec. For example DATA for [/register_fio_domain]({{site.baseurl}}/pages/api/fio-api/#options-regdomain) is:
 
 ```
 {
@@ -93,7 +93,7 @@ Where:
 
 #### Registering FIO Address
 
-For full description of fields see /register_fio_address
+For full description of fields see [/register_fio_address]({{site.baseurl}}/pages/api/fio-api/#options-regaddress)
 ```
 clio -u https://API_NODE_URL push action fio.address regaddress '{"fio_address": "YOUR_ADDRESS", "owner_fio_public_key": "", "max_fee": 40000000000, "tpid": "", "actor": "ACCOUNT_OF_SIGNER"
 }' -p ACCOUNT_OF_SIGNER@active
@@ -109,7 +109,7 @@ clio -u https://API_NODE_URL push action fio.address setdomainpub '{"fio_domain"
 
 #### Transferring tokens
 
-For full description of fields see /transfer_tokens_pub_key
+For full description of fields see [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky)
 ```
 clio -u https://API_NODE_URL push action fio.token trnsfiopubky '{"payee_public_key": "RECIPIENT_FIO_PUBLIC_KEY", "amount": 1000000000, "max_fee": 2000000000, "tpid": "", "actor": "ACCOUNT_OF_PAYER"
 }' -p ACCOUNT_OF_PAYER@active

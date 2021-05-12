@@ -11,13 +11,13 @@ One of the key features of FIO Protocol is the ability to request crypto using F
 
 FIO Request data, such as amount, currency, and memo field are encrypted and only readable by Payee and Payer.
 
-NOTE: public address specified in FIO Request does not have to be the same as public_address mapped using add_pub_address.
+NOTE: public address specified in FIO Request does not have to be the same as public_address mapped using [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress).
 
 Please read [Encrypting FIO Data]({{site.baseurl}}/docs/integration-guide/encryption) to better understand how encryption works.
 
 ### Submitting new FIO Request
 
-To request funds, Payee’s wallet should submit a new FIO Request using /new_funds_request API method.
+To request funds, Payee’s wallet should submit a new FIO Request using [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) API method.
 
 ### Fetching pending FIO Requests
 
@@ -35,17 +35,17 @@ The Payee’s wallet can fetch all sent FIO Requests and its current status usin
 
 Anytime crypto is sent using FIO Address, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
 
-FIO Data, can be recorded using /record_obt_data API method.
+FIO Data, can be recorded using [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) API method.
 
-Although /record_obt_data has to be sent any time user is sending crypto currency in response to a FIO Request, it is optional when user sends crypto using FIO Address.
+Although [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) has to be sent any time user is sending crypto currency in response to a FIO Request, it is optional when user sends crypto using FIO Address.
 
-It is **strongly encouraged** that /record_obt_data is sent at least when the user populates the memo field, as it allows for transaction Memo to be reliably send across different wallets.
+It is **strongly encouraged** that [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) is sent at least when the user populates the memo field, as it allows for transaction Memo to be reliably send across different wallets.
 
-When sending FIO tokens using FIO Address **you must submit record_obt_data following transfer_tokens_pub_key to ensure FIO Addresses are attached to the transaction**. Some wallets and exchanges may be relying on this information to properly account the FIO tokens, e.g. exchange deposit.
+When sending FIO tokens using FIO Address **you must submit [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) following [transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) to ensure FIO Addresses are attached to the transaction**. Some wallets and exchanges may be relying on this information to properly account the FIO tokens, e.g. exchange deposit.
 
 ### Retrieving FIO Data
 
-OBT data can be retrieved using /get_obt_data
+OBT data can be retrieved using [/get_obt_data]({{site.baseurl}}/pages/api/fio-api/#post-/get_obt_data)
 
 This call will return all metadata relevant to the provided FIO Public key, including:
 
@@ -57,7 +57,7 @@ This call will return all metadata relevant to the provided FIO Public key, incl
 #### Alice requests 1 BTC from Bob and adds a “Invoice 123” memo
 
 * BTC public address, amount, memo and other data [are encrypted]({{site.baseurl}}/docs/integration-guide/encryption)
-* /new_funds_request is submitted to FIO Chain.
+* [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) is submitted to FIO Chain.
 * /get_sent_fio_requests will return the request just sent with the status requested and all encrypted data including “Invoice 123” memo. We recommend wallets show this request with a status of “pending”.
 * /get_pending_fio_requests will not return anything as this request was for Bob, not for Alice.
 
@@ -78,12 +78,12 @@ This call will return all metadata relevant to the provided FIO Public key, incl
 ##### Step 2
 
 * Actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data are encrypted
-* /record_obt_data is sent to FIO Chain
+* [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) is sent to FIO Chain
 
 #### Alice checks payment
 
 * /get_sent_fio_requests will return the request with the status sent_to_blockchain. We recommend wallets show this request as “received”.
-* /get_obt_data will return important [encrypted]({{site.baseurl}}/docs/integration-guide/encryption) metadata wallets should attach to the request and/or the actual Bitcoin transaction including actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data. obt_id may be used to match the information with the actual Bitcoin blockchain transaction.
+* [/get_obt_data]({{site.baseurl}}/pages/api/fio-api/#post-/get_obt_data) will return important [encrypted]({{site.baseurl}}/docs/integration-guide/encryption) metadata wallets should attach to the request and/or the actual Bitcoin transaction including actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data. obt_id may be used to match the information with the actual Bitcoin blockchain transaction.
 
 #### In Bob’s wallet
 

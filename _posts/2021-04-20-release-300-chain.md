@@ -11,7 +11,7 @@ badges:
 
 It has been awhile since we have posted out a development update. The reason is we have been heads down working on our next v3.0 chain release. V3 includes a lot of new API endpoints for recent FIO Improvement Proposals as wells as performance improvements for accessing FIO Request data. A few statistics on the FIO v3.0 release:
 
-* Includes features for 11 FIPs (https://github.com/fioprotocol/fips) including: FIP-1.b (xfer address), FIP-6 (xfer locked tokens), FIP-7 (Burn FIO Address), FIP-9 (Vote and proxy without FIO Address), FIP-10 (Redesign fee computations), FIP-11.a (Add bundled transactions), FIP-13 (Retrieve all pub addresses), FIP-16 (clio enhancements), FIP-18 (Chain level public addresses), FIP-19 (Retrieve all received FIO Requests), FIP-25 (Return bundle transaction count in get_fio_names)
+* Includes features for 11 FIPs (https://github.com/fioprotocol/fips) including: FIP-1.b (xfer address), FIP-6 (xfer locked tokens), FIP-7 (Burn FIO Address), FIP-9 (Vote and proxy without FIO Address), FIP-10 (Redesign fee computations), FIP-11.a (Add bundled transactions), FIP-13 (Retrieve all pub addresses), FIP-16 (clio enhancements), FIP-18 (Chain level public addresses), FIP-19 (Retrieve all received FIO Requests), FIP-25 (Return bundle transaction count in )
 * 8 new API endpoints
 * Modifications to 14 API endpoints
 

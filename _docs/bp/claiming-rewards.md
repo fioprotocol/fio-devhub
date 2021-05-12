@@ -4,7 +4,7 @@ description: Claiming rewards
 ---
 # Claiming block producer rewards
 
-When fees are paid by users, they are collected in BP pools which are dynamically set-up for each day. Certain fees are placed into the current day pool, while others are divided up and placed into 365 pools for each day in the future. This is intended to cover bundled transaction. For example if /register_fio_domain fee of 40,000,000,000 SUF is paid, 96,438,356 SUF (40,000,000,000/365*.85) is allocated to current day pool, another 96,438,356 SUF to BP Pool for Day 2 and so on.
+When fees are paid by users, they are collected in BP pools which are dynamically set-up for each day. Certain fees are placed into the current day pool, while others are divided up and placed into 365 pools for each day in the future. This is intended to cover bundled transaction. For example if [/register_fio_domain]({{site.baseurl}}/pages/api/fio-api/#options-regdomain) fee of 40,000,000,000 SUF is paid, 96,438,356 SUF (40,000,000,000/365*.85) is allocated to current day pool, another 96,438,356 SUF to BP Pool for Day 2 and so on.
 
 * Each BP is paid by calling [/claim_bp_rewards]({{site.baseurl}}/pages/api/fio-api/#options-bpclaim).
 * The call can only be called once every 24 hrs.

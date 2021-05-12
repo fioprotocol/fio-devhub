@@ -9,7 +9,7 @@ description: Mapping Public Addresses
 
 One of the key utilities of the FIO Protocol is the ability to send crypto using a [FIO Address](https://kb.fioprotocol.io/fio-protocol/fio-addresses){:rel="nofollow noopener noreferrer" target="_blank"}, instead of complicated Native Blockchain Public Address (NBPA) such as 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B on Ethereum.
 
-A wallet can very easily look-up the NBPA using the /get_pub_address method. However, before this can happen the wallet hosting the FIO Address must first map the NBPA to the FIO Address.
+A wallet can very easily look-up the NBPA using the [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) method. However, before this can happen the wallet hosting the FIO Address must first map the NBPA to the FIO Address.
 
 ## How Does a FIO Address map to public addresses?
 
@@ -17,7 +17,7 @@ Applications that enable users to manage their private keys (such as crypto wall
 
 ## Mapping NBPAs to FIO Address
 
-To map NBPA to a FIO Address use the /add_pub_address method.
+To map NBPA to a FIO Address use the [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
 You may pass up to 5 public addresses in a single call. The call is eligible for [bundled transactions](https://kb.fioprotocol.io/fio-protocol/fio-addresses/bundling-and-fees){:rel="nofollow noopener noreferrer" target="_blank"}, so in most cases there will not be a fee to the user.
 
@@ -72,11 +72,11 @@ It is therefore important that integrating wallets clearly communicate this to t
 
 ## Changing or removing NBPAs
 
-NBPA mappings can be changed using the same /add_pub_address method.
+NBPA mappings can be changed using the same [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
-Specific NBPA mappings can be removed using /remove_pub_address method.
+Specific NBPA mappings can be removed using [/remove_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-remaddress) method.
 
-All NBPA mappings can be removed using /remove_all_pub_address method. FIO token mapping will not be removed.
+All NBPA mappings can be removed using [/remove_all_pub_addresses]({{site.baseurl}}/pages/api/fio-api/#options-remalladdr) method. FIO token mapping will not be removed.
 
 ### FIO Public Key mapping
 
@@ -85,7 +85,7 @@ The FIO Public key which was used to register FIO Address is automatically added
 This mapping serves two distinct purposes:
 
 * When another user wants to send FIO tokens to that FIO Address, the mapped public key will be returned in /get_pub_address to enable that transfer.
-* When another user is sending new_funds_request or record_obt_data to that FIO Address, the mapped public key will be used to encrypt the data. It is therefore critical that:
+* When another user is sending [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) or [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) to that FIO Address, the mapped public key will be used to encrypt the data. It is therefore critical that:
    * **The associate private key is accessible and available in the wallet to decrypt that data.** Wallets should not allow users to map a random FIO Public Key.
    * **If a user tries to remove FIO Public key mapping, they should be advised that they will not be able to receive a FIO Request or Record OBT Data in the future until a valid FIO Public key is added back.**
 

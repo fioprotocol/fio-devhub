@@ -9,7 +9,7 @@ An `actor` (which is equivalent to a FIO account name) is required on all signed
 
 ## Using the API
 
-You can use /get_actor API method to convert FIO Public Key to actor.
+You can use [/get_actor]({{site.baseurl}}/pages/api/fio-api/#post-/get_actor) API method to convert FIO Public Key to actor.
 
 ## Using clio
 

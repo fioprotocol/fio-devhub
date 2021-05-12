@@ -9,13 +9,13 @@ The most basic level of integration with FIO Protocol is to enable sending of cr
 
 This level typically requires updates to the Send crypto currency screen to allow for a FIO Address to be entered in addition to NBPA. FIO Address can be easily identified by looking for a @ (at sign) in the string.
 
-Once a FIO Address is entered, it can be resolved to NBPA on a specific blockchain using /get_pub_address API method.
+Once a FIO Address is entered, it can be resolved to NBPA on a specific blockchain using [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) API method.
 
 Once the NBPA is obtained, the wallet Send transaction should execute as if the user entered or scanned the NBPA.
 
 ### Multi-level addressing
 
-It is important to note, that the native blockchain public addresses returned by /get_pub_address can have additional parameters appended to it like this:
+It is important to note, that the native blockchain public addresses returned by [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) can have additional parameters appended to it like this:
 
 `NBPA_string?parameter_name=value`
 
