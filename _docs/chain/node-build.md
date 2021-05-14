@@ -109,16 +109,23 @@ There is also an advanced FIO table browsing tool called Cryptonym that is usefu
 
 ## Enabling fio-wallet (optional, usually not used on a full node)
 
-Most users won't need to run the fio-wallet (keosd) wallet, which can set to run as a system-controlled daemon running under apparmor confinement, or as a dynamically launched daemon for each user when using the `clio wallet ...` commands.
+Most users won't need to run the fio-wallet wallet, which can set to run as a system-controlled daemon running under apparmor confinement, or as a dynamically launched daemon for each user when using the `clio wallet ...` commands.
 
 To enable keosd daemon at boot time, running under the `fio` account, and then start the daemon:
 
 ```shell
-sudo systemctl enable fio-keosd
-sudo systemctl start fio-keosd
+sudo systemctl enable fio-wallet
+sudo systemctl start fio-wallet
 ```
 
-When running under systemctl, the wallet files will be located in `/var/lib/fio/eosio-wallet/fio-wallet` (the location can be changed in `/var/lib/fio/eosio-wallet/config.ini`, but when starting via systemd apparmor will confine the daemon, possibly causing problems with file permissions.)
+When running under systemctl, the wallet files will be located in `/var/lib/fio/eosio-wallet/fio-wallet` (the location can be changed in `/var/lib/fio/fio-wallet/config.ini`, but when starting via systemd apparmor will confine the daemon, possibly causing problems with file permissions.)
 
-When dynamically launched via clio commands the wallet will default to `$HOME/eosio-wallet`
+Some users might rely on fio-wallet to store a large number of keys. Although this is not recommended, some specific settings might be necessary when launching a node: 
+
+```shell
+max-body-size=(2048x2048)
+http-max-bytes-in-flight-mb=5000
+```
+
+When dynamically launched via clio commands the wallet will default to `$HOME/fio-wallet`
 
