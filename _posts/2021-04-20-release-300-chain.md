@@ -1,5 +1,5 @@
 ---
-title:  FIO Release 3.0 (Testnet Release)
+title:  FIO Version 3.0 Release Notes
 date:   2021-04-20
 categories: release
 badges:
