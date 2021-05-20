@@ -6,11 +6,67 @@ description: Building a node
 
 There are a number of paths to set up a FIO Node. This guide walks through several paths for different types of users. We encourage you to ask questions about block production, running an API node, and any other node-related questions in the [FIO Mainnet Telegram channel](https://t.me/fiomainnet){:target="_blank"} to get information.
 
-This page details two methods for updating a FIO Node:
-1. Docker installation - This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files.
-2. Manual installation - This install method does not require Docker and describes how to manually install and sync a FIO API node.
+This page details three methods for updating a FIO Node:
+1. Building from source - Building from source is only recommended for Producers and other advanced developers.
+2. Docker installation - This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files.
+3. Manual installation - This install method does not require Docker and describes how to manually install and sync a FIO API node.
 
 It also includes information on setting up a V1 History node and provides information on validating your API node installation. Lastly it provides details on the *optional* step of setting up a local fio-wallet for key management.
+
+## Build FIO from Source
+
+{% include alert.html type="warning" title="Building FIO is for Advanced Developers" content="If you are new to FIO, it is recommended that you install the FIO prebuilt binaries using the Docker or Manual installations described below instead of building from source." %}
+
+#### Download FIO Source
+
+To download the FIO source code, clone the fio repo and its submodules. It is advised to create a home fio folder first and download all the FIO related software there:
+
+```shell
+mkdir -p ~/fioprotocol && cd ~/fioprotocol
+git clone --recursive https://github.com/fioprotocol/fio
+```
+
+**Update Submodules**
+
+If a repository is cloned without the `--recursive` flag, the submodules must be updated before starting the build process:
+
+```shell
+cd ~/fioprotocol/fio
+git submodule update --init --recursive
+```
+
+**Pull Changes**
+
+When pulling changes, especially after switching branches, the submodules must also be updated. This can be achieved with the git submodule command as above, or using git pull directly:
+
+```shell
+[git checkout <branch>]  (optional)
+git pull --recurse-submodules
+```
+
+#### Build FIO Binaries
+
+The build script first installs all dependencies and then builds FIO. The script supports these Operating Systems. To run it, first change to the `~/fioprotocol/fio` folder, then launch the script:
+
+```shell
+cd ~/fioprotocol/fio/scripts
+./fio_build.sh -P
+```
+
+{% include alert.html type="danger" title="FIO build requires clang 8" content="FIO chain requires clang v8 as part of the LLVM requirements. FIO recommends using a '-P' pinned build to ensure the correct LLVM versions are used." %}
+
+The build process writes temporary content to the `fio/build` folder. After building, the program binaries can be found at `fio/build/programs`.
+
+#### Install FIO Binaries
+
+For ease of contract development, content can be installed at the `~/fio` folder using the fio_install.sh script within the `fio/scripts` folder. Adequate permission is required to install on system folders:
+
+```shell
+cd ~/fioprotocol/fio/scripts
+./fio_install.sh
+```
+
+{% include alert.html type="info" title="FIO Installation Recommended" content="After building FIO successfully, it is highly recommended to install the FIO binaries from their default build directory. This copies the FIO binaries to a central location, such as ~/fio/x.y/bin, where x.y is the FIO release version" %}
 
 ## Docker installation
 
