@@ -72,6 +72,8 @@ cd ~/fioprotocol/fio/scripts
 
 *(Thanks to [blockpane](https://github.com/blockpane){:target="_blank"} for the original version of these scripts.)*
 
+{% include alert.html type="warning" title="keosd wallet users"  content="If you use keosd to manage FIO keys, you should use the 'Manual Installation' below." %}
+
 **Warning: These images always use the _latest_ published builds, which might include release-candidates, 
 check the FIO [Github](https://github.com/fioprotocol/fio/releases){:target="_blank"} to see what this will be downloading**
 
@@ -128,11 +130,9 @@ Destroy a node:
 docker-compose down -v
 ```
 
-## Manual installation
+## Manual installation using pre-built packages
 
-The following setup is for a manual FIO API Node installation directly in the OS. 
-
-{% include alert.html type="info" content="The manual node installation requires a sync from genesis which can take several hours." %}
+The following setup is for a manual FIO API Node installation using pre-built packages.
 
 #### Packages for Ubuntu 18.04
 
@@ -140,7 +140,7 @@ These are designed for quickly bringing up a node, and have systemd integration,
 
 * Official releases: <https://github.com/fioprotocol/fio/releases>{:target="_blank"} (not all releases have .deb files since they are primarily contract updates)
 
-#### Set up
+#### Download, validate, and install packages
 
 The FIO GPG signing key is available on keybase:
 
@@ -174,13 +174,56 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 0CFE E764 B06D 009F 7574  A253 C0E6 1F84 41B6 AAD4
 ```
 
-#### Install and configure
+Install the release:
 
 ```shell
 sudo apt install ./fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
+rm fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
 ```
 
-Edit the settings for nodeos
+#### Update keosd wallet environment 
+
+*(Skip this step if you are not using keosd to manage FIO keys.)*
+
+{% include alert.html type="warning" title="keosd has been renamed to fio-wallet"  content="This step is required if you are using keosd to manage FIO keys. keosd has been renamed to fio-wallet for Release 3.0.0. If you are using fio-wallet (keosd) to manage keys, you must update your server and scripts to use the new `/fio-wallet` directory and `fio-wallet.sock` naming." %}
+
+Rename the v2.0.0 wallet directory. The location of your eosio-wallet may be different depending on server configuration.
+
+```shell
+clio wallet stop
+mv ~/eosio-wallet ~/fio-wallet
+```
+
+Rename the fio.wallet:
+
+```shell
+mv ~/fio-wallet/fio.wallet ~/fio-wallet/fio.wallet
+```
+
+#### Download latest history archive
+
+{% include alert.html type="info" content="This step is optional to save time when syncing a V1 history node. If it is skipped, the archive will sync from genesis and can take several hours." %}
+
+Remove old history files. The location of the history files may be different depending on server configuration.
+
+```shell
+cd /var/lib
+rm -fr fio/data fio/history fio/history_index
+```
+
+Download and install latest history archive:
+
+```shell
+apt install pixz
+wget https://snap.blockpane.com/mainnet-latest-history.txz
+tar -xS -I'pixz' -C /var/lib/fio -f mainnet-latest-history.txz
+rm -f mainnet-latest-history.txz
+chown -R fio:fio fio
+```
+
+#### Configure nodeos settings
+
+Edit the settings for nodeos:
 
 ```shell
 sudo vi /etc/fio/nodeos/config.ini
@@ -188,20 +231,7 @@ sudo vi /etc/fio/nodeos/config.ini
 
 P2P nodes are updated more frequently than the .deb package, if there are a large number of P2P nodes that are unreachable, it's possible to get a list of healthy nodes from the [FIO Mainnet Health page.](https://health.fioprotocol.io/)
 
-Enable nodeos daemon at runtime, and start:
-
-```shell
-sudo systemctl enable fio-nodeos
-sudo systemctl start fio-nodeos
-```
-
-Sync status will show in the logs:
-
-```shell
-tail -f /var/log/fio/nodeos.log
-```
-
-##### V1 History 
+##### V1 History configuration
 
 If the light-history (v1 history) feature is needed, add the following lines:
 
@@ -218,6 +248,21 @@ history-state-db-size-mb = 4000000
 {% include alert.html type="warning" content="Without the history-index-state-db-size-mb and history-state-db-size-mb settings nodes may stop with the warning: Database has reached an unsafe level of usage, shutting down to avoid corrupting the database. Please increase the value set for *chain-state-db-size-mb* and restart the process!" %}
 
 {% include alert.html type="info" content="The `history-per-account` setting will truncate the number of actions stored for an account Given the number of potential internal-actions called in each trace, it may be desirable to decrease this number if the history indexes become too large. Otherwise, keeping it at the max is recommended." %}
+
+#### Run nodeos
+
+Enable nodeos daemon at runtime, and start:
+
+```shell
+sudo systemctl enable fio-nodeos
+sudo systemctl start fio-nodeos
+```
+
+Sync status will show in the logs:
+
+```shell
+tail -f /var/log/fio/nodeos.log
+```
 
 ## Validating your API Node
 
