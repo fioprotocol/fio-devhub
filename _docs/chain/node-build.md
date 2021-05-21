@@ -53,9 +53,21 @@ cd ~/fioprotocol/fio/scripts
 ./fio_build.sh -P
 ```
 
+The build process writes temporary content to the `fio/build` folder. After building, the program binaries can be found at `fio/build/programs`.
+
 {% include alert.html type="danger" title="FIO build requires clang 8" content="FIO chain requires clang v8 as part of the LLVM requirements. FIO recommends using a '-P' pinned build to ensure the correct LLVM versions are used." %}
 
-The build process writes temporary content to the `fio/build` folder. After building, the program binaries can be found at `fio/build/programs`.
+To confirm your clang version, first get the install directory for nodeos (e.g., `/usr/local/bin/nodeos`): 
+
+```shell
+ps -ef | grep nodeos
+```
+
+Next, insert your nodeos dir in the following command:
+
+```shell
+strings /usr/local/bin/nodeos |grep -i clang |head -10
+```
 
 #### Install FIO Binaries
 
