@@ -8,7 +8,7 @@ There are a number of paths to set up a FIO Node. This guide walks through sever
 
 This page contains the following content:
 
-| | |
+|Content  |Summary |
 |---|---|
 | [Building from source]({{site.baseurl}}/docs/chain/node-build#build-fio-from-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
 | [Docker installation]({{site.baseurl}}/docs/chain/node-build#docker-installation) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
