@@ -8,12 +8,13 @@ There are a number of paths to set up a FIO Node. This guide walks through sever
 
 This page contains the following content:
 
+|Content  |Summary |
 |---|---|
-|[Building from source]({{site.baseurl}}/docs/chain/node-build#build-fio-from-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
-|[Docker installation]({{site.baseurl}}/docs/chain/node-build#docker-installation) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
-|[Manual installation]({{site.baseurl}}/docs/chain/node-build#manual-installation-using-pre-built-packages) | This is the simplest method for installoing a FIO API node. This install method does not require Docker and describes how to manually install and sync a FIO API node. |
-|[Validating your node]({{site.baseurl}}/docs/chain/node-build#validating-your-api-node) |Information on validating your node once you have it up and running. |
-|[Enabling fio-wallet]({{site.baseurl}}/docs/chain/node-build#enabling-fio-wallet-optional-usually-not-used-on-a-full-node) |Important information if you use the fio-wallet (keosd) to manage your user's keys. |
+| [Building from source]({{site.baseurl}}/docs/chain/node-build#build-fio-from-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
+| [Docker installation]({{site.baseurl}}/docs/chain/node-build#docker-installation) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
+| [Manual installation]({{site.baseurl}}/docs/chain/node-build#manual-installation-using-pre-built-packages) | This is the simplest method for installoing a FIO API node. This install method does not require Docker and describes how to manually install and sync a FIO API node. |
+| [Validating your node]({{site.baseurl}}/docs/chain/node-build#validating-your-api-node) |Information on validating your node once you have it up and running. |
+| [Enabling fio-wallet]({{site.baseurl}}/docs/chain/node-build#enabling-fio-wallet-optional-usually-not-used-on-a-full-node) |Important information if you use the fio-wallet (keosd) to manage your user's keys. |
 
 It also includes information on setting up a V1 History node and provides information on validating your API node installation. Lastly it provides details on the *optional* step of setting up a local fio-wallet for key management.
 
