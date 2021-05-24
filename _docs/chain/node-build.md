@@ -6,13 +6,18 @@ description: Building a node
 
 There are a number of paths to set up a FIO Node. This guide walks through several paths for different types of users. We encourage you to ask questions about block production, running an API node, and any other node-related questions in the [FIO Mainnet Telegram channel](https://t.me/fiomainnet){:target="_blank"} to get information.
 
-This page details three methods for updating a FIO Node:
-1. Building from source - Building from source is only recommended for Producers and other advanced developers.
-2. Docker installation - This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files.
-3. Manual installation - This install method does not require Docker and describes how to manually install and sync a FIO API node.
+This page contains the following content:
+
+|---|---|
+|[Building from source]({{site.baseurl}}/docs/chain/node-build#build-fio-from-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
+|[Docker installation]({{site.baseurl}}/docs/chain/node-build#docker-installation) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
+|[Manual installation]({{site.baseurl}}/docs/chain/node-build#manual-installation-using-pre-built-packages) | This is the simplest method for installoing a FIO API node. This install method does not require Docker and describes how to manually install and sync a FIO API node. |
+|[Validating your node]({{site.baseurl}}/docs/chain/node-build#validating-your-api-node) |Information on validating your node once you have it up and running. |
+|[Enabling fio-wallet]({{site.baseurl}}/docs/chain/node-build#enabling-fio-wallet-optional-usually-not-used-on-a-full-node) |Important information if you use the fio-wallet (keosd) to manage your user's keys. |
 
 It also includes information on setting up a V1 History node and provides information on validating your API node installation. Lastly it provides details on the *optional* step of setting up a local fio-wallet for key management.
 
+---
 ## Build FIO from Source
 
 {% include alert.html type="warning" title="Building FIO is for Advanced Developers" content="If you are new to FIO, it is recommended that you install the FIO prebuilt binaries using the Docker or Manual installations described below instead of building from source." %}
@@ -142,6 +147,7 @@ Destroy a node:
 docker-compose down -v
 ```
 
+---
 ## Manual installation using pre-built packages
 
 The following setup is for a manual FIO API Node installation using pre-built packages.
@@ -276,6 +282,7 @@ Sync status will show in the logs:
 tail -f /var/log/fio/nodeos.log
 ```
 
+---
 ## Validating your API Node
 
 First, query `get_info` against your node and confirm the `server_version_string` shows the correct version.
@@ -284,7 +291,7 @@ Next, confirm some of the other [FIO API]({{site.baseurl}}/pages/api/fio-api/#ta
 
 There is also an advanced FIO table browsing tool called Cryptonym that is useful for testing. You can [download Cryptonym](https://github.com/blockpane/cryptonym){:target="_blank"} from the Blockpane repository.
 
-
+---
 ## Enabling fio-wallet (optional, usually not used on a full node)
 
 Most users won't need to run the fio-wallet wallet, which can set to run as a system-controlled daemon running under apparmor confinement, or as a dynamically launched daemon for each user when using the `clio wallet ...` commands.
