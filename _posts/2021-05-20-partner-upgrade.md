@@ -32,8 +32,6 @@ Some existing API endpoints have been updated to return additional fields. While
 
 **keosd renamed to fio-wallet**
 
-Integrators will now be able to use fio-wallet alongside the EOS keosd on the same system if they choose to. The application handle has not changed from keosd, so configuring different port numbers will be sufficient.
-
 keosd has been renamed to fio-wallet for Release 3.0.0. If you are using fio-wallet (keosd) to manage keys, refer to *[Update keosd wallet environment]({{site.baseurl}}/docs/chain/node-build#update-keosd-wallet-environment)* for information on updating your server and scripts to use the new `/fio-wallet` directory and `fio-wallet.sock` naming.
 
 **Configuration of fio-wallet**
