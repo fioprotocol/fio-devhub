@@ -7,11 +7,11 @@ badges:
    tag: release
 ---
 
-###### FIO Chain release v3.0.0 is a mandatory update for all wallets and exchanges running a FIO API Node. This post outlines the steps FIO integration partners must take to upgrade their FIO API node from v2.0.x to v3.0.0. All nodes must be upgraded by June 18, 2001.
+###### FIO Chain release v3.0.0 is a mandatory update for all wallets and exchanges running a FIO API Node. This post outlines the steps FIO integration partners must take to upgrade their FIO API node from v2.0.x to v3.0.0. 
 
 <!--more-->
 
-Nodes that are not upgraded by **June 18, 2001**. will return "No request found" for the following API getters:
+Nodes that are not upgraded will return "No request found" for the following API getters:
 
 * /get_obt_data
 * /get_pending_fio_requests
@@ -40,7 +40,7 @@ If you are using keosd (fio-wallet) to store your user's private keys, refer to 
 
 ### Step 2. Upgrade your API node
 
-If you are a wallet or exchange running your own FIO API node you will need to follow the *[FIO Node Upgrade process]({{site.baseurl}}/docs/chain/node-build)* to install FIO chain version 3.0.0. 
+If you are a wallet or exchange running your own FIO API node you will need to follow the **[FIO Node Upgrade process]({{site.baseurl}}/docs/chain/node-build)** to install FIO chain version 3.0.0. 
 
 ### Step 3. Additional validation for version 3.0.0
 
