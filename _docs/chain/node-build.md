@@ -12,7 +12,7 @@ This page contains the following content:
 |---|---|
 | [Building from source]({{site.baseurl}}/docs/chain/node-build#build-fio-from-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
 | [Docker installation]({{site.baseurl}}/docs/chain/node-build#docker-installation) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
-| [Manual installation]({{site.baseurl}}/docs/chain/node-build#manual-installation-using-pre-built-packages) | This is the simplest method for installoing a FIO API node. This install method does not require Docker and describes how to manually install and sync a FIO API node. |
+| [Manual installation]({{site.baseurl}}/docs/chain/node-build#manual-installation-using-pre-built-packages) | This is the simplest method for installing a FIO API node. This install method does not require Docker and describes how to manually install and sync a FIO API node. |
 | [Validating your node]({{site.baseurl}}/docs/chain/node-build#validating-your-api-node) |Information on validating your node once you have it up and running. |
 | [Enabling fio-wallet]({{site.baseurl}}/docs/chain/node-build#enabling-fio-wallet-optional-usually-not-used-on-a-full-node) |Important information if you use the fio-wallet (keosd) to manage your user's keys. |
 
@@ -156,9 +156,9 @@ The following setup is for a manual FIO API Node installation using pre-built pa
 
 #### Packages for Ubuntu 18.04
 
-These are designed for quickly bringing up a node, and have systemd integration, logrotate, apparmor, compsec enabled, and have reasonable defaults in the config. They differ greatly from the packages Block One provides for EOSIO. 
+These are designed for quickly bringing up a node, and have systemd integration, logrotate, apparmor, compsec enabled, and have reasonable defaults in the config. 
 
-* Official releases: <https://github.com/fioprotocol/fio/releases>{:target="_blank"} (not all releases have .deb files since they are primarily contract updates)
+* Official releases: <https://github.com/fioprotocol/fio/releases>{:target="_blank"} 
 
 #### Download, validate, and install packages
 
@@ -203,7 +203,7 @@ rm fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
 
 #### Update keosd wallet environment 
 
-*(Skip this step if you are not using keosd to manage FIO keys.)*
+*(Skip this step if you are not using keosd to manage FIO keys for your users.)*
 
 {% include alert.html type="warning" title="keosd has been renamed to fio-wallet"  content="This step is required if you are using keosd to manage FIO keys. keosd has been renamed to fio-wallet for Release 3.0.0. If you are using fio-wallet (keosd) to manage keys, you must update your server and scripts to use the new `/fio-wallet` directory and `fio-wallet.sock` naming." %}
 
