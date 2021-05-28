@@ -111,8 +111,20 @@
     - title: Building a Node
       url: "docs/chain/node-build"
       children:
+        - title: Building from source
+          url: "docs/chain/node-build-source"
+        - title: Docker installation
+          url: "docs/chain/node-build-docker"
+        - title: Manual installation
+          url: "docs/chain/node-build-manual"
+        - title: Enabling fio-wallet
+          url: "docs/chain/node-build-wallet"
+        - title: V1 History configuration
+          url: "docs/chain/node-build-history"
         - title: nodeos Replays
           url: "docs/chain/node-build-replay"
+        - title: Validating your node
+          url: "docs/chain/node-build-validate"
     - title: History API
       url: "docs/chain/node-history"
     - title: Testnet
