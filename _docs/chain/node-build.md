@@ -220,9 +220,9 @@ Rename the fio.wallet:
 mv ~/fio-wallet/fio.wallet ~/fio-wallet/fio.wallet
 ```
 
-#### Download latest history archive
+#### Download latest node transaction history archive
 
-{% include alert.html type="info" content="This step is optional to save time when syncing a V1 history node. If it is skipped, the archive will sync from genesis and can take several hours." %}
+{% include alert.html type="info" content="This step is optional to save time when syncing a node. If it is skipped, the node will sync from genesis and can take several hours." %}
 
 Remove old history files. The location of the history files may be different depending on server configuration.
 

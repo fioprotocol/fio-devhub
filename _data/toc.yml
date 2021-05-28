@@ -101,40 +101,43 @@
           url: "docs/recipes/linkauth"
         - title: Get FIO Names from Table
           url: "docs/recipes/fio-names-from-table"
-    - title: "FIO Chain"
-      url: "docs/chain"
+- title: "FIO Chain"
+  url: "docs/chain"
+  links:
+    - title: FIO vs. EOSIO
+      url: "docs/chain/eosio"
+    - title: RAM, CPU, & NET limits
+      url: "docs/chain/resources"
+    - title: Building a Node
+      url: "docs/chain/node-build"
       children:
-        - title: FIO vs. EOSIO
-          url: "docs/chain/eosio"
-        - title: RAM, CPU, & NET limits
-          url: "docs/chain/resources"
-        - title: Building a Node
-          url: "docs/chain/node-build"
-        - title: History API
-          url: "docs/chain/node-history"
-        - title: Testnet
-          url: "docs/chain/testnet"
-        - title: Mainnet
-          url: "docs/chain/mainnet"
-        - title: CLIO and fio-wallet (keosd)
-          url: "docs/chain/clio"
-        - title: Vulnerability Disclosure Policy
-          url: "docs/chain/disclosure"
-        - title: New FIO Contracts
-          url: "docs/chain/newcontracts"
-    - title: "Block Production"
-      url: "docs/bp"
-      children:
-        - title: Being a Producer
-          url: "docs/bp/bp"
-        - title: Setting Fees
-          url: "docs/bp/fee-setting"
-        - title: Claiming Rewards
-          url: "docs/bp/claiming-rewards"
-    - title: "FIO Developers Guide"
+        - title: nodeos Replays
+          url: "docs/chain/node-build-replay"
+    - title: History API
+      url: "docs/chain/node-history"
+    - title: Testnet
+      url: "docs/chain/testnet"
+    - title: Mainnet
+      url: "docs/chain/mainnet"
+    - title: CLIO and fio-wallet (keosd)
+      url: "docs/chain/clio"
+    - title: Vulnerability Disclosure Policy
+      url: "docs/chain/disclosure"
+    - title: New FIO Contracts
+      url: "docs/chain/newcontracts"
+- title: "Block Production"
+  url: "docs/bp"
+  links:
+    - title: Being a Producer
+      url: "docs/bp/bp"
+    - title: Setting Fees
+      url: "docs/bp/fee-setting"
+    - title: Claiming Rewards
+      url: "docs/bp/claiming-rewards"
+- title: "FIO Developers Guide"
+  url: "docs/developers/git"
+  links:
+    - title: Git Branching & Release
       url: "docs/developers/git"
-      children:
-        - title: Git Branching & Release
-          url: "docs/developers/git"
-    - title: "Blog"
-      url: blog
+- title: "Blog"
+  url: blog
