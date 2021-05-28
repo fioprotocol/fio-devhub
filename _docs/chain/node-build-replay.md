@@ -26,7 +26,7 @@ cd /var/lib
 sudo rm -fr fio/data fio/history fio/history_index
 ```
 
-2) Obtain a copy of the snapshot and `blocks.log` files which you wish to replay the blockchain from. Several BPs maintain FIO snapshots for both Testnet and Mainnet. It is important that you trust the source of the snapshot before downloading. We will use the [Blockpain history archive](https://snap.blockpane.com/index.html){:target="_blank"} in our examples.
+2) Obtain a copy of the snapshot and `blocks.log` files which you wish to replay the blockchain from. Several BPs maintain FIO snapshots for both Testnet and Mainnet. It is important that you trust the source of the snapshot before downloading. We will use the [Blockpane history archive](https://snap.blockpane.com/index.html){:target="_blank"} in our examples.
 
 ```shell
 wget https://snap.blockpane.com/mainnet-latest-blocks.txz
@@ -78,7 +78,7 @@ cd /var/lib
 sudo rm -fr fio/data fio/history fio/history_index
 ```
 
-2) Otain a copy of the snapshot and `blocks.log` files which you wish to replay the blockchain from. Several BPs maintain FIO snapshots for both Testnet and Mainnet. It is important that you trust the source of the snapshot before downloading. We will use the [Blockpain history archive](https://snap.blockpane.com/index.html){:target="_blank"} in our examples.
+2) Otain a copy of the snapshot and `blocks.log` files which you wish to replay the blockchain from. Several BPs maintain FIO snapshots for both Testnet and Mainnet. It is important that you trust the source of the snapshot before downloading. We will use the [Blockpane history archive](https://snap.blockpane.com/index.html){:target="_blank"} in our examples.
 
 ```shell
 wget https://snap.blockpane.com/mainnet-latest-history.txz
