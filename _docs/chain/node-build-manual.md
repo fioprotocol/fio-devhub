@@ -89,12 +89,6 @@ clio wallet stop
 mv ~/eosio-wallet ~/fio-wallet
 ```
 
-Rename the fio.wallet:
-
-```shell
-mv ~/fio-wallet/fio.wallet ~/fio-wallet/fio.wallet
-```
-
 #### Replay from a snapshot, blocks.log, or V1 History archive (optional)
 
 {% include alert.html type="info" content="This step is optional to save time when syncing a node. If it is skipped, the node will sync from genesis and can take several hours." %}

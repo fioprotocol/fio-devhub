@@ -65,7 +65,7 @@ on some systems, it is usually part of the `vim` package.
 
 ```sh
 DOMAIN=test@fiotestnet
-HASH="0x$(echo -n ${DOMAIN}| openssl sha1 -binary | LC_ALL=C rev |xxd -p | cut -c 9-40)"
+HASH="0x$(echo -n ${DOMAIN} | openssl sha1 -binary | xxd -e -g 16 -l 16 | cut -d' ' -f2)"
 
 # prints: 0xeb0816aeb936141ebec9a4a76c64df58
 echo "${HASH}"
