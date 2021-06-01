@@ -18,14 +18,14 @@ The service FIO offers is not centralized. There is no company making money off 
 <br>
 
 <details>
-  <summary><i>FIO Protocol does not transact crypto</i></summary>
+  <summary><i>FIO Protocol does not directly send or receive your cryptocurrency</i></summary>
 <br>  
 The FIO Protocol, which acts like a layer 2 usability layer for all blockchains, doesn't actually integrate directly with any other blockchain. When sending to a human-readable FIO address or responding to a FIO Request, the wallet, exchange, or FIO-enabled service you are using looks up the native blockchain address and sends to it directly. FIO is not involved in that transaction in any way. For example, the wallet looks up a bitcoin address mapped to user@fio and once it has that BTC address, it does a normal BTC transaction on the BTC chain.
 </details>
 <br>
 
 <details>
-  <summary><i>FIO Protocol is a Byzantine Fault Tolerant DPOS blockchain</i></summary>
+  <summary><i>FIO Protocol is a standalone blockchain built on EOSIO technology</i></summary>
 <br>  
 The FIO Protocol is a Byzantine Fault Tolerant DPOS blockchain. Data lookups and validations for FIO Address interactions are secured by the FIO Chain. Only the FIO private key holder who owns the FIO Address NFT can map native blockchain addresses to that FIO Address or send encrypted FIO Requests from that FIO Address. This ensures the entire security of the network (currently over $14M worth of FIO tokens are being used to vote in the top block producer) is securing your FIO Address mappings.
 </details>
