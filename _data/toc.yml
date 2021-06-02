@@ -1,7 +1,9 @@
-- title: Documentation
+
+
+- title: Integration Guide
   url: docs
   links:
-    - title: "FIO Protocol"
+    - title: "FIO Protocol Overview"
       url: "docs/fio-protocol"
       children:
         - title: What is FIO Protocol?
@@ -22,85 +24,82 @@
           url: "docs/fio-protocol/multisig"
         - title: FIO Improvement Proposals
           url: "docs/fio-protocol/fips"
-    - title: "Integration Guide"
+    - title: "Wallet Integration Guide"
       url: "docs/integration-guide"
       children:
+        - title: Benefits & Bounties
+          url: "docs/integration-guide/wallet-benefits"      
         - title: Integration Guide
-          url: "docs/integration-guide"
+          url: "docs/integration-guide/guide"
         - title: Sample UX & Demos
           url: "docs/integration-guide/sample-ux"
-        - title: Using the API
-          url: "docs/integration-guide/using-the-api"
-        - title: Submitting Transactions
-          url: "docs/integration-guide/transactions"
-        - title: Send to FIO Address
-          url: "docs/integration-guide/fio-send"
-        - title: Registering Addresses & Domains
-          url: "docs/integration-guide/registration"
         - title: FIO Token Support
           url: "docs/integration-guide/fio-token-support"
-        - title: Receive to FIO Address
-          url: "docs/integration-guide/fio-receive"
-        - title: Mapping Public Addresses
-          url: "docs/integration-guide/mapping"
-        - title: FIO Requests & Data
-          url: "docs/integration-guide/fio-request"
-        - title: Encrypting Data
-          url: "docs/integration-guide/encryption"
         - title: Integration QA Checklist
           url: "docs/integration-guide/guide-certification"
-        - title: Earn FIO with your TPID
-          url: "docs/integration-guide/tpid"
-        - title: Participate in Governance
-          url: "docs/integration-guide/governance"
-    - title: "Wallets"
-      url: "docs/wallets"
-      children:
-        - title: Benefits & Bounties
-          url: "docs/wallets"
-        - title: Wallet Integration Examples
-          url: "docs/wallets/wallet-examples"
-    - title: "Exchanges"
+    - title: "Exchange Integration Guide"
       url: "docs/exchanges"
       children:
         - title: Benefits & Incentives
-          url: "docs/exchanges"
-        - title: Token Deposits
-          url: "docs/exchanges/exchange-token-deposit"
-        - title: Token Withdrawals
-          url: "docs/exchanges/exchange-token-withdraw"
-        - title: Token Transfers
-          url: "docs/exchanges/exchange-token-transfer"
-        - title: Token Supply
-          url: "docs/exchanges/exchange-token-supply"
-        - title: Transaction History
-          url: "docs/exchanges/txn-history"
-    - title: "Typescript SDK"
-      url: "docs/sdk-typescript"
+          url: "docs/exchanges/exchange-benefits"
+        - title: Integration Guide
+          url: "docs/exchanges/exchange-guide"
+        - title: Listing the FIO Token
+          url: "docs/exchanges/exchange-token-listing"
+        - title: Enable FIO Addresses
+          url: "docs/exchanges/exchange-fio-address"
+        - title: Deposit using FIO Address & Request
+          url: "docs/exchanges/crypto-deposit"
+        - title: Withdraw using FIO Address & Request
+          url: "docs/exchanges/crypto-withdraw"
+    - title: "API, SDKs and Libraries"
+      url: "docs/sdk"
       children:
+        - title: Using the API
+          url: "docs/sdk/using-the-api"
         - title: Using the Typescript SDK
-          url: "docs/sdk-typescript"
+          url: "docs/sdk/typescript"
         - title: Example - Transfer FIO Tokens
-          url: "docs/sdk-typescript/transfer-fio-tokens-example"
+          url: "docs/sdk/transfer-fio-tokens-example"
         - title: Example - FIO Request
-          url: "docs/sdk-typescript/fio-request-example"
+          url: "docs/sdk/fio-request-example"
         - title: Example - Review Pending Requests
-          url: "docs/sdk-typescript/review-pending-fio-requests-example"       
-    - title: "Go SDK"
-      url: "docs/sdk-go"
-    - title: "Kotlin SDK"
-      url: "docs/sdk-kotlin"
-    - title: "iOS Swift SDK"
-      url: "docs/sdk-swift"
-    - title: "Recipes"
-      url: "docs/recipes"
+          url: "docs/sdk/review-pending-fio-requests-example"       
+        - title: Go SDK
+          url: "docs/sdk/go"
+        - title: Kotlin SDK
+          url: "docs/sdk/kotlin"
+        - title: iOS Swift SDK
+          url: "docs/sdk/swift"
+    - title: How to Guides
+      url: "docs/how-to"
       children:
-        - title: Generating Actor from Pub Key
-          url: "docs/recipes/actor-account"
-        - title: Adding Permissions with linkauth
-          url: "docs/recipes/linkauth"
+        - title: Send to a FIO Address
+          url: "docs/how-to/fio-send"
+        - title: Register FIO Addresses & Domains
+          url: "docs/how-to/registration"
+        - title: Submit a Transaction
+          url: "docs/how-to/transactions"
+        - title: Map Public Addresses
+          url: "docs/how-to/mapping"
+        - title: Receive to a FIO Address
+          url: "docs/how-to/fio-receive"
+        - title: Create Requests & Record Data
+          url: "docs/how-to/fio-request"
+        - title: Encrypt Data
+          url: "docs/how-to/encryption"
+        - title: Generate Actor from Pub Key
+          url: "docs/how-to/actor-account"
+        - title: Add permissions with linkauth
+          url: "docs/how-to/linkauth"
         - title: Get FIO Names from Table
-          url: "docs/recipes/fio-names-from-table"
+          url: "docs/how-to/fio-names-from-table"
+        - title: Earn FIO with your TPID
+          url: "docs/how-to/tpid"
+        - title: Participate in Governance
+          url: "docs/how-to/governance"
+        - title: Transaction History
+          url: "docs/how-to/txn-history"
 - title: "FIO Chain"
   url: "docs/chain"
   links:
@@ -135,21 +134,25 @@
       url: "docs/chain/clio"
     - title: Vulnerability Disclosure Policy
       url: "docs/chain/disclosure"
-    - title: New FIO Contracts
-      url: "docs/chain/newcontracts"
-- title: "Block Production"
+- title: Block Producers
   url: "docs/bp"
   links:
+    - title: Block Production
+      url: "docs/bp"
     - title: Being a Producer
       url: "docs/bp/bp"
     - title: Setting Fees
       url: "docs/bp/fee-setting"
     - title: Claiming Rewards
       url: "docs/bp/claiming-rewards"
-- title: "FIO Developers Guide"
-  url: "docs/developers/git"
+- title: Developers Guide
+  url: "docs/developers"
   links:
     - title: Git Branching & Release
       url: "docs/developers/git"
+    - title: Adding New FIO Contracts
+      url: "docs/developers/newcontracts"
+    - title: Developer Tools
+      url: "docs/developers/tools"
 - title: "Blog"
   url: blog

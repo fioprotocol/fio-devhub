@@ -2,7 +2,7 @@
 title: FIO Fees
 description: FIO Fees
 ---
-# FIO Fees
+# FIO Fees and Bundled Transactions
 
 All blockchain altering transactions are subject to a fee though some transactions may be eligible to be covered by bundled transactions, which come with every FIO Address.
 
