@@ -12,8 +12,7 @@ This section contains the following content:
 |Content  |Summary |
 |---|---|
 | [Benefits & Incentives]({{site.baseurl}}/docs/exchanges/exchange-benefits) | Describes the financial benefits of participating in the FIO ecosystem. |
-| [Integration Guide]({{site.baseurl}}/docs/integration-guide/guide) | A step-by-step walkthrough of the integration process. |
+| [Integration Guide]({{site.baseurl}}/docs/exchanges/exchange-guide) | A step-by-step walkthrough of the integration process. |
 | [Listing the FIO Token]({{site.baseurl}}/docs/exchanges/exchange-token-listing) | Important information explaining how to support the FIO token in your exchange. |
-| [Enable FIO Addresses]({{site.baseurl}}/docs/exchanges/exchange-fio-address) |Explanation of how to enable your users to acquire their FIO Address. |
 | [Deposit Crypto using FIO Addresses & Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |An overview of how to use FIO Addresses and FIO Requests to make it easy for your users to deposit crypto into your exchange. |
 | [Withdraw Crypto using FIO Addresses & Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |n overview of how to use FIO Addresses and FIO Requests to make it easy for your users to withdraw crypto. |

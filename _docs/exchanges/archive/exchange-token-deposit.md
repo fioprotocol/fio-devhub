@@ -5,9 +5,7 @@ description: Token deposits
 
 # Token deposits
 
-## Using a FIO Public Key
-
-### Using unique FIO Public Key
+### Using a unique FIO Public Key
 
 Similar to UTXO-based chains, to accept FIO token deposit, an exchange may generate a unique FIO Public Key for every user or deposit. Unlike EOSIO, FIO Chain does not require that key to be assigned to an existing account before funds are sent to it. Once a token transfer is initiated to that Public Key, the account will be created automatically.
 

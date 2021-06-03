@@ -1,7 +1,7 @@
 
 
 - title: Integration Guide
-  url: docs
+  url: "docs/index"
   links:
     - title: "FIO Protocol Overview"
       url: "docs/fio-protocol"
@@ -45,12 +45,10 @@
         - title: Integration Guide
           url: "docs/exchanges/exchange-guide"
         - title: Listing the FIO Token
-          url: "docs/exchanges/exchange-token-listing"
-        - title: Enable FIO Addresses
-          url: "docs/exchanges/exchange-fio-address"
-        - title: Deposit using FIO Address & Request
+          url: "docs/exchanges/token-listing"
+        - title: Deposit using FIO Addresses
           url: "docs/exchanges/crypto-deposit"
-        - title: Withdraw using FIO Address & Request
+        - title: Withdraw using FIO Addresses
           url: "docs/exchanges/crypto-withdraw"
     - title: "API, SDKs and Libraries"
       url: "docs/sdk"
@@ -100,7 +98,7 @@
           url: "docs/how-to/governance"
         - title: Transaction History
           url: "docs/how-to/txn-history"
-- title: "FIO Chain"
+- title: FIO Chain
   url: "docs/chain"
   links:
     - title: FIO vs. EOSIO

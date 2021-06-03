@@ -11,8 +11,6 @@ Most FIO Protocol functionality requires a user to have a FIO Address. A FIO Add
 
 The easiest way to facilitate a FIO Address registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. A FIO Public Key needs to be passed to the website, so that the FIO Address can be properly assigned to the owner. To learn more see FIO registration site.
 
-### Registering Exchange FIO Domain
-
 ### Assigning or Enabling Users to Register FIO Addresses
 
 An exchange may set-up a unique FIO Address for each user of the exchange, and display it in their deposit area, e.g. alice@myexchange.
@@ -44,19 +42,3 @@ If you prefer to have full control over the payment process, you can simply obta
 
 See the [Registration API]({{ site.baseurl }}/pages/api/fio-reg-a
 
-
-### Mapping of FIO Addresses
-
-#### Automatic
-
-#### User Driven
-
-## Crypto Withdrawals
-
-### Enabling Sending to External FIO Addresses
-
-## Crypto Deposits
-
-### Enabling Sending to FIO Address of Exchange Users
-
-### Enabling FIO Requests for User Crypto Deposits

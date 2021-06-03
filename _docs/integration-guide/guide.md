@@ -28,26 +28,7 @@ The following testnet applications are availble for integration testing:
 * Testnet Monitor - <https://monitor.testnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 * Testnet Block Explorer - <https://fio-test.bloks.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
-To set up a FIO public key with FIO tokens in a test environment:
-
-1. Manually generate a private/public FIO key pair
-   * Navigate to the testnet monitor: <https://monitor.testnet.fioprotocol.io>{:target="_blank"}
-   * Select the 'Create Keypair' button (top left of the website)
-   * Copy the keypairs and FIO Internal Account
-2. Register a FIO Address
-   * Navigate to the testnet monitor: <https://monitor.testnet.fioprotocol.io>{:target="_blank"}
-   * Select the 'Register Address' button
-   * Type in a FIO address
-   * Paste in the FIO Public Key (created above)
-   * Select the 'Create' button
-   * The created FIO address will be in this format, "myname@fiotestnet"
-3. Transfer FIO into the FIO account
-   * Navigate to the testnet monitor: <https://monitor.testnet.fioprotocol.io>{:target="_blank"}
-   * Select the 'Faucet' button
-   * Paste in the FIO Public Key (created above)
-   * Select the 'Send Coins' button
-4. You now have a FIO account with a Public key, a Private key, a FIO Address, and FIO tokens. This account can be used for testing [Signed API calls]({{site.baseurl}}/pages/api/fio-api/#tag--Transactions).
-
+Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#setting-up-your-test-environment) to set up a FIO public key with FIO tokens in a test environment.
 
 ## Phase 3: Integrate FIO
 
