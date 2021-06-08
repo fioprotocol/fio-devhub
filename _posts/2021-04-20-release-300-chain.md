@@ -17,7 +17,7 @@ It has been awhile since we have posted out a development update. The reason is 
 
 <!--more-->
 
-For more information refer to the [Version 3.0 Release Notes](https://github.com/fioprotocol/fio/releases/tag/v3.0.0-rc5){:target="_blank"}.
+For more information refer to the [Version 3.0 Release Notes](https://github.com/fioprotocol/fio/releases/tag/v3.0.0){:target="_blank"}.
 
 ### Release Overview
 

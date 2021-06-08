@@ -80,14 +80,14 @@ If the renewal fee for a FIO Domain is not paid by its expiration date, the foll
 |Days after expiration date |Domain actions disallowed |Address actions disallowed |
 |---|---|---|---
 |0 - 30 | set_fio_domain_public | register_fio_address|
-|31 - 90 |set_fio_domain_public |register_fio_address <br> renew_fio_address <br> add_pub_address <br> new_funds_request (Payee FIO Address only) <br> reject_funds_request (Payer FIO Address only) <br> record_send (Payer FIO Address only) <br> register_producer <br> register_proxy <br> proxy_vote <br> claim_bp_rewards |
-|On day 90 |Domain is burned and can be re-registered by any user. |All addresses on that domain and associated data are burned. |
+|31 - 365 |set_fio_domain_public |register_fio_address <br> renew_fio_address <br> add_pub_address <br> new_funds_request (Payee FIO Address only) <br> reject_funds_request (Payer FIO Address only) <br> record_send (Payer FIO Address only) <br> register_producer <br> register_proxy <br> proxy_vote <br> claim_bp_rewards |
+|On day 365 |Domain is burned and can be re-registered by any user. |All addresses on that domain and associated data are burned. |
 
 It's important to note that anyone can renew a domain as long as they are willing to pay the renewal fee. This ensures that users with FIO Addresses on abandoned domain, can continue to use it. 
 
 ### FIO Address
 
-If the renewal fee for a FIO Address is not paid by its expiration date, the following actions are disallowed for 90 days:
+If the renewal fee for a FIO Address is not paid by its expiration date, the following actions are disallowed for 365 days:
 * add_pub_address
 * new_funds_request (Payee FIO Address only)
 * reject_funds_request (Payer FIO Address only)
@@ -97,4 +97,4 @@ If the renewal fee for a FIO Address is not paid by its expiration date, the fol
 * proxy_vote
 * claim_bp_rewards
 
-After 90 days the FIO Address is burned and can be re-registered by any user.
+After 365 days the FIO Address is burned and can be re-registered by any user.
