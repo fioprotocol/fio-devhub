@@ -39,11 +39,14 @@ Welcome to the {{ site.title }} Documentation pages!
 
  <div class="section-index">
     {% for section in site.data.toc %}
+        <li class="td-sidebar-nav__section-title">
+            <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h4>
+        </li>
         {% if section.links %}
             {% for entry in section.links %}
                 <div class="entry">
                     <li class="td-sidebar-nav__section-title">
-                        <h5><a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ entry.title }}</a></h5>
+                        <h6><a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a></h6>
                     </li>
                 </div>
             {% endfor %}

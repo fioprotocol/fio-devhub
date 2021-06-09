@@ -41,7 +41,7 @@ Regex validation may be used. For example, the following regex may be used to va
 
 ### Mapping a FIO Address to crypto public addresses
 
-See [Mapping Public Addresses](/docs/integration-guide/mapping) in the Integration Guide.
+See [Mapping Public Addresses](/docs/how-to/mapping) in the Integration Guide.
 
 ## FIO Domains
 

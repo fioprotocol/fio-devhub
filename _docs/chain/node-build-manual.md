@@ -7,13 +7,13 @@ description: Manual installation using pre-built packages
 
 The following setup is for a manual FIO API Node installation using pre-built packages.
 
-#### Packages for Ubuntu 18.04
+### Packages for Ubuntu 18.04
 
 These are designed for quickly bringing up a node, and have systemd integration, logrotate, apparmor, compsec enabled, and have reasonable defaults in the config. 
 
 * Official releases: <https://github.com/fioprotocol/fio/releases>{:target="_blank"} 
 
-#### Download, validate, and install packages
+### Download and validate install packages
 
 The FIO GPG signing key is available on keybase:
 
@@ -29,7 +29,7 @@ curl -sO https://bin.fioprotocol.io/mainnet/fioprotocol-3.0.x-latest-ubuntu-18.0
 curl -sO https://bin.fioprotocol.io/mainnet/fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb.asc
 ```
 
- Signature verification:
+Signature verification:
 
 ```shell
 gpg --verify fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb.asc fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
@@ -47,7 +47,16 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 0CFE E764 B06D 009F 7574  A253 C0E6 1F84 41B6 AAD4
 ```
 
-Install the release:
+### Remove existing history directories (optional):
+
+**This step should be performed only if you are upgrading from an older version and you are NOT running a History node.**
+
+```shell
+cd /var/lib
+sudo rm -fr fio/data fio/history fio/history_index
+```
+
+### Install the release:
 
 ```shell
 sudo apt install ./fioprotocol-3.0.x-latest-ubuntu-18.04-amd64.deb
@@ -76,7 +85,7 @@ This will install the following files:
 |/var/lib/fio/fio-wallet/ |config.ini |
 |/var/log/fio/ |nodeos.log |
 
-#### Update keosd wallet environment 
+### Update keosd wallet environment 
 
 *(Skip this step if you are not using keosd to manage FIO keys for your users.)*
 
@@ -89,13 +98,13 @@ clio wallet stop
 mv ~/eosio-wallet ~/fio-wallet
 ```
 
-#### Replay from a snapshot, blocks.log, or V1 History archive (optional)
+### Replay from a snapshot, blocks.log, or V1 History archive (optional)
 
 {% include alert.html type="info" content="This step is optional to save time when syncing a node. If it is skipped, the node will sync from genesis and can take several hours." %}
 
 To save time on startup, you can bootstrap your node with a snapshot of data from a running node. Refer to [nodeos Replays]({{site.baseurl}}/docs/chain/node-build-replay) for instructions on replaying from a snapshot, blocks.log, or V1 History archive.
 
-#### Configure nodeos settings
+### Configure nodeos settings
 
 Edit the settings for nodeos:
 
@@ -105,11 +114,11 @@ sudo vi /etc/fio/nodeos/config.ini
 
 P2P nodes are updated more frequently than the .deb package, if there are a large number of P2P nodes that are unreachable, it's possible to get a list of healthy nodes from the [FIO Mainnet Health page.](https://health.fioprotocol.io/){:target="_blank"} 
 
-##### V1 History configuration (optional)
+### V1 History configuration (optional)
 
 If the light-history (v1 history) feature is needed, follow the [V1 History configuration]({{site.baseurl}}/docs/chain/node-build-history) instructions.
 
-#### Run nodeos
+### Run nodeos
 
 Enable nodeos daemon at runtime, and start:
 
