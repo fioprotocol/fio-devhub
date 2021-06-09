@@ -1,6 +1,8 @@
 ---
 title: Deposit Crypto using FIO Addresses
 description: Deposit Crypto using FIO Addresses
+redirect_from:
+    - /docs/exchanges/exchange-token-deposit
 ---
 
 # Deposit Crypto using FIO Addresses

@@ -1,6 +1,8 @@
 ---
 title: Adding permissions with linkauth
 description: Adding permissions with linkauth
+redirect_from:
+    - /docs/recipes/linkauth
 ---
 
 # Adding permissions with linkauth

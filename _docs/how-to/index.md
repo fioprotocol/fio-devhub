@@ -1,6 +1,8 @@
 ---
 title: How to guides
 description: How to guides
+redirect_from:
+    - /docs/recipes
 ---
 
 # How to guides

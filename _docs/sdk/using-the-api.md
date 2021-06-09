@@ -1,6 +1,8 @@
 ---
 title: Using the FIO API
 description: Using the FIO API
+redirect_from:
+    - /docs/integration-guide/using-the-api
 
 snippet1: /push_transaction
 

@@ -1,6 +1,8 @@
 ---
 title: Send to FIO Address
 description: Send to FIO Address
+redirect_from:
+    - /docs/integration-guide/fio-send
 ---
 
 # Send to FIO Address
@@ -23,4 +25,4 @@ For example: `rGVV5nh9UjJckufycb6WZAGUsZGFvPsTpX?dt=test.do.not.send.funds`
 
 The parameters represent additional information required to execute a send, for example a destination tag for XRP. Therefore the string has to be parsed for uri-like parameters.
 
-Please review [Multi-level Addressing]({{site.baseurl}}/docs/integration-guide/mapping#multi-level-addressing) section of the Integration Guide for more details.
+Please review [Multi-level Addressing]({{site.baseurl}}/docs/how-to/mapping#multi-level-addressing) section of the Integration Guide for more details.

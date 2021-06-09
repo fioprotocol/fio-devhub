@@ -1,6 +1,8 @@
 ---
 title: Transaction history
 description: Transaction history
+redirect_from:
+    - /docs/exchanges/txn-history
 ---
 
 # Transaction history

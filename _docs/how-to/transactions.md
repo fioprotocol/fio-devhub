@@ -1,6 +1,8 @@
 ---
 title: Submitting Transactions
 description: Submitting Transactions
+redirect_from:
+    - /docs/integration-guide/transactions
 ---
 
 # Submitting Transactions

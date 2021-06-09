@@ -14,8 +14,8 @@ Before starting your integration, we recommend you first familiarize yourself wi
 
 * [What is FIO Protocol?]({{site.baseurl}}/docs/fio-protocol/)
 * [FIO API Reference Guide]({{site.baseurl}}/pages/api/fio-api)
-* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/integration-guide/transactions) for the FIO chain
-* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/), [Kotlin]({{site.baseurl}}/docs/sdk-kotlin/), and [iOS]({{site.baseurl}}/docs/sdk-swift/)
+* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/how-to/transactions) for the FIO chain
+* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/), [Kotlin]({{site.baseurl}}/docs/sdk/kotlin), and [iOS]({{site.baseurl}}/docs/sdk/swift)
 * Review [Sample UX and Demos]({{site.baseurl}}/docs/integration-guide/sample-ux) from other FIO integrations
 
 Next, reach out to the FIO team to set up a joint Telegram or Discord channel. This will give you access to account management, product management, and developer resources.
@@ -36,20 +36,20 @@ FIO Protocol provides a variety of features that make it easier for wallet and e
 
 |Functionality groups	|Dev description	|User benefit	|Dev effort|
 |---|---|---|---|
-|[Send to FIO Address]({{site.baseurl}}/docs/integration-guide/fio-send)	|Simple rest API (send FIO Address and token code, get public address).	|User can send crypto to other FIO Addresses.	|~16 hours|
-|[Register FIO Address]({{site.baseurl}}/docs/integration-guide/registration)	|Link-off to external registration site for FIO Address registration and renewal.	|User can register FIO Address on external wallet-branded site and participate in FIO Address Giveaways.	|~8 hours|
+|[Send to FIO Address]({{site.baseurl}}/docs/how-to/fio-send)	|Simple rest API (send FIO Address and token code, get public address).	|User can send crypto to other FIO Addresses.	|~16 hours|
+|[Register FIO Address]({{site.baseurl}}/docs/how-to/registration)	|Link-off to external registration site for FIO Address registration and renewal.	|User can register FIO Address on external wallet-branded site and participate in FIO Address Giveaways.	|~8 hours|
 |[FIO Token Support]({{site.baseurl}}/docs/integration-guide/fio-token-support)	|Sending/receiving of FIO tokens and transaction history via dedicated APIs.	|User can receive, hold, send FIO tokens and see history of FIO token transactions.	|~32 hours|
-|[Receive to FIO Address]({{site.baseurl}}/docs/integration-guide/fio-receive)	|Assigning public addresses to FIO Address (automatic with no UI or selected by user) via dedicated APIs.	|User can receive crypto sent to their FIO Address.	|~40 hours|
-|[FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request)	|View, approve, reject incoming FIO Requests (including showing attached FIO Data and send FIO Data on Send in response to request) and send FIO Requests to other FIO users.	|User can accept FIO Requests and respond to them and initiate FIO Requests to other users and participate in contest whereby users can win prizes funded by the Foundation for sending FIO Requests to a specified FIO Address via dedicated APIs.	|~80 hours|
-|[FIO Data]({{site.baseurl}}http://127.0.0.1:4000/docs/integration-guide/fio-request)	|Send and display FIO Data when crypto sent using FIO Address.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
-|[FIO Domain Registration]({{site.baseurl}}/docs/integration-guide/registration#fio-domain-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
-|[Register FIO Address on Custom Domain]({{site.baseurl}}/docs/integration-guide/registration#register-fio-address-on-custom-domain)	|Registering FIO Address inside wallet and on custom domains.	|Users can register a FIO Address on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
+|[Receive to FIO Address]({{site.baseurl}}/docs/how-to/fio-receive)	|Assigning public addresses to FIO Address (automatic with no UI or selected by user) via dedicated APIs.	|User can receive crypto sent to their FIO Address.	|~40 hours|
+|[FIO Request]({{site.baseurl}}/docs/how-to/fio-request)	|View, approve, reject incoming FIO Requests (including showing attached FIO Data and send FIO Data on Send in response to request) and send FIO Requests to other FIO users.	|User can accept FIO Requests and respond to them and initiate FIO Requests to other users and participate in contest whereby users can win prizes funded by the Foundation for sending FIO Requests to a specified FIO Address via dedicated APIs.	|~80 hours|
+|[FIO Data]({{site.baseurl}}http://127.0.0.1:4000/docs/how-to/fio-request)	|Send and display FIO Data when crypto sent using FIO Address.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
+|[FIO Domain Registration]({{site.baseurl}}/docs/how-to/registration#fio-domain-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
+|[Register FIO Address on Custom Domain]({{site.baseurl}}/docs/how-to/registration#register-fio-address-on-custom-domain)	|Registering FIO Address inside wallet and on custom domains.	|Users can register a FIO Address on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
 
 The functionality groups above are ordered in such a way as to provide a sample integration path that begins with Send to FIO Address, which is one of the easiest features to integrate, and moves on to more complex features that require the building of packed and signed transactions. Nonetheless, it is ultimately up to the integrator to decide which features of the FIO Protocol you want to implement and in what order. 
 
 ## Phase 4: Configure your Technology Provider ID (TPID)
 
-Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/integration-guide/tpid).
+Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/how-to/tpid).
 
 ## Phase 5: Client testing and FIO acceptance testing
 
@@ -61,6 +61,6 @@ When you’ve successfully performed all the relevant test cases and you feel co
 
 ## Join the FIO community!
 
-FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/integration-guide/governance).
+FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/how-to/governance).
 
 

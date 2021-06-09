@@ -1,6 +1,8 @@
 ---
 title: Sample UX
 description: Sample UX
+redirect_from:
+    - /docs/wallets/wallet-examples
 ---
 
 ## Sample UX

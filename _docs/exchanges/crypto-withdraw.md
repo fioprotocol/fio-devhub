@@ -1,6 +1,8 @@
 ---
 title: Withdraw Crypto using FIO Addresses and FIO Requests
 description: Withdraw Crypto using FIO Addresses and FIO Requests
+redirect_from:
+    - /docs/exchanges/exchange-token-withdraw
 ---
 
 # Withdraw Crypto using FIO Addresses & Requests

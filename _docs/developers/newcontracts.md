@@ -1,6 +1,8 @@
 ---
 title: New FIO Contracts
 description: Information about adding new FIO contracts to the development environment
+redirect_from:
+    - /docs/chain/newcontracts
 ---
 
 # Adding new contracts to FIO Protocol Dev Environment

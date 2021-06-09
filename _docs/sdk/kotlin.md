@@ -1,6 +1,8 @@
 ---
 title: Kotlin SDK
 description: Kotlin SDK
+redirect_from:
+    - /docs/sdk-kotlin
 ---
 
 # Kotlin SDK

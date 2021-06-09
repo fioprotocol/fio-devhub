@@ -1,6 +1,8 @@
 ---
 title: Register FIO Addresses and Domains
 description: Register FIO Addresses and Domains
+redirect_from:
+    - /docs/integration-guide/registration
 ---
 
 # Register FIO Addresses and Domains
@@ -82,7 +84,7 @@ FIO Domain can be registered using [/register_fio_domain]({{site.baseurl}}/pages
 
 ### TPID
 
-Do not forget to [include your TPID]({{site.baseurl}}/docs/integration-guide/tpid) in the request to earn portion of fees paid.
+Do not forget to [include your TPID]({{site.baseurl}}/docs/how-to/tpid) in the request to earn portion of fees paid.
 
 
 ## Register FIO Address on Custom Domain
@@ -119,7 +121,7 @@ The FIO registration site allows wallets to integrate FIO Address and Domain reg
 
 ### Technology Provider ID
 
-Please review the [Technology Provider ID page]({{site.baseurl}}/docs/integration-guide/tpid) for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
+Please review the [Technology Provider ID page]({{site.baseurl}}/docs/how-to/tpid) for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
 
 ### Fees
 

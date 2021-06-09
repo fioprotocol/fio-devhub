@@ -15,8 +15,8 @@ Before starting your integration, we recommend you first familiarize yourself wi
 
 * [What is FIO Protocol?]({{site.baseurl}}/docs/fio-protocol/)
 * [FIO API Reference Guide]({{site.baseurl}}/pages/api/fio-api)
-* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/integration-guide/transactions) for the FIO chain
-* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescripttypescript), [Kotlin]({{site.baseurl}}/docs/sdk/kotlin/), and [iOS]({{site.baseurl}}/docs/sdk/swift/)
+* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/how-to/transactions) for the FIO chain
+* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/), [Kotlin]({{site.baseurl}}/docs/sdk/kotlin), and [iOS]({{site.baseurl}}/docs/sdk/swift)
 * Review [Sample UX and Demos]({{site.baseurl}}/docs/integration-guide/sample-ux) from other FIO integrations
 
 Next, reach out to the FIO team to set up a joint Telegram or Discord channel. This will give you access to account management, product management, and developer resources.
@@ -35,13 +35,13 @@ Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#
 ---
 ## Phase 3: Integrate FIO
 
-There are four main integration activities for exchanges. The first step is to list the FIO token on your exchange. The next step is to get FIO Addresses for your users on your custom `@myexchange` domain. The final step is to enable deposits and withdrawals of crypto using FIO Addresses.
+There are two main integration activities for exchanges. The first step is to list the FIO token on your exchange. The next step is to enable deposits and withdrawals of crypto using FIO Addresses for your users on your custom `@myexchange` domain.
 
-|Step |Integration |Summary	|
-|---|---|---|
-|1 |FIO Token |[List the FIO Token]({{site.baseurl}}/docs/exchanges/exchange-token-listing) |
-|2 |Deposits |[Enable crypto deposits using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |
-|3 |Withdrawals |[Enable crypto withdrawals using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-withdraw) |
+|Integration |Summary	|
+|---|---|
+|FIO Token |[List the FIO Token]({{site.baseurl}}/docs/exchanges/token-listing) |
+|Deposits |[Enable crypto deposits using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |
+|Withdrawals |[Enable crypto withdrawals using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-withdraw) |
 
 ---
 ## Phase 4: Configure your Technology Provider ID (TPID)
@@ -53,7 +53,7 @@ Make sure you are set to earn FIO tokens from your users by configuring your [Te
 
 Once you have completed your initial integration you should perform internal testing against the FIO Testnet. 
 
-We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/guide-certification) that should be completed prior to moving to production.
+We’ve created a [list of test cases]({{site.baseurl}}/docs/exchanges/guide-certification) that should be completed prior to moving to production.
 
 When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 

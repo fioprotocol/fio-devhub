@@ -1,6 +1,8 @@
 ---
 title: Receive to FIO Address
 description: Receive to FIO Address
+redirect_from:
+    - /docs/integration-guide/fio-receive
 ---
 
 # Receive to FIO Address
@@ -9,6 +11,6 @@ In order allow others to send crypto currency using the user’s FIO Address, it
 
 It is up to the wallet to decide if this happens automatically, behind the scenes or driven by the user via UI. If the wallet supports multiple NBPAs for the same blockchain at the same time, e.g. multiple bitcoin wallets, the decision will likely need to be made by the user via UI.
 
-Please read [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/mapping) to better understand how public address mappings work.
+Please read [Mapping Public Addresses]({{site.baseurl}}/docs/how-to/mapping) to better understand how public address mappings work.
 
 Please note that a user may have multiple FIO Addresses owned by a single key, the UX should accommodate that.

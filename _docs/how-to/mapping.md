@@ -1,6 +1,8 @@
 ---
 title: Mapping Public Addresses
 description: Mapping Public Addresses
+redirect_from:
+    - /docs/integration-guide/mapping
 ---
 
 # Mapping Public Addresses

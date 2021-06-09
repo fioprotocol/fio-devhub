@@ -1,6 +1,9 @@
 ---
 title: Listing the FIO Token
 description: Listing the FIO Token
+redirect_from:
+    - /docs/exchanges/exchange-token-supply
+    - /docs/exchanges/exchange-token-transfer
 ---
 
 # Listing the FIO Token

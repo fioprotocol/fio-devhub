@@ -1,6 +1,8 @@
 ---
 title: iOS Swift SDK
 description: iOS Swift SDK
+redirect_from:
+    - /docs/sdk-swift
 ---
 
 # Swift SDK

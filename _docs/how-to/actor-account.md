@@ -1,6 +1,8 @@
 ---
 title: Generating actor/account from Pub Key
 description: Generating actor/account from Pub Key
+redirect_from:
+    - /docs/recipes/actor-account
 ---
 
 # Generating actor/account from Pub Key

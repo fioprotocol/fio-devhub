@@ -1,6 +1,8 @@
 ---
 title: Earn FIO with your TPID
 description: Earn FIO with your TPID
+redirect_from:
+    - /docs/integration-guide/tpid
 ---
 
 # Earn FIO with your Technology Provider ID

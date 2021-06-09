@@ -1,6 +1,8 @@
 ---
 title: Get FIO Names from Address Table
 description: Get FIO Names from Address Table
+redirect_from:
+    - /docs/recipes/fio-names-from-table
 ---
 
 # Get FIO Names from the Address Table

@@ -35,7 +35,7 @@
           url: "docs/integration-guide/sample-ux"
         - title: FIO Token Support
           url: "docs/integration-guide/fio-token-support"
-        - title: Integration QA Checklist
+        - title: Integration Checklist
           url: "docs/integration-guide/guide-certification"
     - title: "Exchange Integration Guide"
       url: "docs/exchanges"
@@ -50,6 +50,8 @@
           url: "docs/exchanges/crypto-deposit"
         - title: Withdraw using FIO Addresses
           url: "docs/exchanges/crypto-withdraw"
+        - title: Integration Checklist
+          url: "docs/exchanges/guide-certification"
     - title: "API, SDKs and Libraries"
       url: "docs/sdk"
       children:

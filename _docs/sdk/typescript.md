@@ -1,7 +1,9 @@
 ---
 title: Using the Typescript SDK
 description: Using the Typescript SDK
-layout: page
+layout: 
+redirect_from:
+    - /docs/sdk-typescript
 ---
 
 # Using the Typescript SDK

@@ -1,6 +1,8 @@
 ---
 title: Go SDK
 description: Go SDK
+redirect_from:
+    - /docs/sdk-go
 ---
 
 # Go SDK

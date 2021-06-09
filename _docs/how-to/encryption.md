@@ -1,6 +1,8 @@
 ---
 title: Encrypting FIO Data
 description: Encrypting FIO Data
+redirect_from:
+    - /docs/integration-guide/encryption
 ---
 
 # Encrypting FIO Data

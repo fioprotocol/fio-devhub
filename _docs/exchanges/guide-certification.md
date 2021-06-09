@@ -15,14 +15,18 @@ The following lists the items that should be tested to confirm support for diffe
 
 **FIO Address**
 
--  User can register a new FIO Address with FIO
+If using a unique FIO Address for each user:
+-  Exchange has set up a FIO Addressr 
 -  User can register a FIO address using other crypto
 -  User can register additional FIO Addresses
 -  User can renew their existing FIO Addresses
 
+If using the same FIO Address for each user:
+-  User can register a new FIO Address or 
+  
 **FIO Send**
 
--  User is able to send crypto using a FIO Address (alice@wallet) for the destination address
+-  User is able to send crypto using a FIO Address (alice@exchange) for the destination address
 -  User is able to attach a FIO Memo when both the sending and receving user have FIO Addresses (optional)
 -  User selects an invalid FIO Address, results in error
 -  User selects valid FIO Address, but the Chain or Token Code has not been mapped for that FIO Address, results in error
@@ -30,8 +34,8 @@ The following lists the items that should be tested to confirm support for diffe
 
 **Mapping blockchain public addresses**
 
--  User is able to connect their FIO Address to wallets
--  User is able to disconnect their FIO Address from wallets
+-  User is able to connect their FIO Address to their crypto/tokens
+-  User is able to disconnect their FIO Address
 -  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/how-to/mapping))
 
 **Receive to FIO Address**
