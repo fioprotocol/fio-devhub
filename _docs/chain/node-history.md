@@ -55,15 +55,10 @@ curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
 
 ### API endpoints
 
-**Testnet History API**
-
-http://testnet.fioprotocol.io/v1/history/
-
-### Mainnet History API
-
-See Github
+* Testnet History API Node: `http://testnet.fioprotocol.io/v1/history/`
+* Mainnet History API Nodes: See [Github](https://github.com/fioprotocol/fio.mainnet#history-v1){:target="_blank"}
 
 ### Additional Resources
 
-* Account balances and history
+* [Account balances and history]({{site.baseurl}}/docs/how-to/txn-history)
 

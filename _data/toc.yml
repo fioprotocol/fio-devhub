@@ -98,7 +98,7 @@
           url: "docs/how-to/tpid"
         - title: Participate in Governance
           url: "docs/how-to/governance"
-        - title: Transaction History
+        - title: Get Account Balance and Txn History
           url: "docs/how-to/txn-history"
 - title: FIO Chain
   url: "docs/chain"
