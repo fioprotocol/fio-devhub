@@ -34,13 +34,9 @@ The method requires payee FIO Public Key. The key is [hashed down]({{site.baseur
 
 The native EOSIO transfer action is not supported.
 
-#### Checking token balance
+#### Retrieving account balances and history
 
-Token balance can be obtained by passing FIO Public Key to [/get_fio_balance]({{site.baseurl}}/docs/how-to/actor-account) API method.
-
-#### Transaction history
-
-See History node
+The [How to retrieve account balances and history]({{site.baseurl}}/docs/how-to/txn-history) page lists the different options available for wallets, exchanges, and information providers for presenting a user’s balance and history.
 
 #### Transaction memo
 
