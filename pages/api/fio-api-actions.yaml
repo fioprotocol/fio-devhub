@@ -8159,15 +8159,6 @@ paths:
               ref_block_prefix:
                 type: uint32_t
                 description: Lower 32 bits of block id referred by ref_block_num
-              max_net_usage_words:
-                type: unsigned_int
-                description: Upper limit on total network bandwidth billed (in 64-bit words)
-              max_cpu_usage_ms:
-                type: uint8_t
-                description: Upper limit on total CPU time billed (in milliseconds)
-              delay_sec:
-                type: unsigned_int
-                description: Number of seconds to delay transaction for
               context_free_actions:
                 type: array of action
                 items:
@@ -8183,14 +8174,9 @@ paths:
                 description: Extends fields to support additional features
             title: Signed transaction request
             example:
-              chain_id: cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f
               expiration: 2018-09-04T18:42:49
               ref_block_num: 38096
               ref_block_prefix: 505360011
-              max_net_usage_words: 0
-              max_cpu_usage_ms: 0
-              delay_sec: 0
-              context_free_actions: []
               actions:
                 - account: fio.token
                   name: trnsfiopubky
