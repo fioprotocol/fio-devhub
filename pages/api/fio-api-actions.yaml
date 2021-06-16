@@ -23,10 +23,12 @@ paths:
             properties:
               balance:
                 type: integer
-                description: SUF balance associated with supplied public key.
-          examples:
-            application/json:
-              balance: 100000000000
+                description: Total SUF balance associated with supplied public key (includes locked tokens).
+                example: 100000000000
+              available:
+                type: integer
+                description: Available SUF balance associated with supplied public key (does not include locked tokens).
+                example: 100000000000
         '400':
           description: |-
             Possible error messages:
@@ -81,7 +83,7 @@ paths:
             application/json:
               message: Public key not found
       summary: Get FIO balance
-      description: Retrieves balance of FIO tokens.
+      description: Retrieves balance of FIO tokens. Also returns available balance which only includes tokens which are not locked.
       parameters:
         - in: body
           name: body
@@ -96,6 +98,126 @@ paths:
             required:
               - fio_public_key
       operationId: get_fio_balance
+      tags:
+        - Getters
+  /get_locks:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              lock_amount:
+                type: integer
+                title: Locked amount
+                description: SUFs initially locked.
+                example: 40000000000000             
+              remaining_lock_amount:
+                type: integer
+                title: Remaining locked amount
+                description: SUFs still locked.
+                example: 20000000000000
+              time_stamp:
+                type: string
+                format: date-time
+                title: Date/time
+                description: Time when lock started.
+                example: '2020-09-11T18:30:56'
+              payouts_performed:
+                type: integer
+                title: Payouts performed
+                description: Number of unlock periods which were unlocked.
+                example: 0
+              can_vote:
+                type: integer
+                title: Can vote
+                description: Indicates if the locked amount can vote while locked. 0 - can not vote, 1 - can vote.
+                example: 1
+              unlock_periods:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    duration:
+                      type: integer
+                      title: Duration
+                      description: Seconds from lock creation to when unlock of corresponding percentage occurs.
+                      example: 86400
+                    percent:
+                      type: double
+                      title: Percent
+                      description: Percentage of locked tokens that unlock after coresponding duration lapsed.
+                      example: 100.0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_public_key
+                  value: FIO123
+                  error: Invalid FIO Public Key
+        '404':
+          description: |-
+            Possible error messages:
+            * "Public key not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: Public key not found
+      summary: Get lock periods for account
+      description: Retrieves lock periods for account.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+            required:
+              - fio_public_key
+      operationId: get_locks
       tags:
         - Getters
   /get_fio_names:
@@ -142,6 +264,9 @@ paths:
                       type: string
                       format: date-time
                       title: Date/time
+                    remaining_bundled_tx:
+                      type: integer
+                      title: Count of remaining bundled transactions.
           examples:
             application/json:
               fio_domains:
@@ -151,6 +276,7 @@ paths:
               fio_addresses:
                 - fio_address: purse@alice
                   expiration: '2020-09-11T18:30:56'
+                  remaining_bundled_tx: 98
         '400':
           description: |-
             Possible error messages:
@@ -204,7 +330,7 @@ paths:
           examples:
             application/json:
               message: No FIO names
-      summary: Get all Domains/Addresses linked to public key
+      summary: Get all FIO Domains/Addresses linked to public key
       description: Returns FIO Addresses and FIO Domains owned by a public key.
       parameters:
         - in: body
@@ -248,6 +374,10 @@ paths:
                       format: date-time
                       title: Date/time
                       example: '2020-09-11T18:30:56'
+                    remaining_bundled_tx:
+                      type: integer
+                      title: Count of remaining bundled transactions.
+                      example: 98                   
               more:
                 type: integer
                 description: |-
@@ -307,7 +437,7 @@ paths:
           examples:
             application/json:
               message: No FIO Addresses
-      summary: Get Addresses linked to public key
+      summary: Get FIO Addresses linked to public key
       description: >-
         Returns FIO Addresses owned by this public key (supports paging). 
         See [FIP-2](https://github.com/fioprotocol/fips/blob/master/fip-0002.md) for a comprehensive description of this functionality.
@@ -432,7 +562,7 @@ paths:
           examples:
             application/json:
               message: No FIO Domains
-      summary: Get Domains linked to public key
+      summary: Get FIO Domains linked to public key
       description: >-
         Returns FIO Domains owned by this public key (supports paging). 
         See [FIP-2](https://github.com/fioprotocol/fips/blob/master/fip-0002.md) for a comprehensive description of this functionality.      
@@ -518,7 +648,7 @@ paths:
                 - name: fio_name
                   value: _.@
                   error: Invalid FIO Name
-      summary: Domain/Address availability check
+      summary: FIO Domain/Address availability check
       description: Checks if a FIO Address or FIO Domain is available for registration.
       parameters:
         - in: body
@@ -600,8 +730,14 @@ paths:
           examples:
             application/json:
               message: Public address not found
-      summary: Get public address mapped to FIO Address
-      description: Returns a public address for specified token code and FIO Address.
+      summary: Get a public address mapped to FIO Address
+      description: >-
+        Returns a public address for specified token code and FIO Address.
+
+
+        `get_pub_address` accepts chain-level public addresses ('*' as a chain_code).
+        See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
+        chain-level public address functionality.
       parameters:
         - in: body
           name: body
@@ -637,6 +773,126 @@ paths:
       operationId: get_pub_address
       tags:
         - Getters
+  /get_pub_addresses:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              public_addresses:
+                type: array
+                uniqueItems: true
+                description: >-
+                  Array of public addresses mapped to the FIO Public Key.
+                items:
+                  type: object
+                  properties:
+                    chain_code:
+                      type: string
+                      title: Chain code
+                      description: Chain code
+                    token_code:
+                      type: string
+                      title: Token code
+                      description: Token code
+                    public_address:
+                      type: object
+                      title: Native Blockchain Public Address
+                      description: Public address on another blockchain.
+                example:
+                  - chain_code: FIO
+                    token_code: FIO
+                    public_address: FIO6cp3eJMhtAuQvzetCAqcUAyLBabHj8M8hJD5nA8T1p7FoXaTd2
+                  - chain_code: ETH
+                    token_code: ETH
+                    public_address: '0xab5801a7d398351b8be11c439e05c5b3259aec9b'
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Address"
+            * "Invalid limit"
+            * "Invalid offset"
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_address
+                  value: bob
+                  error: Invalid FIO Address
+        '404':
+          description: |-
+            Possible error messages:
+            * "No FIO addresses are mapped"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: Public addresses not found
+      summary: Get ALL public addresses mapped to FIO Address
+      description: Returns all public addresses for specified FIO Address.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - fio_address
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                description: FIO Address of the payee.
+                example: purse@alice
+              limit:
+                type: integer
+                description: >-
+                  Number of requests to return. If omitted, all requests will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First request from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+      operationId: get_pub_addresses
+      tags:
+        - Getters
   /get_sent_fio_requests:
     post:
       responses:
@@ -652,8 +908,8 @@ paths:
                   type: object
                   properties:
                     fio_request_id:
-                      type: string
-                      description: Id of that funds request.
+                      type: integer
+                      description: ID of the original request.
                     payer_fio_address:
                       type: string
                       description: >-
@@ -742,8 +998,7 @@ paths:
           examples:
             application/json:
               requests:
-                - fio_request_id: >-
-                    309753b6b0aca9ba107c06332c4294ec2d8a270133a17239f07bc62b704ccb87
+                - fio_request_id: 10
                   payer_fio_address: purse@alice
                   payee_fio_address: crypto@bob
                   payer_fio_public_key: FIO7167ErgCveJvuonvrEvVGhdWnkP4AEMfqvEd8s8raMkbbAXqhx
@@ -838,6 +1093,206 @@ paths:
               - fio_public_key
       tags:
         - Getters
+  /get_received_fio_requests:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              requests:
+                type: array
+                description: Multiple requests may be returned. All requests are returned.
+                items:
+                  type: object
+                  properties:
+                    fio_request_id:
+                      type: integer
+                      description: ID of the original request.
+                    payer_fio_address:
+                      type: string
+                      description: >-
+                        FIO Address of the payer. This address initiated
+                        payment.
+                    payee_fio_address:
+                      type: string
+                      description: >-
+                        FIO Address of the payee. This address is receiving
+                        payment.
+                    payer_fio_public_key:
+                      type: string
+                      description: FIO public key of the payer.
+                    payee_fio_public_key:
+                      type: string
+                      description: FIO public key of the payee.
+                    content:
+                      type: object
+                      title: FIO Request encrypted content
+                      description: >-
+                        Certain content inside FIO Request is encrypted and
+                        packed into this field.
+
+
+                        Min 64 characters
+
+                        Max 296 characters
+                      properties:
+                        payee_public_address:
+                          type: object
+                          title: Native Blockchain Public Address
+                          description: "This is the public address on another blockchain. Both integrated addresses as well as URI Scheme are supported.\n\n**Integrated Address**\nIf the blockchain supports it, an integrated address may be passed in just like standard public address. The FIO protocol does not perform validation on the passed string.\n\n**URI Scheme**\nFIO Protocol will support formatting of public addresses using URI were certain attributes are appended to the public address following a '?' and delimited with '&'. To allow inter-wallet operability, the following standardized parameters will be supported in official FIO Protocol SDKs.\n\n**Parameters**\n* dt - Ripple\n* memo - Any - use as generic memo field\n* memo_id -\tStellar\n* memo_text -\tStellar\n* memo_hash -\tStellar\n* memo_return -\tStellar\n* payment_id - Monero\n"
+                        amount:
+                          type: string
+                          description: Amount requested.
+                        token_code:
+                          type: string
+                          title: Token/chain code
+                          minLength: 1
+                          maxLength: 10
+                          pattern: '^[A-Z0-9]+$'
+                        memo:
+                          type: string
+                        hash:
+                          type: string
+                        offline_url:
+                          type: string
+                        future_use1:
+                          type: string
+                        future_use2:
+                          type: string
+                        future_use3:
+                          type: string
+                        future_use4:
+                          type: string
+                        future_use5:
+                          type: string
+                      required:
+                        - payee_public_address
+                        - amount
+                        - token_code
+                        - memo
+                        - hash
+                        - offline_url
+                        - future_use1
+                        - future_use2
+                        - future_use3
+                        - future_use4
+                        - future_use5
+                    time_stamp:
+                      type: string
+                      description: Timestamp of request
+                    status:
+                      type: string
+                      title: FIO Request status
+                      description: Status of FIO Request
+                      enum:
+                        - requested
+                        - sent_to_blockchain
+                        - rejected
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              requests:
+                - fio_request_id: 10
+                  payer_fio_address: purse@alice
+                  payee_fio_address: crypto@bob
+                  payer_fio_public_key: FIO7167ErgCveJvuonvrEvVGhdWnkP4AEMfqvEd8s8raMkbbAXqhx
+                  payee_fio_public_key: FIO7KGdMYj4ZMY2nUX9EaZu3G3GxZhTNXUq1tsNqC5rcP9rcmvWHq
+                  content: ...
+                  time_stamp: '2020-09-11T18:30:56'
+                  status: rejected
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Public Key"
+            * "Invalid limit"
+            * "Invalid offset"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_public_key
+                  value: FIO123
+                  error: Invalid FIO Public Key
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '404':
+          description: |-
+            Possible error messages:
+            * "No received FIO Requests"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: No received FIO Requests
+      summary: Get received Requests
+      description: >-
+        Returns all FIO Requests that have been received by the provided FIO public key.
+      operationId: get_received_fio_requests
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_public_key:
+                type: string
+                title: FIO Public Key
+                description: Valid WIF Public Key with FIO Prefix
+                example: FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj
+              limit:
+                type: integer
+                description: >-
+                  Number of requests to return. If omitted, all requests will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First request from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+            required:
+              - fio_public_key
+      tags:
+        - Getters
   /get_pending_fio_requests:
     post:
       responses:
@@ -853,8 +1308,8 @@ paths:
                   type: object
                   properties:
                     fio_request_id:
-                      type: string
-                      description: Id of that funds request.
+                      type: integer
+                      description: ID of the original request.
                     payer_fio_address:
                       type: string
                       description: >-
@@ -936,7 +1391,7 @@ paths:
           examples:
             application/json:
               requests:
-                - fio_request_id: '10'
+                - fio_request_id: 10
                   payer_fio_address: purse@alice
                   payee_fio_address: crypto@bob
                   payer_fio_public_key: FIO7167ErgCveJvuonvrEvVGhdWnkP4AEMfqvEd8s8raMkbbAXqhx
@@ -1044,8 +1499,8 @@ paths:
                   type: object
                   properties:
                     fio_request_id:
-                      type: string
-                      description: Id of that funds request.
+                      type: integer
+                      description: ID of the original request.
                     payer_fio_address:
                       type: string
                       description: >-
@@ -1127,7 +1582,7 @@ paths:
           examples:
             application/json:
               requests:
-                - fio_request_id: '10'
+                - fio_request_id: 10
                   payer_fio_address: purse@alice
                   payee_fio_address: crypto@bob
                   payer_fio_public_key: FIO7167ErgCveJvuonvrEvVGhdWnkP4AEMfqvEd8s8raMkbbAXqhx
@@ -2453,6 +2908,9 @@ paths:
         See [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md) for a comprehensive description of this functionality.
 
 
+        trnsloctoks action data may also be sent to the `/transfer_locked_tokens` action-specific endpoint.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -2646,8 +3104,6 @@ paths:
         The contract action addaddress was modified to accept chain-level public addresses.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
-        Updates to the /add_pub_address, /get_pub_address, and /remove_pub_address API endpoints to support chain-level public
-        addresses will be released in a future FIO chain release.
 
 
         This section defines the object which needs to be created before it's
@@ -2865,8 +3321,6 @@ paths:
         The contract action remaddress was modified to accept chain-level public addresses.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
-        Updates to the /add_pub_address, /get_pub_address, and /remove_pub_address API endpoints to support chain-level public
-        addresses will be released in a future FIO chain release.
 
 
         This section defines the object which needs to be created before it's
@@ -4373,6 +4827,9 @@ paths:
         one or more sets of bundled transactions are added to the existing count.
 
 
+        addbundles can also be called with the `/add_bundled_transactions` action-specific endpoint
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -4580,12 +5037,7 @@ paths:
         See [FIP-1](https://github.com/fioprotocol/fips/blob/master/fip-0001.md) for comprehensive description of this functionality.
 
 
-        Transfer FIO Address released in fio v2.0.0, fio.contracts v2.3.0. For v2.3.0 it is only possible to 
-        transfer a FIO Address that has no associated FIO Request or OBT Record data. 
-        The ability to transfer to any FIO Address will be released in a future contract release.
-
-
-        The transfer_fio_address API endpoint will be released in a future FIO chain release.
+        `xferaddress` action data may also be sent to the `/transfer_fio_address` action-specific endpoint.
 
 
         This section defines the object which needs to be created before it's
@@ -4686,6 +5138,9 @@ paths:
       description: >-
         Permanently burns a FIO Address.
         See [FIP-7](https://github.com/fioprotocol/fips/blob/master/fip-0007.md) for comprehensive description of this functionality.
+
+
+        burnaddress action data may also be sent to the `/burn_fio_address` action-specific endpoint.
 
 
         This section defines the object which needs to be created before it's
@@ -5443,13 +5898,14 @@ paths:
         This call submits votes on block producers.
 
 
+        voteproducer action data may also be sent to the `/vote_producer` action-specific endpoint.
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
         `processed->action_traces->receipt->response` string.
 
-
-        voteproducer action data may also be sent to the `/vote_producer` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -5487,6 +5943,7 @@ paths:
               fio_address:
                 type: string
                 title: FIO Address
+                description: (FIO Address field can be an empty string.)
                 minLength: 3
                 maxLength: 64
                 pattern: >-
@@ -5632,6 +6089,7 @@ paths:
               fio_address:
                 type: string
                 title: FIO Address
+                description: (FIO Address field can be an empty string.)
                 minLength: 3
                 maxLength: 64
                 pattern: >-
@@ -6290,7 +6748,7 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set fee ratios
       description: >-
-        This call is only allowed to be made by active BPs and is designed to submit fee ratios. It has no fee.
+        This call is only allowed to be made by the top 150 BPs and is designed to submit fee ratios. 
 
 
         This section defines the object which needs to be created before it's
@@ -6458,7 +6916,7 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set fee multiplier
       description: >-
-        This call is only allowed to be made by active BPs and is designed to submit fee multiplier. It has no fee.
+        This call is only allowed to be made by the top 150 BPs and is designed to submit fee multiplier.
 
 
         This section defines the object which needs to be created before it's
@@ -6559,6 +7017,9 @@ paths:
         Computes and sets fees in the FIO Protocol. It has no fee.
 
 
+        computefees can also be called with the `/compute_fees` action-specific endpoint
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
@@ -6654,8 +7115,8 @@ paths:
               message: Request signature not valid or not allowed.
       summary: Set bundled transaction count
       description: >-
-        This call is only allowed to be made by active BPs and is designed to submit bundled transaction amount
-        which should be allocated to new FIO Address registrations. It has no fee.
+        This call is only allowed to be made by the top 150 BPs and is designed to submit bundled transaction amount
+        which should be allocated to new FIO Address registrations.
 
 
         This section defines the object which needs to be created before it's
