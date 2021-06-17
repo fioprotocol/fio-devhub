@@ -3,6 +3,10 @@ title: Kotlin SDK
 description: Kotlin SDK
 redirect_from:
     - /docs/sdk-kotlin
+
+
+redirect_from:
+    - /docs/exchanges/exchange-token-deposit
 ---
 
 # Kotlin SDK
