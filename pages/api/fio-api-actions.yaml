@@ -8659,7 +8659,7 @@ paths:
   packed_transaction:
     options:
       description: >-
-            A packed transaction is a compressed and signed [transaction](http://127.0.0.1:4000/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint
+            A packed transaction is a compressed and signed [transaction](/pages/api/fio-api/#options-transaction). Packed transactions minimize space footprint
             and block size in the long run. A packed transaction forms the most generic type of transaction in the FIO blockchain.
       summary: Packed transaction schema
       operationId:

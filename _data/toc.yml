@@ -84,8 +84,10 @@
           url: "docs/how-to/mapping"
         - title: Receive to a FIO Address
           url: "docs/how-to/fio-receive"
-        - title: Create Requests & Record Data
+        - title: Use FIO Requests
           url: "docs/how-to/fio-request"
+        - title: Record and Retrieve FIO Data
+          url: "docs/how-to/fio-data"
         - title: Encrypt Data
           url: "docs/how-to/encryption"
         - title: Generate Actor from Pub Key
@@ -100,6 +102,8 @@
           url: "docs/how-to/governance"
         - title: Get Account Balance and Txn History
           url: "docs/how-to/txn-history"
+        - title: Pre-compute transaction ID
+          url: "docs/how-to/txn-id"
 - title: FIO Chain
   url: "docs/chain"
   links:
@@ -148,6 +152,8 @@
 - title: Developers Guide
   url: "docs/developers"
   links:
+    - title: Versioning
+      url: "docs/developers/versioning"
     - title: Git Branching & Release
       url: "docs/developers/git"
     - title: Adding New FIO Contracts

@@ -17,7 +17,7 @@ The easiest way to facilitate a FIO Address registration is to redirect the user
 
 ### FIO Private/Public Key
 
-You will require a FIO Private/Public key pair to be generated and stored inside the wallet. See Private/Public Keys for more information including testing examples.
+You will require a FIO Private/Public key pair to be generated and stored inside the wallet. See [Private/Public Keys]({{site.baseurl}}/docs/fio-protocol/keys) for more information including testing examples.
 
 ### Fetching user’s FIO Addresses
 

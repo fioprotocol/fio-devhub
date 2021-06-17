@@ -6,7 +6,7 @@ description: Exchange Integration Guide
 
 The following is a step-by-step walkthrough of the integration process for exchanges. It begins by reviewing FIO Protocol and the tools and websites that are available to support integration. Next, it summarizes how to set up a test environment and reviews the different categories of features that are available for integration. Lastly, it outlines the requirements for QA and acceptance testing.
 
-![Image]({{ site.baseurl }}/assets/img/integration/integration-process.png)
+![Image]({{ site.baseurl }}/assets/img/integration/integration-process-ex.png)
 
 ---
 ## Phase 1: Get familiar with FIO Protocol
@@ -35,7 +35,7 @@ Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#
 ---
 ## Phase 3: Integrate FIO
 
-There are two main integration activities for exchanges. The first step is to list the FIO token on your exchange. The next step is to enable deposits and withdrawals of crypto using FIO Addresses for your users on your custom `@myexchange` domain.
+There are two main integration activities for exchanges. The first step is to [list the FIO token]({{site.baseurl}}/docs/exchanges/token-listing) on your exchange. The next step is to enable deposits and withdrawals of crypto using [FIO Addresses]({{site.baseurl}}/docs/fio-protocol/fio-address) for your users on your custom `@myexchange` domain.
 
 |Integration |Summary	|
 |---|---|
@@ -55,7 +55,7 @@ Once you have completed your initial integration you should perform internal tes
 
 We’ve created a [list of test cases]({{site.baseurl}}/docs/exchanges/guide-certification) that should be completed prior to moving to production.
 
-When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
+When you’ve successfully tested all of the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 
 ---
 ## Join the FIO community!
