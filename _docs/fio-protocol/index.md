@@ -42,7 +42,7 @@ A [FIO Request]({{site.baseurl}}/docs/how-to/fio-request) is a transaction in wh
 
 #### FIO Data
 
-In addition, the payer places a [metadata about the native blockchain transaction]({{site.baseurl}}/docs/how-to/fio-request)  (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
+In addition, the payer places a [metadata about the native blockchain transaction]({{site.baseurl}}/docs/how-to/fio-data)  (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
 
 ## Resources
 

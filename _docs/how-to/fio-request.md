@@ -7,7 +7,21 @@ redirect_from:
 
 # FIO Requests
 
-## FIO Request and FIO Data
+A FIO Request is a transaction in which a payee is requesting funds from a payer using FIO Addresses.  The details of FIO Requests are private and only readable by the counter parties to the transaction.  
+
+This request is stored on-chain, and all sensitive metadata is encrypted (currency, amount, public address of payee, FIO Data, etc.) using the Diffie-Hellman key method, which utilizes a shared secret from the payee private key and payer public key. This encryption is always enabled for all FIO Requests.
+
+The payer's wallet or application polls the FIO Chain for relevant requests, and when found, decrypts the request inside their wallet (at which point a wallet can choose to implement a notification mechanism or FIO Request UI). This information and then used to pre-populate the send screen of the relevant blockchain whose token/coin is being requested.
+
+The payer has a choice whether to approve or reject the request. If rejected, there is a status update made on FIO Chain, which removes the request from being shown. 
+
+**FIO Requests are included as part of the bundled transaction with registering/renewing a FIO Address.**
+
+FIO Request is a perfect mechanism for recurring payments, where a merchant can trigger a request anytime a payment is due. This request will show up in user’s wallet for approval.
+
+In order to enable FIO Protocol on an e-commerce site, the merchant will need to simply collect the FIO Address from the customer on the site and initiate a FIO Request to that address for the required amount of cryptocurrency at checkout. The process of recognizing the payment would remain unchanged.
+
+## FIO Requests and FIO Data
 
 One of the key features of FIO Protocol is the ability to request crypto using FIO Request. The user requesting funds (Payee) can send a FIO Request to a user who is asked to pay (Payer), by only using the Payer’s FIO Address.
 
@@ -23,36 +37,25 @@ To request funds, Payee’s wallet should submit a new FIO Request using [/new_f
 
 ### Fetching pending FIO Requests
 
-The Payer’s wallet can fetch all new and pending FIO Requests using /get_pending_fio_requests API method.
+The Payer’s wallet can fetch all new and pending FIO Requests using [/get_pending_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_pending_fio_requests) API method.
+
+### Fetching received FIO Requests
+
+The Payer’s wallet can fetch all FIO Requests that have been received by the provided FIO public key using [/get_received_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_received_fio_requests) API method.
 
 ### Rejecting a FIO Request
 
-The Payer’s wallet can reject a FIO Request, which will remove it from the pending list, using /reject_funds_request API Method.
+The Payer’s wallet can reject a FIO Request, which will remove it from the pending list, using [/reject_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-rejectfndreq) API Method.
 
 ### Fetching sent FIO Requests
 
-The Payee’s wallet can fetch all sent FIO Requests and its current status using /get_sent_fio_requests API method.
+The Payee’s wallet can fetch all sent FIO Requests and its current status using [/get_sent_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_sent_fio_requests) API method.
 
 ### Recording FIO Data
 
 Anytime crypto is sent using FIO Address, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
 
-FIO Data, can be recorded using [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) API method.
-
-Although [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) has to be sent any time user is sending crypto currency in response to a FIO Request, it is optional when user sends crypto using FIO Address.
-
-It is **strongly encouraged** that [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) is sent at least when the user populates the memo field, as it allows for transaction Memo to be reliably send across different wallets.
-
-When sending FIO tokens using FIO Address **you must submit [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) following [transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) to ensure FIO Addresses are attached to the transaction**. Some wallets and exchanges may be relying on this information to properly account the FIO tokens, e.g. exchange deposit.
-
-### Retrieving FIO Data
-
-OBT data can be retrieved using [/get_obt_data]({{site.baseurl}}/pages/api/fio-api/#post-/get_obt_data)
-
-This call will return all metadata relevant to the provided FIO Public key, including:
-
-* Outbound data. Payer’s FIO Address is owned by provided FIO Public key
-* Inbound data. Payee’s FIO Address is owned by provided FIO Public key
+See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/how-to/fio-data) for more information on using FIO data.
 
 ### Example flow
 

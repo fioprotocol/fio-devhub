@@ -1,6 +1,8 @@
 ---
 title: Wallet Integration Guide
 description: Wallet Integration Guide
+redirect_from:
+    - /docs/wallets
 ---
 
 # Wallet Integration Guide

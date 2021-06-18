@@ -2,6 +2,8 @@
 title: Example - Review Pending FIO Requests
 description: Example - Review Pending FIO Requests
 layout: page-sdk
+redirect_from:
+    - /docs/sdk-typescript/review-pending-fio-requests-example
 ---
 
 # Example - Review Pending FIO Requests

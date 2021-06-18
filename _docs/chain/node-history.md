@@ -9,7 +9,7 @@ Refer to [Building a node]({{site.baseurl}}/docs/chain/node-build) for informati
 
 ## History API
 
-### Get transaction
+##### Get transaction
 ```
 curl -s -XPOST https://testnet.fio.dev/v1/history/get_transaction -d '{
   "id": "7a467640c8db74e578da6f4a8ea03343aa7a73e770665564292eef548fda8b87"
@@ -20,7 +20,7 @@ curl -s -XPOST https://testnet.fio.dev/v1/history/get_transaction -d '{
 
 curl -s -XPOST https://testnet.fio.dev/v1/history/get_block_txids -d '{"block_num": 123}'
 
-### Get transactions by account
+#### Get transactions by account
 
 This provides action traces, not just transaction history which has several implications:
 
@@ -53,12 +53,12 @@ curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
 }'
 ```
 
-### API endpoints
+#### API endpoints
 
 * Testnet History API Node: `http://testnet.fioprotocol.io/v1/history/`
 * Mainnet History API Nodes: See [Github](https://github.com/fioprotocol/fio.mainnet#history-v1){:target="_blank"}
 
-### Additional Resources
+#### Additional Resources
 
 * [Account balances and history]({{site.baseurl}}/docs/how-to/txn-history)
 
