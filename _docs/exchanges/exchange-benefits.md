@@ -6,16 +6,16 @@ description: Benefits & Incentives
 # Benefits & Incentives for Exchanges
 
 ---
+### FIO Token Incentive to Exchange for Integration of FIO
+
+Upon integration of the FIO Protocol, as a user option on their deposit/withdrawal/request pages, the Foundation will provide your exchange FIO Tokens of a mutually agreed upon amount. These tokens will be placed on a lock schedule that unwinds over time and the integration must occur before a mutually agreed upon deadline.
+
+---
 ### How Can Exchanges Use and Benefit from the FIO Protocol?
 
 How much time and money does your exchange spend with users on crypto deposit/withdrawal errors and support? Integrating the FIO Protocol gives your users friendly interwallet operability, making deposits, withdrawals and requests as easy as Venmo and near error-free. What’s more, the FIO Protocol is a Delegated Proof of Stake blockchain so FIO Tokens on your exchange can be used to vote towards block production and potentially participate in the associated token income.
 
 *Generous Bounty Rewards + Listing + Users + Retention + Marketing + PR + Giveaways + More*
-
----
-### Token Listing
-
-The Foundation for Interwallet Operability (FIO) will facilitate listing of the FIO Token on reputable exchanges. The Foundation generally will not pay listing fees, however, there are a number of additional economic benefits to your exchange, such as immediate cost savings on deposit/withdrawal customer support, generous user bounty upside, increased marketing and demand-driving activity and possible PR.
 
 ---
 ### Marketing of Listing
@@ -47,9 +47,9 @@ If your exchange chooses to maintain its FIO Token bounty, these tokens can be u
 As a Delegated Proof of Stake blockchain, the FIO Protocol enables your exchange to participate in the economics and governance of block production either individually or by teaming up with other companies. Centralized exchanges will obtain FIO Tokens through the various elements described on this page and may also choose to vote with the tokens held on their exchange.  
 
 ---
-### FIO Token Incentive to Exchange for Integration of FIO
+### Token Listing
 
-Upon integration of the FIO Protocol, as a user option on their deposit/withdrawal/request pages, the Foundation will provide your exchange FIO Tokens of a mutually agreed upon amount. These tokens will be placed on a lock schedule that unwinds over time and the integration must occur before a mutually agreed upon deadline.
+The Foundation for Interwallet Operability (FIO) will facilitate listing of the FIO Token on reputable exchanges. The Foundation generally will not pay listing fees, however, there are a number of additional economic benefits to your exchange, such as immediate cost savings on deposit/withdrawal customer support, generous user bounty upside, increased marketing and demand-driving activity and possible PR.
 
 ---
 ### This is Your Protocol!
