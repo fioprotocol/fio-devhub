@@ -134,8 +134,10 @@
       url: "docs/chain/testnet"
     - title: Mainnet
       url: "docs/chain/mainnet"
-    - title: CLIO and fio-wallet (keosd)
+    - title: CLIO
       url: "docs/chain/clio"
+    - title: fio-wallet (keosd)
+      url: "docs/chain/fio-wallet"
     - title: Vulnerability Disclosure Policy
       url: "docs/chain/disclosure"
 - title: Block Producers

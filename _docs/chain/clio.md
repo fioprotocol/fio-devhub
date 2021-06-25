@@ -3,24 +3,7 @@ title: clio and fio-wallet (keosd)
 description: clio and fio-wallet (keosd)
 ---
 
-# clio and fio-wallet (keosd)
-
-## fio-wallet
-
-The EOSIO keosd wallet was renamed to fio-wallet to make it easier for Block Producers to run both EOSIO and FIO commands in the same environment.
-
-## Handling large numbers of FIO keys in fio wallet
-
-If you are using the default settings for fio-wallet, you may encounter errors when attempting to sign a transaction with wallets containing larger numbers of keys (30,000+ keys). The failure is caused because requests to the `nodeos` API are exceeding the maximum payload size allowed for incoming requests.
-
-To prevent this failure, add the following to `/etc/fio/nodeos/config.ini` when using a large number of keys in the wallet:
-
-```
-max-body-size=10485760
-http-max-bytes-in-flight-mb=5000
-```
-
-## clio
+# clio
 
 clio is the command line interface for FIO.
 
@@ -30,23 +13,33 @@ clio is the command line interface for FIO.
 
 **Create a wallet**
 
-`clio wallet create -n PICK_WALLET_NAME --to-console`
+```shell
+clio wallet create -n PICK_WALLET_NAME --to-console`
+```
 
 **Generate private/public keys**
 
-`clio create key --to-console`
+```shell
+clio create key --to-console`
+```
 
 **Import private key into wallet**
 
-`clio wallet import --private-key YOUR_PRIVATE_KEY -n PICK_WALLET_NAME`
+```shell
+clio wallet import --private-key YOUR_PRIVATE_KEY -n PICK_WALLET_NAME`
+```
 
 **Remove key from wallet**
 
-`clio wallet remove_key YOUR_PUBLIC_KEY -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
+```shell
+clio wallet remove_key YOUR_PUBLIC_KEY -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
+```
 
 **Unlock wallet**
 
-`clio wallet unlock -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
+```shell
+clio wallet unlock -n PICK_WALLET_NAME --password YOUR_WALLET_PASSWORD`
+```
 
 #### Msig
 
@@ -94,7 +87,7 @@ Where:
 #### Registering FIO Address
 
 For full description of fields see [/register_fio_address]({{site.baseurl}}/pages/api/fio-api/#options-regaddress)
-```
+```shell
 clio -u https://API_NODE_URL push action fio.address regaddress '{"fio_address": "YOUR_ADDRESS", "owner_fio_public_key": "", "max_fee": 40000000000, "tpid": "", "actor": "ACCOUNT_OF_SIGNER"
 }' -p ACCOUNT_OF_SIGNER@active
 ```
@@ -102,7 +95,7 @@ clio -u https://API_NODE_URL push action fio.address regaddress '{"fio_address":
 #### Setting domain public
 
 For full description of fields see /set_fio_domain_public
-```
+```shell
 clio -u https://API_NODE_URL push action fio.address setdomainpub '{"fio_domain": "YOUR_DOMAIN", "is_public": 1, "max_fee": 2000000000, "tpid": "", "actor": "ACCOUNT_OF_DOMAIN_OWNER"
 }' -p ACCOUNT_OF_DOMAIN_OWNER@active
 ```
@@ -110,7 +103,7 @@ clio -u https://API_NODE_URL push action fio.address setdomainpub '{"fio_domain"
 #### Transferring tokens
 
 For full description of fields see [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky)
-```
+```shell
 clio -u https://API_NODE_URL push action fio.token trnsfiopubky '{"payee_public_key": "RECIPIENT_FIO_PUBLIC_KEY", "amount": 1000000000, "max_fee": 2000000000, "tpid": "", "actor": "ACCOUNT_OF_PAYER"
 }' -p ACCOUNT_OF_PAYER@active
 ```
