@@ -9,7 +9,7 @@ description: Enabling fio-wallet
 
 Most users won't need to run the fio-wallet wallet, which can set to run as a system-controlled daemon running under apparmor confinement, or as a dynamically launched daemon for each user when using the `clio wallet` commands.
 
-To enable keosd daemon at boot time, running under the `fio` account, and then start the daemon:
+To enable `fio-wallet` daemon at boot time, running under the `fio` account, and then start the daemon:
 
 ```shell
 sudo systemctl enable fio-wallet
@@ -26,4 +26,6 @@ http-max-bytes-in-flight-mb=5000
 ```
 
 When dynamically launched via clio commands the wallet will default to `$HOME/fio-wallet`
+
+For more information refer to the [fio-wallet overview]({{site.baseurl}}/docs/chain/fio-wallet).
 
