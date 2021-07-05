@@ -5,14 +5,15 @@ description: Top FIO Token Holders
 
 # Top FIO Token Holders
 
+Sort by clicking on the header. 
+
+*Unlocked values do not account for FIO fees paid from locked accounts.
 
 <div id="here_table"> 
 </div>
 
-
-
 <script>
-  var totalBalance, unlockedBalance, lockAmount, type, unlockFraction, votableTokensFraction;
+  var totalBalance, unlockedBalance, lockAmount, type, type2inhibit, unlockFraction, votableTokensFraction;
 
   function datediff(first, second) {
     // Take the difference between the dates and divide by milliseconds per day.
@@ -21,17 +22,17 @@ description: Top FIO Token Holders
   }
 
   var date = new Date();
-  console.log('date: ', date)
+  //console.log('date: ', date)
   var dt = date.getTime();  // Current date in milliseconds since 1970
-  console.log('dt: ', dt)
+  //console.log('dt: ', dt)
 
   var dateGenesis = new Date( "March 30, 2020 12:09:00" );
-  console.log('dateGenesis: ', dateGenesis)
+  //console.log('dateGenesis: ', dateGenesis)
   var dt2 = dateGenesis.getTime();  // Date of Genesis block in milliseconds since 1970
-  console.log('dt2: ', dt2)
+  //console.log('dt2: ', dt2)
 
   var daysSinceGenesis = datediff(dt2, dt)
-  console.log("daysSinceGenesis: ", daysSinceGenesis);
+  //console.log("daysSinceGenesis: ", daysSinceGenesis);
 
   if (daysSinceGenesis<90) {
     unlockFraction = 0
@@ -48,13 +49,16 @@ description: Top FIO Token Holders
   } else {unlockFraction = 1}
 
   $.getJSON("token-locked.txt", function (data) {
-    //console.log('lockAmount: ', data["lxrxjuf3su1c"])
     lockAmount = data;
   });
 
   $.getJSON("token-type.txt", function (data) {
-    //console.log('lockAmount: ', data["lxrxjuf3su1c"])
     type = data;
+  });
+
+  // Lock type 2 inhibit flag
+  $.getJSON("token-lock2.txt", function (data) {
+    type2inhibit = data;
   });
 
   function sort_acct() {
@@ -145,7 +149,7 @@ description: Top FIO Token Holders
 
   $('#here_table').append('<table class="table" id="mytable" align="center"></table>');
   var table = $('#here_table').children();
-  table.append( '<tr><th onclick="sort_acct();">Account</th><th onclick="sort_total();">Total FIO Balance</th><th onclick="sort_unlocked();">Unlocked</th><th onclick="sort_votable();">Votable</th><th>(Initial Locked)</th><th>(Locked)</th><th>(Type)</th></tr>' );
+  table.append( '<tr><th onclick="sort_acct();">Account</th><th onclick="sort_total();">Total FIO Balance</th><th onclick="sort_unlocked();">Unlocked*</th><th onclick="sort_votable();">Votable</th><th>(Initial Locked)</th><th>(Locked)</th><th>(Type)</th></tr>' );
 
   table.append('<tbody id="table1">');
   
@@ -154,6 +158,7 @@ description: Top FIO Token Holders
       totalBalance = parseFloat(Math.trunc(entry[1]));
       initialLock = parseFloat(Math.trunc(lockAmount[entry[0]])) || 0;      
       acctType = type[entry[0]] || "";
+      inhibit = type2inhibit[entry[0]] || "";
 
       if (acctType == 1) {
         remainingLocked = (1-unlockFraction) * initialLock;
@@ -166,6 +171,15 @@ description: Top FIO Token Holders
         }
       } else if (acctType == 2) {
         // partner locks
+        if (inhibit == 1) { // Account is permanently locked
+          remainingLocked = initialLock;
+          unlockedBalance = 0;
+          votableTokens = 0;
+        } else {
+          remainingLocked = (1-unlockFraction) * initialLock;
+          unlockedBalance = totalBalance - remainingLocked;
+          votableTokens = totalBalance;
+        }
       } else if (acctType == 3) {
         remainingLocked = (1-unlockFraction) * initialLock;
         unlockedBalance = totalBalance - remainingLocked;
@@ -185,6 +199,9 @@ description: Top FIO Token Holders
         unlockedBalance = totalBalance;
         votableTokens = totalBalance;
       }
+
+      // Looks like remainingLocked can become less than totalBalance in some cases. This adjusts for negative unlockedBalance
+      unlockedBalance = unlockedBalance < 0 ? 0 : unlockedBalance;
 
       table.append( '<tr><td>' + entry[0] + '</td><td> ' + Math.trunc(totalBalance) + '</td><td> ' + Math.trunc(unlockedBalance) + '</td><td> ' + Math.trunc(votableTokens)  + '</td><td> ' + Math.trunc(initialLock) + '</td><td> ' + Math.trunc(remainingLocked) + '</td><td> ' + acctType + '</td></tr>' );  
     })

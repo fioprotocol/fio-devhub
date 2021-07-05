@@ -1,0 +1,23 @@
+{
+"2mskjvkhj334": 1,
+"4urqjmtfvmjj": 1,
+"c5aeqmc1trd2": 0,
+"cije3n1mr4mc": 0,
+"deq54dxuyquh": 1,
+"dioxleem5hmr": 1,
+"ekn2m2p5lyvl": 0,
+"fjocyyyafvuz": 0,
+"hjvwdy5p4zvs": 1,
+"iud1tjwtt2ey": 1,
+"jsniuyaaeblr": 1,
+"mck32myftiau": 1,
+"nadppzyxtxjx": 1,
+"oadme4v54cly": 1,
+"sgqfpnfkjx1g": 0,
+"utpgt53qtsws": 0,
+"wdfiuqgu2bsr": 0,
+"xgyg22tfizja": 1,
+"xkezj1ocwe4r": 1,
+"ya1jw3alpjr2": 0,
+"zvt11xu5czlk": 1
+}
