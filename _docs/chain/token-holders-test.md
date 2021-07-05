@@ -3,17 +3,45 @@ title: Top FIO Token Holders
 description: Top FIO Token Holders
 ---
 
-# Top FIO Token Holders
+# FIO Token Supply and Distribution
 
-Sort by clicking on the header. 
+## FIO Token Supply
+
+<div id="supply_table"> </div>
+
+## Top FIO Token Holders
+
+*(Sort by clicking on the header.)*
+
+<div id="holders_table"> 
+</div>
 
 *Unlocked values do not account for FIO fees paid from locked accounts.
 
-<div id="here_table"> 
-</div>
-
 <script>
-  var totalBalance, unlockedBalance, lockAmount, type, type2inhibit, unlockFraction, votableTokensFraction;
+
+  var totalSupply, totalCirc, totalLocked, totalBalance, unlockedBalance, lockAmount, type, type2inhibit, unlockFraction, votableTokensFraction;
+
+  $('#supply_table').append('<table class="table"></table>');
+  var supplyTable = $('#supply_table').children();
+  supplyTable.append('<tr><th>Statistic</th><th>Description</th><th>Value</th></th></tr>' );
+
+  $.get("https://fioprotocol.io/supply", function(data, status){
+    totalSupply = Math.trunc(data).toLocaleString();
+    supplyTable.append('<tr><td>Total supply</td><td>All tokens that were ever minted. Maximum token supply is capped at 1,000,000,000 FIO.</td><td> ' + totalSupply + '</td></tr>');  
+  })
+  .then(function() {
+    return $.get("https://fioprotocol.io/circulating", function(data, status){
+      totalCirc = Math.trunc(data).toLocaleString();
+      supplyTable.append('<tr><td>Circulating supply</td><td>Total supply less locked tokens.</td><td> ' + totalCirc + '</td></tr>');
+    });
+  })
+  .then(function() {
+    return $.get("https://fioprotocol.io/locked", function(data, status){
+      totalLocked = Math.trunc(data).toLocaleString();
+      supplyTable.append('<tr><td>Locked tokens</td><td>Tokens which are locked and cannot be transferred.</td><td> ' + totalLocked + '</td></tr>');
+    });
+  });
 
   function datediff(first, second) {
     // Take the difference between the dates and divide by milliseconds per day.
@@ -46,7 +74,7 @@ Sort by clicking on the header.
     unlockFraction = .624
   } else if (daysSinceGenesis<990) {
     unlockFraction = .812
-  } else {unlockFraction = 1}
+  } else {unlockFraction = 1};
 
   $.getJSON("token-locked.txt", function (data) {
     lockAmount = data;
@@ -147,8 +175,8 @@ Sort by clicking on the header.
     }
   }
 
-  $('#here_table').append('<table class="table" id="mytable" align="center"></table>');
-  var table = $('#here_table').children();
+  $('#holders_table').append('<table class="table" id="mytable" align="center"></table>');
+  var table = $('#holders_table').children();
   table.append( '<tr><th onclick="sort_acct();">Account</th><th onclick="sort_total();">Total FIO Balance</th><th onclick="sort_unlocked();">Unlocked*</th><th onclick="sort_votable();">Votable</th><th>(Initial Locked)</th><th>(Locked)</th><th>(Type)</th></tr>' );
 
   table.append('<tbody id="table1">');
@@ -203,17 +231,17 @@ Sort by clicking on the header.
       // Looks like remainingLocked can become less than totalBalance in some cases. This adjusts for negative unlockedBalance
       unlockedBalance = unlockedBalance < 0 ? 0 : unlockedBalance;
 
-      table.append( '<tr><td>' + entry[0] + '</td><td> ' + Math.trunc(totalBalance) + '</td><td> ' + Math.trunc(unlockedBalance) + '</td><td> ' + Math.trunc(votableTokens)  + '</td><td> ' + Math.trunc(initialLock) + '</td><td> ' + Math.trunc(remainingLocked) + '</td><td> ' + acctType + '</td></tr>' );  
+      table.append( '<tr><td>' + entry[0].toLocaleString() + '</td><td> ' + Math.trunc(totalBalance).toLocaleString() + '</td><td> ' + Math.trunc(unlockedBalance).toLocaleString() + '</td><td> ' + Math.trunc(votableTokens).toLocaleString()  + '</td><td> ' + Math.trunc(initialLock).toLocaleString() + '</td><td> ' + Math.trunc(remainingLocked).toLocaleString() + '</td><td> ' + acctType + '</td></tr>' );  
     })
     //console.log('lockAmount: ', lockAmount["qwonj3f2bfzh"])
    // console.log('type: ', type["qwonj3f2bfzh"])
   });
 
   table.append('</tbody>');
-  $('#here_table').append('<input type="hidden" id="acct_order" value="desc">');
-  $('#here_table').append('<input type="hidden" id="total_order" value="desc">');
-  $('#here_table').append('<input type="hidden" id="unlocked_order" value="desc">');
-  $('#here_table').append('<input type="hidden" id="votable_order" value="desc">');
+  $('#holders_table').append('<input type="hidden" id="acct_order" value="desc">');
+  $('#holders_table').append('<input type="hidden" id="total_order" value="desc">');
+  $('#holders_table').append('<input type="hidden" id="unlocked_order" value="desc">');
+  $('#holders_table').append('<input type="hidden" id="votable_order" value="desc">');
 
 </script>
 
