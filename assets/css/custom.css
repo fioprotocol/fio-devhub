@@ -50,3 +50,12 @@
     width: 100%;
     top: 0;
 }
+
+#mytable
+{
+ text-align:center;
+}
+#mytable th
+{
+ cursor:pointer;
+}
