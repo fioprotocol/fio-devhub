@@ -22,26 +22,8 @@ description: Top FIO Token Holders
 
   var totalSupply, totalCirc, totalLocked, totalBalance, unlockedBalance, lockAmount, type, type2inhibit, unlockFraction, votableTokensFraction;
 
-  $('#supply_table').append('<table class="table"></table>');
-  var supplyTable = $('#supply_table').children();
-  supplyTable.append('<tr><th>Statistic</th><th>Description</th><th>Value</th></th></tr>' );
 
-  $.get("https://fioprotocol.io/supply", function(data, status){
-    totalSupply = Math.trunc(data).toLocaleString();
-    supplyTable.append('<tr><td>Total supply</td><td>All tokens that were ever minted. Maximum token supply is capped at 1,000,000,000 FIO.</td><td> ' + totalSupply + '</td></tr>');  
-  })
-  .then(function() {
-    return $.get("https://fioprotocol.io/circulating", function(data, status){
-      totalCirc = Math.trunc(data).toLocaleString();
-      supplyTable.append('<tr><td>Circulating supply</td><td>Total supply less locked tokens.</td><td> ' + totalCirc + '</td></tr>');
-    });
-  })
-  .then(function() {
-    return $.get("https://fioprotocol.io/locked", function(data, status){
-      totalLocked = Math.trunc(data).toLocaleString();
-      supplyTable.append('<tr><td>Locked tokens</td><td>Tokens which are locked and cannot be transferred.</td><td> ' + totalLocked + '</td></tr>');
-    });
-  });
+  // Get some initial date and unlock fraction data:
 
   function datediff(first, second) {
     // Take the difference between the dates and divide by milliseconds per day.
@@ -75,6 +57,39 @@ description: Top FIO Token Holders
   } else if (daysSinceGenesis<990) {
     unlockFraction = .812
   } else {unlockFraction = 1};
+
+
+  // Create the supply table:
+
+  $('#supply_table').append('<table class="table"></table>');
+  var supplyTable = $('#supply_table').children();
+  supplyTable.append('<tr><th>Statistic</th><th>Description</th><th>Value</th></th></tr>' );
+
+  $.get("https://fioprotocol.io/supply", function(data, status){
+    totalSupply = Math.trunc(parseFloat(data));
+    supplyTable.append('<tr><td>Total supply</td><td>All tokens that were ever minted. Maximum token supply is capped at 1,000,000,000 FIO.</td><td> ' + totalSupply.toLocaleString() + '</td></tr>');  
+  })
+  .then(function() {
+    return $.get("https://fioprotocol.io/circulating", function(data, status){
+      totalCirc = Math.trunc(parseFloat(data));
+      supplyTable.append('<tr><td>Circulating supply</td><td>Total supply less locked tokens.</td><td> ' + totalCirc.toLocaleString() + '</td></tr>');
+    });
+  })
+  .then(function() {
+    return $.get("https://fioprotocol.io/locked", function(data, status){
+      totalLocked = Math.trunc(parseFloat(data));
+      supplyTable.append('<tr><td>Locked tokens</td><td>Tokens which are locked and cannot be transferred.</td><td> ' + totalLocked.toLocaleString() + '</td></tr>');
+    });
+  })
+  .then(function() {
+    var totalType3 = 50000000;
+    lockedAndVotable = totalType3 * (1-unlockFraction); // Locked Type 3 tokens are votable
+    totalVotable = lockedAndVotable + totalCirc;
+    supplyTable.append('<tr><td>Votable tokens</td><td>Total votable locked and unlocked tokens.</td><td> ' + totalVotable.toLocaleString() + '</td></tr>');
+  })
+
+
+  // Create the locked tokens table:
 
   $.getJSON("token-locked.txt", function (data) {
     lockAmount = data;
@@ -228,13 +243,12 @@ description: Top FIO Token Holders
         votableTokens = totalBalance;
       }
 
-      // Looks like remainingLocked can become less than totalBalance in some cases. This adjusts for negative unlockedBalance
+      // Because locked tokens can be used to pay fees, the remainingLocked can become less than totalBalance in some cases. 
+      // This adjusts for negative unlockedBalance. But, it means Unlocked is not totally accurate...
       unlockedBalance = unlockedBalance < 0 ? 0 : unlockedBalance;
 
       table.append( '<tr><td>' + entry[0].toLocaleString() + '</td><td> ' + Math.trunc(totalBalance).toLocaleString() + '</td><td> ' + Math.trunc(unlockedBalance).toLocaleString() + '</td><td> ' + Math.trunc(votableTokens).toLocaleString()  + '</td><td> ' + Math.trunc(initialLock).toLocaleString() + '</td><td> ' + Math.trunc(remainingLocked).toLocaleString() + '</td><td> ' + acctType + '</td></tr>' );  
     })
-    //console.log('lockAmount: ', lockAmount["qwonj3f2bfzh"])
-   // console.log('type: ', type["qwonj3f2bfzh"])
   });
 
   table.append('</tbody>');
