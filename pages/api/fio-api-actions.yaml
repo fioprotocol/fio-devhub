@@ -3546,7 +3546,7 @@ paths:
 
         * account: `fio.address`
 
-        * name: `remaddremalladdrress`
+        * name: `remalladdr`
       parameters:
         - in: body
           name: body
