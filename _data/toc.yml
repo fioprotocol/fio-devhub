@@ -134,6 +134,11 @@
       url: "docs/chain/clio"
     - title: Vulnerability Disclosure Policy
       url: "docs/chain/disclosure"
+    - title: Analytics
+      url: "docs/chain/analytics"
+      children:
+        - title: Top FIO token holders
+          url: "docs/chain/analytics-token-holders"
 - title: Block Producers
   url: "docs/bp"
   links:

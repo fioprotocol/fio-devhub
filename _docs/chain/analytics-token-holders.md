@@ -133,9 +133,9 @@ description: Top FIO Token Holders
     tbody.find('tr').sort(function(a, b) {
 
       if($('#acct_order').val()=='asc') {
-        return (parseInt($('td', a).eq(1).text()) >= parseInt($('td', b).eq(1).text()) ? 1 : -1);
+        return (parseInt($('td', a).eq(1).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(1).text().replace(/"|\,|\./g, '')) ? 1 : -1);
       } else {
-        return (parseInt($('td', a).eq(1).text()) >= parseInt($('td', b).eq(1).text()) ? -1 : 1);
+        return (parseInt($('td', a).eq(1).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(1).text().replace(/"|\,|\./g, '')) ? -1 : 1);
       }
     }).appendTo(tbody);
       
@@ -154,9 +154,9 @@ description: Top FIO Token Holders
 
     tbody.find('tr').sort(function(a, b) {
       if($('#unlocked_order').val()=='asc') {
-        return (parseInt($('td', a).eq(2).text()) >= parseInt($('td', b).eq(2).text()) ? 1 : -1)
+        return (parseInt($('td', a).eq(2).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(2).text().replace(/"|\,|\./g, '')) ? 1 : -1)
       } else {
-        return (parseInt($('td', a).eq(2).text()) >= parseInt($('td', b).eq(2).text()) ? -1 : 1);
+        return (parseInt($('td', a).eq(2).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(2).text().replace(/"|\,|\./g, '')) ? -1 : 1);
       }
     }).appendTo(tbody);
     
@@ -175,9 +175,9 @@ description: Top FIO Token Holders
 
     tbody.find('tr').sort(function(a, b) {
       if($('#votable_order').val()=='asc') {
-        return (parseInt($('td', a).eq(3).text()) >= parseInt($('td', b).eq(3).text()) ? 1 : -1)
+        return (parseInt($('td', a).eq(3).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(3).text().replace(/"|\,|\./g, '')) ? 1 : -1)
       } else {
-        return (parseInt($('td', a).eq(3).text()) >= parseInt($('td', b).eq(3).text()) ? -1 : 1);
+        return (parseInt($('td', a).eq(3).text().replace(/"|\,|\./g, '')) >= parseInt($('td', b).eq(3).text().replace(/"|\,|\./g, '')) ? -1 : 1);
       }
     }).appendTo(tbody);
     
@@ -192,7 +192,7 @@ description: Top FIO Token Holders
 
   $('#holders_table').append('<table class="table" id="mytable" align="center"></table>');
   var table = $('#holders_table').children();
-  table.append( '<tr><th onclick="sort_acct();">Account</th><th onclick="sort_total();">Total FIO Balance</th><th onclick="sort_unlocked();">Unlocked*</th><th onclick="sort_votable();">Votable</th><th>(Initial Locked)</th><th>(Locked)</th><th>(Type)</th></tr>' );
+  table.append( '<tr><th onclick="sort_acct();">Account</th><th onclick="sort_total();">Total FIO Balance</th><th onclick="sort_unlocked();">Unlocked*</th><th onclick="sort_votable();">Votable</th></tr>' );
 
   table.append('<tbody id="table1">');
   
@@ -247,7 +247,7 @@ description: Top FIO Token Holders
       // This adjusts for negative unlockedBalance. But, it means Unlocked is not totally accurate...
       unlockedBalance = unlockedBalance < 0 ? 0 : unlockedBalance;
 
-      table.append( '<tr><td><a href="https://fio.bloks.io/account/' + entry[0].toLocaleString()  + '" target="_blank">' + entry[0].toLocaleString() + '</a></td><td> ' + Math.trunc(totalBalance).toLocaleString() + '</td><td> ' + Math.trunc(unlockedBalance).toLocaleString() + '</td><td> ' + Math.trunc(votableTokens).toLocaleString()  + '</td><td> ' + Math.trunc(initialLock).toLocaleString() + '</td><td> ' + Math.trunc(remainingLocked).toLocaleString() + '</td><td> ' + acctType + '</td></tr>' );  
+      table.append( '<tr><td><a href="https://fio.bloks.io/account/' + entry[0].toLocaleString()  + '" target="_blank">' + entry[0].toLocaleString() + '</a></td><td> ' + Math.trunc(totalBalance).toLocaleString() + '</td><td> ' + Math.trunc(unlockedBalance).toLocaleString() + '</td><td> ' + Math.trunc(votableTokens).toLocaleString()  + '</td></tr>' );  
     })
   });
 
