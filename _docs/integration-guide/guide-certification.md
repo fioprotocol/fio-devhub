@@ -19,6 +19,16 @@ The following lists the items that should be tested to confirm support for diffe
 -  User can register a FIO address using other crypto
 -  User can register additional FIO Addresses
 -  User can renew their existing FIO Addresses
+-  User can purchase additional bundled transactions for their FIO Addresses
+-  User can transfer their FIO Addresses
+
+**FIO Domains**
+
+- User can register their own custom FIO Domain
+- User can set their domain as public or private
+- User can register a FIO address on their own custom FIO domain
+- User can renew their existing FIO Domains
+- User can transfer their FIO Domains
 
 **FIO Send**
 
