@@ -40,10 +40,19 @@ As FIO Chain inherits [EOSIO Permission scheme](https://developers.eos.io/welcom
 * Only one public key can be specified for a single permission, e.g. active cannot have 2 public keys. It can however, have multiple accounts, which may be helpful for setting up a [multisig]({{site.baseurl}}/docs/fio-protocol/multisig).
 * “waits” are not supported.
 
-### Custom permissions impacts
-* Custom permissions are not currently supported by the SDKs. This means that if an account's default permissions are changed and the user imports their private key to a wallet which supports FIO using the SDK, that account may not work correctly as the wallet would not be able to properly sign transactions. This does not mean you should not allow for custom permissions in your application, it means you should consider disclosing portability of the account to your users.
+### Implications
+* Custom permissions are not currently supported by the SDKs. This means that if an account's default permissions are changed and the user imports their private key to a wallet which supports FIO using the SDK, that account may not work correctly on that wallet as it would not be able to properly sign transactions. This does not mean you should not allow for custom permissions in your application, it means you should consider disclosing portability of the account to your users.
 * Many actions (e.g. [trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky), [regaddress]({{site.baseurl}}/pages/api/fio-api/#options-regaddress)) and getters (e.g. [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance), [/get_fio_addresses]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_addresses)) accept FIO Public Key as an input parameter. It is important to understand that the supplied FIO Public Key will always be converted to the default [hashed]({{site.baseurl}}/docs/recipes/actor-account) account and the action or getter will be executed against that account even if the permissions on it have been modified.
 * When a FIO Address is created, the FIO Public Key which [hashes]({{site.baseurl}}/docs/recipes/actor-account) to the account which will own the FIO Address is [automatically mapped to it]({{site.baseurl}}/docs/how-to/mapping#fio-public-key-mapping). This occurs irrespective of the permissions which are set on the account. This ensures that funds sent to the FIO Address will always go to the owner account. The mapped FIO Public Key is also used to [encrypt and decrypt FIO Request and FIO Data]({{site.baseurl}}/docs/how-to/encryption).
 
 ### Custom permission example
 Refer to the [linkauth code example]({{site.baseurl}}/docs/recipes/linkauth) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.
+
+### Compromised private key use case
+If a user's private key is compromised, the cleanest way to handle it would be to transfers all tokens, FIO Addresses and FIO Domains to a new account, i.e. FIO Public Key. However, this may not always be possible (e.g. account has locked tokens) or desirable. An alternative could be to replace the owner/active permissions. This is possible in FIO Chain, provided the implications above. However, the following should also be considered.
+
+If the account owns any FIO Addresses, those, by default, are mapped to the FIO Public Key which maps to the [hashed]({{site.baseurl}}/docs/recipes/actor-account) account. This is not an issue for sending tokens, as they will arrive in the account now protected by new permissions. However, that FIO Public Key and corresponding private key are also used to [encrypt and decrypt FIO Request and FIO Data]({{site.baseurl}}/docs/how-to/encryption). Therefore, anyone with the private key can decrypt the content. The mapped FIO Public Key can be swapped separately from permissions, but this will:
+* Result in funds sent to the FIO Address being sent to the account which hashes from the new key.
+* The wallet would have to keep the compromised private key around to decrypt old content.
+
+A modification to the FIO Chain [has been proposed](https://fioprotocol.atlassian.net/browse/WP-221) to have separate FIO keys for receiving tokens and encrypting/decrypting content.
