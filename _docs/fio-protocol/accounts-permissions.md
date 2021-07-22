@@ -1,8 +1,8 @@
 ---
-title: Accounts, public keys and permissions
-description: Accounts, public keys and permissions
+title: Accounts and permissions
+description: Accounts and permissions
 ---
-# Accounts, public keys and permissions
+# Accounts and permissions
 
 ## FIO Accounts
 FIO Chain inherits [EOSIO Accounts and Permission scheme](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions){:target="_blank"}. However, a number of modifications were made with the goal of making the interaction with the FIO Chain more seamless to the users.
@@ -14,6 +14,7 @@ To achieve this objective on FIO Chain:
 * When an account is created:
   * Its name is set to the hash of the supplied public key using [custom hash function]({{site.baseurl}}/docs/recipes/actor-account).
   * Its _owner_ and _active_ permissions are set to the supplied public key.
+  * The supplied public key is permanently stored in [fio.address->accountmap](https://fio.bloks.io/contract?tab=Tables&account=fio.address&scope=fio.address&limit=100&table=accountmap) table and can be queried to lookup the original FIO Public Key, even if permissions were modified.
 * The account cannot be explicitly created with a custom name to avoid collisions with a hashed public key. _newaccount_ is not a supported action.
 
 The following actions automatically create an account:
@@ -26,18 +27,23 @@ The following actions automatically create an account:
 |fio.address|[xferaddress]({{site.baseurl}}/pages/api/fio-api/#options-xferaddress)|/transfer_fio_address|When transferring a FIO Address to a public key, for which an account has not yet been created.|
 |fio.address|[xferdomain]({{site.baseurl}}/pages/api/fio-api/#options-xferdomain)|/transfer_fio_domain|When transferring a FIO Domain to a public key, for which an account has not yet been created.|
 
-The fees for the above actions reflect the potential of increased resource usage associated with acount creation.
+The fees for the above actions reflect the potential of increased resource usage associated with account creation.
+
+[More information about FIO Public Keys]({{site.baseurl}}/docs/fio-protocol/keys)
 
 ## Permissions
+When a FIO Account is created, the corresponding FIO Public Key is assigned as the owner and active permission. The implicit default permission linked to all actions is *active*, which sits one level below the *owner* permission within the hierarchy structure. The active permission can do anything the owner permission can, except changing the keys associated with the owner. 
 
-When a FIO Account is ceated, the corresponding FIO Public Key is assigned the owner and active permissions. The implicit default permission linked to all actions is *active*, which sits one level below the *owner* permission within the hierarchy structure. The active permission can do anything the owner permission can, except changing the keys associated with the owner. 
+As FIO Chain inherits [EOSIO Permission scheme](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions){:target="_blank"}, permissions in FIO Chain can be modified. However, please consider the following.
 
-FIO Chain inherits [EOSIO Accounts and Permission scheme](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions){:target="_blank"} with some important differences:
+### Limitations
+* Only one public key can be specified for a single permission, e.g. active cannot have 2 public keys. It can however, have multiple accounts, which may be helpful for setting up a [multisig]({{site.baseurl}}/docs/fio-protocol/multisig).
+* “waits” are not supported.
 
-* Only one public key can be specified for any one account
-* “waits” are not supported
-* Custom permissions are not currently supported by the SDKs, so some wallets may not handle accounts with custom permissions.
-* It is important to note that the only way to send tokens is to use [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky)(trnsfiopubky) which will *always send the funds to the account which is a hash of the public key*. This is true even if that key is set as permission on other accounts.
+### Custom permissions impacts
+* Custom permissions are not currently supported by the SDKs. This means that if an account's default permissions are changed and the user imports their private key to a wallet which supports FIO using the SDK, that account may not work correctly as the wallet would not be able to properly sign transactions. This does not mean you should not allow for custom permissions in your application, it means you should consider disclosing portability of the account to your users.
+* Many actions (e.g. [trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky), [regaddress]({{site.baseurl}}/pages/api/fio-api/#options-regaddress)) and getters (e.g. [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance), [/get_fio_addresses]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_addresses)) accept FIO Public Key as an input parameter. It is important to understand that the supplied FIO Public Key will always be converted to the default [hashed]({{site.baseurl}}/docs/recipes/actor-account) account and the action or getter will be executed against that account even if the permissions on it have been modified.
+* When a FIO Address is created, the FIO Public Key which [hashes]({{site.baseurl}}/docs/recipes/actor-account) to the account which will own the FIO Address is [automatically mapped to it]({{site.baseurl}}/docs/how-to/mapping#fio-public-key-mapping). This occurs irrespective of the permissions which are set on the account. This ensures that funds sent to the FIO Address will always go to the owner account. The mapped FIO Public Key is also used to [encrypt and decrypt FIO Request and FIO Data]({{site.baseurl}}/docs/how-to/encryption).
 
-`linkauth` can be used to set custom permissions. Refer to the [linkauth code example]({{ site.baseurl }}/docs/recipes/linkauth) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.
-
+### Custom permission example
+Refer to the [linkauth code example]({{site.baseurl}}/docs/recipes/linkauth) which shows how to create a custom permission that can be used to register a FIO Address on a private FIO Domain.
