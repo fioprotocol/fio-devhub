@@ -18,6 +18,7 @@ To achieve this objective on FIO Chain:
 * The account cannot be explicitly created with a custom name to avoid collisions with a hashed public key. _newaccount_ is not a supported action.
 
 The following actions automatically create an account:
+
 |Contract|Action|Endpoint|Description|
 |---|---|---|---|
 |fio.token|[trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky)|/transfer_tokens_pub_key|When transferring tokens to a public key, for which an account has not yet been created.|
