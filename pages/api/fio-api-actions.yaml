@@ -3176,9 +3176,38 @@ paths:
                         and for list of token code refer to the specific
                         blockchain.
                     public_address:
-                      type: object
+                      type: string
                       title: Native Blockchain Public Address
-                      description: "This is the public address on another blockchain. Both integrated addresses as well as URI Scheme are supported.\n\n**Integrated Address**\nIf the blockchain supports it, an integrated address may be passed in just like standard public address. The FIO protocol does not perform validation on the passed string.\n\n**URI Scheme**\nFIO Protocol will support formatting of public addresses using URI were certain attributes are appended to the public address following a '?' and delimited with '&'. To allow inter-wallet operability, the following standardized parameters will be supported in official FIO Protocol SDKs.\n\n**Parameters**\n* dt - Ripple\n* memo - Any - use as generic memo field\n* memo_id -\tStellar\n* memo_text -\tStellar\n* memo_hash -\tStellar\n* memo_return -\tStellar\n* payment_id - Monero\n"
+                      minLength: 1
+                      maxLength: 128
+                      description: |- 
+                        This is the public address on another blockchain. Both integrated addresses as well as URI Scheme are supported.
+
+
+                        **Integrated Address**
+
+                        If the blockchain supports it, an integrated address may be passed in just like standard public address. 
+                        The FIO protocol does not perform validation on the passed string.
+                        
+
+                        **URI Scheme**
+
+                        FIO Protocol will support formatting of public addresses using URI where certain attributes are appended to the 
+                        public address following a '?' and delimited with '&'. To allow inter-wallet operability, the following standardized 
+                        parameters will be supported in official FIO Protocol SDKs.
+                        
+
+                        **Parameters**
+
+                        * dt - Ripple
+                        * memo - Any - use as generic memo field
+                        * memo_id - Stellar
+                        * memo_text - Stellar
+                        * memo_hash - Stellar
+                        * memo_return - Stellar
+                        * payment_id - Monero
+
+                        See [Mapping Public Addresses](/docs/how-to/mapping)
                   required:
                     - chain_code
                     - token_code
