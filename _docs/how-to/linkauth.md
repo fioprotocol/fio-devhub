@@ -14,6 +14,12 @@ linkauth allows secondary account to execute a specific action on behalf of the 
 ## Add new permission
 
 First start by adding a new permission, let’s call it regaddress, to the account which owns the domain.
+
+{% include alert.html type="warning" title="Setting multiple accounts in updateauth" 
+
+content = "If multiple auth accounts are included (e.g., when creating a multisig account) the entries in the accounts array must be ordered alphabetically by actor name."
+
+%}
 ```
 {
 	"account": "eosio",
@@ -46,6 +52,8 @@ First start by adding a new permission, let’s call it regaddress, to the accou
 
 }
 ```
+
+[Click here to see the full updateauth javascript example.](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/eosio-updateauth.js){:target="_blank"}.
 
 ## Link the new permission
 
