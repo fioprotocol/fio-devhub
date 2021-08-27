@@ -10,7 +10,11 @@ info:
     name: MIT
   description: Registration site is operated by the Foundation and enables FIO Address
     registration with payment in supported crypto currencies.
-host: reg.fio.dev
+servers:
+  - url: https://reg.fio.dev
+    description: Testnet
+  - url: https://reg.fioprotocol.io
+    description: Mainnet
 paths:
   "/buy-address":
     post:
