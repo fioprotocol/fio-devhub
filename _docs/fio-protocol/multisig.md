@@ -15,7 +15,7 @@ This `updateauth` call will replace permissions for the `wh2oxdvbebor` account w
 
 Both the "account" or "owner" permissions will need to be updated. The following code updates the "active" permission.
 
-{% include alert.html type="info" title="Alphabetical Ordering of Accounts"  content="When manually using push_transaction, the updateauth action the actor names must be in alphabetical order inside of the accounts array." %}
+{% include alert.html type="info" title="Alphabetical Ordering of Accounts"  content="When manually calling push_transaction with the updateauth action the actor names must be in alphabetical order inside of the accounts array." %}
 
 ```
 
@@ -81,7 +81,7 @@ An easy way to interact with FIO Protocol is by using the FIO block explorer at 
 
 <br>
 
-**e) Click on the “Wallet” tab, then on “Keys and Permissions”, then on the "Advanced" tab**
+**e) Click on the “Wallet” tab, then on “Keys and Permissions”, then on the "Advanced" tab.**
 
 <br>
 
@@ -93,7 +93,7 @@ An easy way to interact with FIO Protocol is by using the FIO block explorer at 
 
 <br>
 
-**g) Next, remove the permission for the existing key by clicking on the "X" in the keys panel**
+**g) Next, remove the permission for the existing key by clicking on the "X" in the keys panel.**
 
 ![Image]({{ site.baseurl }}/assets/img/msig/keyspanel.png)
 
@@ -117,7 +117,7 @@ Your permissions should look like the following:
 
 <br>
 
-**k) Repeat the process for the owner permission**
+**k) Repeat the process for the owner permission.**
 
 * You will need to leave "Parent" blank
 * Select "owner" for the msig account permissions. 
@@ -132,7 +132,7 @@ Your permissions should look like the following:
 
 ## Step 2: Propose a multisig transaction
 
-This call proposes a multisig transaction for sending FIO tokens:
+This call proposes a "2 out of 3" multisig transaction for sending FIO tokens:
 ```
 
   {
@@ -187,7 +187,9 @@ This call proposes a multisig transaction for sending FIO tokens:
 
 #### Using bloks.io and Anchor wallet to propose a multisig transaction
 
-The following demonstrates how to set up the active and owner permissions using bloks.io.
+The following demonstrates how to use bloks.io and Anchor wallet to propose a "2 out of 3" multisig transaction for sending FIO tokens.
+
+<br>
 
 **a) In bloks.io, select an account that is one of the Active authorized signers of the multisig account and log into Anchor. Make sure that you *change the account to “mulit-sig mode”* by selecting the account on the top right and toggling the radio button to “multi-sig mode”**
 
@@ -197,7 +199,7 @@ The following demonstrates how to set up the active and owner permissions using 
 
 **b) Click on the “Wallet” tab and enter the amount and the FIO Public Key for the account where the funds are to be sent. Then click "Transfer FIO".**
 
-The screen below will appear. Enter the following:**
+The screen below will appear. Enter the following:
 
 * Contract: fio.token
 * Action: trnsfiopubky
@@ -253,13 +255,19 @@ Other information should be filled in automatically.
 
 The following demonstrates how to approve the multisig transaction that was previously created.
 
+<br>
+
 **a) Log into Anchor wallet from bloks.io using the account that will be approving the msig transaction.**
 
 For this example we are connecting to the `qhdo4r2pltdr` active account in our Anchor wallet.
 
 <br>
 
-**b) Click on the "Approve" button in the upper right corner of the proposal and sign the transaction using Anchor.**
+**b) Go to the fiopayment proposal.**
+
+<br>
+
+**c) Click on the "Approve" button in the upper right corner of the proposal and sign the transaction using Anchor.**
 
 You should see a Success message with a link to the transaction:
 
@@ -267,7 +275,7 @@ You should see a Success message with a link to the transaction:
 
 <br>
 
-**c) Repeat the approval process with a second msig account**
+**d) Repeat the approval process with a second msig account**
 
 Once 2 out of 3 accounts have approved the msig, it is ready to execute.
 
@@ -295,30 +303,36 @@ This call executes the transaction of spending funds.
 
 The following demonstrates how to execute the previously approved multisig transaction using block.io and the Anchor wallet.
 
+<br>
+
 **a) Go to bloks.io and connect to your Anchor Wallet.**
 
 For this example, we are connecting using the account `1jynjfoswglg`.
 
 <br>
 
-**b) Click on the "Execute" button in the upper right corner of the msig proposal and sign the transaction using Anchor.**
+**b) Go to the fiopayment proposal.**
+
+<br>
+
+**c) Click on the "Execute" button in the upper right corner of the msig proposal and sign the transaction using Anchor.**
 
 ![Image]({{ site.baseurl }}/assets/img/msig/execute-sign.png)
 
 <br>
 
-**c) You will see a Success message.**
+**d) You will see a Success message.**
 
 ![Image]({{ site.baseurl }}/assets/img/msig/execute-success.png)
 
 <br>
 
-**d) Click on the transaction id to view the transaction.**
+**e) Click on the transaction id to view the transaction.**
 
 ![Image]({{ site.baseurl }}/assets/img/msig/transaction.png)
 
 <br>
 
-**e) Go to the msig account on bloks.io to view the FIO Transfer transaction under the transactions history**
+**f) Go to the msig account on bloks.io to view the FIO Transfer transaction under the transactions history**
 
 ![Image]({{ site.baseurl }}/assets/img/msig/fio-transfer.png)
