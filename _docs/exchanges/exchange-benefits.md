@@ -6,31 +6,26 @@ description: Benefits & Incentives
 # Benefits & Incentives for Exchanges
 
 ---
-### FIO Token Incentive to Exchange for Integration of FIO
-
-Upon integration of the FIO Protocol, as a user option on their deposit/withdrawal/request pages, the Foundation will provide your exchange FIO Tokens of a mutually agreed upon amount. These tokens will be placed on a lock schedule that unwinds over time and the integration must occur before a mutually agreed upon deadline.
-
----
 ### How Can Exchanges Use and Benefit from the FIO Protocol?
 
-How much time and money does your exchange spend with users on crypto deposit/withdrawal errors and support? Integrating the FIO Protocol gives your users friendly interwallet operability, making deposits, withdrawals and requests as easy as Venmo and near error-free. What’s more, the FIO Protocol is a Delegated Proof of Stake blockchain so FIO Tokens on your exchange can be used to vote towards block production and potentially participate in the associated token income.
+* ***Enhanced User Experience & Decreased Support Costs***
+* ***Ability to generate income from FIO integration***
+* ***User Benefits and New User Growth Through FIO Marketing Programs***
+* ***Token Listing***
+* ***Block Production***
+* ***Integraiton Grants***
 
-*Generous Bounty Rewards + Listing + Users + Retention + Marketing + PR + Giveaways + More*
-
----
-### Marketing of Listing
-
-Your exchange will have the opportunity to leverage the marketing, public relations and communications support from the Foundation to conduct a powerful joint marketing campaign and promote your new integration partnership with FIO and the token listing. To make the launch of your new FIO integration capabilities and listing a success, the Foundation will provide a mutually agreed upon FIO Token budget.
-
----
-### FIO Address Giveaway
-
-Your success is our success and the Foundation is prepared to support your exchange and users the very best we can. As part of the listing, the Foundation will fund the giveaway of a large number of FIO Addresses on your exchange’s unique FIO Domain for its users. A FIO Address looks like and consists of the following parts: “username@domain”. For example, “cz@binance”.
+To apply for an Integration Grant and obtain more information [use this brief form](https://docs.google.com/forms/d/e/1FAIpQLScU4efavwLErmJyRb1T_w9CGGLEqip2kVp1JSH-pfV7WDF--A/viewform?usp=sf_link){:rel="nofollow noopener noreferrer" target="_blank"}. 
 
 ---
-### User Incentives
+### Enhanced User Experience & Decreased Support Costs
 
-The sky’s the limit. Exchanges that complete integration and an ability to deposit/withdrawal/request using FIO Addresses currently earn approximately $1 in FIO Tokens for each new FIO Address registered from within the exchange -- including for those given away through the FIO Address Giveaway described above.
+How much time and money does your exchange spend with users on crypto deposit/withdrawal errors and support? Integrating the FIO Protocol gives your users friendly interwallet operability, making deposits, withdrawals and requests as easy as Venmo and near error-free dramatically reducing support tickets
+
+---
+### Income Generation
+
+The sky’s the limit. Exchanges that complete integration and an ability to deposit/withdrawal/request using FIO Addresses currently earn approximately $1 in FIO Tokens for each new FIO Address registered from within the exchange.  This includes for those given away for free through the FIO Address Giveaway described in the marketing section below.
 
 |Number of New FIO Addresses Registered|Approximate Profit Your Exchange Earns|
 |:-:|:-:|
@@ -39,7 +34,17 @@ The sky’s the limit. Exchanges that complete integration and an ability to dep
 |250,000|$250,000|
 |1,000,000|$1,000,000|
 
-If your exchange chooses to maintain its FIO Token bounty, these tokens can be used to add extra voting power in the Delegated Proof of Stake blockchain and potentially participate in the associated token income.
+---
+### Marketing with FIO
+
+The FIO Protocol has extensive following on social media. Your exchange will have the opportunity to leverage the marketing, public relations and communications support from the Foundation to conduct a powerful joint marketing campaign and promote your new integration partnership with FIO. To make the launch of your new FIO integration capabilities and listing a success, the Foundation will provide a mutually agreed upon FIO Token budget.
+
+In addition, the Foundation will enable your exchange to give away up to a mutually agreed upon specified maximum number of free FIO Addresses Addresses on your exchange’s unique FIO Domain for its users. A FIO Address looks like and consists of the following parts: “username@domain” were @domain will be your exchange's proprietary NFT FIO Domain
+
+---
+### Token Listing
+
+The Foundation for Interwallet Operability (FIO) will facilitate listing of the FIO Token on reputable exchanges. The Foundation generally will not pay listing fees, however, there are a number of additional economic benefits to your exchange, such as immediate cost savings on deposit/withdrawal customer support, generous user bounty upside, increased marketing, and demand-driving activity and possible PR.
 
 ---
 ### Block Production
@@ -47,9 +52,11 @@ If your exchange chooses to maintain its FIO Token bounty, these tokens can be u
 As a Delegated Proof of Stake blockchain, the FIO Protocol enables your exchange to participate in the economics and governance of block production either individually or by teaming up with other companies. Centralized exchanges will obtain FIO Tokens through the various elements described on this page and may also choose to vote with the tokens held on their exchange.  
 
 ---
-### Token Listing
+### FIO Integration Grant
 
-The Foundation for Interwallet Operability (FIO) will facilitate listing of the FIO Token on reputable exchanges. The Foundation generally will not pay listing fees, however, there are a number of additional economic benefits to your exchange, such as immediate cost savings on deposit/withdrawal customer support, generous user bounty upside, increased marketing and demand-driving activity and possible PR.
+Integration grants are available to exchanges that meet Foundation established minimum criteria.  Grants range from $10,000 value to $500,000 value depending on the user base of the exchange and in the sole discretion of the Foundation for Interwallet Operability.  In addition, the Foundation will sponsor a certain number of free FIO Addresses for your users and you'll receive approximately $1 in token income directly from the blockchain for each.
+
+To apply for an Integration Grant and obtain more information [use this brief form](https://docs.google.com/forms/d/e/1FAIpQLScU4efavwLErmJyRb1T_w9CGGLEqip2kVp1JSH-pfV7WDF--A/viewform?usp=sf_link){:rel="nofollow noopener noreferrer" target="_blank"}. 
 
 ---
 ### This is Your Protocol!
