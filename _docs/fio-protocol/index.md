@@ -30,7 +30,20 @@ The FIO Protocol, which acts like a layer 2 usability layer for all blockchains,
 The FIO Protocol is a Byzantine Fault Tolerant DPOS blockchain. Data lookups and validations for FIO Address interactions are secured by the FIO Chain. Only the FIO private key holder who owns the FIO Address NFT can map native blockchain addresses to that FIO Address or send encrypted FIO Requests from that FIO Address. This ensures the entire security of the network (currently over $14M worth of FIO tokens are being used to vote in the top block producer) is securing your FIO Address mappings.
 </details>
 
-## FIO Protocol Features
+## What are main goals of the FIO Protocol?
+
+The FIO Protocol reimagines and enables a better way of sending and receiving blockchain-based value, regardless of the wallet, exchange, token or coin used. This is achieved in a manner which is:
+
+* **Human-meaningful:** allows users to initiate transactions using human-readable and memorable identifiers like "john@edgewallet" or "jane@gold"
+* **Decentralized:** powered by a public blockchain that does not require a centralized solution of a trusted third party
+* **Secure:** enables transactions to be exchanged between parties in a secure way. All FIO Protocol transactions require a FIO private key, which is stored in the user’s wallet
+* **Private:** sensitive counter-party information, including public addresses and metadata, can be encrypted on the blockchain
+* **Interoperable:** once integrated into a wallet, the FIO Protocol works with any blockchain and cryptocurrency without any integration to those chains
+* **eCommerce ready:** enables request for payment functionality (i.e. for wallet-to-wallet order cart presentation) along with robust, immutable and private metadata for every transaction and simple refund processes
+
+## What are the Primary Features of the FIO Protocol?
+
+The FIO Protocol currently provides several features, with a robust roadmap of future items that may be added. Currently, the FIO Protocol enables the following:
 
 #### FIO Address
 
