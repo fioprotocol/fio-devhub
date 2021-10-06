@@ -165,6 +165,8 @@
       url: "docs/developers/git"
     - title: Adding New FIO Contracts
       url: "docs/developers/newcontracts"
+    - title: Calculating RAM
+      url: "docs/developers/ram"
     - title: Developer Tools
       url: "docs/developers/tools"
 - title: "Blog"
