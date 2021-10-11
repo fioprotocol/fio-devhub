@@ -27,7 +27,7 @@ One of the key features of FIO Protocol is the ability to request crypto using F
 
 FIO Request data, such as amount, currency, and memo field are encrypted and only readable by Payee and Payer.
 
-NOTE: public address specified in FIO Request does not have to be the same as public_address mapped using [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress).
+{% include alert.html type="info" title="FIO Request does not use mapped addresses"  content="The crypto public address specified in FIO Request does NOT have to be the same as public_address mapped using /add_pub_address" %}
 
 Please read [Encrypting FIO Data]({{site.baseurl}}/docs/how-to/encryption) to better understand how encryption works.
 
