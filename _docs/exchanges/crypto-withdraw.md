@@ -12,7 +12,7 @@ redirect_from:
 As a first step, **Exchanges should register a custom [FIO Domain]({{site.baseurl}}/docs/fio-protocol/fio-address#fio-domains) (e.g., @myexchange)**. Exchange users will then be able to register FIO Addresses on that custom domain (e.g., alice@myexchange).
 
 ---
-## Using a FIO Address
+## Using a FIO Address (FIO Send)
 
 To enable withdrawals using a FIO Address, an exchange would would first ask for the FIO Address of the user receiving the funds. Next, the corresponding public address for that chain is looked-up using [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) and the transfer is executed by the Exchange on the native chain.
 
