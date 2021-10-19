@@ -156,6 +156,8 @@
       url: "docs/bp/fee-setting"
     - title: Claiming Rewards
       url: "docs/bp/claiming-rewards"
+    - title: BP Release Checklist
+      url: "docs/bp/release-checklist"
 - title: Developers Guide
   url: "docs/developers"
   links:
