@@ -55,48 +55,49 @@ Lastly, top 21 block producers are exempt from paying certain transaction fees, 
 ---
 ### Fee Types
 
-|Transaction |Bundled tx used|
+|Transaction |Action |API Endpoint |Bundled tx used|
 |---|---|
-|Transfer FIO tokens |Not eligible |
-|Transfer locked FIO tokens |Not eligible |
-|Map blockchain public address |1 |
-|Remove mapped address |1 |
-|Remove all mapped addresses |1 |
-|Request funds |2 |
-|Cancel funds request |1 |
-|Reject funds request |1 |
-|Record other blockchain transaction metadata |2 |
-|Register Address |Not eligible |
-|Renew Address |Not eligible |
-|Buy bundled transactions |Not eligible |
-|Transfer Address |Not eligible |
-|Burn Address |1 |
-|Register Domain |Not eligible |
-|Renew Domain |Not eligible |
-|Make Domain public |Not eligible |
-|Transfer Domain |Not eligible |
-|Vote on block producers |1 |
-|Proxy votes to registered proxy |1 |
-|Register as a proxy |Not eligible |
-|Unregister as a proxy |Not eligible |
-|Register as block producer |Not eligible |
-|Unregister as block producer |Not eligible |
-|Set fee ratios* |Not eligible |
-|Set fee multiplier* |Not eligible |
-|Set bundled transaction count* |Not eligible |
-|Pay rewards to TPIDs |Not eligible |
-|Claim BP rewards* |Not eligible |
-|Burn expired FIO Addresses and Domains |Not eligible |
-|msig_propose |Not eligible, charged per 1,000 bytes |
-|msig_approve |Not eligible |
-|msig_unapprove |Not eligible |
-|msig_cancel |Not eligible |
-|msig_exec |Not eligible |
-|msig_invalidate |Not eligible |
-|auth_delete |Not eligible |
-|auth_link |Not eligible |
-|auth_unlink |Not eligible |
-|auth_update |Not eligible, charged per 1,000 bytes |
+|Transfer FIO tokens |trnsfiopubky |/transfer_tokens_pub_key  |Not eligible |
+|Transfer locked FIO tokens |trnsloctoks |/transfer_locked_tokens |Not eligible |
+|Map blockchain public address |addaddress |/add_pub_address |1 |
+|Remove mapped address |remaddress |/remove_pub_address |1 |
+|Remove all mapped addresses |remalladdr |/remove_all_pub_addresses |1 |
+|Request funds |newfundsreq |/new_funds_request |2 |
+|Cancel funds request |cancelfndreq |/cancel_funds_request |1 |
+|Reject funds request |rejectfndreq |/reject_funds_request |1 |
+|Record other blockchain transaction metadata |recordobt |/record_obt_data |2 |
+|Register Address |regaddress |register_fio_address |Not eligible |
+|Renew Address |renewaddress |/renew_fio_address |Not eligible |
+|Buy bundled transactions |addbundles |/add_bundled_transactions |Not eligible |
+|Transfer Address |xferaddress |/transfer_fio_address |Not eligible |
+|Burn Address |burnaddress |/burn_fio_address |1 |
+|Register Domain |regdomain |/register_fio_domain |Not eligible |
+|Renew Domain |renewdomain |/renew_fio_domain |Not eligible |
+|Make Domain public |setdomainpub |/set_fio_domain_public |Not eligible |
+|Transfer Domain |xferdomain |/transfer_fio_domain |Not eligible |
+|Vote on block producers |voteproducer |/vote_producer |1 |
+|Proxy votes to registered proxy |voteproxy |/proxy_vote |1 |
+|Register as a proxy |regproxy |/register_proxy |Not eligible |
+|Unregister as a proxy |unregproxy |/unregister_proxy |Not eligible |
+|Register as block producer |regproducer |/register_producer |Not eligible |
+|Unregister as block producer |unregprod |/unregister_producer |Not eligible |
+|Set fee ratios* |setfeevote |/submit_fee_ratios |Not eligible |
+|Set fee multiplier* |setfeemult |/submit_fee_multiplier |Not eligible |
+|Compute fees |computefees |/compute_fees |Not eligible |
+|Set bundled transaction count* |bundlevote |/submit_bundled_transaction |Not eligible |
+|Pay rewards to TPIDs |tpidclaim |/pay_tpid_rewards |Not eligible |
+|Claim BP rewards* |bpclaim |/claim_bp_rewards |Not eligible |
+|Burn expired FIO Addresses and Domains |burnexpired |/burn_expired |Not eligible |
+|msig_propose |propose | |Not eligible, charged per 1,000 bytes |
+|msig_approve |approve | |Not eligible |
+|msig_unapprove |unapprove | |Not eligible |
+|msig_cancel |cancel | |Not eligible |
+|msig_exec |exec | |Not eligible |
+|msig_invalidate |invalidate | |Not eligible |
+|auth_delete |deleteauth | |Not eligible |
+|auth_link |linkauth | |Not eligible |
+|auth_unlink |unlinkauth | |Not eligible |
+|auth_update |updateauth | |Not eligible, charged per 1,000 bytes |
 
 *Restricted call
 
