@@ -21,77 +21,80 @@ Block producers are responsible for setting FIO Chain fees. Fees are set by BPs 
 
 #### Example
 
-Setting fees to Mainnet values.
+The following table is an example of setting fee ratios and multipliers. In this case, we have a formula for our multiplier based on the dollar value of FIO.
 
-**Submitting Fee Ratios**
+For this example we will assume an exchange rate of FIO:
+* 1 FIO = $0.20
 
-**API**
+Using the rule of thumb above, we set the multiplier based on the exchange rate:
+* multiplier = $1.00 / Price of FIO = $1.00 / $0.20 = 5
+
+Using /add_bundled_transactions as an example:
+* Set the value of: /add_bundled_transactions = 2000000000 
+* This results in a FIO fee of: 2000000000 * 5 = 10.000000000 FIO
+* Which results in a USD fee of: 10.000000000 * $0.20 = $2.00 USD
+
+|end_point |value |Fee FIO |Fee USD|
+|---|---|---|---|
+|/add_bundled_transactions |2000000000 |10.000000000 |$2.00 |
+|/add_nft |60000000 |0.300000000 |$0.06 |
+|/add_pub_address |30000000 |0.150000000 |$0.03 |
+|/auth_delete |20000000 |0.100000000 |$0.02 |
+|/auth_link |20000000 |0.100000000 |$0.02 |
+|/auth_update |50000000 |0.250000000 |$0.05, charged per 1,000 bytes |
+|/burn_fio_address |60000000 |0.300000000 |$0.06  |
+|/cancel_funds_request |60000000 |0.300000000 |$0.06  |
+|/msig_approve |20000000 |0.100000000 |$0.02 |
+|/msig_cancel |20000000 |0.100000000 |$0.02 |
+|/msig_exec |20000000 |0.100000000 |$0.02 |
+|/msig_invalidate |20000000 |0.100000000 |$0.02 |
+|/msig_propose |50000000 |0.250000000 |$0.05, charged per 1,000 bytes |
+|/msig_unapprove |20000000 |0.100000000 |$0.02 |
+|/new_funds_request |60000000 |0.300000000 |$0.06 |
+|/proxy_vote |30000000 |0.150000000 |$0.03 |
+|/record_obt_data  |60000000 |0.300000000 |$0.06 |
+|/register_fio_address |2000000000 |10.000000000 |$2.00 |
+|/register_fio_domain |40000000000 |200.000000000 |$40.00 |
+|/register_producer |10000000000 |50.000000000 |$10.00 |
+|/register_proxy |1000000000 |5.000000000 |$1.00 |
+|/reject_funds_request |30000000 |0.150000000 |$0.03 |
+|/remove_all_nfts |60000000 |0.300000000 |$0.06 |
+|/remove_all_pub_addresses|60000000 |.300000000 |$0.06 |
+|/remove_nft |60000000 |0.300000000 |$0.06|
+|/remove_pub_address |60000000 |0.300000000 |$0.06 |
+|/renew_fio_address |2000000000 |10.000000000 |$2.00 |
+|/renew_fio_domain  |40000000000 |200.000000000 |$40.00 |
+|/set_fio_domain_public |30000000 |0.150000000 |$0.03 |
+|/transfer_fio_address |60000000 |0.300000000 |$0.06 |
+|/transfer_fio_domain  |100000000 |0.500000000  |$0.10 |
+|/transfer_locked_tokens |300000000 |1.500000000 |$0.30 |
+|/transfer_tokens_pub_key |100000000 |0.500000000  |$0.10 |
+|/unregister_producer |20000000 |0.100000000 |$0.02 |
+|/unregister_proxy  |20000000 |0.100000000 |$0.02 |
+|/vote_producer |30000000 |0.150000000 |$0.03 |
+
+
+## Setting Fee Ratios
+
+{% include alert.html type="info" title="Fee ratios are stable" content="You should only need to set fee ratios when a new fee is added, or you want to adjust the relative cost of an action. Once the fee ratios are set, you should use the multiplier to ensure the fees are aliged with the current FIO rate of exchange." %}
+
+#### Setting Fee Ratios using the API
+
+The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-api/#options-setfeevote) to set fee ratios to the values in the example above.
 
 ```
 {
 	"fee_ratios": [
 		{
-			"end_point": "register_fio_domain",
-			"value": 40000000000
-		},
-		{
-			"end_point": "register_fio_address",
+			"end_point": "add_bundled_transactions",
 			"value": 2000000000
 		},
 		{
-			"end_point": "renew_fio_domain",
-			"value": 40000000000
-		},
-		{
-			"end_point": "renew_fio_address",
-			"value": 2000000000
+			"end_point": "add_nft",
+			"value": 60000000
 		},
 		{
 			"end_point": "add_pub_address",
-			"value": 30000000
-		},
-		{
-			"end_point": "transfer_tokens_pub_key",
-			"value": 100000000
-		},
-		{
-			"end_point": "new_funds_request",
-			"value": 60000000
-		},
-		{
-			"end_point": "reject_funds_request",
-			"value": 30000000
-		},
-		{
-			"end_point": "record_obt_data",
-			"value": 60000000
-		},
-		{
-			"end_point": "set_fio_domain_public",
-			"value": 30000000
-		},
-		{
-			"end_point": "register_producer",
-			"value": 10000000000
-		},
-		{
-			"end_point": "register_proxy",
-			"value": 1000000000
-		},
-		{
-			"end_point": "unregister_proxy",
-			"value": 20000000
-		},
-		{
-			"end_point": "unregister_producer",
-			"value": 20000000
-		},
-		{
-			"end_point": "proxy_vote",
-			"value": 30000000
-		},
-		{
-			"end_point": "vote_producer",
 			"value": 30000000
 		},
 		{
@@ -107,15 +110,15 @@ Setting fees to Mainnet values.
 			"value": 50000000
 		},
 		{
-			"end_point": "msig_propose",
-			"value": 50000000
+			"end_point": "burn_fio_address",
+			"value": 60000000
+		},
+		{
+			"end_point": "cancel_funds_request",
+			"value": 60000000
 		},
 		{
 			"end_point": "msig_approve",
-			"value": 20000000
-		},
-		{
-			"end_point": "msig_unapprove",
 			"value": 20000000
 		},
 		{
@@ -129,24 +132,122 @@ Setting fees to Mainnet values.
 		{
 			"end_point": "msig_invalidate",
 			"value": 20000000
+		},
+		{
+			"end_point": "msig_propose",
+			"value": 50000000
+		},
+		{
+			"end_point": "msig_unapprove",
+			"value": 20000000
+		},
+		{
+			"end_point": "new_funds_request",
+			"value": 60000000
+		},
+		{
+			"end_point": "proxy_vote",
+			"value": 30000000
+		},
+		{
+			"end_point": "record_obt_data",
+			"value": 60000000
+		},
+		{
+			"end_point": "register_fio_address",
+			"value": 40000000000
+		},
+		{
+			"end_point": "register_fio_domain",
+			"value": 50000000
+		},
+		{
+			"end_point": "register_producer",
+			"value": 10000000000
+		},
+		{
+			"end_point": "register_proxy",
+			"value": 1000000000
+		},
+		{
+			"end_point": "reject_funds_request",
+			"value": 30000000
+		},
+		{
+			"end_point": "remove_all_nfts",
+			"value": 60000000
+		},
+		{
+			"end_point": "remove_all_pub_addresses",
+			"value": 60000000
+		},
+		{
+			"end_point": "remove_nft",
+			"value": 60000000
+		},
+		{
+			"end_point": "remove_pub_address",
+			"value": 60000000
+		},
+		{
+			"end_point": "renew_fio_address",
+			"value": 2000000000
+		},
+		{
+			"end_point": "renew_fio_domain",
+			"value": 40000000000
+		},
+		{
+			"end_point": "set_fio_domain_public",
+			"value": 30000000
+		},
+		{
+			"end_point": "transfer_fio_address",
+			"value": 60000000
+		},
+		{
+			"end_point": "transfer_fio_domain",
+			"value": 100000000
+		},
+		{
+			"end_point": "transfer_locked_tokens",
+			"value": 300000000
+		},
+		{
+			"end_point": "transfer_tokens_pub_key",
+			"value": 100000000
+		},
+		{
+			"end_point": "unregister_producer",
+			"value": 20000000
+		},
+		{
+			"end_point": "unregister_proxy",
+			"value": 20000000
+		},
+		{
+			"end_point": "vote_producer",
+			"value": 30000000
 		}
 	],
 	"actor": "BP_ACTOR"
 }
 ```
 
-**clio**
+#### Setting fee ratios with clio
+
+```sh
+
+clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"end_point": "add_bundled_transactions","value": 2000000000},{"end_point": "add_nft","value": 60000000},{"end_point": "add_pub_address","value": 30000000},{"end_point": "auth_delete","value": 20000000},{"end_point": "auth_link","value": 20000000},{"end_point": "auth_update","value": 50000000},{"end_point": "burn_fio_address","value": 60000000},{"end_point": "cancel_funds_request","value": 60000000},{"end_point": "msig_approve","value": 20000000},{"end_point": "msig_cancel","value": 20000000},{"end_point": "msig_exec","value": 20000000},{"end_point": "msig_invalidate","value": 20000000},{"end_point": "msig_propose","value": 50000000},{"end_point": "msig_unapprove","value": 20000000},{"end_point": "new_funds_request","value": 60000000},{"end_point": "proxy_vote","value": 30000000},{"end_point": "record_obt_data","value": 60000000},{"end_point": "register_fio_address","value": 40000000000},{"end_point": "register_fio_domain","value": 50000000},{"end_point": "register_producer","value": 10000000000},{"end_point": "register_proxy","value": 1000000000},{"end_point": "reject_funds_request","value": 30000000},{"end_point": "remove_all_nfts","value": 60000000},{"end_point": "remove_all_pub_addresses","value": 60000000},{"end_point": "remove_nft","value": 60000000},{"end_point": "remove_pub_address","value": 60000000},{"end_point": "renew_fio_address","value": 2000000000},{"end_point": "renew_fio_domain","value": 40000000000},{"end_point": "set_fio_domain_public","value": 30000000},{"end_point": "transfer_fio_address","value": 60000000},{"end_point": "transfer_fio_domain","value": 100000000},{"end_point": "transfer_locked_tokens","value": 300000000},{"end_point": "transfer_tokens_pub_key","value": 100000000},{"end_point": "unregister_producer","value": 20000000},{"end_point": "unregister_proxy","value": 20000000},{"end_point": "vote_producer","value": 30000000}],"actor":"BP_ACTOR"}' -p BP_ACTOR@active
 
 ```
 
-clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"end_point":"register_fio_domain","value":40000000000},{"end_point":"register_fio_address","value":2000000000},{"end_point":"renew_fio_domain","value":40000000000},{"end_point":"renew_fio_address","value":2000000000},{"end_point":"add_pub_address","value":30000000},{"end_point":"transfer_tokens_pub_key","value":100000000},{"end_point":"new_funds_request","value":60000000},{"end_point":"reject_funds_request","value":30000000},{"end_point":"record_obt_data","value":60000000},{"end_point":"set_fio_domain_public","value":30000000},{"end_point":"register_producer","value":10000000000},{"end_point":"register_proxy","value":1000000000},{"end_point":"unregister_proxy","value":20000000},{"end_point":"unregister_producer","value":20000000},{"end_point":"proxy_vote","value":30000000},{"end_point":"vote_producer","value":30000000},{"end_point":"auth_delete","value":20000000},{"end_point":"auth_link","value":20000000},{"end_point":"auth_update","value":50000000},{"end_point":"msig_propose","value":50000000},{"end_point":"msig_approve","value":20000000},{"end_point":"msig_unapprove","value":20000000},{"end_point":"msig_cancel","value":20000000},{"end_point":"msig_exec","value":20000000},{"end_point":"msig_invalidate","value":20000000}],"actor":"BP_ACTOR"}' -p BP_ACTOR@active
 
-```
+## Setting Fee Multiplier
 
+#### Setting Fee Multiplier using the API
 
-**Submitting Fee Multiplier**
-
-**API**
+The following can be used with [setfeemult]({{site.baseurl}}/pages/api/fio-api/#options-setfeemult) to set the fee multiplier.
 
 ```
 {
@@ -155,7 +256,7 @@ clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"en
 }
 ```
 
-**clio**
+#### Setting Fee Multiplier using clio
 
 ```
 
@@ -164,7 +265,7 @@ clio -u https://API_NODE_URL push action fio.fee setfeemult '{"multiplier":20,"a
 ```
 
 ---
-### Setting bundled transactions
+## Setting bundled transactions
 
 Number of bundled transactions credited for all new FIO Address registrations and renewals is set by BPs in the following way:
 
@@ -179,13 +280,8 @@ Number of bundled transactions credited for all new FIO Address registrations an
 * If a BP is removed from elected BPs list, their submissions are removed from consideration at the next time bundled transactions are computed, unless there are no other submissions.
 * In order for the default bundled transaction count to be updated there should be at least 15 valid votes for.
 
-#### Example
+#### Setting bundled transactions using the API
 
-Setting default bundled transaction count to Mainnet values.
-
-Submitting bundled transaction count
-
-**API**
 ```
 {
 	"bundled_transactions": 100,
@@ -193,7 +289,7 @@ Submitting bundled transaction count
 }
 ```
 
-**clio**
+#### Setting bundled transactions using clio
 
 ```
 
