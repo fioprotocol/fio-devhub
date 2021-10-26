@@ -1968,6 +1968,435 @@ paths:
       operationId: get_fee
       tags:
         - Getters
+  /get_nfts_fio_address:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              nfts:
+                type: array
+                description: Multiple NFT Signatures may be returned.
+                items:
+                  type: object
+                  properties:
+                    fio_address:
+                      type: string
+                      description: Chain code.
+                    chain_code:
+                      type: string
+                      description: Chain code.
+                    contract_address:
+                      type: string
+                      description: Contract address.
+                    token_id:
+                      type: string
+                      description: Token ID of NFT.
+                    url:
+                      type: string
+                      description: URL of NFT asset.
+                    hash:
+                      type: string
+                      description: SHA-256 hash of NFT asset.
+                    metadata:
+                      type: string
+                      description: JSON formatted metadata, including creator URL.
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              nfts:
+                - fio_address: "purse@alice"
+                  chain_code: "ETH"
+                  contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+                  token_id: "100010001"
+                  url: "ipfs://ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+                  hash: "f83b5702557b1ee76d966c6bf92ae0d038cd176aaf36f86a18e2ab59e6aefa4b"
+                  metadata: '{\"creator_url\":\"https://yahoo.com/\"}'
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid FIO Address"
+            * "FIO Address does not exist"
+            * "Invalid limit"
+            * "Invalid offset"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_address
+                  value: bob
+                  error: Invalid FIO Address format
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '404':
+          description: |-
+            Possible error messages:
+            * "NFTs not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: NFTs not found
+      summary: Get Signed NFTs for FIO Address
+      description: >-
+        Returns all NFTs for specified FIO Address. 
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for comprehensive description of this functionality.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                description: FIO Address that signed the NFTs.
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              limit:
+                type: integer
+                description: >-
+                  Number of NFTs to return. If omitted, all matching NFTs will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First NFT from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+            required:
+              - fio_address
+      operationId: get_nfts_fio_address
+      tags:
+        - Getters
+  /get_nfts_contract:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              nfts:
+                type: array
+                description: Multiple NFT Signatures may be returned.
+                items:
+                  type: object
+                  properties:
+                    fio_address:
+                      type: string
+                      description: Chain code.
+                    chain_code:
+                      type: string
+                      description: Chain code.
+                    contract_address:
+                      type: string
+                      description: Contract address.
+                    token_id:
+                      type: string
+                      description: Token ID of NFT.
+                    url:
+                      type: string
+                      description: URL of NFT asset.
+                    hash:
+                      type: string
+                      description: SHA-256 hash of NFT asset.
+                    metadata:
+                      type: string
+                      description: JSON formatted metadata, including creator URL.
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              nfts:
+                - fio_address: "purse@alice"
+                  chain_code: "ETH"
+                  contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+                  token_id: "100010001"
+                  url: "ipfs://ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+                  hash: "f83b5702557b1ee76d966c6bf92ae0d038cd176aaf36f86a18e2ab59e6aefa4b"
+                  metadata: '{\"creator_url\":\"https://yahoo.com/\"}'
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid Chain Code"
+            * "Invalid Contract Address"
+            * "Invalid Token ID"
+            * "Invalid limit"
+            * "Invalid offset"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: contract_address
+                  value: ""
+                  error: Invalid Contract Address
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '404':
+          description: |-
+            Possible error messages:
+            * "NFTs not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: NFTs not found
+      summary: Get Signed NFTs for contract
+      description: >-
+        Returns all mapped NFTs which have the specified contract address and (optional) token id.
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for comprehensive description of this functionality.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              chain_code:
+                type: string
+                description: Chain code where NFT contract resides
+                example: "ETH"
+              contract_address:
+                type: string
+                description: NFT Contract Address
+                example: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+              token_id:
+                type: string
+                description: NFT Token ID
+                example: "100010001"
+              limit:
+                type: integer
+                description: >-
+                  Number of NFTs to return. If omitted, all matching NFTs will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First NFT from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+            required:
+              - chain_code
+              - contract_address
+      operationId: get_nfts_contract
+      tags:
+        - Getters
+  /get_nfts_hash:
+    post:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              nfts:
+                type: array
+                description: Multiple NFT Signatures may be returned.
+                items:
+                  type: object
+                  properties:
+                    fio_address:
+                      type: string
+                      description: Chain code.
+                    chain_code:
+                      type: string
+                      description: Chain code.
+                    contract_address:
+                      type: string
+                      description: Contract address.
+                    token_id:
+                      type: string
+                      description: Token ID of NFT.
+                    url:
+                      type: string
+                      description: URL of NFT asset.
+                    hash:
+                      type: string
+                      description: SHA-256 hash of NFT asset.
+                    metadata:
+                      type: string
+                      description: JSON formatted metadata, including creator URL.
+              more:
+                type: integer
+                description: |-
+                  0 - no more results
+                  1 - more results
+          examples:
+            application/json:
+              nfts:
+                - fio_address: "purse@alice"
+                  chain_code: "ETH"
+                  contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+                  token_id: "100010001"
+                  url: "ipfs://ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+                  hash: "f83b5702557b1ee76d966c6bf92ae0d038cd176aaf36f86a18e2ab59e6aefa4b"
+                  metadata: '{\"creator_url\":\"https://yahoo.com/\"}'
+              more: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Invalid hash"
+            * "Invalid limit"
+            * "Invalid offset"
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: hash
+                  value: ""
+                  error: Invalid hash
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '404':
+          description: |-
+            Possible error messages:
+            * "NFTs not found"
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+            title: Error 404
+            description: >-
+              HTTP code 404 is returned when the requested information could not
+              be found.
+          examples:
+            application/json:
+              message: NFTs not found
+      summary: Get Signed NFTs for hash
+      description: >-
+        Returns all NFTs which have the specified hash. 
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for comprehensive description of this functionality.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              hash:
+                type: string
+                description: SHA-256 hash of NFT asset. For example, the media URL.
+                minLength: 3
+                maxLength: 64
+                example: "f83b5702557b1ee76d966c6bf92ae0d038cd176aaf36f86a18e2ab59e6aefa4b"
+              limit:
+                type: integer
+                description: >-
+                  Number of NFTs to return. If omitted, all matching NFTs will be
+                  returned.
+                minimum: 0
+                example: 100
+              offset:
+                type: integer
+                description: 'First NFT from list to return. If omitted, 0 is assumed.'
+                minimum: 0
+                example: 0
+            required:
+              - fio_address
+      operationId: get_nfts_hash
+      tags:
+        - Getters
   /get_actor:
     post:
       responses:
@@ -5844,6 +6273,579 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: transfer_fio_domain_model
+      tags:
+        - Actions
+  addnft:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "FIO Address invalid, does not exist."
+            * "FIO Domain expired."
+            * "Invalid Chain Code."
+            * "Invalid Contract Address."
+            * "Invalid Token ID"
+            * "Invalid URL"
+            * "Invalid hash"
+            * "Invalid metadata"
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "Insufficient balance"
+            * "TPID must be empty or valid FIO address"
+            * "Min 1, Max 3 NFTs are allowed"         
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: token_code
+                  value: BTC!
+                  error: Invalid token code format
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+            * FIO Address not owned by FIO Public Key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Map NFT Signature to a FIO Address
+      description: >-
+        This call allows NFTs to be mapped to a FIO Address.  It will allow anyone to see which FIO Address 
+        has mapped ("signed") a particular NFT and if it is a FIO Address they trust, they can also trust the NFT.
+
+
+        You may pass up to 3 NFT Signatures in a single call.
+
+
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for a description of 
+        NFT Signature functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        addnft action data may also be sent to the `/add_nft` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `addnft`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              nfts:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                maxItems: 3
+                description: >-
+                  Maximum of 3 NFTs can be mapped to single FIO Address
+                  at any one time.
+                items:
+                  type: object
+                  properties:
+                    chain_code:
+                      type: string
+                      title: Chain code
+                      minLength: 1
+                      maxLength: 10
+                      pattern: '^[A-Z0-9]+$'
+                      description: Chain code where NFT contract resides.
+                    contract_address:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 128
+                      description: NFT contract address.
+                    token_id:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 64
+                      description: NFT token ID. May be left blank if not applicable.
+                    url:
+                      type: string
+                      title: NFT URL
+                      minLength: 0
+                      maxLength: 128
+                      description: URL of NFT asset. For example, the media URL. May be left blank if not applicable. 
+                    hash:
+                      type: string
+                      title: NFT Hash
+                      minLength: 1
+                      maxLength: 64
+                      description: SHA-256 hash of NFT asset. For example, the media URL.
+                    metadata:
+                      type: string
+                      title: Native Blockchain Public Address
+                      minLength: 0
+                      maxLength: 128
+                      description: JSON formatted metadata. For example, creator URL. May be left empty.
+                  required:
+                    - chain_code
+                    - contract_address
+                    - token_id
+                    - url
+                    - hash
+                    - metadata
+                example:
+                  - chain_code: "ETH"
+                    contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+                    token_id: "100010001"
+                    url: "ipfs://ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+                    hash: "f83b5702557b1ee76d966c6bf92ae0d038cd176aaf36f86a18e2ab59e6aefa4b"
+                    metadata: ""
+                  - chain_code: "EOS"
+                    contract_address: "atomicassets"
+                    token_id: "2199023271139"
+                    url: ""
+                    hash: ""
+                    metadata: "{\"creator_url\":\"https://yahoo.com/\"}"
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22                
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+            required:
+              - fio_address
+              - max_fee
+              - actor
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: add_nft_model
+      tags:
+        - Actions
+  remnft:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "FIO Address invalid, does not exist."
+            * "FIO Domain expired."
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "Insufficient balance"
+            * "TPID must be empty or valid FIO address"
+            * "Min 1, Max 3 NFTs are allowed"         
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: max_fee
+                  value: BTC!
+                  error: Insufficient balance
+        '403':
+          description: |-
+            Possible triggers:
+            * "No NFTs"
+            * "NFT not found"
+            * Signer's FIO Public Key does not match actor
+            * FIO Address not owned by FIO Public Key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Remove NFT Signature from FIO Address
+      description: >-
+        This call allows NFTs to be removed from a FIO Address. 
+
+
+        You may pass up to 3 NFT Signatures in a single call.
+
+
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for a description of 
+        NFT Signature functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        remnft action data may also be sent to the `/remove_nft` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `remnft`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              nfts:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                maxItems: 3
+                description: >-
+                  Maximum of 3 NFTs can be mapped to single FIO Address
+                  at any one time.
+                items:
+                  type: object
+                  properties:
+                    chain_code:
+                      type: string
+                      title: Chain code
+                      minLength: 1
+                      maxLength: 10
+                      pattern: '^[A-Z0-9]+$'
+                      description: Chain code where NFT contract resides.
+                    contract_address:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 128
+                      description: NFT contract address.
+                    token_id:
+                      type: string
+                      title: Token/chain code
+                      minLength: 1
+                      maxLength: 64
+                      description: NFT token ID. May be left blank if not applicable.
+                  required:
+                    - chain_code
+                    - contract_address
+                    - token_id
+                example:
+                  - chain_code: "ETH"
+                    contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
+                    token_id: "100010001"
+                  - chain_code: "EOS"
+                    contract_address: "atomicassets"
+                    token_id: "2199023271139"
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+            required:
+              - fio_address
+              - max_fee
+              - actor              
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: rem_nft_model
+      tags:
+        - Actions
+  remallnfts:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "FIO Address invalid, does not exist."
+            * "FIO Domain expired."
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "Insufficient balance"
+            * "TPID must be empty or valid FIO address"
+            * "No NFTs"         
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: max_fee
+                  value: BTC!
+                  error: Insufficient balance
+        '403':
+          description: |-
+            Possible triggers:
+            * "No NFTs"
+            * "NFT not found"
+            * Signer's FIO Public Key does not match actor
+            * FIO Address not owned by FIO Public Key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Remove ALL NFT Signatures from FIO Address
+      description: >-
+        This call removes all NFT Signatures from FIO Address
+
+
+        See [FIP-27](https://github.com/fioprotocol/fips/blob/master/fip-0027.md) for a description of 
+        NFT Signature functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        remallnfts action data may also be sent to the `/remove_all_nfts` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `remallnfts`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_address:
+                type: string
+                title: FIO Address
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+            required:
+              - fio_address
+              - max_fee
+              - tpid
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: rem_all_nfts_model
       tags:
         - Actions
   voteproducer:
