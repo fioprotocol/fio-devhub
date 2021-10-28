@@ -1982,9 +1982,6 @@ paths:
                 items:
                   type: object
                   properties:
-                    fio_address:
-                      type: string
-                      description: Chain code.
                     chain_code:
                       type: string
                       description: Chain code.
@@ -2011,8 +2008,7 @@ paths:
           examples:
             application/json:
               nfts:
-                - fio_address: "purse@alice"
-                  chain_code: "ETH"
+                - chain_code: "ETH"
                   contract_address: "0x63c0691d05f441f42915ca6ca0a6f60d8ce148cd"
                   token_id: "100010001"
                   url: "ipfs://ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
@@ -6444,13 +6440,13 @@ paths:
                       title: NFT Hash
                       minLength: 1
                       maxLength: 64
-                      description: SHA-256 hash of NFT asset. For example, the media URL.
+                      description: SHA-256 hash of NFT asset. For example, the media URL. May be left blank if not applicable. 
                     metadata:
                       type: string
                       title: Native Blockchain Public Address
                       minLength: 0
                       maxLength: 128
-                      description: JSON formatted metadata. For example, creator URL. May be left empty.
+                      description: JSON formatted metadata. For example, creator URL. May be left blank if not applicable. 
                   required:
                     - chain_code
                     - contract_address
