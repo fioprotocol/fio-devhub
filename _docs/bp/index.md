@@ -4,16 +4,16 @@ description: FIO Block Producers
 ---
 # FIO Block Producers
 
-FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/fio-protocol/voting) or [proxying their vote]({{site.baseurl}}/docs/how-to/proxy-vote). 
+FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain. BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/fio-protocol/voting) or [proxying their vote]({{site.baseurl}}/docs/how-to/proxy-vote). 
 
-Blocks are produced exactly every 0.5 seconds by a specific block producer designated to produce a block at that time. Blocks are produced in rounds of 126 (6 blocks each times 21 producers). In FIO, block producers can modify system smart contracts with ⅔ + 1 (15 BPs) supermajority.
+Blocks are produced every 0.5 seconds by a specific block producer designated to produce a block at that time. Blocks are produced in rounds of 126 (6 blocks each times 21 producers). In FIO, block producers can modify system smart contracts with a ⅔ + 1 (15 BP) supermajority.
 
 The [block producer API]({{site.baseurl}}/pages/api/fio-api/#tag--Block-Producer-Actions) details the transactions available for managing the FIO chain.
 
 ---
 ## Understanding BP performance and effectiveness
 
-There are several tools for examining BP performance and effectiveness. While no single measure can be used to determine how well a BP is performing there are several measures that should be considered before voting.
+There are several tools for examining BP performance and effectiveness. While no single measure can be used to determine how well a BP is performing, there are several measures that should be considered before voting.
 
 ##### Does the BP publish information about themselves?
 
@@ -36,9 +36,9 @@ The principle media channels for FIO BPs are the [Mainnet](https://t.me/fiomainn
 
 ##### Does the BP keep up to date with releases?
 
-FIO releases are published on the [FIO Github repository](https://github.com/fioprotocol/fio/releases){:target="_blank"}. Chain version information active BPs can be found on the [FIO Mainnet Health monitor](https://health.fioprotocol.io){:target="_blank"}.
+FIO releases are published on the [FIO Github repository](https://github.com/fioprotocol/fio/releases){:target="_blank"}. Version information for active BPs can be found on the [FIO Mainnet Health monitor](https://health.fioprotocol.io){:target="_blank"}.
 
-##### Does the BP build and maintain tools that benefit the protocol
+##### Does the BP build and maintain tools that benefit the protocol?
 
 Many FIO block producers contribute to the protocol by building and maintaining helpful tools. The following are a sample of BP-maintained FIO tools:
 

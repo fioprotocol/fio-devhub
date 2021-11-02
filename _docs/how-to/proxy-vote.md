@@ -3,7 +3,7 @@ title: Proxy your vote
 description: Proxy your vote
 ---
 
-# Proxy your vote to a registered proxy
+# Proxy votes to a registered proxy
 
 FIO token holders may participate in governance activities that benefit the protocol. An important activity is to make sure you have voted for one or more block producers. One option is to [vote directly]({{site.baseurl}}/docs/fio-protocol/voting). In this case, make sure you [research the effectiveness of FIO BPs]({{site.baseurl}}/docs/bp/). Alternatively, you can proxy your vote to a [registered proxy](https://fio.bloks.io/#proxies){:target="_blank"}. 
 

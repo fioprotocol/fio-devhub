@@ -4,7 +4,7 @@ description: Voting for block producers
 ---
 # Voting for block producers
 
-FIO token holders may participate in governance activities that benefit the protocol. An important activity is to make sure you have voted for one or more block producers. One option is to vote directly for a block producer (see below)). In this case, make sure you [research the effectiveness of FIO BPs]({{site.baseurl}}/docs/bp/). Alternatively, you can [proxy your vote]({{site.baseurl}}/docs/how-to/proxy-vote) to a [registered proxy](https://fio.bloks.io/#proxies){:target="_blank"}.
+FIO token holders may participate in governance activities that benefit the protocol. An important activity is to make sure you have voted for one or more block producers. One option is to vote directly for a block producer (see below). When voting, make sure you [research the effectiveness of FIO BPs]({{site.baseurl}}/docs/bp/). Alternatively, you can [proxy your vote]({{site.baseurl}}/docs/how-to/proxy-vote) to a [registered proxy](https://fio.bloks.io/#proxies){:target="_blank"}.
 
 ---
 ## Voting using Anchor Wallet

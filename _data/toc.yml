@@ -152,7 +152,7 @@
 - title: Block Producers
   url: "docs/bp"
   links:
-    - title: Block Production
+    - title: FIO Block Producers
       url: "docs/bp"
     - title: Being a Producer
       url: "docs/bp/bp"
