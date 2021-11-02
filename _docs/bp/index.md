@@ -45,6 +45,7 @@ Many FIO block producers contribute to the protocol by building and maintaining 
 * [FIO Tools Lounge](https://www.fio.tools){:target="_blank"} (maintained by [The Currency Hub](https://www.thecurrencyhub.io){:target="_blank"})
 * [Hyperion History API for FIO](http://fio.eossweden.org/v2/docs/index.html){:target="_blank"} (published by [EOS sw/eden](https://eossweden.org){:target="_blank"})
 * [Registration Helper](https://greymass.github.io/fio-register/){:target="_blank"} (published by [Greymass](https://greymass.com/en/){:target="_blank"})
+* [FIO Utilities](https://fio-utils.blockpane.com/index.html#/){:target="_blank"} (published by [Blockpane](https://blockpane.com){:target="_blank"})
 * [FIO Tools](https://www.alohaeos.com/tools){:target="_blank"} (published by [Aloha EOS](https://www.alohaeos.com){:target="_blank"})
 * [Package Repository](https://eosswedenorg.github.io/apt/fio){:target="_blank"} (published by [EOS sw/eden](https://eossweden.org){:target="_blank"})
 * [FIO Snapshots](https://snap.blockpane.com/index.html){:target="_blank"} (published by [Blockpane](https://blockpane.com){:target="_blank"})

@@ -74,6 +74,7 @@ Using /add_bundled_transactions as an example:
 |/vote_producer |30000000 |0.150000000 |$0.03 |
 
 
+---
 ## Setting Fee Ratios
 
 {% include alert.html type="info" title="Fee ratios are stable" content="You should only need to set fee ratios when a new fee is added, or you want to adjust the relative cost of an action. Once the fee ratios are set, you should use the multiplier to ensure the fees are aliged with the current FIO rate of exchange." %}
@@ -243,7 +244,15 @@ clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"en
 ```
 
 
+---
 ## Setting Fee Multiplier
+
+While fee `ratios` should remain stable, the fee `multiplier` should be frequently updated to account for fluctuations in the price of FIO. The current dollar cost of fees for different FIO actions, based on the median values entered by the BPs, can be found on the [Aloha EOS Active Fees](https://www.alohaeos.com/tools/fiofees){:target="_blank"} page. 
+
+The following are tools are available to help BPs automate the setting of the Fee multiplier:
+* [FIO BP Pricing Tool](https://github.com/fioprotocol/bp-tools){:target="_blank"}
+* [FIO Fee Vote Go Utility](https://github.com/blockpane/fio-tools/tree/master/fio-fee-vote){:target="_blank"} (published by [Blockpane](https://blockpane.com){:target="_blank"})
+* [FIO Mulitplier Calculator](https://fio-utils.blockpane.com/index.html#/fees){:target="_blank"} (published by [Blockpane](https://blockpane.com){:target="_blank"})
 
 #### Setting Fee Multiplier using the API
 
