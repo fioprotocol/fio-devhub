@@ -104,6 +104,10 @@
           url: "docs/how-to/txn-history"
         - title: Pre-compute transaction ID
           url: "docs/how-to/txn-id"
+        - title: Register as a proxy voter
+          url: "docs/how-to/reg-proxy"
+        - title: Proxy your vote
+          url: "docs/how-to/proxy-vote"
 - title: FIO Chain
   url: "docs/chain"
   links:
