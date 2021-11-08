@@ -20,13 +20,13 @@ To accommodate this, fee amounts are set based on bids from block producers in t
 ---
 ### Bundling and Fees
 
-FIO Addresses have a default yearly fee that is set by block producers based on the economic needs of the FIO Chain.
+Registering a FIO Addresses has a fee that is set by block producers based on the economic needs of the FIO Chain.
 
-The fee is paid on an yearly basis, and includes a bundle of included transactions, **which eliminates the need for a user to pay a per-transaction fee for use of the FIO Protocol.**
+The fee includes a bundle of included transactions, **which eliminates the need for a user to pay a per-transaction fee for use of the FIO Protocol.**
 
-FIO Address Domains also include a separate yearly fee, also dictated by block producers.
+FIO Domains include a separate yearly fee, also dictated by block producers.
 
-​| |FIO Address |FIO Address Domains|
+​| |FIO Address |FIO Domains|
 |---|---|---|
 |Example Cost |40 FIO Tokens |800 FIO Tokens |
 |Bundled transactions |100/year |N/A |
