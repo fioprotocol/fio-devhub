@@ -1951,6 +1951,7 @@ paths:
               fio_address:
                 type: string
                 title: FIO Address
+                description: fio_address is only required for the endpoints listed above
                 minLength: 3
                 maxLength: 64
                 pattern: >-
@@ -1960,11 +1961,18 @@ paths:
               - end_point
               - fio_address
           description: |-
-            Valid FIO Address required on the following calls:
+            Valid FIO Address required on the following API endpoints:
             * add_pub_address
+            * remove_pub_address
+            * remove_all_pub_addresses
             * new_funds_request
             * reject_funds_request
+            * cancel_funds_request
+            * reject_funds_request
             * record_obt_data
+            * burn_fio_address
+            * vote_producer
+            * proxy_vote
       operationId: get_fee
       tags:
         - Getters
