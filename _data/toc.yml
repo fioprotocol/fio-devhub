@@ -108,6 +108,8 @@
           url: "docs/how-to/reg-proxy"
         - title: Proxy your vote
           url: "docs/how-to/proxy-vote"
+        - title: Sign NFTs
+          url: "docs/how-to/sign-nfts"
 - title: FIO Chain
   url: "docs/chain"
   links:
