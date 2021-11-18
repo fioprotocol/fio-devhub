@@ -13,6 +13,7 @@ In addition, the artist can also append the hash of the asset (e.g. image, video
 
 ## How to sign an NFT
 To sign an NFT, use the [addnft]({{site.baseurl}}/pages/api/fio-api/#options-addnft) action and supply:
+
 |parameter|description|
 |---|---|
 |chain_code|Alphanumeric chain code as described in [FIP-15](https://github.com/fioprotocol/fips/blob/master/fip-0015.md), e.g. ETH for Ethereum|
@@ -30,6 +31,7 @@ To remove NFTs association from FIO Address use the [remnft]({{site.baseurl}}/pa
 
 # Fetch NFT signatures
 The following getter methods are available to fetch NFT signatures
+
 |Method|Description|
 |---|---|
 |[/get_nfts_fio_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_nfts_fio_address)|Returns a list of NFTs which were signed by the supplied FIO Address. It's best used to display all NFTs signed by a known FIO Address, e.g. FIO Address advertised by an artist as theirs.|
