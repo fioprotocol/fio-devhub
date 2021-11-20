@@ -7,4 +7,4 @@ redirect_from:
 
 # Swift SDK
 
-See [Swift SDK](https://github.com/fioprotocol/fiosdk_ios){:rel="nofollow noopener noreferrer" target="_blank"}
+Information and documentation can be found on the [Swift iOS SDK repo](https://github.com/fioprotocol/fiosdk_ios){:rel="nofollow noopener noreferrer" target="_blank"}.

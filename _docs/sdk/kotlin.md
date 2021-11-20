@@ -11,4 +11,4 @@ redirect_from:
 
 # Kotlin SDK
 
-See [Kotlin SDK](https://github.com/fioprotocol/fiosdk_kotlin){:rel="nofollow noopener noreferrer" target="_blank"}
+Information and documentation can be found on the [Kotlin SDK repo](https://github.com/fioprotocol/fiosdk_kotlin){:rel="nofollow noopener noreferrer" target="_blank"}.

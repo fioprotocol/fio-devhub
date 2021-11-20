@@ -24,7 +24,7 @@ Next, reach out to the FIO team to set up a joint Telegram or Discord channel. T
 
 The FIO community has built several applications for interacting with the FIO Testnet chain. These are useful during integration development. For example, you will want to register FIO Addresses and transfer FIO Tokens during testing. But, registering a new address for the first time requires FIO tokens. Therefore, some manual setup is required to acquire a Testnet FIO public key and Testnet FIO tokens.
 
-The following testnet applications are availble for integration testing:
+The following testnet applications are available for integration testing:
 * Testnet Monitor - <https://monitor.testnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 * Testnet Block Explorer - <https://fio-test.bloks.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
