@@ -4,47 +4,56 @@ description: Using the FIO API
 redirect_from:
     - /docs/integration-guide/using-the-api
 
-snippet1: /push_transaction
-
-# {% assign snippet = 'snippet1' %}
-# {% include api-snippet.html snippet = snippet %}
-
 ---
 
 # Using the FIO API
 
-There are several ways to interact with the FIO Chain. You may directly call the FIO API, you may integrate one of the FIO SDKs which handles interfacing to the API, or you may interact through a third-party application. 
+There are several ways to interact with the FIO Chain. You may directly call the FIO API, you may integrate the [React native / Typescript]({{ site.baseurl }}/docs/sdk/typescript), [Go]({{ site.baseurl }}/docs/sdk/go), [Kotlin / Java]({{ site.baseurl }}/docs/sdk/kotlin), or [Swift / iOS]({{ site.baseurl }}/docs/sdk/swift) SDK which handles interfacing to the API, or you may interact through a third-party application. 
 
-## Using the SDK
+There are two types of interactions with the FIO blockchain: FIO API Getters and FIO Transactions.
 
-The simplest method for accessing the FIO chain is by embedding one of the FIO SDKs. Three SDKs are currently supported:
+---
+## FIO API Getters
 
-* [React native / Typescript](https://github.com/fioprotocol/fiosdk_typescript){:rel="nofollow noopener noreferrer" target="_blank"}
-* [Kotlin / Java](https://github.com/fioprotocol/fiosdk_kotlin){:rel="nofollow noopener noreferrer" target="_blank"}
-* [Swift / iOS](https://github.com/fioprotocol/fiosdk_ios){:rel="nofollow noopener noreferrer" target="_blank"}
+[FIO API getters]({{ site.baseurl }}/pages/api/fio-api/#tag--Getters) are used to retrieve information. These calls do not require any signing and may be called directly without any pre-packaging. 
 
-## API details
+---
+## FIO Transactions 
 
-#### Testnet Chain API
+[FIO Transactions]({{ site.baseurl }}/pages/api/fio-api/#tag--Transactions) are sent to [/push_transaction]({{ site.baseurl }}/pages/api/fio-api/#post-/push_transaction), a generic API endpoint that accepts all FIO action data objects. Transaction instances consist of a transaction header, the list of action instances, and transaction extensions that make the actual transaction.
 
-`http://testnet.fioprotocol.io/v1/chain/`
+All transactions must be [packed and signed]({{ site.baseurl }}/pages/api/fio-api/#options-packed_transaction) prior to [submitting them to the FIO chain]({{ site.baseurl }}/docs/how-to/transactions).
 
-#### Mainnet Chain API
+---
+## FIO APIs
 
-[See Github](https://github.com/fioprotocol/fio.mainnet){:rel="nofollow noopener noreferrer" target="_blank"}
+The FIO Block Producer community hosts both Testnet and Mainnet nodes that are publicly accessible. In addition, there is a public FIO Domain and Crypto Handle (Address) registration site with an available API. 
 
-#### Testnet Registration Site API
+#### Mainnet API
 
-`https://reg.az.fio.dev/public-api/`
+The following mainnet API nodes and applications are available for integration testing:
 
-### Mainnet Registration Site API
+* [FIO API Documentation]({{ site.baseurl }}/pages/api/fio-api)
+* Mainnet API nodes - <https://github.com/fioprotocol/fio.mainnet#fio-api>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Mainnet V1 History API nodes - <https://github.com/fioprotocol/fio.mainnet#fio-api>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Mainnet Hyperion History API nodes - <https://github.com/fioprotocol/fio.mainnet#hyperion>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Mainnet Monitor - <https://monitor.mainnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Mainnet Block Explorer - <https://fio.bloks.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
-`https://reg.fioprotocol.io/public-api/`
+#### Testnet API
 
-### Testnet History API
+The following testnet API nodes and applications are available for integration testing:
 
-`http://testnet.fioprotocol.io/v1/history/`
+* [FIO API Documentation]({{ site.baseurl }}/pages/api/fio-api)
+* Testnet API nodes - <https://github.com/fioprotocol/fio.mainnet#fio-testnet-api>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Testnet History API node - `https://fiotestnet.blockpane.com/v1/chain`
+* Testnet Monitor - <https://monitor.testnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
+* Testnet Block Explorer - <https://fio-test.bloks.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
 
-### Mainnet History API
+#### Registration API
 
-[See Github](https://github.com/fioprotocol/fio.mainnet){:rel="nofollow noopener noreferrer" target="_blank"}
+The following testnet API nodes and applications are available for integration testing:
+
+* [FIO Registration API Documentation]({{ site.baseurl }}/pages/api/fio-reg-api/#post-/buy-address)
+* Mainnet Registration Site API - `https://reg.fioprotocol.io/public-api/`
+* Testnet Registration Site API - `https://reg.fio.dev/public-api/`

@@ -7,4 +7,4 @@ redirect_from:
 
 # Go SDK
 
-See [Go SDK](https://github.com/fioprotocol/fio-go){:rel="nofollow noopener noreferrer" target="_blank"}
+The Go SDK is developed and supported by [Blockpane](https://blockpane.com){:target="_blank"}. Information and examples can be found on the [Go SDK repo](https://github.com/fioprotocol/fio-go){:rel="nofollow noopener noreferrer" target="_blank"}.
