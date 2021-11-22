@@ -177,5 +177,7 @@
       url: "docs/developers/ram"
     - title: Developer Tools
       url: "docs/developers/tools"
+    - title: Devnet Testing
+      url: "docs/developers/devnet"
 - title: "Blog"
   url: blog
