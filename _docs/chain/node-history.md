@@ -11,14 +11,14 @@ Refer to [Building a node]({{site.baseurl}}/docs/chain/node-build) for informati
 
 ##### Get transaction
 ```
-curl -s -XPOST https://testnet.fio.dev/v1/history/get_transaction -d '{
+curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_transaction -d '{
   "id": "7a467640c8db74e578da6f4a8ea03343aa7a73e770665564292eef548fda8b87"
 }'
 ```
 
 ### Get block transactions
 
-curl -s -XPOST https://testnet.fio.dev/v1/history/get_block_txids -d '{"block_num": 123}'
+curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_block_txids -d '{"block_num": 123}'
 
 #### Get transactions by account
 
@@ -39,7 +39,7 @@ Because of this limitation, getting the last 100 transactions for an account (fo
 
 Example using jq to print the highest action.
 ```
-curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
+curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_actions -d '{
   "account_name": "zbwprrzymskb",
   "pos": -1
 }'|jq .actions[-1].account_action_seq
@@ -47,7 +47,7 @@ curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
 
 which was 345, offset counts from 0, so to get last 100 transactions it would be …
 ```
-curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
+curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_actions -d '{
   "account_name": "zbwprrzymskb",
   "pos": 246, "offset": 99
 }'
@@ -55,7 +55,7 @@ curl -s -XPOST https://testnet.fio.dev/v1/history/get_actions -d '{
 
 #### API endpoints
 
-* Testnet History API Node: `http://testnet.fioprotocol.io/v1/history/`
+* Testnet History API Node: `https://fiotestnet.blockpane.com/v1/history/`
 * Mainnet History API Nodes: See [Github](https://github.com/fioprotocol/fio.mainnet#history-v1){:target="_blank"}
 
 #### Additional Resources
