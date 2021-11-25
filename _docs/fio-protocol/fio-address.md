@@ -54,7 +54,6 @@ Outside of centralized services (which own all user private keys, including FIO 
 A domain owner has several unique actions that are specific towards their management of a domain and any subsequent registrations of FIO Addresses.
 
 * Public/Private Flag - by default, a FIO Domain can only be used for a FIO Address registration from the domain owner themselves. If chosen, the domain owner can change their domain to public, which would allow anyone with a FIO private key to register a FIO Address on their domain. This functionality is inherent to the mechanics of the FIO Protocol, though whether a particular wallet provides that option through their UI may differ.
-* Expire Domain - a FIO Domain owner has the ability, at their discretion, to expire their domain. When they do, the domain enters expired state. 
 
 Importantly - a domain owner is NOT able to control FIO Addresses on their domain, decrypt any data associated with transactions made by any registered FIO Addresses on their domain, nor are they able to change the fee structure of FIO Address registration/renewal as that is dictated by the block producers (this is separate from running a registration site, which allows for various other economic choices).
 
@@ -87,14 +86,4 @@ It's important to note that anyone can renew a domain as long as they are willin
 
 ### FIO Address
 
-If the renewal fee for a FIO Address is not paid by its expiration date, the following actions are disallowed for 365 days:
-* add_pub_address
-* new_funds_request (Payee FIO Address only)
-* reject_funds_request (Payer FIO Address only)
-* record_send (Payer FIO Address only)
-* register_producer
-* register_proxy
-* proxy_vote
-* claim_bp_rewards
-
-After 365 days the FIO Address is burned and can be re-registered by any user.
+After [FIP-31](https://github.com/fioprotocol/fips/blob/master/fip-0031.md) was implemented, FIO Addresses no longer expire and are only burned if the FIO Domain they are on expires.
