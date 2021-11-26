@@ -20,7 +20,9 @@ info:
     name: FIO
 servers:
   - url: 'https://testnet.fioprotocol.io/v1/chain'
-    description: FIO Testnet server 
+    description: FIO Testnet server
+  - url: 'https://fio.blockpane.com/v1/chain'
+    description: FIO Mainnet server 
 paths:
   /get_fio_balance:
     post:
