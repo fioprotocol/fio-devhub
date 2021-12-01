@@ -36,9 +36,18 @@ Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/
 * Click `Create Transaction`
 * Approve the transaction
 
-**3) Confirm your balance**
+**4) Confirm your balance**
 
 * Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
 * Go to the [Get FIO balance getter]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance)
+* Under `REQUEST BODY` click on the `EXAMPLE` tab
+* Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
+
+**5) After unstaking, confirm your locked balance**
+
+When FIO is unstaked, it is locked for 7 days. To view your locked balance:
+
+* Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
+* Go to the [Get token lock information for account]({{site.baseurl}}/pages/api/fio-api/#post-/get_locks)
 * Under `REQUEST BODY` click on the `EXAMPLE` tab
 * Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
