@@ -9,10 +9,6 @@ FIO Staking is an on-chain program which rewards users for participating in bloc
 
 {% include alert.html type="warning" title="Staking feature is Testnet only" content="FIO staking is currently being tested in Testnet. Once the feature has passed acceptance testing it will be released to production." %}
 
-## Using partner wallets
-
-For a full list of wallets that have integrated Staking refer to our [FIO Ecosystem](https://fioprotocol.io/ecosystem){:target="_blank"}.
-
 ## Using Anchor wallet
 
 Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/pages/api/fio-api/#tag--Actions). To use Anchor you must install and import your FIO private key as explained in [Using FIO with Anchor]({{site.baseurl}}/docs/how-to/bloks#using-fio-in-anchor).
