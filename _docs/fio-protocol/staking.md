@@ -19,27 +19,29 @@ Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/
 
 * Select `FIO` or `FIO Testnet` from the dropdown in Anchor wallet
 
-**2) Select the stakefio action**
+**2) Ensure your account has either [voted]({{site.baseurl}}/docs/fio-protocol/voting) for at least one block producer or proxied to an account that has.**
+
+**3) Select the stakefio action**
 
 * Select Tools > Utilities > Smart Contracts 
 * Type `fio.staking` into `Contract Account Name` and click `Load Contract` (or hit Return)
 * Select `stakefio` from the `Contract Actions` dropdown
 
-**3) Sign and execute the transaction**
+**4) Sign and execute the transaction**
 
 * Make sure wallet is unlocked
 * Fill in the `Action Parameters` for the action. Refer to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Actions) for reference information on the stakefio action parameters.
 * Click `Create Transaction`
 * Approve the transaction
 
-**4) Confirm your balance**
+**5) Confirm your balance**
 
 * Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
 * Go to the [Get FIO balance getter]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance)
 * Under `REQUEST BODY` click on the `EXAMPLE` tab
 * Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
 
-**5) After unstaking, confirm your locked balance**
+**6) After unstaking, confirm your locked balance**
 
 When FIO is unstaked, it is locked for 7 days. To view your locked balance:
 
