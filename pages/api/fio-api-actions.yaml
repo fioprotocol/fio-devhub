@@ -1967,7 +1967,7 @@ paths:
                 maxLength: 64
                 pattern: >-
                   ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
-                example: alice@purse
+                example: purse@alice
             required:
               - end_point
               - fio_address
@@ -6861,6 +6861,335 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: rem_all_nfts_model
+      tags:
+        - Actions
+  stakefio:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Account has not voted or is not proxying"
+            * "Invalid amount value"
+            * "FIO Address invalid, does not exist"
+            * "FIO Domain expired"
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "Insufficient balance"
+            * "TPID must be empty or valid FIO address"     
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: actor
+                  value: aftyershcu22
+                  error: Account has not voted or is not proxying
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+            * FIO Address not owned by FIO Public Key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Stake FIO Tokens (Testnet only)
+      description: >-
+        This call allows a user to stake their FIO tokens. User can stake any available FIO Token amount in their account at any point in time. 
+        To stake, the account has to be voting for at least 1 BP or proxying/auto-proxying. The FIO Tokens do not actually leave the user's account, 
+        but are instead "locked" and cannot be spent until unstaked.
+
+
+        When tokens are staked, they cannot be transferred, used to pay a FIO Chain fee, or locked. Tokens that are Staked do count towards voting power of account.
+
+
+        Tokens locked via Mainnet or FIP-6 locks, cannot be staked. If the account has Mainnet locked tokens, then the user may stake and 
+        unstake the unlocked portion of those tokens in that account (all unlocked tokens are eligible for staking, and should stake and 
+        unstake as expected). If the account has general FIP-6 locked tokens, then the user may stake and unstake the unlocked portion of those 
+        tokens in the account (all unlocked tokens are eligible for staking, and should stake and unstake as expected).
+
+
+        When user stakes FIO Tokens they "exchange" FIO Tokens for Staking Reward Points (SRPs) at then current Rate of Exchange (ROE). SRP is not an 
+        actual token and cannot be transferred. It simply acts as a representation of future staking rewards and is attached to the account which is staking.
+
+
+        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) for a description of 
+        Staking functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        addnft action data may also be sent to the `/stake_fio_tokens` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.staking`
+
+        * name: `stakefio`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              amount:
+                type: integer
+                title: Amount
+                description: Amount of SUFs to stake.
+                example: 1000000000
+              fio_address:
+                type: string
+                title: FIO Address if using bundled transactions to pay. May be left empty if paying a fee instead.
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22                
+            required:
+              - amount
+              - fio_address
+              - max_fee
+              - actor
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: add_nft_model
+      tags:
+        - Actions
+  unstakefio:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Cannot unstake more than staked"
+            * "Invalid amount value"
+            * "FIO Address invalid, does not exist"
+            * "FIO Domain expired"
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "Insufficient balance"
+            * "TPID must be empty or valid FIO address"     
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: amount
+                  value: '999000000000'
+                  error: Cannot unstake more than staked
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+            * FIO Address not owned by FIO Public Key in signature
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Unstake FIO Tokens (Testnet only)
+      description: >-
+        This call allows a user to unstake their FIO tokens. User can unstake any amount in their account at any point in time. 
+        When they do, they will exchange SRPs back into FIO Tokens at the current Rate of Exchange. 
+        Since the ROE is likely to be higher at time of unstake, they will end up with more FIO Tokens than originally staked.
+
+
+        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) for a description of 
+        Staking and Unstaking functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        addnft action data may also be sent to the `/unstake_fio_tokens` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.staking`
+
+        * name: `unstakefio`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              amount:
+                type: integer
+                title: Amount
+                description: Amount of SUFs to unstake.
+                example: 1000000000
+              fio_address:
+                type: string
+                title: FIO Address if using bundled transactions to pay. May be left empty if paying a fee instead.
+                minLength: 3
+                maxLength: 64
+                pattern: >-
+                  ^(?:(?=.{3,64}$)[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))@[a-zA-Z0-9]{1}(?:(?!-{2,}))[a-zA-Z0-9-]*(?:(?<!-))$)
+                example: purse@alice
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Address of the wallet which generates this transaction.
+                  * This FIO Address will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: rewards@wallet
+              actor:
+                type: string
+                title: Actor
+                description: Valid actor of signer. See [Generating actor](/docs/recipes/actor-account).
+                example: aftyershcu22                
+            required:
+              - amount
+              - fio_address
+              - max_fee
+              - actor
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: add_nft_model
       tags:
         - Actions
   voteproducer:
