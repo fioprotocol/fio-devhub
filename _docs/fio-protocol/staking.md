@@ -17,6 +17,8 @@ For a full list of wallets that have integrated Staking refer to our [FIO Ecosys
 
 Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/pages/api/fio-api/#tag--Actions). To use Anchor you must install and import your FIO private key as explained in [Using FIO with Anchor]({{site.baseurl}}/docs/how-to/bloks#using-fio-in-anchor).
 
+{% include alert.html type="info" title="Testnet staking" content="The following provides instructions for FIO Staking on Testnet." %}
+
 **1) Open Anchor wallet and connect to FIO chain**
 
 * Select `FIO` or `FIO Testnet` from the dropdown in Anchor wallet
@@ -33,3 +35,10 @@ Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/
 * Fill in the `Action Parameters` for the action. Refer to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Actions) for reference information on the stakefio action parameters.
 * Click `Create Transaction`
 * Approve the transaction
+
+**3) Confirm your balance**
+
+* Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
+* Go to the [Get FIO balance getter]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance)
+* Under `REQUEST BODY` click on the `EXAMPLE` tab
+* Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
