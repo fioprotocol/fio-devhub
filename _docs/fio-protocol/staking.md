@@ -11,7 +11,7 @@ FIO Staking is an on-chain program which rewards users for participating in bloc
 
 ## Using partner wallets
 
-For a full list of wallets that have integrated Staking refer to our [FIO Ecosystem](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"}.
+For a full list of wallets that have integrated Staking refer to our [FIO Ecosystem](https://fioprotocol.io/ecosystem){:target="_blank"}.
 
 ## Using Anchor wallet
 
