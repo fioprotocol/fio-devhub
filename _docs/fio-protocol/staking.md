@@ -29,6 +29,7 @@ Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/
 
 **3) Sign and execute the transaction**
 
+* Make sure wallet is unlocked
 * Fill in the `Action Parameters` for the action. Refer to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Actions) for reference information on the stakefio action parameters.
 * Click `Create Transaction`
 * Approve the transaction
