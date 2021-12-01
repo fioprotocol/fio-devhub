@@ -5,13 +5,13 @@ description: FIO Staking
 
 # FIO Staking
 
-FIO Staking is an on-chain program which rewards users for participating in blockchain governance. It was developed as part of [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){target="_blank"}. This section provides on overview of FIO Staking and describes how to stake your tokens.
+FIO Staking is an on-chain program which rewards users for participating in blockchain governance. It was developed as part of [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"}. This section provides on overview of FIO Staking and describes how to stake your tokens.
 
 {% include alert.html type="warning" title="Staking feature is Testnet only" content="FIO staking is currently being tested in Testnet. Once the feature has passed acceptance testing it will be released to production." %}
 
 ## Using partner wallets
 
-For a full list of wallets that have integrated Staking refer to our [FIO Ecosystem](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){target="_blank"}.
+For a full list of wallets that have integrated Staking refer to our [FIO Ecosystem](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"}.
 
 ## Using Anchor wallet
 
