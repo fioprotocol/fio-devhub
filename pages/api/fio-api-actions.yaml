@@ -19,7 +19,7 @@ info:
     email: info@fioprotocol.io
     name: FIO
 servers:
-  - url: 'https://testnet.fioprotocol.io/v1/chain'
+  - url: 'https://fiotestnet.blockpane.com/v1/chain'
     description: FIO Testnet server
   - url: 'https://fio.blockpane.com/v1/chain'
     description: FIO Mainnet server 
