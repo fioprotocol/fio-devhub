@@ -1,6 +1,6 @@
 ---
 title:  FIP-31 Advisory - FIO Addresses no longer expire
-date:   2020-12-07 14:38:00
+date:   2021-12-07 14:38:00
 categories: release
 badges:
  - type: warning
