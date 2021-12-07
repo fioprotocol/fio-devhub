@@ -6996,7 +6996,8 @@ paths:
                 example: 1000000000
               fio_address:
                 type: string
-                title: FIO Address if using bundled transactions to pay. May be left empty if paying a fee instead.
+                title: FIO Address
+                description: FIO Address is required if using bundled transactions to pay. May be left empty if paying a fee instead.
                 minLength: 3
                 maxLength: 64
                 pattern: >-
@@ -7154,7 +7155,8 @@ paths:
                 example: 1000000000
               fio_address:
                 type: string
-                title: FIO Address if using bundled transactions to pay. May be left empty if paying a fee instead.
+                title: FIO Address
+                description: FIO Address is required if using bundled transactions to pay. May be left empty if paying a fee instead.
                 minLength: 3
                 maxLength: 64
                 pattern: >-
