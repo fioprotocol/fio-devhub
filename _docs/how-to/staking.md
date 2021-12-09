@@ -1,11 +1,11 @@
 ---
-title: FIO Staking
-description: FIO Staking
+title: FIO Staking Developer Guide
+description: FIO Staking Developer Guide
 redirect_from:
     - /docs/integration-guide/staking
 ---
 
-# FIO Staking
+# FIO Staking Developer Guide
 ## Overview
 [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) is introducing **FIO Staking**, an on-chain program which rewards users for participating in blockchain governance.
 
