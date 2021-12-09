@@ -47,6 +47,11 @@ In addition, the Foundation will enable your exchange to give away up to a mutua
 The Foundation for Interwallet Operability (FIO) will facilitate listing of the FIO Token on reputable exchanges. The Foundation generally will not pay listing fees, however, there are a number of additional economic benefits to your exchange, such as immediate cost savings on deposit/withdrawal customer support, generous user bounty upside, increased marketing, and demand-driving activity and possible PR.
 
 ---
+### FIO Staking integration reward
+
+FIO Staking offers a new incentive to exchanges which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide](https://developers.fioprotocol.io/docs/how-to/staking) for more details.
+
+---
 ### Block Production
 
 As a Delegated Proof of Stake blockchain, the FIO Protocol enables your exchange to participate in the economics and governance of block production either individually or by teaming up with other companies. Centralized exchanges will obtain FIO Tokens through the various elements described on this page and may also choose to vote with the tokens held on their exchange.  
