@@ -32,6 +32,10 @@ In addition, if your wallet enables FIO Domain registration, you currently would
 
 10% of all FIO token fees from FIO Addresses and Domains registered inside of a wallet or exchange are credited to the wallet or exchange through their TPID.
 
+#### FIO Staking integration reward
+
+FIO Staking offers a new incentive to wallets which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide](https://developers.fioprotocol.io/docs/how-to/staking) for more details.
+
 #### Block Production
 
 The FIO Protocol automatically proxies the vote of FIO tokens held in self sovereign wallets to the company that build the wallet unless  a user takes action to vote those tokens themselves.  This  combined with the various other ways described on this page that wallets obtain FIO Tokens, enables wallets with large numbers of customers holding FIO tokens the ability to potentially participate in the economics of block production either individually or by teaming up with other companies.
