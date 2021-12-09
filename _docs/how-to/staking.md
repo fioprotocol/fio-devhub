@@ -28,6 +28,9 @@ After staking launches on Mainnet (planned for January 2022), staking rewards wi
 
 Integrators are encouraged to launch staking integration before the activation date to offer the greatest benefit to their users.
 
+### Integrator incentive
+FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID](https://developers.fioprotocol.io/docs/how-to/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID](https://developers.fioprotocol.io/docs/how-to/tpid). If [TPID](https://developers.fioprotocol.io/docs/how-to/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers.
+
 ## How to implement voting, proxy, or auto-proxy
 The easiest way to achieve this objective is for the integrator (not the User) to [register as a proxy](https://developers.fioprotocol.io/docs/how-to/reg-proxy), [vote for block producers](https://developers.fioprotocol.io/docs/fio-protocol/voting) and insert the FIO Address of their proxy into the TPID field of every call made by the user.
 
@@ -46,6 +49,8 @@ Please note that the FIO Address parameter may be left blank. The user does not 
 When tokens are unstaked, the reward amount is automatically deposited into the user's account. Both the unstaked amount and the reward amount are then locked for a period of 7 days.
 
 When tokens are locked they cannot be transferred, or used to pay a FIO Chain fee. However, they can be voted.
+
+Make sure you supply your [TPID](https://developers.fioprotocol.io/docs/how-to/tpid) to receive integrator's incentive.
 
 ## Understanding user's FIO balance
 ### Getting user's balance
