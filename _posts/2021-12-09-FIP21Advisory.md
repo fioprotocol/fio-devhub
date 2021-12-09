@@ -9,7 +9,7 @@ badges:
 
 [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) is planned to be launched to Mainnet in January 2022. Users will have the option to stake their FIO Tokens and earn staking rewards. The staking rewards are computed in such a way that the earlier you stake the higher the reward earning potential. Integrators are encouraged to launch staking integration before the activation date of 02/22/2022 to offer the greatest benefit to their users.
 
-**Please note that FIO Staking offers a new incentive to integrators to earn 10% of the staking reward of their users!**
+**Please note that FIO Staking offers a new incentive to integrators to earn 11% of the staking reward of their users!**
 
 This Advisory is intended for wallets and exchanges wishing to integrate FIO Staking.
 
