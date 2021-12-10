@@ -114,6 +114,8 @@
           url: "docs/how-to/proxy-vote"
         - title: Sign NFTs
           url: "docs/how-to/sign-nfts"
+        - title: Stake FIO Tokens
+          url: "docs/how-to/staking"
 - title: FIO Chain
   url: "docs/chain"
   links:
