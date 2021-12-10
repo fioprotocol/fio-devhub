@@ -37,12 +37,12 @@ Alternatively, the integrator may choose to let the User vote their tokens direc
 ## How to stake FIO Tokens
 Staking is accomplished using [stakefio]({{site.baseurl}}/pages/api/fio-api/#options-stakefio) action and passing in amount of FIO Tokens to stake.
 
-Please note that the FIO Address parameter may be left blank. The user does not need to have a FIO Address to stake, but if they don't, the stake call will [have a fee]({{site.baseurl}}/pages/api/fio-api/#post-/get_fee), instead of deducting a [bundled transaction](https://kb.fioprotocol.io/fio-protocol/fio-addresses/bundling-and-fees){:target="_blank"}.
+Please note that the FIO Address parameter may be left blank. The user does not need to have a FIO Address to stake, but if they don't, the stake call will [have a fee]({{site.baseurl}}/pages/api/fio-api/#post-/get_fee), instead of deducting a [bundled transaction]({{site.baseurl}}/docs/fio-protocol/fio-fees).
 
 ## How to unstake FIO Tokens
 Unstaking is accomplished using [unstakefio]({{site.baseurl}}/pages/api/fio-api/#options-unstakefio) action and passing in amount of FIO Tokens to unstake.
 
-Please note that the FIO Address parameter may be left blank. The user does not need to have a FIO Address to unstake, but if they don't, the unstake call will [have a fee]({{site.baseurl}}/pages/api/fio-api/#post-/get_fee), instead of deducting a [bundled transaction](https://kb.fioprotocol.io/fio-protocol/fio-addresses/bundling-and-fees){:target="_blank"}.
+Please note that the FIO Address parameter may be left blank. The user does not need to have a FIO Address to unstake, but if they don't, the unstake call will [have a fee]({{site.baseurl}}/pages/api/fio-api/#post-/get_fee), instead of deducting a [bundled transaction]({{site.baseurl}}/docs/fio-protocol/fio-fees).
 
 When tokens are unstaked, the reward amount is automatically deposited into the user's account. Both the unstaked amount and the reward amount are then locked for a period of 7 days.
 
