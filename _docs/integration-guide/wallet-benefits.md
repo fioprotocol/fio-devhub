@@ -34,7 +34,7 @@ In addition, if your wallet enables FIO Domain registration, you currently would
 
 #### FIO Staking integration reward
 
-FIO Staking offers a new incentive to wallets which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide](https://developers.fioprotocol.io/docs/how-to/staking) for more details.
+FIO Staking offers a new incentive to wallets which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide]({{site.baseurl}}/docs/how-to/staking) for more details.
 
 #### Block Production
 
