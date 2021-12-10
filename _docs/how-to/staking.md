@@ -1,8 +1,6 @@
 ---
 title: FIO Staking Developer Guide
 description: FIO Staking Developer Guide
-redirect_from:
-    - /docs/integration-guide/staking
 ---
 
 # FIO Staking Developer Guide
