@@ -222,7 +222,7 @@ paths:
             application/json:
               message: No FIO names
       summary: Get all FIO Domains/Addresses linked to public key
-      description: Returns FIO Addresses and FIO Domains owned by a public key.
+      description: Returns FIO Addresses and FIO Domains owned by a public key. This getter does not allow for paging through multiple results. Consider /get_fio_addresses or  /get_fio_domains instead.
       parameters:
         - in: body
           name: body
