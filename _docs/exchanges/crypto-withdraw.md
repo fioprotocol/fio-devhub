@@ -9,8 +9,6 @@ redirect_from:
 
 [FIO Addresses]({{site.baseurl}}/docs/fio-protocol/fio-address) are human-readable wallet identifiers (such as john@edge or alice@gold) which eliminate the need to see, or even know of, blockchain public addresses. Enabling withdrawals using [FIO Addresses]({{site.baseurl}}/docs/fio-protocol/fio-address) gives exchange users friendly interwallet operability, making withdrawals easy and near error-free, dramatically reducing support tickets.
 
-As a first step, **Exchanges should register a custom [FIO Domain]({{site.baseurl}}/docs/fio-protocol/fio-address#fio-domains) (e.g., @myexchange)**. Exchange users will then be able to register FIO Addresses on that custom domain (e.g., alice@myexchange).
-
 ---
 ## Using a FIO Address (FIO Send)
 
