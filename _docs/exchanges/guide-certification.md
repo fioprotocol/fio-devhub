@@ -16,7 +16,7 @@ The following lists the items that should be tested to confirm support for diffe
 **FIO Crypto Handle**
 
 If using a unique FIO Crypto Handle for each user:
--  Exchange has set up a FIO Addressr 
+-  Exchange has set up a FIO Crypto Handle
 -  User can register a FIO Crypto Handle using other crypto
 -  User can register additional FIO Crypto Handles
 -  User can renew their existing FIO Crypto Handles

@@ -67,7 +67,7 @@ Future functionality will enable selling a FIO Domain through the use of a built
 
 A number of projects are underway with the goal of creating a decentralized domain name space system for the World Wide Web.  Should any of those projects become recognized in the community as the primary decentralized domain space, then the Foundation's vision is that the FIO Protocol will hopefully endeavor to work collaboratively with them, though such a decision will be up to the protocol Block Producers.  Specifically, FIO domains do not currently have the concept of a Top Level Domain (e.g., .com, .org, .net, .io) but such a construct could be added in the future to the notion of a FIO Crypto Handle and a unique TLD for FIO Crypto Handles registered for the FIO Protocol enabling FIO Crypto Handles to work seamlessly with a decentralized domain name space. 
 
-## Domain/Address Expiry
+## Domain and Crypto Handle Expiry
 
 How to Renew Your FIO Domains and FIO Crypto Handles
 You can view complete instructions including screenshots for how to renew your FIO Domains and FIO Crypto Handles with Edge Wallet, the FIO Registration Helper, the fio.bloks.io Block Explorer, or the API directly here: [How to Renew Your FIO Crypto Handle or FIO Domain](https://peakd.com/fio/@fioprotocol/how-to-renew-your-fio-address-or-fio-domain){:rel="nofollow noopener noreferrer" target="_blank"}.

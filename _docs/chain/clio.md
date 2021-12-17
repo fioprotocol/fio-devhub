@@ -84,7 +84,7 @@ Where:
 }
 ```
 
-#### Registering FIO Address
+#### Registering FIO Crypto Handle (aka FIO Address)
 
 For full description of fields see [/register_fio_address]({{site.baseurl}}/pages/api/fio-api/#options-regaddress)
 ```shell
