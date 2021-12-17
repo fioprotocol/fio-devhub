@@ -29,7 +29,7 @@ Select FIO from the list of available blockchains and click Enable blockchain.
 * When prompted select active account
 * Click Import Accounts
 
-{% include alert.html type="info" title="FIO Address required for voting"  content="The imported key has to have a previously registered FIO Address associated with it before it can be used for voting." %}
+{% include alert.html type="info" title="FIO Crypto Handle required for voting"  content="The imported key has to have a previously registered FIO Crypto Handle associated with it before it can be used for voting." %}
 
 **4) Vote for producers**
 
@@ -134,12 +134,12 @@ Make sure you save the automatically generated password. You will need it in the
 
 Where:
 
-* **voter@fio** is your FIO Address.
+* **voter@fio** is your FIO Crypto Handle.
 * **myactorname** is your account name on FIO Chain. If not sure what this is paste your FIO public key on the Chain Explorer Page and you will see the associated account name. You can also type:
   
 `./clio convert fiokey_to_account FIOPUBLICKEY`
 
-* **bp1@producer bp2@producer** list of FIO Addresses of producers delimited by space. You can list up to 30 block producers. Each producer will receive the same amount of votes equal to number of tokens in your account.
+* **bp1@producer bp2@producer** list of FIO Crypto Handles of producers delimited by space. You can list up to 30 block producers. Each producer will receive the same amount of votes equal to number of tokens in your account.
 
 ---
 ## Signing offline using clio

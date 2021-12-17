@@ -107,7 +107,7 @@ Below is an example of fully contructed `addaddress` transaction using the FIO [
 const fetch = require('node-fetch')
 const httpEndpoint = 'http://testnet.fioprotocol.io'
 
-// Create keypair, fund from the faucet, and register a FIO Address on the Testnet monitor (http://monitor.testnet.fioprotocol.io).
+// Create keypair, fund from the faucet, and register a FIO Crypto Handle on the Testnet monitor (http://monitor.testnet.fioprotocol.io).
 const user = {
     privateKey: '',
     publicKey: '',

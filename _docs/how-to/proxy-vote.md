@@ -30,7 +30,7 @@ Select FIO from the list of available blockchains and click Enable blockchain.
 * When prompted select active account
 * Click Import Accounts
 
-{% include alert.html type="info" title="FIO Address required to proxy your vote"  content="The imported key has to have a previously registered FIO Address associated with it before you can proxy your vote." %}
+{% include alert.html type="info" title="FIO Crypto Handle required to proxy your vote"  content="The imported key has to have a previously registered FIO Crypto Handle associated with it before you can proxy your vote." %}
 
 **4) Proxy your vote**
 
@@ -39,8 +39,8 @@ Select FIO from the list of available blockchains and click Enable blockchain.
 * Click on Utilities > Smart Contracts
 * Type "eosio" into Contract Account Name and hit return
 * Select "voteproxy" from the Contract Actions pulldown menu
-* Enter the FIO Address of the proxy.
-* Enter your FIO Address
+* Enter the FIO Crypto Handle of the proxy.
+* Enter your FIO Crypto Handle
 * Click "Use current account for field actor" checkbox
 * Enter a max fee
 * Click Create Transaction

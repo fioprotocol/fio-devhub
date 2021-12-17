@@ -4,9 +4,9 @@ description: FIO Token
 ---
 # FIO Token
 
-The FIO Protocol is powered by a utility token (FIO). The FIO Token is used to pay for transactions processed through the FIO Chain. To hold a token or a FIO Address/Domain, a user only needs a private/public key pair, and all transfers can be achieved using a FIO public key. This allows support of FIO Tokens without any special functionality. 
+The FIO Protocol is powered by a utility token (FIO). The FIO Token is used to pay for transactions processed through the FIO Chain. To hold a token or a FIO Crypto Handle/Domain, a user only needs a private/public key pair, and all transfers can be achieved using a FIO public key. This allows support of FIO Tokens without any special functionality. 
 
-FIO Tokens support the SLIP-44 (FIO index at position 235) standard. When a user chooses to restore seed phrases from one wallet to another, the FIO Tokens as well as FIO Addresses and Domains will be restored. 
+FIO Tokens support the SLIP-44 (FIO index at position 235) standard. When a user chooses to restore seed phrases from one wallet to another, the FIO Tokens as well as FIO Crypto Handles and Domains will be restored. 
 
 There are 1,000,000,000 Smallest Units of FIO (SUFs) inside 1 FIO. All transactions in FIO Protocol are expressed in SUFs.
 
@@ -22,13 +22,13 @@ There are 1,000,000,000 Smallest Units of FIO (SUFs) inside 1 FIO. All transacti
 
 Demand for FIO Tokens arises from: 
 
-1. Users needing tokens for utility of the FIO Protocol (e.g. registering FIO Addresses/Domains as well as other transaction fees) 
+1. Users needing tokens for utility of the FIO Protocol (e.g. registering FIO Crypto Handles/Domains as well as other transaction fees) 
 2. Individuals and entities desiring tokens for the purposes of voting towards block production
 3. The possibility that some wallets or exchanges may choose to compensate their users for holding FIO tokens which they can then vote towards block production
 
-The market-based fees element of the FIO Protocol ensures that the actual token charges to users continually adjust based on roughly the current human perceived value of a FIO Token. So, for example, as the FIO Token value goes up, the charge for a specific utility like registering a FIO Address will go down in absolute number of FIO Tokens being charged.
+The market-based fees element of the FIO Protocol ensures that the actual token charges to users continually adjust based on roughly the current human perceived value of a FIO Token. So, for example, as the FIO Token value goes up, the charge for a specific utility like registering a FIO Crypto Handle will go down in absolute number of FIO Tokens being charged.
 
-Fees collected for FIO Address/Domain registration are not immediately distributed, but rather locked and distributed evenly every day over a period of one year. This ensures Block Producers processing bundled transactions are properly compensated.
+Fees collected for FIO Crypto Handle/Domain registration are not immediately distributed, but rather locked and distributed evenly every day over a period of one year. This ensures Block Producers processing bundled transactions are properly compensated.
 
 ## Obtaining token supply in real-time
 

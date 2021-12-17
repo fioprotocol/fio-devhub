@@ -7,7 +7,7 @@ redirect_from:
 
 # FIO Requests
 
-A FIO Request is a transaction in which a payee is requesting funds from a payer using FIO Addresses.  The details of FIO Requests are private and only readable by the counter parties to the transaction.  
+A FIO Request is a transaction in which a payee is requesting funds from a payer using FIO Crypto Handles (aka FIO Addresses).  The details of FIO Requests are private and only readable by the counter parties to the transaction.  
 
 This request is stored on-chain, and all sensitive metadata is encrypted (currency, amount, public address of payee, FIO Data, etc.) using the Diffie-Hellman key method, which utilizes a shared secret from the payee private key and payer public key. This encryption is always enabled for all FIO Requests.
 
@@ -15,15 +15,15 @@ The payer's wallet or application polls the FIO Chain for relevant requests, and
 
 The payer has a choice whether to approve or reject the request. If rejected, there is a status update made on FIO Chain, which removes the request from being shown. 
 
-**FIO Requests are included as part of the bundled transaction with registering/renewing a FIO Address.**
+**FIO Requests are included as part of the bundled transaction with registering/renewing a FIO Crypto Handle.**
 
 FIO Request is a perfect mechanism for recurring payments, where a merchant can trigger a request anytime a payment is due. This request will show up in user’s wallet for approval.
 
-In order to enable FIO Protocol on an e-commerce site, the merchant will need to simply collect the FIO Address from the customer on the site and initiate a FIO Request to that address for the required amount of cryptocurrency at checkout. The process of recognizing the payment would remain unchanged.
+In order to enable FIO Protocol on an e-commerce site, the merchant will need to simply collect the FIO Crypto Handle from the customer on the site and initiate a FIO Request to that address for the required amount of cryptocurrency at checkout. The process of recognizing the payment would remain unchanged.
 
 ## FIO Requests and FIO Data
 
-One of the key features of FIO Protocol is the ability to request crypto using FIO Request. The user requesting funds (Payee) can send a FIO Request to a user who is asked to pay (Payer), by only using the Payer’s FIO Address.
+One of the key features of FIO Protocol is the ability to request crypto using FIO Request. The user requesting funds (Payee) can send a FIO Request to a user who is asked to pay (Payer), by only using the Payer’s FIO Crypto Handle.
 
 FIO Request data, such as amount, currency, and memo field are encrypted and only readable by Payee and Payer.
 
@@ -53,7 +53,7 @@ The Payee’s wallet can fetch all sent FIO Requests and its current status usin
 
 ### Recording FIO Data
 
-Anytime crypto is sent using FIO Address, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
+Anytime crypto is sent using FIO Crypto Handle, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
 
 See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/how-to/fio-data) for more information on using FIO data.
 

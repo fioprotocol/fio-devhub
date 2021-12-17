@@ -7,7 +7,7 @@ redirect_from:
 
 # Earn FIO with your Technology Provider ID
 
-To increase the adoption of the FIO Protocol among existing blockchain ecosystem participants, every interaction with the FIO blockchain can be tagged with a **Technology Provider ID (TPID)**, which is a valid FIO Address. The TPID FIO Address receives a portion of [fees]({{site.baseurl}}/docs/fio-protocol/fio-fees) collected from all transactions with that mapped TPID.
+To increase the adoption of the FIO Protocol among existing blockchain ecosystem participants, every interaction with the FIO blockchain can be tagged with a **Technology Provider ID (TPID)**, which is a valid FIO Crypto Handle (aka FIO Address). The TPID FIO Crypto Handle receives a portion of [fees]({{site.baseurl}}/docs/fio-protocol/fio-fees) collected from all transactions with that mapped TPID.
 
 In the example below, the owner of rewards@wallet will receive a portion of the fees payed by the user to register purse@alice.
 
@@ -25,11 +25,11 @@ In the example below, the owner of rewards@wallet will receive a portion of the 
 
 ## Payouts to TPIDs
 
-TPIDs *virtual* accounts get incremented every time a qualifying fee is paid. An integrator TPID which has accrued 100 FIO or more can call the [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint to claim their rewards. When called, the entire balance from the virtual account is transferred to the TPID FIO Address.
+TPIDs *virtual* accounts get incremented every time a qualifying fee is paid. An integrator TPID which has accrued 100 FIO or more can call the [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint to claim their rewards. When called, the entire balance from the virtual account is transferred to the TPID FIO Crypto Handle.
 
 The [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint processes 100 payments across all TPIDs each time it is called. It is expected that Block Producers will call [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) on a regular basis, although any member of the community can call the endpoint and initate the payout. The call is free and only modifies the blockchain if there are transactions that need processing. This call will only trigger an action if it is made at least 60 seconds after the previous time it was called.
 
-If a TPID virtual account does not reference a valid FIO Address (e.g. the Address has expired and was burned since the fees were accrued) the payout will transfer to the current day's BP rewards bucket.
+If a TPID virtual account does not reference a valid FIO Crypto Handle (e.g. the Address has expired and was burned since the fees were accrued) the payout will transfer to the current day's BP rewards bucket.
 
 ## New User Bounties
 

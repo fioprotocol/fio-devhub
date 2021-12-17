@@ -202,7 +202,7 @@ Output:
 
 ### Example UX
 
-To see a minimal vue.js example that queries the FIO Address table to determine if a FIO Domain or FIO Address has been registered, refer to [Blockpane's fio-search application](https://github.com/blockpane/fio-search){:rel="nofollow noopener noreferrer" target="_blank"}.
+To see a minimal vue.js example that queries the FIO Crypto Handle table to determine if a FIO Domain or FIO Crypto Handle has been registered, refer to [Blockpane's fio-search application](https://github.com/blockpane/fio-search){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ### References
 

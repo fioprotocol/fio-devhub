@@ -22,9 +22,9 @@ Start with setting up a Testnet node and join [Testnet Telegram Channel](https:/
   * BPs will publish real-time performance metrics of the block producing nodes
 * Run the latest code base approved by BPs via a vote 
   * BPs will self-report version number of software running
-* Set fees and number of bundled transactions included with each FIO Address
+* Set fees and number of bundled transactions included with each FIO Crypto Handle
 * BPs will not share fees in exchange for votes. However, BPs may outsource the technical operation of running the node. Vote incentivization has the potential to degrade Delegated Proof of Stake systems. The block reward should incentive value creation over value transfer and no single entity should have a controlling stake in more than one block producing node, otherwise the decentralized intent of DPoS will be compromised.
-* Each of the 42 BPs submits their desired fee amount of FIO Tokens for each blockchain interaction and amount of bundled transactions to be included with every FIO Address.
+* Each of the 42 BPs submits their desired fee amount of FIO Tokens for each blockchain interaction and amount of bundled transactions to be included with every FIO Crypto Handle.
 * Amounts submitted by active block producers are analyzed, and the fee is set at median of all submitted amounts.
 * Until an on-chain mechanism is proposed, maintain a bp.json file (and chains.json if producing on multiple EOSIO-based chains) as described here and regularly review community tools like this one to keep your information up to date.
 

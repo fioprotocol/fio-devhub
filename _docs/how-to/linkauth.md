@@ -9,7 +9,7 @@ redirect_from:
 
 ## Overview
 
-linkauth allows secondary account to execute a specific action on behalf of the primary account. For example if Account Domain Owner owns a domain and that domain is private, it can authorize Account Registrar to register FIO Addresses on that domain, without making it public. Here’s an example of how this can be acomplished.
+linkauth allows secondary account to execute a specific action on behalf of the primary account. For example if Account Domain Owner owns a domain and that domain is private, it can authorize Account Registrar to register FIO Crypto Handles on that domain, without making it public. Here’s an example of how this can be acomplished.
 
 ## Add new permission
 
@@ -57,7 +57,7 @@ content = "If multiple auth accounts are included (e.g., when creating a multisi
 
 ## Link the new permission
 
-Once the new permission is created, we link it to the Register FIO Address action.
+Once the new permission is created, we link it to the Register FIO Crypto Handle action.
 ```
 {
 	"account": "eosio",
@@ -78,9 +78,9 @@ Once the new permission is created, we link it to the Register FIO Address actio
 }
 ```
 
-## Register FIO Address on behalf of owner
+## Register FIO Crypto Handle on behalf of owner
 
-You can now register FIO Address, but you have to do so with the owner’s actor and the new permission as authorization and signature of the active permission of registrar.
+You can now register FIO Crypto Handle, but you have to do so with the owner’s actor and the new permission as authorization and signature of the active permission of registrar.
 ```
 {
 	"account": "fio.address",

@@ -276,7 +276,7 @@ clio -u https://API_NODE_URL push action fio.fee setfeemult '{"multiplier":20,"a
 ---
 ## Setting bundled transactions
 
-Number of bundled transactions credited for all new FIO Address registrations and renewals is set by BPs in the following way:
+Number of bundled transactions credited for all new FIO Crypto Handle registrations and renewals is set by BPs in the following way:
 
 * Top 21 BPs submit at anytime [/submit_bundled_transaction]({{site.baseurl}}/pages/api/fio-api/#options-bundlevote) (can be made no more than once every 120 seconds) call
 * Once received, the bundled transactions are determined by deriving a median of all submissions. Example:

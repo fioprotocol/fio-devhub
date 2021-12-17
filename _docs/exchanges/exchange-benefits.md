@@ -25,9 +25,9 @@ How much time and money does your exchange spend with users on crypto deposit/wi
 ---
 ### Income Generation
 
-The sky’s the limit. Exchanges that complete integration and an ability to deposit/withdrawal/request using FIO Addresses currently earn approximately $1 in FIO Tokens for each new FIO Address registered from within the exchange.  This includes for those given away for free through the FIO Address Giveaway described in the marketing section below.
+The sky’s the limit. Exchanges that complete integration and an ability to deposit/withdrawal/request using FIO Crypto Handles (aka FIO Addresses) currently earn approximately $1 in FIO Tokens for each new FIO Crypto Handle registered from within the exchange.  This includes for those given away for free through the FIO Crypto Handle Giveaway described in the marketing section below.
 
-|Number of New FIO Addresses Registered|Approximate Profit Your Exchange Earns|
+|Number of New FIO Crypto Handles Registered|Approximate Profit Your Exchange Earns|
 |:-:|:-:|
 |25,000|$25,000|
 |100,000|$100,000|
@@ -39,7 +39,7 @@ The sky’s the limit. Exchanges that complete integration and an ability to dep
 
 The FIO Protocol has extensive following on social media. Your exchange will have the opportunity to leverage the marketing, public relations and communications support from the Foundation to conduct a powerful joint marketing campaign and promote your new integration partnership with FIO. To make the launch of your new FIO integration capabilities and listing a success, the Foundation will provide a mutually agreed upon FIO Token budget.
 
-In addition, the Foundation will enable your exchange to give away up to a mutually agreed upon specified maximum number of free FIO Addresses Addresses on your exchange’s unique FIO Domain for its users. A FIO Address looks like and consists of the following parts: “username@domain” were @domain will be your exchange's proprietary NFT FIO Domain
+In addition, the Foundation will enable your exchange to give away up to a mutually agreed upon specified maximum number of free FIO Crypto Handles Addresses on your exchange’s unique FIO Domain for its users. A FIO Crypto Handle looks like and consists of the following parts: “username@domain” were @domain will be your exchange's proprietary NFT FIO Domain
 
 ---
 ### Token Listing
@@ -59,7 +59,7 @@ As a Delegated Proof of Stake blockchain, the FIO Protocol enables your exchange
 ---
 ### FIO Integration Grant
 
-Integration grants are available to exchanges that meet Foundation established minimum criteria.  Grants range from $10,000 value to $500,000 value depending on the user base of the exchange and in the sole discretion of the Foundation for Interwallet Operability.  In addition, the Foundation will sponsor a certain number of free FIO Addresses for your users and you'll receive approximately $1 in token income directly from the blockchain for each.
+Integration grants are available to exchanges that meet Foundation established minimum criteria.  Grants range from $10,000 value to $500,000 value depending on the user base of the exchange and in the sole discretion of the Foundation for Interwallet Operability.  In addition, the Foundation will sponsor a certain number of free FIO Crypto Handles for your users and you'll receive approximately $1 in token income directly from the blockchain for each.
 
 To apply for an Integration Grant and obtain more information [use this brief form](https://docs.google.com/forms/d/e/1FAIpQLScU4efavwLErmJyRb1T_w9CGGLEqip2kVp1JSH-pfV7WDF--A/viewform?usp=sf_link){:rel="nofollow noopener noreferrer" target="_blank"}. 
 
