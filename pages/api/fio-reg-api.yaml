@@ -428,7 +428,7 @@ paths:
               description: Referral code provided by Foundation
             publicKey:
               type: string
-              description: FIO public key for the user paying or the owner of domain/address.
+              description: FIO public key for the user paying or the owner of the domain or crypto handle.
                 This is only used for accounting of funds and is not required for
                 renewal, but recommended if available.
             redirectUrl:
