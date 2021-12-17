@@ -32,7 +32,7 @@ Select FIO from the list of available blockchains and click Enable blockchain.
 * When prompted select active account
 * Click Import Accounts
 
-{% include alert.html type="info" title="FIO Address required to register as a proxy"  content="The imported key has to have a previously registered FIO Address associated with it before it can be registered as a proxy." %}
+{% include alert.html type="info" title="FIO Crypto Handle required to register as a proxy"  content="The imported key has to have a previously registered FIO Crypto Handle associated with it before it can be registered as a proxy." %}
 
 **4) Register as a proxy**
 
@@ -47,6 +47,6 @@ Select FIO from the list of available blockchains and click Enable blockchain.
 * Click Create Transaction
 * Click Broadcast Transaction
 
-Go to your account on [bloks.io](https://fio.bloks.io/){:rel="nofollow noopener noreferrer" target="_blank"} and refer to the Chain Data > Votes tab to confirm your FIO Address is registered as a proxy.
+Go to your account on [bloks.io](https://fio.bloks.io/){:rel="nofollow noopener noreferrer" target="_blank"} and refer to the Chain Data > Votes tab to confirm your FIO Crypto Handle is registered as a proxy.
 
 For additional information see the [regproxy]({{site.baseurl}}/pages/api/fio-api/#options-regproxy) API documentation.

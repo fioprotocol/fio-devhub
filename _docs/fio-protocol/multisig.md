@@ -11,7 +11,7 @@ The following is a step-by-step guide for how to convert a regular FIO account i
 
 ## Step 1: Change account and owner permissions of account
 
-This `updateauth` call will replace permissions for the `wh2oxdvbebor` account with active permissions from 3 different accounts. Please note that those accounts must have been previously created on the FIO Chain by sending funds to them or by registering a FIO Address.
+This `updateauth` call will replace permissions for the `wh2oxdvbebor` account with active permissions from 3 different accounts. Please note that those accounts must have been previously created on the FIO Chain by sending funds to them or by registering a FIO Crypto Handle.
 
 Both the "account" or "owner" permissions will need to be updated. The following code updates the "active" permission.
 

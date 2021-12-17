@@ -15,7 +15,7 @@ The native EOSIO transfer action is not supported.
 
 ### Transaction memo
 
-[/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To attach a memo to a FIO token transfer, a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) transaction should be sent after the tokens are transferred and include the token transfer transaction id. [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) requires that both payer and payee have a FIO Address. If either party does not have a FIO Address transfer of memo is not supported.
+[/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To attach a memo to a FIO token transfer, a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) transaction should be sent after the tokens are transferred and include the token transfer transaction id. [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) requires that both payer and payee have a FIO Crypto Handle. If either party does not have a FIO Crypto Handle transfer of memo is not supported.
 
 ### Checking token balance
 

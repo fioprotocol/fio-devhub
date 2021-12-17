@@ -44,7 +44,7 @@ Any design or implementation issue that substantially affects the confidentialit
 * Blockchain application vulnerabilities including double spending, cryptojacking, smart contract DoS, overflow attacks, replay attacks, and balance attacks;
 * P2P system vulnerabilities including DNS hijacks, BGP hijacks, eclipse attacks, majority attacks, DDoS attacks, consensus delay, timejacking attacks, and Kinney attacks;
 * Vulnerabilities that permit the redirecting or stealing of FIO tokens from a FIO account;
-* Vulnerabilities that interfere with the mapping between FIO Addresses and other blockchain public addresses;
+* Vulnerabilities that interfere with the mapping between FIO Crypto Handles and other blockchain public addresses;
 * Vulnerabilities that consume state RAM; and
 * Vulnerabilities that create invalid, excessively large, entries in the blockchain transaction log and can subsequently cause problems during blockchain replay.
 

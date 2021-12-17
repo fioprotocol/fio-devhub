@@ -5,13 +5,13 @@ layout: page-sdk
 redirect_from:
     - /docs/sdk-typescript/transfer-fio-tokens-example
 ---
-# Example: Transfer FIO tokens using a FIO Address
+# Example: Transfer FIO tokens using a FIO Crypto Handle
 
 {% include alert.html type="warning" title="Typescript SDK version compatability" 
 content = "The following example uses Version 1.x of the Typescript SDK. Version 2.x introduced non-backward compatible changes and a different syntax for pushing transactions to the blockchain."
 %}
 
-The following is an example of how to use the [FIO Typescript SDK](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"} to transfer FIO from a payer (the user sending the funds) to a payee (the user receiving the funds) using the payee's FIO Address. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet).
+The following is an example of how to use the [FIO Typescript SDK](https://github.com/fioprotocol/fiosdk_typescript){:target="_blank"} to transfer FIO from a payer (the user sending the funds) to a payee (the user receiving the funds) using the payee's FIO Crypto Handle. Use the [FIO Testnet Monitor to register your Testnet private/public keys and fund your Testnet account]({{site.baseurl}}/docs/chain/testnet#integration-testing-with-fio-testnet).
 
 ## Import FIO
 
@@ -51,7 +51,7 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
 
 ### Look up token public address
 
-In this step we use the payee's FIO Address and the token and chain code for FIO to look up the payee's FIO Public Key.
+In this step we use the payee's FIO Crypto Handle and the token and chain code for FIO to look up the payee's FIO Public Key.
 
 ```javascript
     const payeeFioAddress = 'payee@fiotestnet'
@@ -101,7 +101,7 @@ Use /get_fee to look up the payer fee for [/transfer_tokens_pub_key]({{site.base
 
 ### Final code
 
-The following summarizes the steps to transfer FIO tokens using a FIO Address:
+The following summarizes the steps to transfer FIO tokens using a FIO Crypto Handle:
 
 ```javascript
     const { FIOSDK } = require('@fioprotocol/fiosdk');
@@ -153,7 +153,7 @@ The following summarizes the steps to transfer FIO tokens using a FIO Address:
 <div class="row position-relative">
     <div class="col-6">
         <div class="form-group">
-            <label for="transfer-payee">Payee FIO Address</label>
+            <label for="transfer-payee">Payee FIO Crypto Handle</label>
             <input type="text" class="form-control" id="transfer-payee" placeholder="payee@fiotestnet">
         </div>
         <div class="form-group">

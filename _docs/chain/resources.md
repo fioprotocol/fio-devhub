@@ -38,7 +38,7 @@ Every new account will have initial RAM allocated to 25600 bytes (25K). Every ti
 
 #### Example
 
-* Account A registers a FIO Address for themselves
+* Account A registers a FIO Crypto Handle for themselves
 * Account A RAM is increased by 2,560 bytes
 * Account A transfers funds to a key not associated with an account
 * Account A RAM is increased by 2,560 bytes

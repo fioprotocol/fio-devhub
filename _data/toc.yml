@@ -10,7 +10,7 @@
           url: "docs/fio-protocol"
         - title: FIO Token
           url: "docs/fio-protocol/fio-token"
-        - title: FIO Addresses & Domains
+        - title: FIO Crypto Handles & Domains
           url: "docs/fio-protocol/fio-address"
         - title: Public/Private Keys
           url: "docs/fio-protocol/keys"
@@ -48,9 +48,9 @@
           url: "docs/exchanges/exchange-guide"
         - title: Listing the FIO Token
           url: "docs/exchanges/token-listing"
-        - title: Deposit using FIO Addresses
+        - title: Deposit using FIO Crypto Handles
           url: "docs/exchanges/crypto-deposit"
-        - title: Withdraw using FIO Addresses
+        - title: Withdraw using FIO Crypto Handles
           url: "docs/exchanges/crypto-withdraw"
         - title: Integration Checklist
           url: "docs/exchanges/guide-certification"
@@ -76,9 +76,9 @@
     - title: How to Guides
       url: "docs/how-to"
       children:
-        - title: Send to a FIO Address
+        - title: Send to a FIO Crypto Handle
           url: "docs/how-to/fio-send"
-        - title: Register FIO Addresses & Domains
+        - title: Register FIO Crypto Handles & Domains
           url: "docs/how-to/registration"
         - title: Submit a Transaction
           url: "docs/how-to/transactions"
@@ -86,7 +86,7 @@
           url: "docs/how-to/bloks"
         - title: Map Public Addresses
           url: "docs/how-to/mapping"
-        - title: Receive to a FIO Address
+        - title: Receive to a FIO Crypto Handle
           url: "docs/how-to/fio-receive"
         - title: Use FIO Requests
           url: "docs/how-to/fio-request"

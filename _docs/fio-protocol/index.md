@@ -20,14 +20,14 @@ The service FIO offers is not centralized. There is no company making money off 
 <details>
   <summary><i>FIO Protocol does not directly send or receive your cryptocurrency</i></summary>
 <br>  
-The FIO Protocol, which acts like a layer 2 usability layer for all blockchains, doesn't actually integrate directly with any other blockchain. When sending to a human-readable FIO address or responding to a FIO Request, the wallet, exchange, or FIO-enabled service you are using looks up the native blockchain address and sends to it directly. FIO is not involved in that transaction in any way. For example, the wallet looks up a bitcoin address mapped to user@fio and once it has that BTC address, it does a normal BTC transaction on the BTC chain.
+The FIO Protocol, which acts like a layer 2 usability layer for all blockchains, doesn't actually integrate directly with any other blockchain. When sending to a human-readable FIO Crypto Handle (aka FIO Address) or responding to a FIO Request, the wallet, exchange, or FIO-enabled service you are using looks up the native blockchain address and sends to it directly. FIO is not involved in that transaction in any way. For example, the wallet looks up a bitcoin address mapped to user@fio and once it has that BTC address, it does a normal BTC transaction on the BTC chain.
 </details>
 <br>
 
 <details>
   <summary><i>FIO Protocol is a standalone blockchain built on EOSIO technology</i></summary>
 <br>  
-The FIO Protocol is a Byzantine Fault Tolerant DPOS blockchain. Data lookups and validations for FIO Address interactions are secured by the FIO Chain. Only the FIO private key holder who owns the FIO Address NFT can map native blockchain addresses to that FIO Address or send encrypted FIO Requests from that FIO Address. This ensures the entire security of the network (currently over $14M worth of FIO tokens are being used to vote in the top block producer) is securing your FIO Address mappings.
+The FIO Protocol is a Byzantine Fault Tolerant DPOS blockchain. Data lookups and validations for FIO Crypto Handle interactions are secured by the FIO Chain. Only the FIO private key holder who owns the FIO Crypto Handle NFT can map native blockchain addresses to that FIO Crypto Handle or send encrypted FIO Requests from that FIO Crypto Handle. This ensures the entire security of the network (currently over $14M worth of FIO tokens are being used to vote in the top block producer) is securing your FIO Crypto Handle mappings.
 </details>
 
 ## What are main goals of the FIO Protocol?
@@ -45,13 +45,13 @@ The FIO Protocol reimagines and enables a better way of sending and receiving bl
 
 The FIO Protocol currently provides several features, with a robust roadmap of future items that may be added. Currently, the FIO Protocol enables the following:
 
-#### FIO Address
+#### FIO Crypto Handle
 
-[FIO Addresses]({{site.baseurl}}/docs/fio-protocol/fio-address) act as the human readable “wallet names” and user identifiers on the network. In addition, FIO Addresses are the gateway to all other capabilities of the FIO Protocol. Registration of a FIO Address is done in a FIO enabled wallet or exchange where a FIO Private/Public Key pair is generated. The FIO Address and all actions on the FIO Chain are self-sovereign via the FIO Private Key. Without a FIO Address, users cannot access any of the other FIO protocol capabilities.
+[FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) act as the human readable “wallet names” and user identifiers on the network. In addition, FIO Crypto Handles are the gateway to all other capabilities of the FIO Protocol. Registration of a FIO Crypto Handle is done in a FIO enabled wallet or exchange where a FIO Private/Public Key pair is generated. The FIO Crypto Handle and all actions on the FIO Chain are self-sovereign via the FIO Private Key. Without a FIO Crypto Handle, users cannot access any of the other FIO protocol capabilities.
 
 #### FIO Request
 
-A [FIO Request]({{site.baseurl}}/docs/how-to/fio-request) is a transaction in which a payee is requesting funds from payer using FIO Addresses. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
+A [FIO Request]({{site.baseurl}}/docs/how-to/fio-request) is a transaction in which a payee is requesting funds from payer using FIO Crypto Handles. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
 
 #### FIO Data
 

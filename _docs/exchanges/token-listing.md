@@ -61,7 +61,7 @@ The native EOSIO `transfer` action is not supported.
 
 #### Transaction memo
 
-[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/how-to/fio-data), both payer and payee must have a [FIO Address]({{site.baseurl}}/docs/fio-protocol/fio-address). For more information refer to the [deposit using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto-deposit) and [withdraw using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto-withdraw) integration details.
+[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/how-to/fio-data), both payer and payee must have a [FIO Crypto Handle]({{site.baseurl}}/docs/fio-protocol/fio-address). For more information refer to the [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit) and [withdraw using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-withdraw) integration details.
 
 ---
 ## Retrieving account balances and transaction history
@@ -79,7 +79,7 @@ For performance and security reasons, exchanges may want to maintain internal no
 ---
 ## Enabling FIO token deposits
 
-There are two main methods for enabling FIO token deposits: using a unique FIO Public Key for every user and using FIO Addresses and FIO Requests for FIO deposits. While some exchanges prefer to use a single key for all deposits, this method is not recommended for FIO. The different methods are explained below.
+There are two main methods for enabling FIO token deposits: using a unique FIO Public Key for every user and using FIO Crypto Handles and FIO Requests for FIO deposits. While some exchanges prefer to use a single key for all deposits, this method is not recommended for FIO. The different methods are explained below.
 
 #### Using a unique FIO Public Key for every user
 
@@ -105,15 +105,15 @@ Next, fetch inline traces using `/v1/history/get_transaction` and returned trx. 
 
 #### Using a single FIO Public Key for all deposits
 
-[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/how-to/fio-data), both payer and payee must have a [FIO Address]({{site.baseurl}}/docs/fio-protocol/fio-address) and a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) has to be sent every time a user deposits FIO. Because it is difficult to ensure that wallets transferring FIO to the exchange will always attach an OBT record, it is not recommended that exchanges use the "single FIO Public Key" method for enabling FIO deposits. 
+[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/how-to/fio-data), both payer and payee must have a [FIO Crypto Handle]({{site.baseurl}}/docs/fio-protocol/fio-address) and a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) has to be sent every time a user deposits FIO. Because it is difficult to ensure that wallets transferring FIO to the exchange will always attach an OBT record, it is not recommended that exchanges use the "single FIO Public Key" method for enabling FIO deposits. 
 
 {% include alert.html type="warning" title="transfer_tokens_pub_key does not accept a memo field"  content="FIO does not support EOSIO memo fields. Therefore, it is not recommended that exchanges use the *Single FIO Public Key for all deposits* method for enabling FIO deposits." %}
 
-Refer to [deposit using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto-deposit) for more information on how to use FIO Addresses and FIO Requests to enable FIO deposits.
+Refer to [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit) for more information on how to use FIO Crypto Handles and FIO Requests to enable FIO deposits.
 
-#### Using FIO Addresses and FIO Requests for FIO deposits
+#### Using FIO Crypto Handles and FIO Requests for FIO deposits
 
-See: [Deposit Crypto using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto-deposit).
+See: [Deposit Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit).
 
 ---
 ## Enabling FIO token withdrawals
@@ -122,6 +122,6 @@ See: [Deposit Crypto using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto
 
 With this option, the user’s withdrawal area on the exchange would ask for a FIO Public Key and the amount of withdrawals. The transfer would be executed using the[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) action and metadata recorded using [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) action.
 
-#### Using FIO Addresses and FIO Requests for FIO withdrawals
+#### Using FIO Crypto Handles and FIO Requests for FIO withdrawals
 
-See: [Withdraw Crypto using FIO Addresses]({{site.baseurl}}/docs/exchanges/crypto-withdraw).
+See: [Withdraw Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-withdraw).

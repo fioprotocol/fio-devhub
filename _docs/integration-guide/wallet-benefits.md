@@ -18,19 +18,19 @@ description: Benefits & Bounties for Wallets
 
 #### Integration Grants
 
-Integration grants are available to wallets that meet Foundation established minimum criteria.  Grants range from $10,000 value to $500,000 value depending on the user base of the application and in the sole discretion of the Foundation for Interwallet Operability.  In addition, the Foundation will sponsor a certain number of free FIO Addresses for your users and you'll receive approximately $1 in token income directly from the blockchain for each as described below.  
+Integration grants are available to wallets that meet Foundation established minimum criteria.  Grants range from $10,000 value to $500,000 value depending on the user base of the application and in the sole discretion of the Foundation for Interwallet Operability.  In addition, the Foundation will sponsor a certain number of free FIO Crypto Handles (aka FIO Addresses) for your users and you'll receive approximately $1 in token income directly from the blockchain for each as described below.  
 
 To apply for an Integration Grant and obtain more information [use this brief form](https://docs.google.com/forms/d/e/1FAIpQLScU4efavwLErmJyRb1T_w9CGGLEqip2kVp1JSH-pfV7WDF--A/viewform?usp=sf_link){:rel="nofollow noopener noreferrer" target="_blank"}.  
 
 #### User Bounties
 
-Wallets that complete integration of FIO Address registration and include the ability to send and receive with FIO Addresses currently earn FIO Tokens roughly equal to $1 for each user that registers a FIO Address. And for grant qualified wallets, the Foundation for Interwallet Operability will sponsor a certain number of free FIO Addresses for your wallet's users. You still earn the TPID fee even on those FIO Addresses paid for by the Foundation.
+Wallets that complete integration of FIO Crypto Handle registration and include the ability to send and receive with FIO Crypto Handles currently earn FIO Tokens roughly equal to $1 for each user that registers a FIO Crypto Handle. And for grant qualified wallets, the Foundation for Interwallet Operability will sponsor a certain number of free FIO Crypto Handles for your wallet's users. You still earn the TPID fee even on those FIO Crypto Handles paid for by the Foundation.
 
 In addition, if your wallet enables FIO Domain registration, you currently would obtain roughly $20 in FIO Tokens directly from the blockchain for user registrations fo custom FIO Domains.
 
 #### Technology Provider ID (TPID) Fees
 
-10% of all FIO token fees from FIO Addresses and Domains registered inside of a wallet or exchange are credited to the wallet or exchange through their TPID.
+10% of all FIO token fees from FIO Crypto Handles and Domains registered inside of a wallet or exchange are credited to the wallet or exchange through their TPID.
 
 #### FIO Staking integration reward
 
@@ -49,9 +49,9 @@ To apply for an Integration Grant and obtain more information [use this brief fo
 ---
 ### Driving Additional Users for Wallets
 
-#### FIO Address Giveaways
+#### FIO Crypto Handle Giveaways
 
-Wallets that have integrated FIO Address registration and the ability to send and receive with FIO Addresses can participate in FIO Address Giveaway campaigns. In these campaigns the Foundation for Interwallet operability pays the ~$2 per FIO Address FIO Token fee on behalf of the wallet’s users for registering a FIO Address. The wallet still receives a FIO roughly $1 TPID fee for these free FIO Addresses.
+Wallets that have integrated FIO Crypto Handle registration and the ability to send and receive with FIO Crypto Handles can participate in FIO Crypto Handle Giveaway campaigns. In these campaigns the Foundation for Interwallet operability pays the ~$2 per FIO Crypto Handle FIO Token fee on behalf of the wallet’s users for registering a FIO Crypto Handle. The wallet still receives a FIO roughly $1 TPID fee for these free FIO Crypto Handles.
 
 #### Participation in Exchange Listing Marketing
 
@@ -63,7 +63,7 @@ Once FIO Request is integrating, the Foundation will sponsor campaigns encouragi
 
 #### Future Marketing Campaigns
 
-There are many additional marketing activities around registering FIO Addresses and utilizing FIO Requests that the Foundation is in process of planning.  FIO enabled wallets end up being the beneficiaries of these campaigns as users must have a FIO enabled wallet to participate. 
+There are many additional marketing activities around registering FIO Crypto Handles and utilizing FIO Requests that the Foundation is in process of planning.  FIO enabled wallets end up being the beneficiaries of these campaigns as users must have a FIO enabled wallet to participate. 
 
 A Better User Experience Leads to More Users
 

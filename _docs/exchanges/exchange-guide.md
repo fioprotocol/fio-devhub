@@ -24,7 +24,7 @@ Next, reach out to the FIO team to set up a joint Telegram or Discord channel. T
 ---
 ## Phase 2: Set up your test environment
 
-The FIO community has built several applications for interacting with the FIO Testnet chain. These are useful during integration development. For example, you will want to register FIO Addresses and transfer FIO Tokens during testing. But, registering a new address for the first time requires FIO tokens. Therefore, some manual setup is required to acquire a Testnet FIO public key and Testnet FIO tokens.
+The FIO community has built several applications for interacting with the FIO Testnet chain. These are useful during integration development. For example, you will want to register FIO Crypto Handles (aka FIO Addresses) and transfer FIO Tokens during testing. But, registering a new address for the first time requires FIO tokens. Therefore, some manual setup is required to acquire a Testnet FIO public key and Testnet FIO tokens.
 
 The following testnet applications are availble for integration testing:
 * Testnet Monitor - <https://monitor.testnet.fioprotocol.io/>{:rel="nofollow noopener noreferrer" target="_blank"}
@@ -35,13 +35,13 @@ Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#
 ---
 ## Phase 3: Integrate FIO
 
-There are two main integration activities for exchanges. The first step is to [list the FIO token]({{site.baseurl}}/docs/exchanges/token-listing) on your exchange. The next step is to enable deposits and withdrawals of crypto using [FIO Addresses]({{site.baseurl}}/docs/fio-protocol/fio-address) for your users on your custom `@myexchange` domain.
+There are two main integration activities for exchanges. The first step is to [list the FIO token]({{site.baseurl}}/docs/exchanges/token-listing) on your exchange. The next step is to enable deposits and withdrawals of crypto using [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) for your users on your custom `@myexchange` domain.
 
 |Integration |Summary	|
 |---|---|
 |FIO Token |[List the FIO Token]({{site.baseurl}}/docs/exchanges/token-listing) |
-|Deposits |[Enable crypto deposits using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |
-|Withdrawals |[Enable crypto withdrawals using FIO Addresses and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-withdraw) |
+|Deposits |[Enable crypto deposits using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |
+|Withdrawals |[Enable crypto withdrawals using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-withdraw) |
 
 ---
 ## Phase 4: Configure your Technology Provider ID (TPID)
