@@ -57,6 +57,9 @@ A domain owner has several unique actions that are specific towards their manage
 
 Importantly - a domain owner is NOT able to control FIO Crypto Handles on their domain, decrypt any data associated with transactions made by any registered FIO Crypto Handles on their domain, nor are they able to change the fee structure of FIO Crypto Handle registration/renewal as that is dictated by the block producers (this is separate from running a registration site, which allows for various other economic choices).
 
+For a list of public domains see the [FIO Grafana Public Domains report](https://graph.fioprotocol.io/d/Trlwteg7z/public-domains?orgId=1){:rel="nofollow noopener noreferrer" target="_blank"}.
+
+
 ### Storing, Transferring, and Selling FIO Domains
 
 All FIO Domains are non-fungible tokens, which means they can be freely transferred between accounts, users, and wallets as with any other crypto asset.
