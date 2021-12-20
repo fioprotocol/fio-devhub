@@ -5,7 +5,7 @@ description: Accounts and permissions
 # Accounts and permissions
 
 ## FIO Accounts
-FIO Chain inherits [EOSIO Accounts and Permission scheme](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions){:target="_blank"}. However, a number of modifications were made with the goal of making the interaction with the FIO Chain more seamless to the users.
+FIO Chain inherits [EOSIO Accounts and Permission scheme](https://developers.eos.io/welcome/v2.0/protocol-guides/accounts_and_permissions){:target="_blank"}. However, a number of modifications were made with the goal of making the interaction with the FIO Chain more seamless to the users.
 
 Specifically, it was deemed that an explicit step to create and pay for an account before one can interact with the FIO Chain was intrusive and that a better approach would be to allow a user to simply generate a public key and have the account created automatically on first interaction.
 
@@ -35,7 +35,7 @@ The fees for the above actions reflect the potential of increased resource usage
 ## Permissions
 When a FIO Account is created, the corresponding FIO Public Key is assigned as the owner and active permission. The implicit default permission linked to all actions is *active*, which sits one level below the *owner* permission within the hierarchy structure. The active permission can do anything the owner permission can, except changing the keys associated with the owner. 
 
-As FIO Chain inherits [EOSIO Permission scheme](https://developers.eos.io/welcome/latest/protocol/accounts_and_permissions){:target="_blank"}, permissions in FIO Chain can be modified. However, please consider the following.
+As FIO Chain inherits [EOSIO Permission scheme](https://developers.eos.io/welcome/v2.0/protocol-guides/accounts_and_permissions){:target="_blank"}, permissions in FIO Chain can be modified. However, please consider the following.
 
 ### Limitations
 * Only one public key can be specified for a single permission, e.g. active cannot have 2 public keys. It can however, have multiple accounts, which may be helpful for setting up a [multisig]({{site.baseurl}}/docs/fio-protocol/multisig).

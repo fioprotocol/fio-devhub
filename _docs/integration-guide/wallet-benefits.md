@@ -26,7 +26,7 @@ To apply for an Integration Grant and obtain more information [use this brief fo
 
 Wallets that complete integration of FIO Crypto Handle registration and include the ability to send and receive with FIO Crypto Handles currently earn FIO Tokens roughly equal to $1 for each user that registers a FIO Crypto Handle. And for grant qualified wallets, the Foundation for Interwallet Operability will sponsor a certain number of free FIO Crypto Handles for your wallet's users. You still earn the TPID fee even on those FIO Crypto Handles paid for by the Foundation.
 
-In addition, if your wallet enables FIO Domain registration, you currently would obtain roughly $20 in FIO Tokens directly from the blockchain for user registrations fo custom FIO Domains.
+In addition, if your wallet enables FIO Domain registration, you currently would obtain roughly $20 in FIO Tokens directly from the blockchain for user registrations for custom FIO Domains.
 
 #### Technology Provider ID (TPID) Fees
 
