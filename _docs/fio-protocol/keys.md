@@ -7,7 +7,7 @@ description: Public/Private Keys
 
 FIO Chain is registered at index 235/0x800000eb on the [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md){:rel="nofollow noopener noreferrer" target="_blank"}.
 
-FIO Private Keys follow standard Wallet Import Format (WIF) standard and public keys follow well-known base58 encoding with FIO prefix, for example:
+FIO Private Keys follow Wallet Import Format (WIF) standard and public keys follow well-known base58 encoding with FIO prefix, for example:
 
 `FIO7tkpmicyK2YWShSKef6B9XXqBN6LpDJo69oRDfhn67CEnj3L2G`
 
