@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: FIO Address Registration API
+  title: FIO Crypto Handle and Domain Registration API
   version: '1.0'
   contact:
     url: http://fioprotocol.io
@@ -8,8 +8,8 @@ info:
     name: FIO
   license:
     name: MIT
-  description: Registration site is operated by the Foundation and enables FIO Address
-    registration with payment in supported crypto currencies.
+  description: Registration site is operated by the Foundation and enables FIO Crypto Handle (aka FIO Address)
+    and FIO domain registration with payment in supported crypto currencies.
 servers:
   - url: https://reg.fio.dev/public-api
     description: Testnet
@@ -191,8 +191,8 @@ paths:
             application/json:
               error: Referral code not found
               success: false
-      summary: Register FIO Address/Domain
-      description: Creates FIO Address/Domain registration order and returns payment
+      summary: Register FIO Crypto Handle/Domain
+      description: Creates a FIO Crypto Handle (aka FIO Address) or Domain registration order and returns payment
         information.
       operationId: buy-address
       parameters:
@@ -203,13 +203,13 @@ paths:
           properties:
             address:
               type: string
-              description: Valid FIO Address or FIO Domain
+              description: Valid FIO Crypto Handle (aka FIO Address) or FIO Domain
             referralCode:
               type: string
               description: Referral code provided by Foundation
             publicKey:
               type: string
-              description: FIO public key for the ownership of the FIO Address
+              description: FIO public key for the ownership of the FIO Crypto Handle
             redirectUrl:
               type: string
               description: This url will be shown to users upon redirection from Coinbase
@@ -411,8 +411,8 @@ paths:
             application/json:
               error: Referral code not found
               success: false
-      summary: Renew FIO Address/Domain
-      description: Creates FIO Address/Domain renewal order and returns payment information.
+      summary: Renew FIO Crypto Handle/Domain
+      description: Creates a FIO Crypto Handle (aka FIO Address) or Domain renewal order and returns payment information.
       operationId: renew-address
       parameters:
       - in: body
@@ -422,7 +422,7 @@ paths:
           properties:
             address:
               type: string
-              description: Existing FIO Address or Domain
+              description: Existing FIO Crypto Handle (aka FIO Address) or Domain
             referralCode:
               type: string
               description: Referral code provided by Foundation
@@ -530,7 +530,7 @@ paths:
               extern_time: '2020-02-23T20:47:17.000Z'
               extern_status: NEW
       summary: Check registration status
-      description: Checks status of registrations for provided FIO Address
+      description: Checks status of registrations for provided FIO Crypto Handle (aka FIO Address)
       operationId: summary
       parameters:
       - in: body
@@ -587,7 +587,7 @@ paths:
               error: This referral code is not selling accounts
               success: false
       summary: Returns domains refferal code
-      description: Returns domains which are available for FIO Address registrations
+      description: Returns domains which are available for FIO Crypto Handle (aka FIO Address) registrations
         for provided referral code.
       operationId: get-domains
       parameters:
