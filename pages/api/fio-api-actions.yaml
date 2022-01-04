@@ -6946,7 +6946,7 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: Stake FIO Tokens (Testnet only)
+      summary: Stake FIO Tokens
       description: >-
         This call allows a user to stake their FIO tokens. User can stake any available FIO Token amount in their account at any point in time. 
         To stake, the account has to be voting for at least 1 BP or proxying/auto-proxying. The FIO Tokens do not actually leave the user's account, 
@@ -7118,7 +7118,7 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: Unstake FIO Tokens (Testnet only)
+      summary: Unstake FIO Tokens
       description: >-
         This call allows a user to unstake their FIO tokens. User can unstake any amount in their account at any point in time. 
         When they do, they will exchange SRPs back into FIO Tokens at the current Rate of Exchange. 

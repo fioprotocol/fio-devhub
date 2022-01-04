@@ -20,8 +20,6 @@
           url: "docs/fio-protocol/accounts-permissions"
         - title: Voting
           url: "docs/fio-protocol/voting"
-        - title: Staking
-          url: "docs/fio-protocol/staking"
         - title: Multisig
           url: "docs/fio-protocol/multisig"
         - title: FIO Improvement Proposals
