@@ -5,9 +5,12 @@ redirect_from:
     - /docs/chain/newcontracts
 ---
 
-# Adding new contracts to FIO Protocol Dev Environment
+# Adding new contracts to the FIO Protocol Dev Environment
 
-It is recommend to branch from develop on all repositories when developing to stay on pace with code updates
+## Overview
+The process of creating your instructions begins with configuring a local instance of FIO with the main net version of FIO that will exist before your contract is rolled out.  Then you need to do the necessary commands to roll out your contract on the local instance and record these commands. This becomes your rollout plan for your new contract.
+
+It is recommend to branch from develop on all repositories when developing to stay on pace with code updates.
 
 ## 1 - Set_code and set_abi permissions:
 
