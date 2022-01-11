@@ -175,8 +175,15 @@
       url: "docs/developers/versioning"
     - title: Git Branching & Release
       url: "docs/developers/git"
-    - title: Adding New FIO Contracts
-      url: "docs/developers/newcontracts"
+    - title: FIO Contract Development
+      url: "docs/developers/smartcontracts"
+      children:
+        - title: Documenting changes
+          url: "docs/developers/smartcontracts/documenting"
+        - title: Creating new contracts
+          url: "docs/developers/smartcontracts/newcontracts"
+        - title: Deploying new contracts
+          url: "docs/developers/smartcontracts/deploying"                    
     - title: Calculating RAM
       url: "docs/developers/ram"
     - title: Developer Tools
