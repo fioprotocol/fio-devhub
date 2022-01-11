@@ -7,18 +7,18 @@ redirect_from:
 ---
 
 # Deploying FIO Contracts
-This document describes the important commands that must be included in a deployment bundle when a FIO smart contract developer is preparing to deliver changes for release to test net and main net. The document also attempts to provide examples of the commands that are frequently used in the deployment bundle for projects delivering new contracts to the FIO protocol.
+This document describes the important commands that must be included in a deployment bundle when a FIO smart contract developer is preparing to deliver changes for release to testnet and mainnet. The document also attempts to provide examples of the commands that are frequently used in the deployment bundle for projects delivering new contracts to the FIO protocol.
 
 ## Set Up Development Environment
-In order to begin the process of rollout testing, the developer must first set up a development environment in a configuration that matches the present main net release. The developer must use a branch of fio.devtools which they have used for development, but this branch must be further modified for rollout testing.
+In order to begin the process of release testing, the developer must first set up a development environment in a configuration that matches the present mainnet release. The developer must use a branch of fio.devtools which they have used for development, but this branch must be further modified for releasing to testnet.
 
-- The developer must pull from the GitHub,  the main net versions of the following repositories:
+- The developer must pull from the GitHub,  the mainnet versions of the following repositories:
     - FIO
     - FIO.contracts
 - First, build the above versions, then archive/save the fio.contracts repository to a working directory fio.contracts.mainnet.
 
 ## Build and Stage Your Delivery for Testing
- Now the developer must pull the development version of their delivery and build this and stage it for use in rollout testing.
+ Now the developer must pull the development version of their delivery and build this and stage it for use in release testing.
 
 - First, pull your development version of contracts, and build this. 
 - Archive/save this to a working directory called fio.contracts.staking.
@@ -27,11 +27,11 @@ In order to begin the process of rollout testing, the developer must first set u
 - Run any smoke tests necessary to verify that the local dev environment is up and running.
 
 ## Sample Commands
-Once the changes have been tested, the developer can discover, or perform the set of commands used to deploy their changes onto the main net blockchain.
+Once the changes have been tested, the developer can discover, or perform the set of commands used to deploy their changes onto the mainnet blockchain.
 
 **Note:** The following sequence of commands is for example purposes. The commands necessary are different for any project being delivered and these commands must be discovered and verified by the smart contract developer who develops the changes for the project to be delivered.
 
-The first set of commands necessary to upgrade the main net chain performs the adding of new contract actions, and adds their associated fees to the main net chain. Please be sure to list out in your rollout guide the add action and create fee commands necessary for the rollout of your project to the main net FIO protocol.
+The first set of commands necessary to upgrade the mainnet chain performs the adding of new contract actions, and adds their associated fees to the mainnet chain. Please be sure to list out in your release guide any new actions defined in your contract and any new user-facing API endpoints that will require a FIO fee.
 
 ```
 Addaction and createfee
@@ -64,9 +64,9 @@ Create the new fees
 ```
  
 
-After adding your new actions and fees to the protocol, it is common to next deploy modified contracts to the main net chain. Be sure you understand all of the contracts impacted by your changes, and the order in which they must be deployed onto main net. Specify the set of commands to be executed to deliver all contract modifications. 
+After adding your new actions and fees to the protocol, it is common to next deploy modified contracts to the mainnet chain. Be sure you understand all of the contracts impacted by your changes, and the order in which they must be deployed. Specify the set of commands to be executed to deliver all contract modifications. 
 
-**Note:** You may need to create a new contract account before doing this and add your new contract to the main net protocol (your needs will be unique to your project).
+**Note:** You may need to create a new contract account before doing this and add your new contract to the mainnet protocol (your needs will be unique to your project).
 
 
  ## Deploy contracts
@@ -114,7 +114,7 @@ When making a new contract account you need to remove ram limits on the account
 
 ### Set all other contracts
 
-After setting up the new contract account you might then deploy the rest of the affected contracts. Your project needs will be unique and the lead developer must identify the order of these events that are necessary to deploy your project onto main net.
+After setting up the new contract account you might then deploy the rest of the affected contracts. Your project needs will be unique and the lead developer must identify the order of these events that are necessary to deploy your project onto mainnet.
 ```
 #now deploy the rest of the contracts affected by staking integration.
 

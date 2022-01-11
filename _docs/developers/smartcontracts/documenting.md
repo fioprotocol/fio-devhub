@@ -14,4 +14,5 @@ Smart contract developers who have developed enhancements to the FIO protocol sh
     - Communicate any changes that can be done in any iterations of deployment that might result during test net and main net delivery. 
 - The developer should also clearly communicate changes that MUST go into the chain together.
 
-This documentation should <go where?>
+This documentation can be added to the existing design documentation: 
+[https://fioprotocol.atlassian.net/wiki/spaces/FD/pages/7471298/Development+Documents+Active](https://fioprotocol.atlassian.net/wiki/spaces/FD/pages/7471298/Development+Documents+Active){:rel="nofollow noopener noreferrer" target="_blank"}   
