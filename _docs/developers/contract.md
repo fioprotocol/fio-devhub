@@ -13,6 +13,6 @@ redirect_from:
 
 |Content|Summary|
 |---|---|
-|[Guidelines for Documenting Changes]({{site.baseurl}}/docs/developers/smartcontracts/documenting) |Describes documentation deliverables required of developers for any changes and additions to smart contracts.|
-|[Creating New Contracts]({{site.baseurl}}/docs/developers/smartcontracts/newcontracts)|Provides documentation for the process of creating new contracts.|
-|[Deploying Changes to Contracts]({{site.baseurl}}/docs/developers/smartcontracts/deploying)|Provides documentation for the process of deploying changes to contracts, including guidelines for setting up a dev/test environment and sample commands. |
+|[Guidelines for Documenting Changes]({{site.baseurl}}/docs/developers/contract-documenting.md) |Describes documentation deliverables required of developers for any changes and additions to smart contracts.|
+|[Creating New Contracts]({{site.baseurl}}/docs/developers/contract-newcontracts.md)|Provides documentation for the process of creating new contracts.|
+|[Deploying Changes to Contracts]({{site.baseurl}}/docs/developers/contract-deploying.md)|Provides documentation for the process of deploying changes to contracts, including guidelines for setting up a dev/test environment and sample commands. |
