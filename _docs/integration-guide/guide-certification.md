@@ -18,7 +18,7 @@ The following lists the items that should be tested to confirm support for diffe
 -  User can register a new FIO Crypto Handle (aka FIO Address) with FIO
 -  User can register a FIO Crypto Handle using other crypto
 -  User can register additional FIO Crypto Handles
--  User can renew their existing FIO Crypto Handles
+-  User can add bundles to their existing FIO Crypto Handles
 -  User can purchase additional bundled transactions for their FIO Crypto Handles
 -  User can transfer their FIO Crypto Handles
 

@@ -19,7 +19,7 @@ If using a unique FIO Crypto Handle for each user:
 -  Exchange has set up a FIO Crypto Handle
 -  User can register a FIO Crypto Handle using other crypto
 -  User can register additional FIO Crypto Handles
--  User can renew their existing FIO Crypto Handles
+-  User can add bundles to their existing FIO Crypto Handles (replaces Renew Crypto Handle)
 
 If using the same FIO Crypto Handle for each user:
 -  User can register a new FIO Crypto Handle or 

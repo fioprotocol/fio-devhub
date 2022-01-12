@@ -13,7 +13,7 @@ FIO Data can also include metadata related to a native blockchain transaction, s
 
 Finally, FIO Data can also provide a secure and private mechanism for certain regulated entities to maintain encrypted stores of information on customers, as stipulated by examples such as the Travel Rule. This will allow for a level of cross-application compliance where jurisdiction demands.
 
-**FIO Data (up to a certain character limit) are included as part of the bundled transaction with registering/renewing a FIO Crypto Handle.**
+**FIO Data (up to a certain character limit) are included as part of the bundled transaction received when registering a FIO Crypto Handle.**
 
 ### Recording FIO Data
 
