@@ -89,11 +89,11 @@ Before you can get started with option using the FIO registraiton site, a profil
 ---
 ## FIO Crypto Handle and Domain Registration using the FIO API
 
-For wallets desiring full control over the registration user experience or wanting to support FIO Crypto Handle registrations on custom (set to Private) FIO Domains, a full suite of FIO Crypto Handle registration and renewal API methods are available.
+For wallets desiring full control over the registration user experience or wanting to support FIO Crypto Handle registrations on custom (set to Private) FIO Domains, a full suite of FIO Crypto Handle registration and bundle renewal API methods are available.
 
-#### Registering/renewing FIO Crypto Handles
+#### Registering FIO Crypto Handles and adding bundles
 
-FIO Crypto Handle can be registered using [regaddress]({{site.baseurl}}/pages/api/fio-api/#options-regaddress) action and renewed using [renewaddress]({{site.baseurl}}/pages/api/fio-api/#options-renewaddress) action.
+FIO Crypto Handle can be registered using [regaddress]({{site.baseurl}}/pages/api/fio-api/#options-regaddress) action and additional bundles can be added using [addbundles]({{site.baseurl}}/pages/api/fio-api/#options-addbundles) action.
 
 #### Registering/renewing FIO Domains
 

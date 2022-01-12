@@ -62,7 +62,7 @@ Using /add_bundled_transactions as an example:
 |/remove_all_pub_addresses|60000000 |.300000000 |$0.06 |
 |/remove_nft |60000000 |0.300000000 |$0.06|
 |/remove_pub_address |60000000 |0.300000000 |$0.06 |
-|/renew_fio_address |2000000000 |10.000000000 |$2.00 |
+|/renew_fio_address (deprecated) |2000000000 |10.000000000 |$2.00 |
 |/renew_fio_domain  |40000000000 |200.000000000 |$40.00 |
 |/set_fio_domain_public |30000000 |0.150000000 |$0.03 |
 |/transfer_fio_address |60000000 |0.300000000 |$0.06 |
@@ -276,7 +276,7 @@ clio -u https://API_NODE_URL push action fio.fee setfeemult '{"multiplier":20,"a
 ---
 ## Setting bundled transactions
 
-Number of bundled transactions credited for all new FIO Crypto Handle registrations and renewals is set by BPs in the following way:
+Number of bundled transactions credited for all new FIO Crypto Handle registrations is set by BPs in the following way:
 
 * Top 21 BPs submit at anytime [/submit_bundled_transaction]({{site.baseurl}}/pages/api/fio-api/#options-bundlevote) (can be made no more than once every 120 seconds) call
 * Once received, the bundled transactions are determined by deriving a median of all submissions. Example:

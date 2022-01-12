@@ -176,7 +176,7 @@
     - title: Git Branching & Release
       url: "docs/developers/git"
     - title: FIO Contract Development
-      url: "docs/developers/smartcontracts"
+      url: "docs/developers/smartcontracts/index"
       children:
         - title: Documenting changes
           url: "docs/developers/smartcontracts/documenting"
