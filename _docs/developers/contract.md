@@ -2,7 +2,7 @@
 title: Overview of FIO Contracts
 description: Overview of FIO contracts in the development environment
 redirect_from:
-    - /docs/developers/smartcontracts
+    - /docs/developers/contract
 ---
 
 # Overview of FIO Contracts Development

@@ -2,7 +2,7 @@
 title: Documenting Changes for Deployment
 description: Guidelines for Documenting Changes for Deployment
 redirect_from:
-    - /docs/developers/smartcontracts
+    - /docs/developers/contract
 
 ---
 # Documenting Changes for Deployment
