@@ -2,7 +2,7 @@
 title: New FIO Contracts
 description: Information about adding new FIO contracts to the development environment
 redirect_from:
-    - /docs/developers/smartcontracts
+    - /docs/developers/contract
 
 ---
 
