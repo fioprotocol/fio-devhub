@@ -43,6 +43,10 @@ Regex validation may be used. For example, the following regex may be used to va
 
 See [Mapping Public Addresses](/docs/how-to/mapping) in the Integration Guide.
 
+### FIO Crypto Handles Do Not Expire
+
+After [FIP-31](https://github.com/fioprotocol/fips/blob/master/fip-0031.md) was implemented, FIO Crypto Handles no longer expire and are only burned if the FIO Domain they are on expires.
+
 ## FIO Domains
 
 FIO Crypto Handles consist of a username and a domain. While having a FIO Crypto Handle is necessary to use the FIO Protocol, users do not need to own their own FIO Domain. By default, many applications (especially wallets and exchanges) have a domain available as a default for their users. For example, the mobile wallet, Edge Wallet, has @edge domain as a default for their users.  Users which desire their own unique FIO domain may register one that is available as a non-fungible token that they control and own.  
@@ -70,12 +74,7 @@ Future functionality will enable selling a FIO Domain through the use of a built
 
 A number of projects are underway with the goal of creating a decentralized domain name space system for the World Wide Web.  Should any of those projects become recognized in the community as the primary decentralized domain space, then the Foundation's vision is that the FIO Protocol will hopefully endeavor to work collaboratively with them, though such a decision will be up to the protocol Block Producers.  Specifically, FIO domains do not currently have the concept of a Top Level Domain (e.g., .com, .org, .net, .io) but such a construct could be added in the future to the notion of a FIO Crypto Handle and a unique TLD for FIO Crypto Handles registered for the FIO Protocol enabling FIO Crypto Handles to work seamlessly with a decentralized domain name space. 
 
-## Domain and Crypto Handle Expiry
-
-How to Renew Your FIO Domains and FIO Crypto Handles
-You can view complete instructions including screenshots for how to renew your FIO Domains and FIO Crypto Handles with Edge Wallet, the FIO Registration Helper, the fio.bloks.io Block Explorer, or the API directly here: [How to Renew Your FIO Crypto Handle or FIO Domain](https://peakd.com/fio/@fioprotocol/how-to-renew-your-fio-address-or-fio-domain){:rel="nofollow noopener noreferrer" target="_blank"}.
-
-### FIO Domain
+### FIO Domain Expiry
 
 If the renewal fee for a FIO Domain is not paid by its expiration date, the following restrictions will be placed on the domain and addresses on that domain:
 
@@ -87,6 +86,6 @@ If the renewal fee for a FIO Domain is not paid by its expiration date, the foll
 
 It's important to note that anyone can renew a domain as long as they are willing to pay the renewal fee. This ensures that users with FIO Crypto Handles on abandoned domain, can continue to use it. 
 
-### FIO Crypto Handle
+## Domain Renewal
 
-After [FIP-31](https://github.com/fioprotocol/fips/blob/master/fip-0031.md) was implemented, FIO Crypto Handles no longer expire and are only burned if the FIO Domain they are on expires.
+You can view complete instructions including screenshots for how to renew your FIO Domain with Edge Wallet, the FIO Registration Helper, the fio.bloks.io Block Explorer, or the API directly here: [How to Renew Your FIO Crypto Handle or FIO Domain](https://peakd.com/fio/@fioprotocol/how-to-renew-your-fio-address-or-fio-domain){:rel="nofollow noopener noreferrer" target="_blank"}.

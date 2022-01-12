@@ -26,7 +26,7 @@ Every new account will have initial RAM allocated to 25600 bytes (25K). Every ti
 |REGPROXY	|1,024|
 |REGPRODUCER	|1,024|
 |REJECTFUNDS	|512|
-|RENEWADDRESS	|1,024|
+|RENEWADDRESS (deprecated)	|1,024|
 |RENEWDOMAIN	|1,024|
 |SETDOMPUB	|256|
 |TRNSPBKY	|1024|

@@ -36,12 +36,12 @@ FIO Domains include a separate yearly fee, also dictated by block producers.
 
 While most types of transaction are included with bundled transactions, there are a few notable exceptions:
 
-* Registering/Renewing a FIO Crypto Handle or FIO Domain are not included.
+* Registering/Renewing a FIO Domain are not included.
 * The actual transfer of FIO Tokens themselves (such as to an exchange to be traded) are not included.
 * Governance-related registrations (registering as a proxy or block producer), though the actual voting for a block producer or proxy is included.
 * Advanced transactions (such as msig or account authorizations) are not included.
 
-If a user ever exceeds the number of included bundled transactions, the user will be given the choice the renew their FIO Crypto Handle early, which reloads their bundled transactions, or to pay for each transaction.
+If a user ever exceeds the number of included bundled transactions, the user will be given the choice to reload their bundled transactions or to pay for each transaction.
 
 Due to the amount of storage required, two types of transactions will use up two bundled transactions instead of one:
 
@@ -67,7 +67,7 @@ Lastly, top 21 block producers are exempt from paying certain transaction fees, 
 |Reject funds request |rejectfndreq |/reject_funds_request |1 |
 |Record other blockchain transaction metadata |recordobt |/record_obt_data |2 |
 |Register Address |regaddress |register_fio_address |Not eligible |
-|Renew Address |renewaddress |/renew_fio_address |Not eligible |
+|Renew Address (deprecated) |renewaddress |/renew_fio_address |Not eligible |
 |Buy bundled transactions |addbundles |/add_bundled_transactions |Not eligible |
 |Transfer Address |xferaddress |/transfer_fio_address |Not eligible |
 |Burn Address |burnaddress |/burn_fio_address |1 |

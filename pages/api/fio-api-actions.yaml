@@ -5142,8 +5142,12 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: Renew Address
+      summary: Renew Address (deprecated)
       description: >-
+        `renewaddress` is deprecated and should be replaced with `addbundles`. After [FIP-31](https://github.com/fioprotocol/fips/blob/master/fip-0031.md) was implemented, 
+        FIO Crypto Handles no longer expire and are only burned if the FIO Domain they are on expires.
+        
+        
         Renews a FIO Crypto Handle (aka FIO Address). When a FIO Crypto Handle is renewed:
 
         * 365 days are added to the current expiration date (not date when renewal is ran)
