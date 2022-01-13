@@ -17,7 +17,7 @@ A wallet can very easily look-up the NBPA using the [/get_pub_address]({{site.ba
 
 Applications that enable users to manage their private keys (such as crypto wallets) which integrate the FIO Protocol have two options on enabling mapping of associated public addresses to the human readable FIO Crypto Handle.  First, the product may automatically map all public addresses enabled in the product to the FIO Crypto Handle by signing a mapping transaction on the FIO blockchain.  Second, the product may enable users to select which chains to map to their FIO Crypto Handle through a radio button or similar interface.  In either of these implementations users never have to see nor interact with their public addresses to accomplish mapping.
 
-## Mapping NBPAs to FIO Crypto Handle
+## Mapping Native Public Blockchain Addresses (NBPA) to a FIO Crypto Handle
 
 To map NBPA to a FIO Crypto Handle use the [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
@@ -33,6 +33,8 @@ For blockchains that only have one token use the same value for blockchain and t
 FIO [maintains a list of chain and token codes](https://github.com/fioprotocol/fips/blob/master/fip-0015.md){:rel="nofollow noopener noreferrer" target="_blank"} that are being used by other FIO Protocol integrators. It is recommended that you follow this standard any time you submit a transaction on the FIO Protocol. If you are using different codes please map them to those published.
 
 If you are using codes which are not yet part of the standard, please submit a pull request to the list to ensure other FIO Protocol integrators are using the same codes.
+
+[See example of a Testnet FIO Crypto Handle which has many NBPAs mapped](https://fio-test.bloks.io/address/map1@mappedaddresses){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ### Multi-level Addressing
 
@@ -57,7 +59,7 @@ FIO [maintains a list of uri parameters](https://github.com/fioprotocol/fips/blo
 
 If you are using parameters which are not yet part of the standard, please submit a pull request to the list to ensure other FIO Protocol integrators are using the same parameters.
 
-[See example of a FIO Crypto Handle which has public addresses with parameters](https://fio.bloks.io/address/multilevel@fiotest){:rel="nofollow noopener noreferrer" target="_blank"}.
+[See example of a Testnet FIO Crypto Handle which has public addresses with parameters](https://fio.bloks.io/address/multilevel@fiotest){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 #### What should a wallet do?
 
