@@ -27,9 +27,11 @@ In the example below, the owner of rewards@wallet will receive a portion of the 
 
 TPIDs *virtual* accounts get incremented every time a qualifying fee is paid. An integrator TPID which has accrued 100 FIO or more can call the [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint to claim their rewards. When called, the entire balance from the virtual account is transferred to the TPID FIO Crypto Handle.
 
-The [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint processes 100 payments across all TPIDs each time it is called. It is expected that Block Producers will call [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) on a regular basis, although any member of the community can call the endpoint and initate the payout. The call is free and only modifies the blockchain if there are transactions that need processing. This call will only trigger an action if it is made at least 60 seconds after the previous time it was called.
+The [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint processes payments across all TPIDs each time it is called. If a TPID has accrued 100 FIO or more in rewards, the reward will be paid out. It is expected that Block Producers will call [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) on a regular basis, although any member of the community can call the endpoint and initate the payout. The call is free and only modifies the blockchain if there are transactions that need processing. This call will only trigger an action if it is made at least 60 seconds after the previous time it was called.
 
 If a TPID virtual account does not reference a valid FIO Crypto Handle (e.g. the Address has expired and was burned since the fees were accrued) the payout will transfer to the current day's BP rewards bucket.
+
+TPIDs can check reward accrual by examining [the fio.tpid > tpids table on bloks.io](https://fio.bloks.io/contract?tab=Tables&account=fio.tpid&scope=fio.tpid&limit=100&table=tpids){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ## New User Bounties
 

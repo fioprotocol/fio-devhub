@@ -8619,6 +8619,10 @@ paths:
         as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
 
 
+        When `tpidclaim` is called it iterates through the `fio.tpid` > `tpids` table and processes all rewards that 
+        are greater than 100 FIO (100000000000 SUFs)
+
+
         This section defines the object which needs to be created before it's
         packed and signed for [push_transaction](#post-/push_transaction) and
         the response object returned in
