@@ -3351,7 +3351,8 @@ paths:
       summary: Transfer locked FIO tokens
       description: >-
         Transfers tokens to a new account and locks those tokens on a pre-defined schedule.
-        See [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md) for a comprehensive description of this functionality.
+        `trnsloctoks` was originally defined in FIP-6 but was later updated in FIP-21.
+        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) for a comprehensive description of this functionality.
 
 
         trnsloctoks action data may also be sent to the `/transfer_locked_tokens` action-specific endpoint.
@@ -3393,19 +3394,21 @@ paths:
                   properties:
                     duration:
                       type: integer
-                    percent:
-                      type: double
+                      description: Seconds from lock creation to when unlock of corresponding percentage occurs.
+                    amount:
+                      type: integer
+                      description: Amount of locked tokens in SUFs that unlock after corresponding duration is lapsed.
                 example:
                   - duration: 86400
-                    percent: 50.0
+                    amount: 1000000000000
                   - duration: 172800
-                    percent: 25.0
+                    amount: 500000000000
                   - duration: 259200
-                    percent: 25.0
+                    amount: 500000000000
               amount:
                 type: integer
-                description: Amount sent in SUFs
-                example: 40000000000000
+                description: Total amount locked in SUFs.
+                example: 2000000000000
               max_fee:
                 type: integer
                 title: Max fee
