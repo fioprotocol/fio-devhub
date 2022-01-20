@@ -113,7 +113,7 @@ Modify the 12_add_actions.sh to add your new contract’s actions to the FIO pro
 
 Rebuild the FIO blockchain with scripts/fio_build.sh, and install with fio_install.sh
 
-Run fio.devtools options 3 to clear existing configuring, option 2 to build the contract changes, and then finally option 1 to initialize the new chain with the changes supporting the new contract.
+Run fio.devtools option 3 to clear existing configuring, option 2 to build the contract changes, and then finally option 1 to initialize the new chain with the changes supporting the new contract.
 
 
 ### **Notes:**
