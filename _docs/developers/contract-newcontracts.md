@@ -74,21 +74,21 @@ if(!(account == fioio::MSIGACCOUNT ||
 
 Next modify the fio.devtools repository so that your new contract gets loaded at chain startup.
 
-Modify the 04_create_account.sh file. Add the creation of your new system account. The following is the code snippet which adds the staking account for the staking contract.
+Modify the 04_create_account.sh file. Add the creation of your new system account. 
 
 ```
 ./clio -u http://localhost:8879 create account eosio fio.staking FIO7isxEua78KPVbGzKemH4nj2bWE52gqj8Hkac3tc7jKNvpfWzYS FIO7isxEua78KPVbGzKemH4nj2bWE52gqj8Hkac3tc7jKNvpfWzYS
 ```
 ## Bind Your New Contract
 
-Modify the 19_bind_dev_contracts.sh to bind your new contract. The following is the code snippet which adds the staking account for the staking contract.
+Modify the 19_bind_dev_contracts.sh to bind your new contract. 
 
 ```
 ./clio -u http://localhost:8879 set contract fio.staking $fio_staking_name_path fio.staking.wasm fio.staking.abi
 ```
 ## Add New Contract's Actions to the FIO Protocol
 
-Modify the 12_add_actions.sh to add your new contract’s actions to the FIO protocol. The following is the code snippet which adds the staking account for the staking contract.
+Modify the 12_add_actions.sh to add your new contract’s actions to the FIO protocol. 
 ```
 ./clio -u http://$host push action eosio addaction '{"action":"stakefio","contract":"fio.staking","actor":"eosio"}' --permission eosio
 
