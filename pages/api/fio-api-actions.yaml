@@ -34,11 +34,23 @@ paths:
             properties:
               balance:
                 type: integer
-                description: Total SUF balance associated with supplied public key (includes locked tokens).
+                description: Total SUF balance associated with supplied public key (includes locked and staked tokens).
                 example: 100000000000
               available:
                 type: integer
-                description: Available SUF balance associated with supplied public key (does not include locked tokens).
+                description: Available SUF balance associated with supplied public key (does not include locked or staked tokens).
+                example: 100000000000
+              staked:
+                type: integer
+                description: SUFs staked by account associated with supplied public key.
+                example: 100000000000
+              srps:
+                type: double
+                description: Amount of Staking Reward Points (SRPs) held by account associated with supplied public key.
+                example: 100000000000
+              roe:
+                type: double
+                description: Estimated Staking Reward Point (SRP) rate of exchaange. _srps_ x _roe_ will shows SUFs account will get on unstake. (_srps_ x _roe_) - _staked_ will show staking rewards accrued in SUFs. Please note: any calculation involving roe is an approximation.
                 example: 100000000000
         '400':
           description: |-
