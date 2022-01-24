@@ -45,7 +45,7 @@ paths:
                 description: SUFs staked by account associated with supplied public key.
                 example: 100000000000
               srps:
-                type: double
+                type: integer
                 description: Amount of Staking Reward Points (SRPs) held by account associated with supplied public key.
                 example: 100000000000
               roe:
