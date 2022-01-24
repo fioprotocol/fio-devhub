@@ -51,7 +51,7 @@ paths:
               roe:
                 type: double
                 description: Estimated Staking Reward Point (SRP) rate of exchaange. _srps_ x _roe_ will shows SUFs account will get on unstake. (_srps_ x _roe_) - _staked_ will show staking rewards accrued in SUFs. Please note: any calculation involving roe is an approximation.
-                example: 100000000000
+                example: 1.243604281298789
         '400':
           description: |-
             Possible error messages:
