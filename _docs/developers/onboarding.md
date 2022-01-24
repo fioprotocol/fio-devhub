@@ -15,3 +15,4 @@ This page provides resources for new contributors to the FIO Community, as they 
 |[Request a FIO Email Address]({{site.baseurl}}/docs/developers/onboarding-email)|Describes the process for requesting an email in the @fioprotocol.io domain.|
 |[Set Up Your Environment]({{site.baseurl}}/docs/developers/onboarding-tools)|Describes the tools you'll use to contribute to FIO.|
 |[Set Up Process for Payment]({{site.baseurl}}/docs/developers/onboarding-getpaid)|Describes the process for getting paid.|
+|[Learn Everything You Can](https://fioprotocol.atlassian.net/wiki/spaces/FC/pages/310575668/FIO+Protocol+Training+for+New+Community+Workers)|Provides Links to FIO Protocol Training for New Community Workers.|
