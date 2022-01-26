@@ -23,9 +23,12 @@ Reward points will be allocated according to:
 * Recency: The most recent bug reports receive maximum points. Bug reports older than 6 months lose an increasing proportion of their points over time.
 
 ## Details of the Bug Bounty Program
-|Content|Summary|
+
+These pages provide more information about the program:
+
+|Content  |Summary |
 |---|---|
-|[Scope for Bug Bounties]({{site.baseurl}}/docs/chain/bounty/bounty-scope) |Provides guidelines as to in-scope and out-of-scope areas of investigation|
-|[Rules and Directions for Reporting Bugs]({{site.baseurl}}/docs//chain/bounty/bounty-howto)|Provides guidelines for Rules and Responsibilites, as well as directions for reporting bugs.|
-|[Frequently Asked Questions]({{site.baseurl}}/docs//chain/bounty/bounty-faq)|Provides a list of frequently asked questions and answers. |
+| [Scope for Bug Bounties]({{site.baseurl}}/docs/chain/bounty-scope) |Provides guidelines as to in-scope and out-of-scope areas of investigation|
+| [Rules and Directions for Reporting Bugs]({{site.baseurl}}/docs//chain/bounty-howto)|Provides guidelines for Rules and Responsibilites, as well as directions for reporting bugs.|
+| [Frequently Asked Questions]({{site.baseurl}}/docs//chain/bounty-faq)|Provides a list of frequently asked questions and answers. |
 
