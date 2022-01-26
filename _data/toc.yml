@@ -148,8 +148,15 @@
       url: "docs/chain/clio"
     - title: fio-wallet (keosd)
       url: "docs/chain/fio-wallet"
-    - title: Vulnerability Disclosure Policy
-      url: "docs/chain/disclosure"
+    - title: Bug Bounty Program
+      url: "docs/chain/bounty"
+      children:
+        - title: Bounty Program Scope
+          url: "docs/chain/bounty-scope"
+        - title: Bounty Program Rules and Guidance
+          url: "docs/chain/bounty-howto"
+        - title: Bounty Program FAQ
+          url: "docs/chain/bounty-faq"
     - title: Analytics
       url: "docs/chain/analytics"
       children:
