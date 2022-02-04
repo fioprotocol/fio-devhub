@@ -1,14 +1,26 @@
 ---
-title: FIO Bug Bounty Program Scope
-description: FIO Bug Bounty Program Scope
+title: FIO Bounty Program Scope
+description: FIO Bounty Program Scope
 ---
-# Bug Bounty Program Scope
+# Bounty Program Scope
 
-In principle, any software maintained the fioprotocol Github is intended to be in scope. This includes:
+Software maintained the [fioprotocol Github](https://github.com/fioprotocol/bp-tools){:target="_blank"} is intended to be in scope. 
 
-* Source code: Vulnerabilities found in FIO blockchain, SDK, or other source code located on the FIO Protocol Github
-* API: Vulnerabilities found in the FIO Protocol API
-* Protocol: Vulnerabilities found in the FIO Protocol such as network level Denial of Service (DoS/DDoS) vulnerabilities
+This includes:
+
+* fio -  https://github.com/fioprotocol/fio
+* fio.contracts - https://github.com/fioprotocol/fio.contracts
+* fiosdk_typescript - https://github.com/fioprotocol/fiosdk_typescript
+* fiosdk_ kotlin - https://github.com/fioprotocol/fiosdk_kotlin
+* fiosdk_ios - https://github.com/fioprotocol/fiosdk_ios
+* fio.registrations - https://github.com/fioprotocol/fio-registrations
+* fio.dashboard - https://github.com/fioprotocol/fio-dashboard
+* fio.oracle - https://github.com/fioprotocol/fio.oracle
+* fio.erc20 - https://github.com/fioprotocol/fio.erc20
+* fio.erc721 - https://github.com/fioprotocol/fio.erc721
+* ledger-hw-app-fio - https://github.com/fioprotocol/ledger-hw-app-fio
+* ledgerjs-hw-app-fio - https://github.com/fioprotocol/ledgerjs-hw-app-fio
+* Protocol - Vulnerabilities found in the FIO Protocol such as network level Denial of Service (DoS/DDoS) vulnerabilities
 
 The following test types are excluded from scope:
 
@@ -34,6 +46,16 @@ Any design or implementation issue that substantially affects the confidentialit
 
 Depending on their impact, some of the reported issues may not qualify. Although we review them on a case-by-case basis, here are some of the common low-risk issues that typically do not earn a reward:
 
+* Vulnerabilities already identified iternally or in external third-party audits.
 * URL redirection. We recognize that the address bar is the only reliable security indicator in modern browsers; consequently, we hold that the usability and security benefits of a small number of well-designed and closely monitored redirectors outweigh their true risks.
-* Bugs requiring exceedingly unlikely user interaction. For example, a cross-site scripting flaw that requires the victim to manually type in an XSS payload into Google Maps and then double-click an error message may realistically not meet the bar.
+* Vulnerabilities requiring exceedingly unlikely user interaction. For example, a cross-site scripting flaw that requires the victim to manually type in an XSS payload into Google Maps and then double-click an error message may realistically not meet the bar.
 * Flaws affecting the users of wallets that have integrated the FIO Protocol.
+
+Additionally, all of the following vulnerabilities and bug report types are not considered as in-scope in this bounty program:
+
+* Attacks that the reporter has already exploited themselves, leading to damage.
+* Attacks requiring access to leaked keys/credentials.
+* Incorrect data supplied by third party oracles.
+* Basic economic governance attacks (e.g. 2/3 + 1 attack)
+* Best practice critiques
+* Sybil attacks

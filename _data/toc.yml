@@ -155,6 +155,8 @@
           url: "docs/chain/bounty-scope"
         - title: Bounty Program Rules and Guidance
           url: "docs/chain/bounty-howto"
+        - title: Bounty Rewards
+          url: "docs/chain/bounty-rewards"          
         - title: Bounty Program FAQ
           url: "docs/chain/bounty-faq"
     - title: Analytics
