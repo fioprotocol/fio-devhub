@@ -34,12 +34,24 @@ paths:
             properties:
               balance:
                 type: integer
-                description: Total SUF balance associated with supplied public key (includes locked tokens).
+                description: Total SUF balance associated with supplied public key (includes locked and staked tokens).
                 example: 100000000000
               available:
                 type: integer
-                description: Available SUF balance associated with supplied public key (does not include locked tokens).
+                description: Available SUF balance associated with supplied public key (does not include locked or staked tokens).
                 example: 100000000000
+              staked:
+                type: integer
+                description: SUFs staked by account associated with supplied public key.
+                example: 100000000000
+              srps:
+                type: integer
+                description: Amount of Staking Reward Points (SRPs) held by account associated with supplied public key.
+                example: 100000000000
+              roe:
+                type: double
+                description: Estimated Staking Reward Point (SRP) rate of exchaange. _srps_ x _roe_ will shows SUFs account will get on unstake. (_srps_ x _roe_) - _staked_ will show staking rewards accrued in SUFs. Please note, any calculation involving roe is an approximation.
+                example: 1.243604281298789
         '400':
           description: |-
             Possible error messages:
@@ -3351,7 +3363,8 @@ paths:
       summary: Transfer locked FIO tokens
       description: >-
         Transfers tokens to a new account and locks those tokens on a pre-defined schedule.
-        See [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md) for a comprehensive description of this functionality.
+        `trnsloctoks` was originally defined in FIP-6 but was later updated in FIP-21.
+        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) for a comprehensive description of this functionality.
 
 
         trnsloctoks action data may also be sent to the `/transfer_locked_tokens` action-specific endpoint.
@@ -3393,19 +3406,21 @@ paths:
                   properties:
                     duration:
                       type: integer
-                    percent:
-                      type: double
+                      description: Seconds from lock creation to when unlock of corresponding percentage occurs.
+                    amount:
+                      type: integer
+                      description: Amount of locked tokens in SUFs that unlock after corresponding duration is lapsed.
                 example:
                   - duration: 86400
-                    percent: 50.0
+                    amount: 1000000000000
                   - duration: 172800
-                    percent: 25.0
+                    amount: 500000000000
                   - duration: 259200
-                    percent: 25.0
+                    amount: 500000000000
               amount:
                 type: integer
-                description: Amount sent in SUFs
-                example: 40000000000000
+                description: Total amount locked in SUFs.
+                example: 2000000000000
               max_fee:
                 type: integer
                 title: Max fee
@@ -8617,6 +8632,10 @@ paths:
       description: >-
         This is a maintenance call and is intended to pay TPIDs. It is envisioned that this call will be made by BPs
         as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
+
+
+        When `tpidclaim` is called it iterates through the `fio.tpid` > `tpids` table and processes all rewards that 
+        are greater than 100 FIO (100000000000 SUFs)
 
 
         This section defines the object which needs to be created before it's
