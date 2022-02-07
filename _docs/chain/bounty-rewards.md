@@ -9,7 +9,8 @@ Rewards are distributed according to the impact of the vulnerability based on th
 Payouts are handled by the Foundation and are denominated in USD. All payouts are done in FIO.
 
 |**Level**	|**Payout** |
-|Critical	|Up to USD $500,000 |
+|---|---|
+|Critical	|Up to USD $100,000 |
 |High	|USD $20,000 |
 |Medium	|USD $5,000 |
 |Low	|USD $1,000 |
