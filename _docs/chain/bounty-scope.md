@@ -42,6 +42,7 @@ Any design or implementation issue that substantially affects the confidentialit
 Depending on their impact, some of the reported issues may not qualify. Although we review them on a case-by-case basis, here are some of the common low-risk issues that typically do not earn a reward:
 
 * Vulnerabilities already identified iternally or in external third-party audits.
+* Vulnerabilities in 3rd party libraries.
 * URL redirection. We recognize that the address bar is the only reliable security indicator in modern browsers; consequently, we hold that the usability and security benefits of a small number of well-designed and closely monitored redirectors outweigh their true risks.
 * Vulnerabilities requiring exceedingly unlikely user interaction. For example, a cross-site scripting flaw that requires the victim to manually type in an XSS payload into Google Maps and then double-click an error message may realistically not meet the bar.
 * Flaws affecting the users of wallets that have integrated the FIO Protocol.
