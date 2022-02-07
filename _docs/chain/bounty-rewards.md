@@ -9,10 +9,11 @@ Rewards are distributed according to the impact of the vulnerability based on th
 Payouts are handled by the Foundation and are denominated in USD. All payouts are done in FIO.
 
 |**Level**	|**Payout** |
-|Critical	|Up to USD $500,000 |
-|High	|USD $20,000 |
-|Medium	|USD $5,000 |
-|Low	|USD $1,000 |
+|---|---|
+|Critical	|Up to USD $100,000 |
+|High	|Up to USD $20,000 |
+|Medium	|Up to USD $5,000 |
+|Low	|Up to USD $1,000 |
 |None	|$0 |
 
 ## Vulnerability Classification System
@@ -38,8 +39,9 @@ The table below provides examples of the the consequence of a successful exploit
 **Sample Consequences to Smart Contracts/Blockchain:**
 
 |**Level**	|**Examples**	|
-|5. Critical	|Empty or freeze protocol tokens (e.g. economic attacks, logic errors, integer over-/under-flow) <br> Cryptographic flaws	|
-|4. High	|Token holders temporarily unable to transfer tokens |
+|---|---|
+|5. Critical	|Empty or freeze protocol tokens (e.g. economic attacks, logic errors, integer over-/under-flow)	|
+|4. High	|Token holders temporarily unable to transfer tokens<br> Cryptographic flaws |
 |3. Medium	|Users are temporarily unable to create transactions or use FIO features |
 |2. Low	|Protocol returns inaccurate information, but on-chain data is not affected |
 |1. None	|Best practices |
