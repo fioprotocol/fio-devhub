@@ -33,9 +33,9 @@ For example:
 * A bug that can be triggered by any token holder is more severe than a bug that requires a block producer to go rogue.
 * A bug that can be triggered by a third party invoking a particular function/method is more severe than a bug that requires the affected token holder to invoke that same function/method.
 
-The table below is mostly concerned with the consequence of a successful exploit. Keep in mind that if the exploit requires elevated privileges or uncommon user interaction, the level of the bug may be downgraded to reflect that.
+The table below provides examples of the the consequence of a successful exploit. Keep in mind that if the exploit requires elevated privileges or uncommon user interaction, the level of the bug may be downgraded to reflect that.
 
-Smart Contracts/Blockchain
+**Sample Consequences to Smart Contracts/Blockchain:**
 
 |**Level**	|**Examples**	|
 |5. Critical	|Empty or freeze protocol tokens (e.g. economic attacks, logic errors, integer over-/under-flow) <br> Cryptographic flaws	|

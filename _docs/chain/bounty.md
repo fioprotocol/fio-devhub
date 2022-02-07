@@ -16,6 +16,6 @@ These pages provide more information about the program:
 |---|---|
 | [Scope for Bounties]({{site.baseurl}}/docs/chain/bounty-scope) |Provides guidelines as to in-scope and out-of-scope areas of investigation|
 | [Rules and Directions for Reporting Vulnerabilities]({{site.baseurl}}/docs//chain/bounty-howto)|Provides guidelines for Rules and Responsibilites, as well as directions for reporting vulnerabilities.|
-| [Bounty Rewards]({{site.baseurl}}/docs//chain/bounty-rewards)|Overview of the bounty rewards available for finding vulnerabilities in FIO protocol.|
+| [Bounty Rewards]({{site.baseurl}}/docs//chain/bounty-rewards)|Provides an overview of the bounty rewards available for finding vulnerabilities in FIO protocol.|
 | [Frequently Asked Questions]({{site.baseurl}}/docs//chain/bounty-faq)|Provides a list of frequently asked questions and answers. |
 
