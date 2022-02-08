@@ -1,6 +1,6 @@
 
 
-- title: About FIO Protocol
+- title: FIO Protocol Overview
   url: "docs/index"
   links:
     - title: What is FIO Protocol?
@@ -15,13 +15,7 @@
       url: "docs/fio-protocol/fio-fees"
     - title: Accounts & Permissions
       url: "docs/fio-protocol/accounts-permissions"
-    - title: Voting
-      url: "docs/fio-protocol/voting"
-    - title: Multisig
-      url: "docs/fio-protocol/multisig"
-    - title: FIO Improvement Proposals
-      url: "docs/fio-protocol/fips"
-- title: FIO Chain
+- title: About the FIO Chain
   url: "docs/chain"
   links:
     - title: FIO vs. EOSIO
@@ -55,19 +49,36 @@
       url: "docs/chain/clio"
     - title: fio-wallet (keosd)
       url: "docs/chain/fio-wallet"
-    - title: Bug Bounty Program
-      url: "docs/chain/bounty"
-      children:
-        - title: Bounty Program Scope
-          url: "docs/chain/bounty-scope"
-        - title: Bounty Program Rules and Guidance
-          url: "docs/chain/bounty-howto"
-        - title: Bounty Rewards
-          url: "docs/chain/bounty-rewards"          
-        - title: Bounty Program FAQ
-          url: "docs/chain/bounty-faq"
     - title: Analytics
       url: "docs/chain/analytics"
       children:
         - title: Top FIO token holders
           url: "docs/chain/analytics-token-holders"
+- title: How to Contribute
+  url: "docs/contribute"
+  links:
+    - title: FIO Improvement Proposals
+      url: "docs/contribute/fips"
+    - title: Bug Bounty Program
+      url: "docs/contribute/bounty"
+      children:
+        - title: Bounty Program Scope
+          url: "docs/contribute/bounty-scope"
+        - title: Bounty Program Rules and Guidance
+          url: "docs/contribute/bounty-howto"
+        - title: Bounty Rewards
+          url: "docs/contribute/bounty-rewards"          
+        - title: Bounty Program FAQ
+          url: "docs/contribute/bounty-faq"
+    - title: Voting
+      url: "docs/contribute/voting"
+      children:
+        - title: Register as a Proxy Voter
+          url: "docs/contribute/reg-proxy"
+        - title: Proxy Your Vote
+          url: "docs/contribute/proxy-vote"
+    - title: Staking
+      url: "docs/contribute/staking-about"
+      children:
+        - title: How to Stake FIO
+          url: "docs/contribute/staking"
