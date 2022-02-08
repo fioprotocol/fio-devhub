@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Bounty Program Rules and Directions
 description: FIO Bounty Program Rules and Directions
 ---

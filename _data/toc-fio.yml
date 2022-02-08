@@ -66,8 +66,6 @@
           url: "docs/chain/bounty-rewards"          
         - title: Bounty Program FAQ
           url: "docs/chain/bounty-faq"
-    - title: Vulnerability Disclosure Policy
-      url: "docs/chain/disclosure"
     - title: Analytics
       url: "docs/chain/analytics"
       children:

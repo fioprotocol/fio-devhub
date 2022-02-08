@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Bounty Program Scope
 description: FIO Bounty Program Scope
 ---
