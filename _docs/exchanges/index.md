@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Exchange Integration Guide
 description: Exchange Integration Guide
 ---

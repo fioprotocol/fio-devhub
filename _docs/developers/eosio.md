@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: EOSIO vs. FIO
 description: EOSIO vs. FIO
 ---

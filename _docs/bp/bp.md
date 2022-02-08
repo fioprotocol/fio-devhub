@@ -1,4 +1,5 @@
 ---
+layout: page-bp
 title: Block Producers
 description: Block Producers
 ---

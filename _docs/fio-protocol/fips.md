@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIPs
 description: FIO Improvement Proposals
 ---

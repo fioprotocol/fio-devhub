@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Validating your API Node
 description: Validating your API Node
 ---

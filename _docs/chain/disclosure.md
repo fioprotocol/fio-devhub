@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Vulnerability Disclosure Policy
 description: Vulnerability Disclosure Policy
 ---

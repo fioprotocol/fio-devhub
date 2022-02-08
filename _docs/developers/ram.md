@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Calculating RAM
 description: Calculating RAM
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Docker installation
 description: FIO Docker installation
 ---

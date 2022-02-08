@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Build FIO from Source
 description: Build FIO from Source
 ---

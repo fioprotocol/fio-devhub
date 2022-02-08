@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Benefits & Bounties for Wallets
 description: Benefits & Bounties for Wallets
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: FIO Staking Developer Guide
 description: FIO Staking Developer Guide
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Overview of FIO Contracts
 description: Overview of FIO contracts in the development environment
 redirect_from:

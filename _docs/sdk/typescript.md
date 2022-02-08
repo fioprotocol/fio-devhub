@@ -1,7 +1,7 @@
 ---
+layout: page-int
 title: Using the Typescript SDK
 description: Using the Typescript SDK
-layout: 
 redirect_from:
     - /docs/sdk-typescript
 ---

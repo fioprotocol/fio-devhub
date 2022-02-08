@@ -71,6 +71,9 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path
+  fio:
+    output: true
+    permalink: /:collection/:path
 
 # Defaults
 defaults:

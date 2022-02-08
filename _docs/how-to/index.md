@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: How to guides
 description: How to guides
 redirect_from:

@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Certification checklist
 description: Certification checklist
 ---
