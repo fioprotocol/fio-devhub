@@ -3,7 +3,7 @@ layout: page-int
 title: Participate in governance
 description: Participate in governance
 redirect_from:
-    - /docs/integration-guide/governance
+    - /docs/contribute/governance
 ---
 # Participate in governance by voting your user's tokens
 

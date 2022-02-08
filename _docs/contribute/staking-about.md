@@ -2,6 +2,8 @@
 layout: page-int
 title: About FIO Staking 
 description: About FIO Staking 
+redirect_from:
+    - /docs/contribute/
 ---
 
 # FIO Staking
