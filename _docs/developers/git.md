@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Git Branching and Release
 description: Git Branching and Release
 ---

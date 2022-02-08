@@ -1,0 +1,15 @@
+
+
+- title: Block Producers
+  url: "docs/bp"
+  links:
+    - title: FIO Block Producers
+      url: "docs/bp"
+    - title: Being a Producer
+      url: "docs/bp/bp"
+    - title: Setting Fees
+      url: "docs/bp/fee-setting"
+    - title: Claiming Rewards
+      url: "docs/bp/claiming-rewards"
+    - title: BP Release Tasks
+      url: "docs/bp/release-checklist"

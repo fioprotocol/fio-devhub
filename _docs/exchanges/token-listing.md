@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Listing the FIO Token
 description: Listing the FIO Token
 redirect_from:

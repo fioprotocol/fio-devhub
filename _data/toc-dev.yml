@@ -1,0 +1,24 @@
+
+
+- title: Developers Guide
+  url: "docs/developers"
+  links:
+    - title: Versioning
+      url: "docs/developers/versioning"
+    - title: Git Branching & Release
+      url: "docs/developers/git"
+    - title: FIO Contract Development
+      url: "docs/developers/contract"
+      children:
+        - title: Documenting changes
+          url: "docs/developers/contract-documenting"
+        - title: Creating new contracts
+          url: "docs/developers/contract-newcontracts"
+        - title: Deploying new contracts
+          url: "docs/developers/contract-deploying"                    
+    - title: Calculating RAM
+      url: "docs/developers/ram"
+    - title: Developer Tools
+      url: "docs/developers/tools"
+    - title: Devnet Testing
+      url: "docs/developers/devnet"

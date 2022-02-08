@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Enabling fio-wallet
 description: Enabling fio-wallet
 ---

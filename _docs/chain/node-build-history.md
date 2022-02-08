@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: V1 History configuration
 description: V1 History configuration
 ---

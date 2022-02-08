@@ -1,5 +1,18 @@
 - title: Documentation
-  url: docs
+  url: "docs/fio-protocol"
+  dropdown:
+    - title: About FIO Protocol
+      url: "docs/fio-protocol"
+      blank: false
+    - title: Integrator Guide
+      url: "docs/integration-guide"
+      blank: false
+    - title: Block Producers
+      url: "docs/bp"
+      blank: false
+    - title: Blockchain Developers
+      url: "docs/developers"
+      blank: false
 - title: APIs
   url: "pages/api/fio-api"
   dropdown:

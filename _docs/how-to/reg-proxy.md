@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Register as a Proxy
 description: Register as a Proxy
 ---

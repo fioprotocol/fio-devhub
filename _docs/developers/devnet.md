@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Devnet Testing
 description: Devnet Testing
 ---

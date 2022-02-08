@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO vs. EOSIO
 description: description
 redirect_from:

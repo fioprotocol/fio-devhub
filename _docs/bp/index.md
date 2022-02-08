@@ -1,4 +1,5 @@
 ---
+layout: page-bp
 title: FIO Block Producers
 description: FIO Block Producers
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Participate in governance
 description: Participate in governance
 redirect_from:

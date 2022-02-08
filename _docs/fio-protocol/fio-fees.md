@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Fees
 description: FIO Fees
 ---

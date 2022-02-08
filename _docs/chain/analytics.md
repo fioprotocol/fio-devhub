@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Analytics
 description: FIO Analytics
 ---

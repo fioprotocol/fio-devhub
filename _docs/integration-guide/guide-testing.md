@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Testing your integration
 description: Testing your integration
 ---

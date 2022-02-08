@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Benefits & Incentives
 description: Benefits & Incentives
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Kotlin SDK
 description: Kotlin SDK
 redirect_from:

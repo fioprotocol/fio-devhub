@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: iOS Swift SDK
 description: iOS Swift SDK
 redirect_from:

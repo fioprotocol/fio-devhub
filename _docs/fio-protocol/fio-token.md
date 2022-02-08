@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Token
 description: FIO Token
 ---

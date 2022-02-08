@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Deploying FIO Contracts
 description: Deploying FIO contracts 
 redirect_from:

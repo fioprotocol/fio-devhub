@@ -1,4 +1,5 @@
 ---
+layout: page-bp
 title: BP Release Tasks
 description: Block Producer release tasks
 ---
