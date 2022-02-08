@@ -9,7 +9,7 @@ redirect_from:
 
 The FIO protocol is a hybrid DAC model of organization. This means there are many different ways that entities seeking to serve FIO may choose to operate. 
 
-- For the tech team serving the FIO protocol there is a centralized model of teaming implemented. This team has budget from FIO approved and revised regularly. This team is lead and managed by the VP of technology. Tech team members serve at the pleasure of the VP of technology. 
+- For the tech team serving the FIO protocol there is a core engineering team implemented. This team has budget from FIO approved and revised regularly. This team is lead and managed by the VP of technology. Tech team members serve at the pleasure of the VP of technology. 
 - Outside of the tech team there are fully decentralized models of servicing the FIO protocol put into practice. Entities may choose to submit worker proposals to complete desired work tasks and these will be reviewed approved based on the findings of the FIO planning committee.
 
 Within the tech team, entities work as needed with management to complete projects and work tasks:
