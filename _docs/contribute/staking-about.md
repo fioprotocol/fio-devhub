@@ -31,7 +31,7 @@ Integrators are encouraged to launch staking integration before the activation d
 FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID]({{site.baseurl}}/docs/how-to/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID]({{site.baseurl}}/docs/how-to/tpid). If [TPID]({{site.baseurl}}/docs/how-to/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers.
 
 ## How to implement voting, proxy, or auto-proxy
-The easiest way to achieve this objective is for the integrator (not the User) to [register as a proxy]({{site.baseurl}}/docs/how-to/reg-proxy), [vote for block producers]({{site.baseurl}}/docs/fio-protocol/voting) and insert the FIO Crypto Handle of their proxy into the TPID field of every call made by the user.
+The easiest way to achieve this objective is for the integrator (not the User) to [register as a proxy]({{site.baseurl}}/docs/contribute/voting-reg-proxy), [vote for block producers]({{site.baseurl}}/docs/contribute/voting) and insert the FIO Crypto Handle of their proxy into the TPID field of every call made by the user.
 
 Alternatively, the integrator may choose to let the User vote their tokens directly, but that would require the development of a voting UI inside the wallet or exchange.
 

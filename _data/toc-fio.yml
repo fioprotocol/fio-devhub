@@ -74,9 +74,9 @@
       url: "docs/contribute/voting"
       children:
         - title: Register as a Proxy Voter
-          url: "docs/contribute/reg-proxy"
+          url: "docs/contribute/voting-reg-proxy"
         - title: Proxy Your Vote
-          url: "docs/contribute/proxy-vote"
+          url: "docs/contribute/voting-proxy-vote"
     - title: Staking
       url: "docs/contribute/staking-about"
       children:
