@@ -70,6 +70,8 @@
           url: "docs/contribute/bounty-rewards"          
         - title: Bounty Program FAQ
           url: "docs/contribute/bounty-faq"
+    - title: Participate in Governance
+      url: "docs/contribute/governance"
     - title: Voting
       url: "docs/contribute/voting"
       children:
