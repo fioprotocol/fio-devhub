@@ -71,14 +71,14 @@
         - title: Bounty Program FAQ
           url: "docs/contribute/bounty-faq"
     - title: Participate in Governance
-      url: "docs/contribute/governance"
-    - title: Voting
-      url: "docs/contribute/voting"
+      url: "docs/contribute/govern"
       children:
+        - title: Voting
+          url: "docs/contribute/govern-voting"
         - title: Register as a Proxy Voter
-          url: "docs/contribute/voting-reg-proxy"
+          url: "docs/contribute/govern-reg-proxy"
         - title: Proxy Your Vote
-          url: "docs/contribute/voting-proxy-vote"
+          url: "docs/contribute/govern-proxy-vote"
     - title: Staking
       url: "docs/contribute/staking-about"
       children:

@@ -80,6 +80,8 @@
       url: "docs/how-to/txn-history"
     - title: Pre-compute transaction ID
       url: "docs/how-to/txn-id"
+    - title: Participate in Governance
+      url: "docs/how-to/governance"
     - title: Sign NFTs
       url: "docs/how-to/sign-nfts"
     - title: FIO Staking Developers Guide

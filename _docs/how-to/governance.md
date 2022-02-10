@@ -3,7 +3,7 @@ layout: page-int
 title: Participate in governance
 description: Participate in governance
 redirect_from:
-    - /docs/contribute/governance
+    - /docs/how-to/governance
 ---
 # Participate in governance by voting your user's tokens
 
@@ -29,4 +29,4 @@ If a user subsequently executes /proxy_vote or /vote_producer, their vote will n
 
 ## Vote for producers
 
-Once a wallet has registered their TPID Address as a proxy, they then need to [review the performance of block producers](https://snap.blockpane.com/proxy.html){:target="_blank"} and [vote]({{site.baseurl}}/docs/fio-protocol/voting).
+Once a wallet has registered their TPID Address as a proxy, they then need to [review the performance of block producers](https://snap.blockpane.com/proxy.html){:target="_blank"} and [vote]({{site.baseurl}}/docs/contribute/voting).
