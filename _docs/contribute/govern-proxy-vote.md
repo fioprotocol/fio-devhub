@@ -1,5 +1,5 @@
 ---
-layout: page-int
+layout: page-fio
 title: Proxy your vote
 description: Proxy your vote
 ---

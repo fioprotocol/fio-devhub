@@ -1,5 +1,5 @@
 ---
-layout: page-int
+layout: page-fio
 title: About FIO Staking 
 description: About FIO Staking 
 redirect_from:

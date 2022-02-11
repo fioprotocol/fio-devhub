@@ -1,5 +1,5 @@
 ---
-layout: page-int
+layout: page-fio
 title: Register as a Proxy
 description: Register as a Proxy
 ---
