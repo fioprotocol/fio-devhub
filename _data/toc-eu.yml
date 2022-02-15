@@ -1,0 +1,9 @@
+- title: End Users Guide
+  url: "docs/eu"
+  links:
+    - title: End User Guide
+      url: "docs/eu"
+    - title: Staking
+      url: "docs/contribute/staking-about"
+    - title: MultiSig
+      url: "docs/eu/multisig-eu"
