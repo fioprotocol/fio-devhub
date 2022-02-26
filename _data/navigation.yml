@@ -4,9 +4,6 @@
     - title: About FIO Protocol
       url: "docs/fio-protocol"
       blank: false
-    - title: End User Guide
-      url: "docs/eu"
-      blank: false
     - title: Integrator Guide
       url: "docs/integration-guide"
       blank: false
@@ -15,6 +12,9 @@
       blank: false
     - title: Blockchain Developers
       url: "docs/developers"
+      blank: false
+    - title: End User Guide
+      url: "docs/eu"
       blank: false
 - title: APIs
   url: "pages/api/fio-api"

@@ -1,9 +1,9 @@
 ---
-layout: page-fio
+layout: page-eu
 title: About FIO Staking 
 description: About FIO Staking 
 redirect_from:
-    - /docs/contribute/
+    - /docs/eu/
 ---
 
 # FIO Staking

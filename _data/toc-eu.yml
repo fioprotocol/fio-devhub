@@ -4,8 +4,13 @@
     - title: End User Guide
       url: "docs/eu"
     - title: Staking
-      url: "docs/contribute/staking-about"
+      url: "docs/eu/staking-about"
+      children:
+        - title: How to Stake FIO
+          url: "docs/eu/staking"
     - title: MultiSig
-      url: "docs/eu/multisig-eu"
+      url: "docs/eu/multisig"
+    - title: Sign Transactions with Anchor Wallet and bloks.io
+      url: "docs/eu/bloks"     
     - title: Dashboard
       url: "docs/eu/dashboard"

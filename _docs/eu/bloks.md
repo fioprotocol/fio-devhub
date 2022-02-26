@@ -1,5 +1,5 @@
 ---
-layout: page-int
+layout: page-eu
 title: Sign transactions with Anchor Wallet and bloks.io
 description: Sign transactions with Anchor Wallet and bloks.io
 ---

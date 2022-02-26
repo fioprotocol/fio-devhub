@@ -79,8 +79,4 @@
           url: "docs/contribute/govern-reg-proxy"
         - title: Proxy Your Vote
           url: "docs/contribute/govern-proxy-vote"
-    - title: Staking
-      url: "docs/contribute/staking-about"
-      children:
-        - title: How to Stake FIO
-          url: "docs/contribute/staking"
+

@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-eu
 title: Multisig
 description: Multisig
 ---
