@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page-fio
 title: Blog
 permalink: /blog/
 ---
