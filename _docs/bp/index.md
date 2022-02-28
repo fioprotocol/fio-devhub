@@ -5,7 +5,7 @@ description: FIO Block Producers
 ---
 # FIO Block Producers
 
-FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain. BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/fio-protocol/voting) or [proxying their vote]({{site.baseurl}}/docs/how-to/proxy-vote). 
+FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain. BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/contribute/govern-voting) or [proxying their vote]({{site.baseurl}}/docs/contribute/govern-proxy-vote). 
 
 Blocks are produced every 0.5 seconds by a specific block producer designated to produce a block at that time. Blocks are produced in rounds of 126 (6 blocks each times 21 producers). In FIO, block producers can modify system smart contracts with a ⅔ + 1 (15 BP) supermajority.
 

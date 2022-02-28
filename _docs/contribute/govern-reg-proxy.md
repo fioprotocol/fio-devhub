@@ -6,7 +6,7 @@ description: Register as a Proxy
 
 # Register as a proxy
 
-FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain. BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/fio-protocol/voting) or [proxying their vote]({{site.baseurl}}/docs/how-to/proxy-vote). 
+FIO block producers (BPs) host and manage the infrastructure necessary to run the FIO Chain. BPs also play a major role in the governance of the chain. FIO Protocol is a distributed proof-of-stake chain wherein FIO token holders choose BPs [by voting for producers]({{site.baseurl}}/docs/contribute/govern-voting) or [proxying their vote]({{site.baseurl}}/docs/contribute/govern-proxy-vote). 
 
 If you have [researched the effectiveness of FIO BPs]({{site.baseurl}}/docs/bp/) and feel that you can help other FIO token holders by serving as a proxy, step up and register as a proxy!
 

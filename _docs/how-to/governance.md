@@ -29,4 +29,4 @@ If a user subsequently executes /proxy_vote or /vote_producer, their vote will n
 
 ## Vote for producers
 
-Once a wallet has registered their TPID Address as a proxy, they then need to [review the performance of block producers](https://snap.blockpane.com/proxy.html){:target="_blank"} and [vote]({{site.baseurl}}/docs/contribute/voting).
+Once a wallet has registered their TPID Address as a proxy, they then need to [review the performance of block producers](https://snap.blockpane.com/proxy.html){:target="_blank"} and [vote]({{site.baseurl}}/docs/contribute/govern-voting).
