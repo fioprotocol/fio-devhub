@@ -2,6 +2,8 @@
 layout: page-eu
 title: Multisig
 description: Multisig
+redirect_from:
+    - /docs/how-to/
 ---
 # Multisig
 

@@ -79,4 +79,6 @@
           url: "docs/contribute/govern-reg-proxy"
         - title: Proxy Your Vote
           url: "docs/contribute/govern-proxy-vote"
+    -title: Blog
+    url: blog
 
