@@ -638,7 +638,7 @@ paths:
         Returns a public address for specified token code and FIO Crypto Handle (aka FIO Address).
 
 
-        `get_pub_address` accepts chain-level public addresses ('*' as a chain_code).
+        `get_pub_address` accepts chain-level public addresses ('*' as a token_code).
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
       parameters:
