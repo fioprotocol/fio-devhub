@@ -1,7 +1,7 @@
 
-
+- heading: About FIO Protocol
 - title: FIO Protocol Overview
-  url: "docs/index"
+  url: "docs/fio-protocol/index"
   links:
     - title: What is FIO Protocol?
       url: "docs/fio-protocol"
@@ -79,6 +79,6 @@
           url: "docs/contribute/govern-reg-proxy"
         - title: Proxy Your Vote
           url: "docs/contribute/govern-proxy-vote"
-    -title: Blog
-    url: blog
+- title: Blog
+  url: blog
 
