@@ -1,54 +1,36 @@
 ---
 layout: page-eu
-title: FIO Staking
-description: FIO Staking
+title: About FIO Staking 
+description: About FIO Staking 
 redirect_from:
-    - /docs/eu/staking-about
+    - /docs/howto/
 ---
 
-# FIO Staking
+# About FIO Staking
+## Overview
+[FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"} is introducing **FIO Staking**, an on-chain program which rewards users for participating in blockchain governance.
 
-FIO Staking is an on-chain program which rewards users for participating in blockchain governance. It was developed as part of [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"}. This section provides on overview of FIO Staking and describes how to stake your tokens.
+## How FIO Staking works
+### High level
+* User has to vote, proxy, or [auto-proxy]({{site.baseurl}}/docs/contribute/governance) their FIO Tokens.
+* User decides what amount of their FIO Tokens to stake.
+* User stakes FIO Tokens, which are now locked and not spendable until unstake + 7 days.
+* 25% of all FIO Chain fees collected plus [daily mint](https://github.com/fioprotocol/fips/blob/master/fip-0021.md#staking-rewards-reserves){:target="_blank"} is redirected to a pool to be distributed among all stakers.
+* User decides what amount of their FIO Tokens to unstake.
+* User unstakes FIO Tokens and they receive the original staked amount plus their share of rewards.
+* Unstaked tokens are locked and are unspendable for a period of 7 days.
 
-{% include alert.html type="warning" title="Staking feature is Testnet only" content="FIO staking is currently being tested in Testnet. Once the feature has passed acceptance testing it will be released to production." %}
+### FIO Staking activation and early participation
+The staking rewards are computed in [such a way](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"} that the earlier you stake the higher the reward earning potential. To ensure that early stakers do not get an unfair advantage over others staking, the concept of activation date has been built into staking.
 
-## Using Anchor wallet
+After staking launches on Mainnet (planned for January 2022), staking rewards will accrue, but users who unstake before the activation date on 02/22/2022, will only receive their principal and not their share of staking reward.
 
-Anchor wallet supports access to [FIO system contract actions]({{site.baseurl}}/pages/api/fio-api/#tag--Actions). To use Anchor you must install and import your FIO private key as explained in [Using FIO with Anchor]({{site.baseurl}}/docs/eu/bloks#using-fio-in-anchor).
+Integrators are encouraged to launch staking integration before the activation date to offer the greatest benefit to their users.
 
-{% include alert.html type="info" title="Testnet staking" content="The following provides instructions for FIO Staking on Testnet." %}
+### Integrator incentive
+FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID]({{site.baseurl}}/docs/how-to/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID]({{site.baseurl}}/docs/how-to/tpid). If [TPID]({{site.baseurl}}/docs/how-to/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers. (Reference the [FIO Staking Developers Guide]({{site.baseurl}}/docs/how-to/staking) for assistence with integrating staking.)
 
-**1) Open Anchor wallet and connect to FIO chain**
+## Resources
+Looking for a non-technical guide to staking. Checkout [FIO Staking blog post](https://medium.com/fio-blog/fio-token-staking-fio-improvement-proposal-fip-21-explained-e80a43bf3e83){:target="_blank"}
 
-* Select `FIO` or `FIO Testnet` from the dropdown in Anchor wallet
-
-**2) Ensure your account has either [voted]({{site.baseurl}}/docs/contribute/govern-voting) for at least one block producer or proxied to an account that has.**
-
-**3) Select the stakefio action**
-
-* Select Tools > Utilities > Smart Contracts 
-* Type `fio.staking` into `Contract Account Name` and click `Load Contract` (or hit Return)
-* Select `stakefio` from the `Contract Actions` dropdown
-
-**4) Sign and execute the transaction**
-
-* Make sure wallet is unlocked
-* Fill in the `Action Parameters` for the action. Refer to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#tag--Actions) for reference information on the stakefio action parameters.
-* Click `Create Transaction`
-* Approve the transaction
-
-**5) Confirm your balance**
-
-* Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
-* Go to the [Get FIO balance getter]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance)
-* Under `REQUEST BODY` click on the `EXAMPLE` tab
-* Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
-
-**6) After unstaking, confirm your locked balance**
-
-When FIO is unstaked, it is locked for 7 days. To view your locked balance:
-
-* Go to the [FIO API]({{site.baseurl}}/pages/api/fio-api/#overview) and confirm `https://fiotestnet.blockpane.com/v1/chain - FIO Testnet server` is selected under `API SERVER`
-* Go to the [Get token lock information for account]({{site.baseurl}}/pages/api/fio-api/#post-/get_locks)
-* Under `REQUEST BODY` click on the `EXAMPLE` tab
-* Copy your FIO Public Key into the `fio_public_key` paramter and click the `TRY` button
+[Read More, for help with staking your FIO tokens.]({{site.baseurl}}/docs/contribute/staking)

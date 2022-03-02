@@ -7,10 +7,10 @@
     - title: End User Guide
       url: "docs/eu"
     - title: Staking
-      url: "docs/eu/staking-about"
+      url: "docs/eu/staking"
       children:
         - title: How to Stake FIO
-          url: "docs/eu/staking"
+          url: "docs/eu/staking-howto"
     - title: MultiSig
       url: "docs/eu/multisig"
     - title: Sign Transactions with Anchor Wallet and bloks.io
