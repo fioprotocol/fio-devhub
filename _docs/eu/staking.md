@@ -33,4 +33,5 @@ FIO Staking offers a new incentive to integrators which lets them earn 11% of th
 ## Resources
 Looking for a non-technical guide to staking? Checkout [FIO Staking blog post](https://medium.com/fio-blog/fio-token-staking-fio-improvement-proposal-fip-21-explained-e80a43bf3e83){:target="_blank"}
 
+## How to Stake Your FIO Tokens
 [Read More, for help with staking your FIO tokens.](https://medium.com/fio-blog/fio-staking-now-live-on-mainnet-fe3f7919be2a)
