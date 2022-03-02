@@ -1,8 +1,13 @@
 <ul class="td-sidebar-nav__section pr-md-3">
   {% capture sectionUrl %}{{ section.url | replace: "/", "" }}{% endcapture %}
   {% capture pageUrl %}{{ page.url | replace: "/", "" }}{% endcapture %}
-  <li class="td-sidebar-nav__section-title">
+  {% if section.title %}{% assign sidebar_item_class = 'td-sidebar-nav__section-title' %}{% endif %}
+  {% if section.pagetitle %}{% assign sidebar_item_class = 'td-sidebar-nav__section-heading' %}{% endif %}
+  <li class="{{ sidebar_item_class }}">
+    {% if section.title %}
     <a  href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">{{ section.title }}</a>
+    {% endif %}
+    {% if section.pagetitle %}{{section.pagetitle}}{% endif %}
   </li>
   {% if section.links %}
     <ul>
