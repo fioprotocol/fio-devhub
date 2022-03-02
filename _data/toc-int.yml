@@ -57,8 +57,6 @@
       url: "docs/how-to/registration"
     - title: Submit a Transaction
       url: "docs/how-to/transactions"
-    - title: Sign Transactions with bloks.io/Anchor
-      url: "docs/how-to/bloks"
     - title: Map Public Addresses
       url: "docs/how-to/mapping"
     - title: Receive to a FIO Crypto Handle
