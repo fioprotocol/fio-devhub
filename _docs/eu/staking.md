@@ -31,6 +31,6 @@ Integrators are encouraged to launch staking integration before the activation d
 FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID]({{site.baseurl}}/docs/how-to/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID]({{site.baseurl}}/docs/how-to/tpid). If [TPID]({{site.baseurl}}/docs/how-to/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers. (Reference the [FIO Staking Developers Guide]({{site.baseurl}}/docs/how-to/staking) for assistence with integrating staking.)
 
 ## Resources
-Looking for a non-technical guide to staking. Checkout [FIO Staking blog post](https://medium.com/fio-blog/fio-token-staking-fio-improvement-proposal-fip-21-explained-e80a43bf3e83){:target="_blank"}
+Looking for a non-technical guide to staking? Checkout [FIO Staking blog post](https://medium.com/fio-blog/fio-token-staking-fio-improvement-proposal-fip-21-explained-e80a43bf3e83){:target="_blank"}
 
-[Read More, for help with staking your FIO tokens.]({{site.baseurl}}/docs/contribute/staking)
+[Read More, for help with staking your FIO tokens.](https://medium.com/fio-blog/fio-staking-now-live-on-mainnet-fe3f7919be2a)
