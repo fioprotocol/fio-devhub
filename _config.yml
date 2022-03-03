@@ -21,7 +21,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Documentation for developers integrating FIO protocol.
 
 # Base url. Leave blank if you don't want the extra path.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/fio-devhub-testnewOrg" # the subpath of your site, e.g. /blog
 
 # This is mostly for testing
 url: "https://developers.fioprotocol.io" # the base hostname & protocol for your site
@@ -69,6 +69,9 @@ exclude: [_site, CHANGELOG.md, LICENSE, README.md, vendor]
 # Collections
 collections:
   docs:
+    output: true
+    permalink: /:collection/:path
+  fio:
     output: true
     permalink: /:collection/:path
 

@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: History API
 description: History API
 ---

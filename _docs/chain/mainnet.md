@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Mainnet
 description: Mainnet
 ---

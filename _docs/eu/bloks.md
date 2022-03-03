@@ -1,6 +1,9 @@
 ---
+layout: page-eu
 title: Sign transactions with Anchor Wallet and bloks.io
 description: Sign transactions with Anchor Wallet and bloks.io
+redirect_from:
+    - /docs/how-to/
 ---
 
 # Sign transactions with Anchor Wallet and bloks.io

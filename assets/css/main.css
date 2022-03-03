@@ -18105,6 +18105,18 @@ html body .md-typeset .headerlink {
     }
 }
 
+.td-sidebar-nav__section-heading {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #30638e;
+    color: rgba(255, 255, 255, .75);
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 4px;
+    padding-left: 24px;
+}
+
 .td-sidebar-nav__section-title {
     display: block;
     font-weight: 500

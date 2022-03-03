@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Deposit Crypto using FIO Crypto Handles
 description: Deposit Crypto using FIO Crypto Handles
 redirect_from:

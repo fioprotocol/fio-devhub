@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Manual installation using pre-built packages
 description: Manual installation using pre-built packages
 ---

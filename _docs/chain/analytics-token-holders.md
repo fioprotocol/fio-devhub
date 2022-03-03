@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: Top FIO Token Holders
 description: Top FIO Token Holders
 ---

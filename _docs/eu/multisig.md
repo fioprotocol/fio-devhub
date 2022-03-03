@@ -1,6 +1,9 @@
 ---
+layout: page-eu
 title: Multisig
 description: Multisig
+redirect_from:
+    - /docs/fio-protocol/
 ---
 # Multisig
 

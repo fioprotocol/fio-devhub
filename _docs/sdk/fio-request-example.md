@@ -1,7 +1,7 @@
 ---
+layout: page-sdk
 title: Example - FIO Request
 description: Example - FIO Request
-layout: page-sdk
 redirect_from:
     - /docs/sdk-typescript/fio-request-example
 ---

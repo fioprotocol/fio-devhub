@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Submitting Transactions
 description: Submitting Transactions
 redirect_from:

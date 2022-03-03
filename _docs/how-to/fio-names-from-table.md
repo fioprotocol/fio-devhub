@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Get FIO Names from Address Table
 description: Get FIO Names from Address Table
 redirect_from:

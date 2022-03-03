@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Send to FIO Crypto Handle
 description: Send to FIO Crypto Handle
 redirect_from:

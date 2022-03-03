@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Mapping Public Addresses
 description: Mapping Public Addresses
 redirect_from:

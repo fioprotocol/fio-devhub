@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Wallet Integration Guide
 description: Wallet Integration Guide
 redirect_from:

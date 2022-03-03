@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Documenting Changes for Deployment
 description: Guidelines for Documenting Changes for Deployment
 redirect_from:
