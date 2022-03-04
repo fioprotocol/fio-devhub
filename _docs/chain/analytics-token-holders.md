@@ -210,10 +210,10 @@ description: Top FIO Token Holders
         remainingLocked = (1-unlockFraction) * initialLock;
         unlockedBalance = totalBalance - remainingLocked;
         votableTokens = totalBalance - remainingLocked;
-        console.log('account: ', entry[0].toLocaleString())
-        console.log('remainingLocked: ', remainingLocked)
-        console.log('unlockedBalance: ', unlockedBalance)
-        console.log('initialLock: ', initialLock)
+        //console.log('account: ', entry[0].toLocaleString())
+        //console.log('remainingLocked: ', remainingLocked)
+        //console.log('unlockedBalance: ', unlockedBalance)
+        //console.log('initialLock: ', initialLock)
         //votableTokensFraction = unlockFraction < .3 ? .3 : unlockFraction;
         //if (votableTokensFraction * initialLock > unlockedBalance) {
         //  votableTokens = votableTokensFraction * initialLock;
