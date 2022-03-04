@@ -2,6 +2,8 @@
 layout: page-fio
 title: Register as a Proxy
 description: Register as a Proxy
+redirect_from:
+  - /docs/fio-protocol/reg-proxy
 ---
 
 # Register as a proxy
