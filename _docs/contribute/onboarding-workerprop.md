@@ -37,5 +37,5 @@ If a worker proposal wishes to serve other needs of the FIO protocol outside the
 
 # Resources for Creating Worker Proposals
 - [FIO Wiki](https://fioprotocol.atlassian.net/wiki/spaces/WP/pages/26476660/Worker+Proposals)
-- [Tech Team Worker Proposal Checklist]({{site.baseurl}}/docs/developers/onboarding-workerpropcheck)
+- [Tech Team Worker Proposal Checklist]({{site.baseurl}}/docs/contribute/onboarding-workerpropcheck)
 

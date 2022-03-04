@@ -30,11 +30,11 @@
       url: "docs/contribute/onboarding"
       children:
         - title: Overview of Worker Proposals
-          url: "docs/contribute/workerprop"
+          url: "docs/contribute/onboarding-workerprop"
         - title: Worker Proposal Checklist
-          url: "docs/contribute/workerpropcheck"
+          url: "docs/contribute/onboarding-workerpropcheck"
         - title: Tools for Working with FIO
-          url: "docs/contribute/tools"
+          url: "docs/contribute/onboarding-tools"
 - title: Blockchain Developers Guide
   url: "docs/developers"
   links:
