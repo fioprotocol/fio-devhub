@@ -2,9 +2,8 @@
 layout: page-fio
 title: Participate in governance
 description: Participate in governance
-redirect_from:
-    - /docs/contribute/govern
 ---
+
 # Participate in governance by voting
 
 (we need verbiage discussing governance in general-- )
