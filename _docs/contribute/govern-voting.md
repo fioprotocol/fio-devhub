@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: Voting for block producers
 description: Voting for block producers
 ---

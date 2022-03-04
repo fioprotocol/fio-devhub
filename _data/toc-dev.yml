@@ -26,6 +26,15 @@
           url: "docs/contribute/govern-reg-proxy"
         - title: Proxy Your Vote
           url: "docs/contribute/govern-proxy-vote"
+    - title: Onboarding
+      url: "docs/contribute/onboarding"
+      children:
+        - title: Overview of Worker Proposals
+          url: "docs/contribute/workerprop"
+        - title: Worker Proposal Checklist
+          url: "docs/contribute/workerpropcheck"
+        - title: Tools for Working with FIO
+          url: "docs/contribute/tools"
 - title: Blockchain Developers Guide
   url: "docs/developers"
   links:

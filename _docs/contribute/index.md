@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: Contribute to FIO Protocol
 description: Contribute to the FIO Protocol
 ---

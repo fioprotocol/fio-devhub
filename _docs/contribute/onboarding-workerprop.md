@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Creating a New Worker Proposal
 description: Creating a New Worker Proposal
 redirect_from:

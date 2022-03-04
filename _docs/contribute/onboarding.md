@@ -1,4 +1,5 @@
 ---
+layout: page-dev
 title: Overview of Onboarding
 description: Overview of the Process of Onboarding on the FIO Community
 redirect_from:
