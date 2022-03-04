@@ -2,7 +2,7 @@
 title: Creating a New Worker Proposal
 description: Creating a New Worker Proposal
 redirect_from:
-    - /docs/developers/onboarding
+    - /docs/contribute/onboarding
 ---
 
 # Tech Team Worker Proposal Checklist

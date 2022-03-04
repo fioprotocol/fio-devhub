@@ -1,8 +1,32 @@
 
 
-- pagetitle: Blockchain Developers
-
-- title: Developers Guide
+- pagetitle: FIO Developers
+- title: How to Contribute
+  url: "docs/contribute"
+  links:
+    - title: FIO Improvement Proposals
+      url: "docs/contribute/fips"
+    - title: Bug Bounty Program
+      url: "docs/contribute/bounty"
+      children:
+        - title: Bounty Program Scope
+          url: "docs/contribute/bounty-scope"
+        - title: Bounty Program Rules and Guidance
+          url: "docs/contribute/bounty-howto"
+        - title: Bounty Rewards
+          url: "docs/contribute/bounty-rewards"          
+        - title: Bounty Program FAQ
+          url: "docs/contribute/bounty-faq"
+    - title: Participate in Governance
+      url: "docs/contribute/govern"
+      children:
+        - title: Voting
+          url: "docs/contribute/govern-voting"
+        - title: Register as a Proxy Voter
+          url: "docs/contribute/govern-reg-proxy"
+        - title: Proxy Your Vote
+          url: "docs/contribute/govern-proxy-vote"
+- title: Blockchain Developers Guide
   url: "docs/developers"
   links:
     - title: Versioning
@@ -24,3 +48,5 @@
       url: "docs/developers/tools"
     - title: Devnet Testing
       url: "docs/developers/devnet"
+- title: Blog
+  url: blog
