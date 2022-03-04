@@ -199,6 +199,8 @@ description: Top FIO Token Holders
   
   $.getJSON("https://fio-eosams.light.xeos.me/api/topholders/fio/fio.token/FIO/100", function (data) {
     $.each(data, function (key, entry) {
+      totalBalance = 0;
+      initialLock = 0;
       totalBalance = parseFloat(Math.trunc(entry[1]));
       initialLock = parseFloat(Math.trunc(lockAmount[entry[0]])) || 0;      
       acctType = type[entry[0]] || "";
@@ -207,12 +209,17 @@ description: Top FIO Token Holders
       if (acctType == 1) {
         remainingLocked = (1-unlockFraction) * initialLock;
         unlockedBalance = totalBalance - remainingLocked;
-        votableTokensFraction = unlockFraction < .3 ? .3 : unlockFraction;
-        if (votableTokensFraction * initialLock > unlockedBalance) {
-          votableTokens = votableTokensFraction * initialLock;
-        } else {
-          votableTokens = unlockedBalance
-        }
+        votableTokens = totalBalance - remainingLocked;
+        console.log('account: ', entry[0].toLocaleString())
+        console.log('remainingLocked: ', remainingLocked)
+        console.log('unlockedBalance: ', unlockedBalance)
+        console.log('initialLock: ', initialLock)
+        //votableTokensFraction = unlockFraction < .3 ? .3 : unlockFraction;
+        //if (votableTokensFraction * initialLock > unlockedBalance) {
+        //  votableTokens = votableTokensFraction * initialLock;
+        //} else {
+        //  votableTokens = unlockedBalance
+        //}
       } else if (acctType == 2) {
         // partner locks
         if (inhibit == 1) { // Account is permanently locked
@@ -247,6 +254,7 @@ description: Top FIO Token Holders
       // Because locked tokens can be used to pay fees, the remainingLocked can become less than totalBalance in some cases. 
       // This adjusts for negative unlockedBalance. But, it means Unlocked is not totally accurate...
       unlockedBalance = unlockedBalance < 0 ? 0 : unlockedBalance;
+      votableTokens = votableTokens < 0 ? 0 : votableTokens;
 
       table.append( '<tr><td><a href="https://fio.bloks.io/account/' + entry[0].toLocaleString()  + '" target="_blank">' + entry[0].toLocaleString() + '</a></td><td> ' + Math.trunc(totalBalance).toLocaleString() + '</td><td> ' + Math.trunc(unlockedBalance).toLocaleString() + '</td><td> ' + Math.trunc(votableTokens).toLocaleString()  + '</td></tr>' );  
     })
