@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Signing NFTs using FIO Crypto Handle
 description: Signing NFTs using FIO Crypto Handle
 redirect_from:

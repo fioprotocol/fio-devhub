@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: clio and fio-wallet (keosd)
 description: clio and fio-wallet (keosd)
 ---
@@ -61,7 +62,7 @@ clio -u https://API_NODE_URL multisig exec ACCOUNT_OF_MSIG_PROPOSER NAME_YOUR_MS
 
 #### Vote using clio
 
-See [Voting for block producers using clio]({{ site.baseurl }}/docs/fio-protocol/voting)
+See [Voting for block producers using clio]({{ site.baseurl }}/docs/contribute/govern-voting)
 
 #### Push action
 

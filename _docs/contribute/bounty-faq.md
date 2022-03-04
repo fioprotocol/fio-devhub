@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: FIO Bounty Program FAQ
 description: FIO Bounty Program FAQ
 ---
@@ -33,9 +34,9 @@ A: We believe that it is against the spirit of the program to privately disclose
 
 A: First across the starting line. You will qualify for a bounty only if you were the first person to alert us to a previously unknown flaw.
 
-**Q: Can I report a problem privately?**
+**Q: Can I report a problem privately/anonymously?**
 
-A: Sure. It is fine if you do not which to be publicly recognized. Just mention this when you submit your report.
+A: Sure. While all bug reports should be done privately using industry standard responsible disclosure principles, it is fine if you do not which to be publicly recognized. Just mention this when you submit your report.
 
 ## Legal points
 

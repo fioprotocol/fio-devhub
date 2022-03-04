@@ -1,4 +1,5 @@
 ---
+layout: page-bp
 title: Claiming rewards
 description: Claiming rewards
 ---

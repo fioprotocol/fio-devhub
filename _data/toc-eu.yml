@@ -1,0 +1,16 @@
+
+
+- pagetitle: End User Guide
+- title: End User Guide
+  url: "docs/eu"
+  links:
+    - title: End User Guide
+      url: "docs/eu"
+    - title: Staking
+      url: "docs/eu/staking"
+    - title: MultiSig
+      url: "docs/eu/multisig"
+    - title: Sign Transactions with Anchor Wallet and bloks.io
+      url: "docs/eu/bloks"     
+    - title: Dashboard
+      url: "docs/eu/dashboard"

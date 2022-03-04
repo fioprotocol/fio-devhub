@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Register FIO Crypto Handles and Domains
 description: Register FIO Crypto Handles and Domains
 redirect_from:

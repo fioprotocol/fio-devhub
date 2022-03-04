@@ -1,7 +1,7 @@
 ---
+layout: page-sdk
 title: Using the Typescript SDK
 description: Using the Typescript SDK
-layout: page-sdk
 redirect_from:
     - /docs/sdk-typescript/transfer-fio-tokens-example
 ---

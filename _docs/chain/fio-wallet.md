@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: fio-wallet (keosd)
 description: fio-wallet (keosd)
 ---

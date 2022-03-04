@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Generating actor/account from Pub Key
 description: Generating actor/account from Pub Key
 redirect_from:

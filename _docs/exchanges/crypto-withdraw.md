@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Withdraw Crypto using FIO Crypto Handles and FIO Requests
 description: Withdraw Crypto using FIO Crypto Handles and FIO Requests
 redirect_from:

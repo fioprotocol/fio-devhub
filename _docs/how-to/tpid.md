@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Earn FIO with your TPID
 description: Earn FIO with your TPID
 redirect_from:

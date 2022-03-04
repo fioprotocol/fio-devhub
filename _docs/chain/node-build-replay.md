@@ -1,4 +1,5 @@
 ---
+layout: page-fio
 title: nodeos Replays
 description: nodeos Replays
 ---

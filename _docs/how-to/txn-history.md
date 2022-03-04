@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Account balances and history
 description: Account balances and history
 ---

@@ -1,4 +1,5 @@
 ---
+layout: page-bp
 title: Setting fees
 description: Setting fees
 ---

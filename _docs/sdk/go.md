@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Go SDK
 description: Go SDK
 redirect_from:

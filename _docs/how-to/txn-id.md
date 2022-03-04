@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Pre-compute transaction ID
 description: Pre-compute transaction ID
 ---

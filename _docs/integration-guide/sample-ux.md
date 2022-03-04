@@ -1,4 +1,5 @@
 ---
+layout: page-int
 title: Sample UX
 description: Sample UX
 redirect_from:
