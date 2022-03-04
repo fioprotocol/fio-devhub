@@ -2,6 +2,8 @@
 layout: page-fio
 title: Voting for block producers
 description: Voting for block producers
+redirect_from:
+  - /docs/fio-protocol/voting
 ---
 # Voting for block producers
 

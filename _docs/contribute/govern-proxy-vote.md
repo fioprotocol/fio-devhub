@@ -2,6 +2,8 @@
 layout: page-fio
 title: Proxy your vote
 description: Proxy your vote
+redirect_from:
+  - /docs/fio-protocol/proxy-vote
 ---
 
 # Proxy votes to a registered proxy
