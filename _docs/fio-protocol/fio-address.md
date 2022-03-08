@@ -79,9 +79,11 @@ A number of projects are underway with the goal of creating a decentralized doma
 
 If the renewal fee for a FIO Domain is not paid by its expiration date, the following restrictions will be placed on the domain and addresses on that domain:
 
+Note: FIO Crypto Handles are referred to as "fio_address" in the calls.
+
 |Days after expiration date |Domain actions disallowed |Address actions disallowed |
-|---|---|---|---
-|0 - 30 | set_fio_domain_public | register_fio_address|
+|---|---|---|
+|0 - 30 | set_fio_domain_public | register_fio_address <br> get_pub_address|
 |31 - 90 |set_fio_domain_public |register_fio_address <br> renew_fio_address <br> add_pub_address <br> new_funds_request (Payee FIO Crypto Handle only) <br> reject_funds_request (Payer FIO Crypto Handle only) <br> record_send (Payer FIO Crypto Handle only) <br> register_producer <br> register_proxy <br> proxy_vote <br> claim_bp_rewards |
 |On day 90 |Domain is burned and can be re-registered by any user. |All addresses on that domain and associated data are burned. |
 
