@@ -79,10 +79,14 @@ A number of projects are underway with the goal of creating a decentralized doma
 
 If the renewal fee for a FIO Domain is not paid by its expiration date, the following restrictions will be placed on the domain and addresses on that domain:
 
+Note: FIO Crypto Handles are referred to as "fio_address" in the calls.
+
 |Days after expiration date |Domain actions disallowed |Address actions disallowed |
+
 |---|---|---|---
 |0 - 30 | setdomainpub <br> xferdomain |regaddress|
 |31 - 90 |setdomainpub <br> xferdomain |regaddress <br> renewaddress <br> addaddress <br> newfundsreq (Payee FIO Crypto Handle only) <br> rejectfndreq (Payer FIO Crypto Handle only) <br> recordobt (Payer FIO Crypto Handle only) <br> regproducer <br> regproxy <br> voteproxy <br> bpclaim |
+
 |On day 90 |Domain is burned and can be re-registered by any user. |All addresses on that domain and associated data are burned. |
 
 It's important to note that anyone can renew a domain as long as they are willing to pay the renewal fee. This ensures that users with FIO Crypto Handles on abandoned domain, can continue to use it. 
