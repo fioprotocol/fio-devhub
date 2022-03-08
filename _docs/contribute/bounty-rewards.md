@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: FIO Bug Bounty Rewards
 description: FIO Bug Bounty Rewards
 ---

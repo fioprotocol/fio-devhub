@@ -10,7 +10,7 @@
     - title: Block Producers
       url: "docs/bp"
       blank: false
-    - title: Blockchain Developers
+    - title: FIO Developers
       url: "docs/developers"
       blank: false
     - title: End User Guide

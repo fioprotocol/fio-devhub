@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: FIO Bounty Program FAQ
 description: FIO Bounty Program FAQ
 ---

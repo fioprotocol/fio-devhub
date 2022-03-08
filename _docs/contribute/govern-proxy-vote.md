@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: Proxy your vote
 description: Proxy your vote
 redirect_from:

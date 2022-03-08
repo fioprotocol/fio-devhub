@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: Participate in governance
 description: Participate in governance
 ---

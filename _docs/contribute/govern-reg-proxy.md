@@ -1,5 +1,5 @@
 ---
-layout: page-fio
+layout: page-dev
 title: Register as a Proxy
 description: Register as a Proxy
 redirect_from:

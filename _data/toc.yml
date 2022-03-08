@@ -199,5 +199,12 @@
       url: "docs/developers/tools"
     - title: Devnet Testing
       url: "docs/developers/devnet"
+    - title: Onboarding Information
+      url: "docs/developers/onboarding"
+      children:
+        - title: Creating a Worker Proposal
+          url: "docs/developers/onboarding-workerprop"
+        - title: Onboarding Tools
+          url: "docs/developers/onboarding-tools"
 - title: "Blog"
   url: blog
