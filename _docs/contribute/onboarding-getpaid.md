@@ -4,6 +4,7 @@ title: Set Up Process for Payment
 description: Set Up Process for Payment
 ---
 # Get Paid for your Worker Proposal
+
 |Type of Worker Proposal|Summary of Process|
 |---|---|
 |Delivery-based Worker Proposal|If your Worker Proposal has been approved and you have completed the work described in your worker proposal, you will have to submit a Payment Request in order to get paid. If you need to be paid ahead of completing the work, you must obtain approval from the Steering Committee ahead of time.|
