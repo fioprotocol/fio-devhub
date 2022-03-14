@@ -11,7 +11,7 @@ info:
   description: Registration site is operated by the Foundation and enables FIO Crypto Handle (aka FIO Address)
     and FIO domain registration with payment in supported crypto currencies.
 servers:
-  - url: https://reg.fio.dev/public-api
+  - url: https://reg-uat.fioprotocol.io/public-api
     description: Testnet
   - url: https://reg.fioprotocol.io/public-api
     description: Mainnet
