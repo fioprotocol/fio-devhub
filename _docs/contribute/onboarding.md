@@ -31,7 +31,7 @@ The FIO foundation pays in crypto currency and uses FIO requests as the mechanis
 
 **Note:** This worker proposal based model of employment requires the self employed individual to be aware of, and manage the tax implications of being involved with the FIO protocol under the legal considerations of their residency. Please make sure you understand the necessary aspects of taxation, and regulations that apply to you where you live.
 
-If you are an experienced engineer but new to crypto, our core team can help you learn and master the necessary details of self employment, benefits, and using crypto as payment. Please do not hesitate to contact a key contributor on the GitHub and begin your FIO involvment!  
+If you are an experienced engineer but new to crypto, our core team can help you learn and master the necessary details of self employment, benefits, and using crypto as payment. Please do not hesitate to contact a key contributor on the GitHub and begin your FIO involvement!    
 
 ## Onboarding Details
 The following pages provide assistance with onboarding with FIO:
