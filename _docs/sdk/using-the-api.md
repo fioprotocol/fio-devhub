@@ -57,4 +57,4 @@ The following testnet API nodes and applications are available for integration t
 
 * [FIO Registration API Documentation]({{ site.baseurl }}/pages/api/fio-reg-api/#post-/buy-address)
 * Mainnet Registration Site API - `https://reg.fioprotocol.io/public-api/`
-* Testnet Registration Site API - `https://reg.fio.dev/public-api/`
+* Testnet Registration Site API - `https://reg-uat.fioprotocol.io/public-api/`
