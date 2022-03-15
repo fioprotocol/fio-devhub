@@ -37,7 +37,7 @@ If using the same FIO Crypto Handle for each user:
 
 -  User is able to connect their FIO Crypto Handle to their crypto/tokens
 -  User is able to disconnect their FIO Crypto Handle
--  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/how-to/mapping))
+-  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/handle-mapping))
 
 **Receive to FIO Crypto Handle**
 

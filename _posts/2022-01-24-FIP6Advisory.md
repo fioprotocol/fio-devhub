@@ -12,4 +12,4 @@ badges:
 <!--more-->
 
 ## Other information
-* [Updated information about getting user's balance]({{site.baseurl}}/docs/how-to/staking#understanding-users-fio-balance)
+* [Updated information about getting user's balance]({{site.baseurl}}/docs/integration-guide/staking#understanding-users-fio-balance)

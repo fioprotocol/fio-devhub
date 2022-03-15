@@ -16,7 +16,7 @@ Before starting your integration, we recommend you first familiarize yourself wi
 
 * [What is FIO Protocol?]({{site.baseurl}}/docs/fio-protocol/)
 * [FIO API Reference Guide]({{site.baseurl}}/pages/api/fio-api)
-* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/how-to/transactions) for the FIO chain
+* Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/general-functions/transactions) for the FIO chain
 * SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/), [Kotlin]({{site.baseurl}}/docs/sdk/kotlin), and [iOS]({{site.baseurl}}/docs/sdk/swift)
 * Review [Sample UX and Demos]({{site.baseurl}}/docs/integration-guide/sample-ux) from other FIO integrations
 
@@ -47,20 +47,20 @@ There are two main integration activities for exchanges. The first step is to [l
 ---
 ## Phase 4: Configure your Technology Provider ID (TPID)
 
-Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/how-to/tpid).
+Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/general-functions/tpid).
 
 ---
 ## Phase 5: Client testing and FIO acceptance testing
 
 Once you have completed your initial integration you should perform internal testing against the FIO Testnet. 
 
-We’ve created a [list of test cases]({{site.baseurl}}/docs/exchanges/guide-certification) that should be completed prior to moving to production.
+We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/integrator-checklist) that should be completed prior to moving to production.
 
 When you’ve successfully tested all of the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 
 ---
 ## Join the FIO community!
 
-FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/how-to/governance).
+FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/integration-guide/token-governance).
 
 

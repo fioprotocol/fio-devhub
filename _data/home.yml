@@ -23,4 +23,4 @@
   - heading: Explore NFTs
     text: Learn about NFTs and using your FIO Signature to sign your NFTs
     button: SIGN YOUR NFTS
-    url: docs/how-to/sign-nfts
+    url: docs/integration-guide/sign-nfts

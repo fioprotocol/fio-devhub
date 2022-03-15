@@ -23,7 +23,7 @@ There are two types of interactions with the FIO blockchain: FIO API Getters and
 
 [FIO Transactions]({{ site.baseurl }}/pages/api/fio-api/#tag--Transactions) are sent to [/push_transaction]({{ site.baseurl }}/pages/api/fio-api/#post-/push_transaction), a generic API endpoint that accepts all FIO action data objects. Transaction instances consist of a transaction header, the list of action instances, and transaction extensions that make the actual transaction.
 
-All transactions must be [packed and signed]({{ site.baseurl }}/pages/api/fio-api/#options-packed_transaction) prior to [submitting them to the FIO chain]({{ site.baseurl }}/docs/how-to/transactions).
+All transactions must be [packed and signed]({{ site.baseurl }}/pages/api/fio-api/#options-packed_transaction) prior to [submitting them to the FIO chain]({{ site.baseurl }}/docs/general-functions/transactions).
 
 ---
 ## FIO APIs

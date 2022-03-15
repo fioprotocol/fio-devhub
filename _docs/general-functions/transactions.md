@@ -14,10 +14,10 @@ This section descr
 
 |Content  |Summary |
 |---|---|
-| [Building and submitting a transaction]({{site.baseurl}}/docs/how-to/transactions#building-and-submitting-a-transaction) | High level overview of the transaction process. |
-| [Quick start - Using the SDK]({{site.baseurl}}/docs/how-to/transactions#quick-start---using-the-sdk) | Getting started with the FIO SDK. |
-| [Creating a prepared transaction]({{site.baseurl}}/docs/how-to/transactions#creating-a-prepared-transaction) | Creating a prepared transaction with the FIO SDK. |
-| [More details on transactions]({{site.baseurl}}/docs/how-to/transactions#more-details-on-transactions) | Digs into the details of transaction packaging and signing. |
+| [Building and submitting a transaction]({{site.baseurl}}/docs/general-functions/transactions#building-and-submitting-a-transaction) | High level overview of the transaction process. |
+| [Quick start - Using the SDK]({{site.baseurl}}/docs/general-functions/transactions#quick-start---using-the-sdk) | Getting started with the FIO SDK. |
+| [Creating a prepared transaction]({{site.baseurl}}/docs/general-functions/transactions#creating-a-prepared-transaction) | Creating a prepared transaction with the FIO SDK. |
+| [More details on transactions]({{site.baseurl}}/docs/general-functions/transactions#more-details-on-transactions) | Digs into the details of transaction packaging and signing. |
 
 ---
 ## Building and submitting a transaction
@@ -33,7 +33,7 @@ The chain ID identifies the actual FIO blockchain and consists of a hash of its 
 
 FIO offers [several SDKs]({{site.baseurl}}/docs/sdk/using-the-api) that simplify the process of building and submitting a transaction. Refer to the [Javascript SDK examples]({{site.baseurl}}/docs/sdk/transfer-fio-tokens-example) and the [Javascript SDK examples repository](https://github.com/fioprotocol/fiosdk_typescript-examples){:target="_blank"} to get up and running with FIO.
 
-Using the SDK in this manner combines the packaging, signing, and sending of a FIO transaction into a single function call. For integrators who want to separate the packaging and signing of the transaction from the sending of the transaction to the chain, the SDK offers methods for [preparing transactions]({{site.baseurl}}/docs/how-to/transactions#creating-a-prepared-transaction). 
+Using the SDK in this manner combines the packaging, signing, and sending of a FIO transaction into a single function call. For integrators who want to separate the packaging and signing of the transaction from the sending of the transaction to the chain, the SDK offers methods for [preparing transactions]({{site.baseurl}}/docs/general-functions/transactions#creating-a-prepared-transaction). 
 
 ---
 ## Creating a prepared transaction

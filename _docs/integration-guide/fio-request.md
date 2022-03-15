@@ -30,7 +30,7 @@ FIO Request data, such as amount, currency, and memo field are encrypted and onl
 
 {% include alert.html type="info" title="FIO Request does not use mapped addresses"  content="The crypto public address specified in FIO Request does NOT have to be the same as public_address mapped using /add_pub_address" %}
 
-Please read [Encrypting FIO Data]({{site.baseurl}}/docs/how-to/encryption) to better understand how encryption works.
+Please read [Encrypting FIO Data]({{site.baseurl}}/docs/general-functions/encryption) to better understand how encryption works.
 
 ### Submitting new FIO Request
 
@@ -56,7 +56,7 @@ The Payee’s wallet can fetch all sent FIO Requests and its current status usin
 
 Anytime crypto is sent using FIO Crypto Handle, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer.
 
-See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/how-to/fio-data) for more information on using FIO data.
+See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/general-functions/fio-data) for more information on using FIO data.
 
 ### Example flow
 
@@ -76,7 +76,7 @@ See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/how-to/fio-data)
 
 ##### Step 1
 
-* BTC public address, amount and memo [are decrypted]({{site.baseurl}}/docs/how-to/encryption)
+* BTC public address, amount and memo [are decrypted]({{site.baseurl}}/docs/general-functions/encryption)
 * Wallet creates a payment for 1 BTC to provided BTC public address and “Invoice 123” memo.
 * User has the option to modify amount or memo.
 * Once user approves, the transaction is broadcasted to Bitcoin blockchain.
@@ -89,7 +89,7 @@ See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/how-to/fio-data)
 #### Alice checks payment
 
 * /get_sent_fio_requests will return the request with the status sent_to_blockchain. We recommend wallets show this request as “received”.
-* [/get_obt_data]({{site.baseurl}}/pages/api/fio-api/#post-/get_obt_data) will return important [encrypted]({{site.baseurl}}/docs/how-to/encryption) metadata wallets should attach to the request and/or the actual Bitcoin transaction including actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data. obt_id may be used to match the information with the actual Bitcoin blockchain transaction.
+* [/get_obt_data]({{site.baseurl}}/pages/api/fio-api/#post-/get_obt_data) will return important [encrypted]({{site.baseurl}}/docs/general-functions/encryption) metadata wallets should attach to the request and/or the actual Bitcoin transaction including actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data. obt_id may be used to match the information with the actual Bitcoin blockchain transaction.
 
 #### In Bob’s wallet
 

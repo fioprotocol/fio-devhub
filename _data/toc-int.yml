@@ -18,7 +18,7 @@
     - title: Listing the FIO Token
       url: "docs/exchanges/token-listing"
     - title: Participate in Governance
-      url: "docs/how-to/governance"
+      url: "docs/integration-guide/token-governance"
 - title: "FIO Handle"
   url: "docs/integration-guide/registration"
   links:
