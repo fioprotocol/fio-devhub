@@ -37,31 +37,31 @@ FIO Protocol provides a variety of features that make it easier for wallet and e
 
 |Functionality groups	|Dev description	|User benefit	|Dev effort|
 |---|---|---|---|
-|[Send to FIO Crypto Handle]({{site.baseurl}}/docs/how-to/fio-send)	|Simple rest API (send FIO Crypto Handle and token code, get public address).	|User can send crypto to other FIO Crypto Handles.	|~16 hours|
-|[Register FIO Crypto Handle]({{site.baseurl}}/docs/how-to/registration)	|Link-off to external registration site for FIO Crypto Handle registration.	|User can register FIO Crypto Handle on external wallet-branded site and participate in FIO Crypto Handle Giveaways.	|~8 hours|
-|[FIO Token Support]({{site.baseurl}}/docs/integration-guide/fio-token-support)	|Sending/receiving of FIO tokens and transaction history via dedicated APIs.	|User can receive, hold, send FIO tokens and see history of FIO token transactions.	|~32 hours|
-|[Receive to FIO Crypto Handle]({{site.baseurl}}/docs/how-to/fio-receive)	|Assigning public addresses to FIO Crypto Handle (automatic with no UI or selected by user) via dedicated APIs.	|User can receive crypto sent to their FIO Crypto Handle.	|~40 hours|
-|[FIO Request]({{site.baseurl}}/docs/how-to/fio-request)	|View, approve, reject incoming FIO Requests (including showing attached FIO Data and send FIO Data on Send in response to request) and send FIO Requests to other FIO users.	|User can accept FIO Requests and respond to them and initiate FIO Requests to other users and participate in contest whereby users can win prizes funded by the Foundation for sending FIO Requests to a specified FIO Crypto Handle via dedicated APIs.	|~80 hours|
-|[FIO Data]({{site.baseurl}}/docs/how-to/fio-data)	|Send and display FIO Data when crypto is sent using a FIO Crypto Handle.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
-|[FIO Domain Registration]({{site.baseurl}}/docs/how-to/registration#fio-domain-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
-|[Register FIO Crypto Handle on Custom Domain]({{site.baseurl}}/docs/how-to/registration#register-fio-address-on-custom-domain)	|Registering FIO Crypto Handle inside wallet and on custom domains.	|Users can register a FIO Crypto Handle on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
+|[Send to FIO Crypto Handle]({{site.baseurl}}/docs/integration-guide/fio-send)	|Simple rest API (send FIO Crypto Handle and token code, get public address).	|User can send crypto to other FIO Crypto Handles.	|~16 hours|
+|[Register FIO Crypto Handle]({{site.baseurl}}/docs/integration-guide/handle-registration)	|Link-off to external registration site for FIO Crypto Handle registration.	|User can register FIO Crypto Handle on external wallet-branded site and participate in FIO Crypto Handle Giveaways.	|~8 hours|
+|[FIO Token Support]({{site.baseurl}}/docs/integration-guide/token-support)	|Sending/receiving of FIO tokens and transaction history via dedicated APIs.	|User can receive, hold, send FIO tokens and see history of FIO token transactions.	|~32 hours|
+|[Receive to FIO Crypto Handle]({{site.baseurl}}/docs/hintegration-guideow-to/handle-receive)	|Assigning public addresses to FIO Crypto Handle (automatic with no UI or selected by user) via dedicated APIs.	|User can receive crypto sent to their FIO Crypto Handle.	|~40 hours|
+|[FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request)	|View, approve, reject incoming FIO Requests (including showing attached FIO Data and send FIO Data on Send in response to request) and send FIO Requests to other FIO users.	|User can accept FIO Requests and respond to them and initiate FIO Requests to other users and participate in contest whereby users can win prizes funded by the Foundation for sending FIO Requests to a specified FIO Crypto Handle via dedicated APIs.	|~80 hours|
+|[FIO Data]({{site.baseurl}}/docs/general-functions/fio-data)	|Send and display FIO Data when crypto is sent using a FIO Crypto Handle.	|Cross-chain, cross-wallet memo capability for any crypto.	|~24 hours|
+|[FIO Domain Registration]({{site.baseurl}}/docs/integration-guide/handle-registration)	|Registering FIO Domain (in wallet or via Link-off to external registration site).	|User can register a custom FIO Domain.	|~8 hours|
+|[Register FIO Crypto Handle on Custom Domain]({{site.baseurl}}/docs/integration-guide/handle-registration)	|Registering FIO Crypto Handle inside wallet and on custom domains.	|Users can register a FIO Crypto Handle on a custom FIO Domain and utilize it from Sending and Receiving.	|~32 hours|
 
 The functionality groups above are ordered in such a way as to provide a sample integration path that begins with Send to FIO Crypto Handle, which is one of the easiest features to integrate, and moves on to more complex features that require the building of packed and signed transactions. Nonetheless, it is ultimately up to the integrator to decide which features of the FIO Protocol you want to implement and in what order. 
 
 ## Phase 4: Configure your Technology Provider ID (TPID)
 
-Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/how-to/tpid).
+Make sure you are set to earn FIO tokens from your users by configuring your [Technology Provider ID (TPID)]({{site.baseurl}}/docs/general-functions/tpid).
 
 ## Phase 5: Client testing and FIO acceptance testing
 
 Once you have completed your initial integration you should perform internal testing against the FIO Testnet. 
 
-We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/guide-certification) that should be completed prior to moving to production.
+We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/integrator-checklist) that should be completed prior to moving to production.
 
 When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 
 ## Join the FIO community!
 
-FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/how-to/governance).
+FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/integration-guide/token-governance).
 
 
