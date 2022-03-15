@@ -13,11 +13,11 @@ This page provides information for Exchanges looking to list the FIO token. It c
 
 |Content  |Summary |
 |---|---|
-| [FIO Keys]({{site.baseurl}}/docs/exchanges/token-listing#fio-keys) | An overview of the structure of FIO public and private keys. |
-| [FIO token structure and token transfer]({{site.baseurl}}/docs/exchanges/token-listing#fio-token-structure-and-token-transfer) | Information on the FIO token and instructions on how to enable token transfers. |
-| [Retrieving account balances and transaction history]({{site.baseurl}}/docs/exchanges/token-listing#retrieving-account-balances-and-transaction-history) | Different options available for exchanges to present a user’s balance and transaction history. |
-| [Enabling FIO token deposits]({{site.baseurl}}/docs/exchanges/token-listing#enabling-fio-token-deposits) | An overview of FIO token deposits. |
-| [Enabling FIO token withdrawals]({{site.baseurl}}/docs/exchanges/token-listing#enabling-fio-token-withdrawals) | An overview of FIO token withdrawals. |
+| [FIO Keys]({{site.baseurl}}/docs/integration-guide/token-listing#fio-keys) | An overview of the structure of FIO public and private keys. |
+| [FIO token structure and token transfer]({{site.baseurl}}/docs/integration-guide/token-listing#fio-token-structure-and-token-transfer) | Information on the FIO token and instructions on how to enable token transfers. |
+| [Retrieving account balances and transaction history]({{site.baseurl}}/docs/integration-guide/token-listing#retrieving-account-balances-and-transaction-history) | Different options available for exchanges to present a user’s balance and transaction history. |
+| [Enabling FIO token deposits]({{site.baseurl}}/docs/integration-guide/token-listing#enabling-fio-token-deposits) | An overview of FIO token deposits. |
+| [Enabling FIO token withdrawals]({{site.baseurl}}/docs/integration-guide/token-listing#enabling-fio-token-withdrawals) | An overview of FIO token withdrawals. |
 
 ---
 ## FIO keys
@@ -62,7 +62,7 @@ The native EOSIO `transfer` action is not supported.
 
 #### Transaction memo
 
-[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/general-functions/fio-data), both payer and payee must have a [FIO Crypto Handle]({{site.baseurl}}/docs/fio-protocol/fio-address). For more information refer to the [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit) and [withdraw using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-withdraw) integration details.
+[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/general-functions/fio-data), both payer and payee must have a [FIO Crypto Handle]({{site.baseurl}}/docs/fio-protocol/fio-address). For more information refer to the [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-deposit) and [withdraw using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-withdraw) integration details.
 
 ---
 ## Retrieving account balances and transaction history
@@ -110,11 +110,11 @@ Next, fetch inline traces using `/v1/history/get_transaction` and returned trx. 
 
 {% include alert.html type="warning" title="transfer_tokens_pub_key does not accept a memo field"  content="FIO does not support EOSIO memo fields. Therefore, it is not recommended that exchanges use the *Single FIO Public Key for all deposits* method for enabling FIO deposits." %}
 
-Refer to [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit) for more information on how to use FIO Crypto Handles and FIO Requests to enable FIO deposits.
+Refer to [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-deposit) for more information on how to use FIO Crypto Handles and FIO Requests to enable FIO deposits.
 
 #### Using FIO Crypto Handles and FIO Requests for FIO deposits
 
-See: [Deposit Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-deposit).
+See: [Deposit Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-deposit).
 
 ---
 ## Enabling FIO token withdrawals
@@ -125,4 +125,4 @@ With this option, the user’s withdrawal area on the exchange would ask for a F
 
 #### Using FIO Crypto Handles and FIO Requests for FIO withdrawals
 
-See: [Withdraw Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/exchanges/crypto-withdraw).
+See: [Withdraw Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-withdraw).

@@ -19,7 +19,7 @@ To accept crypto deposits using FIO Crypto Handles, an exchange may [register a 
 
 To deposit tokens of any supported cryptocurrency to their account the user would simply send tokens from a FIO-enabled wallet to their FIO Crypto Handle (e.g. alice@myexchange) and would not have to deal with Public Keys, memo fields, or even having to log into the exchange.
 
-Each [FIO Crypto Handle may be mapped]({{site.baseurl}}/docs/general-functions/mapping) using the [`addaddress`]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) action to either the same crypto public address for all users, or a unique crypto public address for each user.
+Each [FIO Crypto Handle may be mapped]({{site.baseurl}}/docs/integration-guide/handle-mapping) using the [`addaddress`]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) action to either the same crypto public address for all users, or a unique crypto public address for each user.
 
 ---
 ## Using the same FIO Crypto Handle for all users

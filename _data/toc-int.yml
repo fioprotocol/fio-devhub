@@ -14,24 +14,24 @@
   url: "docs/integration-guide/fio-token"
   links:
     - title: FIO Token Support
-      url: "docs/integration-guide/fio-token-support"
+      url: "docs/integration-guide/token-support"
     - title: Listing the FIO Token
-      url: "docs/exchanges/token-listing"
+      url: "docs/integration-guide/token-listing"
     - title: Participate in Governance
       url: "docs/integration-guide/token-governance"
 - title: "FIO Handle"
   url: "docs/integration-guide/registration"
   links:
     - title: Register FIO Crypto Handles & Domains
-      url: "docs/integration-guide/registration"
+      url: "docs/integration-guide/handle-registration"
     - title: Map Public Addresses
-      url: "docs/integration-guide/mapping"
+      url: "docs/integration-guide/handle-mapping"
     - title: Generate Actor from Pub Key
-      url: "docs/integration-guide/actor-account"
+      url: "docs/integration-guide/handle-genactor"
     - title: Add permissions with linkauth
-      url: "docs/integration-guide/linkauth"
+      url: "docs/integration-guide/handle-linkauth"
     - title: Receive to a FIO Crypto Handle
-      url: "docs/integration-guide/fio-receive"
+      url: "docs/integration-guide/handle-receive"
     - title: Deposit using FIO Crypto Handles
       url: "docs/integration-guide/handle-deposit"
     - title: Withdraw using FIO Crypto Handles
@@ -45,7 +45,7 @@
 - title: FIO Staking
   url: "docs/integration-guide/staking"
 - title: FIO NFT Signatures
-  url: "docs/integration-guide/staking"
+  url: "docs/integration-guide/sign-nfts"
 - title: Important General Functions
   url: "docs/general-functions"
   links:

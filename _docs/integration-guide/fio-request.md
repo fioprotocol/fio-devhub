@@ -62,7 +62,7 @@ See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/general-function
 
 #### Alice requests 1 BTC from Bob and adds a “Invoice 123” memo
 
-* BTC public address, amount, memo and other data [are encrypted]({{site.baseurl}}/docs/how-to/encryption)
+* BTC public address, amount, memo and other data [are encrypted]({{site.baseurl}}/docs/general-functions/encryption)
 * [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) is submitted to FIO Chain.
 * /get_sent_fio_requests will return the request just sent with the status requested and all encrypted data including “Invoice 123” memo. We recommend wallets show this request with a status of “pending”.
 * /get_pending_fio_requests will not return anything as this request was for Bob, not for Alice.

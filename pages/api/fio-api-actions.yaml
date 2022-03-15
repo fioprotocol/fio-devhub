@@ -3601,7 +3601,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/general-functions/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3668,7 +3668,7 @@ paths:
                         * memo_return - Stellar
                         * payment_id - Monero
 
-                        See [Mapping Public Addresses](/docs/general-functions/mapping)
+                        See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   required:
                     - chain_code
                     - token_code
@@ -3711,7 +3711,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/general-functions/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: add_pub_address_model
       tags:
@@ -3847,7 +3847,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/general-functions/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3928,7 +3928,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/general-functions/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_pub_address_model
       tags:
@@ -4081,7 +4081,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/general-functions/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_all_pub_addresses_model
       tags:

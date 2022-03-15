@@ -36,13 +36,13 @@ Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#
 ---
 ## Phase 3: Integrate FIO
 
-There are two main integration activities for exchanges. The first step is to [list the FIO token]({{site.baseurl}}/docs/exchanges/token-listing) on your exchange. The next step is to enable deposits and withdrawals of crypto using [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) for your users on your custom `@myexchange` domain.
+There are two main integration activities for exchanges. The first step is to [list the FIO token]({{site.baseurl}}/docs/integration-guide/token-listing) on your exchange. The next step is to enable deposits and withdrawals of crypto using [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) for your users on your custom `@myexchange` domain.
 
 |Integration |Summary	|
 |---|---|
-|FIO Token |[List the FIO Token]({{site.baseurl}}/docs/exchanges/token-listing) |
-|Deposits |[Enable crypto deposits using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-deposit) |
-|Withdrawals |[Enable crypto withdrawals using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/exchanges/crypto-withdraw) |
+|FIO Token |[List the FIO Token]({{site.baseurl}}/docs/integration-guide/token-listing) |
+|Deposits |[Enable crypto deposits using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/handle-deposit) |
+|Withdrawals |[Enable crypto withdrawals using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/handle-withdraw) |
 
 ---
 ## Phase 4: Configure your Technology Provider ID (TPID)

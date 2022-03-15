@@ -28,7 +28,7 @@ Please note that a user may have multiple FIO Crypto Handles owned by a single k
 
 #### TPID
 
-Do not forget to include your [TPID]({{site.baseurl}}/docs/how-to/tpid) in the request to earn portion of fees paid.
+Do not forget to include your [TPID]({{site.baseurl}}/docs/general-functions/tpid) in the request to earn portion of fees paid.
 
 ---
 ## FIO Crypto Handle registration using the FIO Registration Site
@@ -66,7 +66,7 @@ See the [Registration API]({{site.baseurl}}/pages/api/fio-reg-api/) for more det
 
 The easiest way to facilitate a FIO Domain registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Domain can be properly assigned to the owner. To learn more see FIO registration site.
 
-When a new FIO Domain is registered, it is set to Private, meaning only the owner of the FIO Domain can register FIO Crypto Handles on it. Therefore, FIO Crypto Handle registrations on custom domains have to be implemented inside the wallet (not via FIO registration site). See [FIO Crypto Handle and Domain Registration using the FIO API]({{site.baseurl}}/docs/how-to/registration#fio-address-and-domain-registration-using-the-fio-api) for details.
+When a new FIO Domain is registered, it is set to Private, meaning only the owner of the FIO Domain can register FIO Crypto Handles on it. Therefore, FIO Crypto Handle registrations on custom domains have to be implemented inside the wallet (not via FIO registration site). See [FIO Crypto Handle and Domain Registration using the FIO API]({{site.baseurl}}/docs/integration-guide/handle-registration#fio-address-and-domain-registration-using-the-fio-api) for details.
 
 {% include alert.html type="info" title="Registering custom addresses on private custom domains" content="Users who have registered a custom FIO Domain and who have not set it to public must sign all FIO Crypto Handle registrations on that domain with their private key. Therefore, FIO Crypto Handle registrations on private custom domains can only be implemented inside the wallet. The FIO Registration site cannot be used to register custom addresses on users' private custom domains." %}
 
@@ -74,7 +74,7 @@ When a new FIO Domain is registered, it is set to Private, meaning only the owne
 
 If you prefer to have full control over the payment process, you can simply obtain the crypto currency payment address and amount in different currencies and build payment screens inside the wallet. Once the payment is received, the FIO Crypto Handle is automatically registered.
 
-See the [Registration API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
+See the [Registrageneral-functionstion API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
 
 ---
 ## Getting set-up to use the registration site
@@ -124,6 +124,6 @@ In order to ensure a particular action is covered by the bundle, the wallet shou
 
 #### Technology Provider ID
 
-Please review the [Technology Provider ID page]({{site.baseurl}}/docs/how-to/tpid) for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
+Please review the [Technology Provider ID page]({{site.baseurl}}/docs/general-functions/tpid) for information on how to earn a portion of the fees paid by your users and how to have your users’ tokens proxied by default.
 
 
