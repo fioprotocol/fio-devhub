@@ -11,7 +11,7 @@
     - title: Integration Checklist
       url: "docs/integration-guide/guide-certification"
 - title: "FIO Token Support"
-  url: "docs/integration-guide/fio-token"
+  url: "docs/integration-guide/token-support"
   links:
     - title: FIO Token Support
       url: "docs/integration-guide/token-support"
