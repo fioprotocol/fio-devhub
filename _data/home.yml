@@ -7,7 +7,7 @@
   - heading: For Wallets
     text: Get started with integrating FIO protocol into your wallet
     button: INTEGRATE WALLET
-    url: docs/integration-guide
+    url: docs/integration-guide/
   - heading: For Exchanges
     text: Get started with integrating FIO protocol into your exchange
     button: INTEGRATE EXCHANGE
