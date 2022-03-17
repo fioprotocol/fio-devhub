@@ -2,8 +2,7 @@
 layout: page-int
 title: Integration Guide
 description: Integration Guide
-redirect_from:
-    - /docs/integration-guide
+
 ---
 
 # Integration Guide
