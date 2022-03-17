@@ -53,7 +53,7 @@ The Foundation operates API end-points which return token supply statistics. Ref
 
 Tokens on the FIO Chain are transferred using the [`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) action.
 
-The action requires a FIO Public Key for the payee (the person receiving the funds). The FIO Public Key is [hashed down]({{site.baseurl}}/docs/integration-guide/handle-genactor) to an account name and funds are transferred to that account. If that account does not exist, it gets [created automatically]({{site.baseurl}}/docs/fio-protocol/accounts-permissions#fio-accounts).
+The action requires a FIO Public Key for the payee (the person receiving the funds). The FIO Public Key is [hashed down]({{site.baseurl}}/docs//general-functions/actor-account) to an account name and funds are transferred to that account. If that account does not exist, it gets [created automatically]({{site.baseurl}}/docs/fio-protocol/accounts-permissions#fio-accounts).
 
 The native EOSIO `transfer` action is not supported.
 
