@@ -38,12 +38,24 @@ This page aids in the creation/modification of new worker proposals that serve t
     - Phone (optional)
 
 ## Finanical Information
-* What is the rate 
-    - One rate per worker proposal please
-    - The rate may be hourly or monthly based  
-    OR
-    - The rate may be based on the cost of a specific deliverable
-    - What currencies would you like to receive for each amount
+The rate is the cost of delivering this worker proposal including all resources, expenses and costs.
+* Please provide one rate per worker proposal which represents the total cost for the worker proposal. 
+* Please ensure that the rate provided covers all of the foreseeable operating costs you will incur in the successful delivery of your worker proposal.  That being said, please note if new costs enter your worker proposal, you should communicate them to the VP of engineering, and then you may revise your worker proposal monthly in order to reflect these costs.
+* Please clarify what currencies would you like to receive for each amount you specify in your WP.
+
+Consider adding these example costs into your WP:
+* AWS hosting costs.
+* Any other hosting costs you might incur.
+* Hardware you may need for this project.
+* Software licenses you may need for this project.
+
+If possible, please list these in the Rate section of your WP to provide maximum transparency and clarity to the FIO foundation.
+
+The rate may be hourly or monthly based, or alternatively, the rate may be a flat rate, based on the cost of a specific deliverable your WP is delivering.
+
+**Note:** If the rate is monthly and the rate includes time off and other work style considerations, time off will be considered as “use it or lose it” (meaning the time will not be compensated financially if it is not taken as specified in the WP).
+
+
 
 ## Working Style Information
 * Describe your working style.
