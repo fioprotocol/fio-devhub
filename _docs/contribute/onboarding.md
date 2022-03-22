@@ -8,7 +8,7 @@ redirect_from:
 
 # Overview of the Process of Onboarding on the FIO Community
 
-This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see [FIO Bounty Program FAQ]({{site.baseurl}}docs/contribute/bounty-faq) for information on contributing without being in an employment relationship.
+This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see [FIO Bounty Program Frequently Asked Questions](https://developers.fioprotocol.io/docs/contribute/bounty-faq) for information on contributing without being in an employment relationship.
 
 ## How do I begin an employment relationship with the FIO foundation on the FIO protocol?
 
