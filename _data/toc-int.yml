@@ -56,7 +56,7 @@
     - title: Generate Actor from Pub Key
       url: "docs/general-functions/actor-account"
     - title: Add permissions with linkauth
-      url: "docs/general-functions/handle-linkauth"
+      url: "docs/general-functions/linkauth"
     - title: Get FIO Names from Table
       url: "docs/general-functions/fio-names-from-table"
     - title: Earn FIO with your TPID
