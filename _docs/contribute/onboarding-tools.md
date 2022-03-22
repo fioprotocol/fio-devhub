@@ -6,7 +6,7 @@ redirect_from:
     - /docs/developers/onboarding
 ---
 
-# Set Up Your FIO Development Environment
+# Common Tools for Contributing to FIO
 
 Here are some tools commonly used by the tech team:
 
