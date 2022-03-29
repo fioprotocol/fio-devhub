@@ -12,10 +12,17 @@ There are many options available for wallets, exchanges, and information provide
 
 These methods mostly assume the integrator will be self-hosting their own FIO node. However, some of the options mentioned here can work with [publicly available v1 history nodes and Hyperion](https://github.com/fioprotocol/fio.mainnet#api-endpoints){:target="_blank"}.
 
+## UX/UI Considerations
+
+* Completed FIO Requests and FIO Send should show up on the respective cryptocurrency’s transaction page.
+* When clicking on a FIO Request or FIO Send transaction, there should be a FIO address shown. 
+* FIO memos should also be visible. 
+
+
 ---
 ## Don't forget about the fees!
 
-FIO differs from EOS in many ways, but one major difference may present a challenge for an integrator: fees. Fees are attached to many transaction types, and in some cases the fees are waived based on "bundled" transactions provided when a user registers a new FIO Crypto Handle (aka FIO Address). When submitting a transaction, there is a `max_fee` field that a user submits and if the fee required is less than this amount the fee is deducted. FIO will not extract more than the actual fee required for the call (unlike ethereum or bitcoin fees.) It is not a safe assumption that the `max_fee` value will be what was charged. Fees vary over time. The FIO block producers adjust fees through a consensus-based voting process.
+FIO differs from EOS in many ways, but one major difference may present a challenge for an integrator: fees. Fees are attached to many transaction types, and in some cases the fees are waived based on "bundled" transactions provided when a user registers a new FIO Crypto Handle. When submitting a transaction, there is a `max_fee` field that a user submits and if the fee required is less than this amount the fee is deducted. FIO will not extract more than the actual fee required for the call (unlike ethereum or bitcoin fees.) It is not a safe assumption that the `max_fee` value will be what was charged. Fees vary over time. The FIO block producers adjust fees through a consensus-based voting process.
 
 There is one **very important** thing to note about fee collection: it is an internal-action to the contracts. Without an action trace, fees assessed or rewards paid will not be evident in a transaction.
 
