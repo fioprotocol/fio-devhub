@@ -16,3 +16,5 @@ This section contains the following content:
 | [Benefits & Bounties]({{site.baseurl}}/docs/integration-guide/integrator-benefits) | Describes the financial benefits of participating in the FIO ecosystem and reviews co-marketing campaigns that can help increase your user base. |
 | [Overview of Integration]({{site.baseurl}}/docs/integration-guide/integrator-overview) | A step-by-step walkthrough of the integration process. |
 | [Integration QA Checklist]({{site.baseurl}}/docs/integration-guide/integrator-checklist) |A certification checklist of the items that should be tested to confirm support for different FIO features. |
+| [Earn FIO with your TPID]({{site.baseurl}}/docs/general-functions/tpid) |Describes the process for earning FIO with your TPID. |
+| [Participate in Governance]({{site.baseurl}}/docs/integration-guide/token-governance) |Describes the process for contributing to the FIO protocol by participating in governance. |
