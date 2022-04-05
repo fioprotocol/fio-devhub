@@ -32,9 +32,18 @@ FIO Request data, such as amount, currency, and memo field are encrypted and onl
 
 Please read [Encrypting FIO Data]({{site.baseurl}}/docs/general-functions/encryption) to better understand how encryption works.
 
+### UX/UI Considerations
+* Provide notifications for incoming requests (push notifications and in-app notifications).
+* Make sending FIO Requests accessible from a cryptocurrency’s wallet page.
+* Provide notifications that FIO Request has successfully been sent.
+* When sending a FIO request, the user should be able to choose which FIO Handle to send from (assuming the user has multiple addresses)
+* When accepting a FIO Request, the user should be able to choose which FIO Handle to accept from (assuming the user has multiple addresses)
+
+
 ### Submitting new FIO Request
 
 To request funds, Payee’s wallet should submit a new FIO Request using [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) API method.
+
 
 ### Fetching pending FIO Requests
 

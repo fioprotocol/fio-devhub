@@ -10,6 +10,10 @@
       url: "docs/integration-guide/integrator-overview"
     - title: Integration Checklist
       url: "docs/integration-guide/integrator-checklist"
+    - title: Earn FIO with your TPID
+      url: "docs/general-functions/tpid"
+    - title: Participate in Governance
+      url: "docs/integration-guide/token-governance"
 - title: "FIO Token Support"
   url: "docs/integration-guide/token-support"
   links:
@@ -19,10 +23,8 @@
       url: "docs/integration-guide/token-listing"
     - title: Get Account Balance and Txn History
       url: "docs/general-functions/txn-history"
-    - title: Participate in Governance
-      url: "docs/integration-guide/token-governance"
 - title: "FIO Crypto Handles"
-  url: "docs/integration-guide/registration"
+  url: "docs/integration-guide/handle-registration"
   links:
     - title: Register FIO Crypto Handles & Domains
       url: "docs/integration-guide/handle-registration"
@@ -30,18 +32,15 @@
       url: "docs/integration-guide/handle-mapping"
     - title: Receive to a FIO Crypto Handle
       url: "docs/integration-guide/handle-receive"
-    - title: Deposit using FIO Crypto Handles
-      url: "docs/integration-guide/handle-deposit"
-    - title: Withdraw using FIO Crypto Handles
-      url: "docs/integration-guide/handle-withdraw"
 - title: FIO Send
   url: "docs/integration-guide/fio-send"
 - title: FIO Request
   url: "docs/integration-guide/fio-request"
+  links:
+    - title: Attach Memo to FIO Request with FIO Data
+      url: "docs/general-functions/fio-data"
 - title: FIO Custom Domains
   url: "docs/integration-guide/fio-domain"
-- title: FIO Data
-  url: "docs/general-functions/fio-data"
 - title: FIO Staking
   url: "docs/integration-guide/staking"
 - title: FIO NFT Signatures
@@ -56,11 +55,9 @@
     - title: Generate Actor from Pub Key
       url: "docs/general-functions/actor-account"
     - title: Add permissions with linkauth
-      url: "docs/general-functions/handle-linkauth"
+      url: "docs/general-functions/linkauth"
     - title: Get FIO Names from Table
       url: "docs/general-functions/fio-names-from-table"
-    - title: Earn FIO with your TPID
-      url: "docs/general-functions/tpid"
     - title: Pre-compute transaction ID
       url: "docs/general-functions/txn-id"
 - title: "API, SDKs and Libraries"

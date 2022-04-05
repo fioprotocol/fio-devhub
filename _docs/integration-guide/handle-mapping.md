@@ -62,12 +62,13 @@ If you are using parameters which are not yet part of the standard, please submi
 
 [See example of a Testnet FIO Crypto Handle which has public addresses with parameters](https://fio.bloks.io/address/multilevel@fiotest){:rel="nofollow noopener noreferrer" target="_blank"}.
 
-#### What should a wallet do?
+### UX/UI Considerations
 
-When resolving a FIO Crypto Handle, expect that the returned public address will contain URI parameters.
-Most common is memo. If you receive a memo, insert it into the memo (or equivalent) parameter for the native transaction on that blockchain.
-If you receive any of the other parameters above, insert it into corresponding parameter for the native transaction on that blockchain.
-If you do not support ability to accept returned parameters, consider warning the user that the FIO Crypto Handle they used contains information which will not be used.
+* When resolving a FIO Crypto Handle, expect that the returned public address will contain URI parameters.
+* Most common is memo. If you receive a memo, insert it into the memo (or equivalent) parameter for the native transaction on that blockchain.
+* If you receive any of the other parameters above, insert it into corresponding parameter for the native transaction on that blockchain.
+* If you do not support ability to accept returned parameters, consider warning the user that the FIO Crypto Handle they used contains information which will not be used.
+* **Note:** The application should direct users to mapping their tokens after registering a FIO Handle (or unmapping if the platform maps all tokens automatically).
 
 ### Privacy
 

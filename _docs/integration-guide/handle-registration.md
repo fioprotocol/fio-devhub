@@ -15,6 +15,10 @@ Most FIO Protocol functionality requires a user to have a FIO Crypto Handle (aka
 
 The easiest way to facilitate a FIO Crypto Handle registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. A FIO Public Key needs to be passed to the website, so that the FIO Crypto Handle can be properly assigned to the owner. To learn more see FIO registration site.
 
+## UX/UI Considerations
+* If a user is attempting to use a FIO service, but the user hasn’t registered a FIO address, the platform should alert the user that a FIO registration is necessary and direct them to the right place.
+* After registering a FIO Handle, the user shoud receive an alert/confirmation that the address has successfully been registered.
+
 #### FIO Private/Public Key
 
 You will require a FIO Private/Public key pair to be generated and stored inside the wallet. See [Private/Public Keys]({{site.baseurl}}/docs/fio-protocol/keys) for more information including testing examples.

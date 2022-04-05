@@ -16,8 +16,19 @@ Once a FIO Crypto Handle is entered, it can be resolved to NBPA on a specific bl
 docs/fio-protocol/fio-address
 
 Once the NBPA is obtained, the wallet Send transaction should execute as if the user entered or scanned the NBPA.
+## UX/UI Considerations
+FIO Send should be accessible from each cryptocurrency wallet page.  So, for example, if I want to send BTC, I should be able to go to the BTC wallet and do a FIO send.
 
-### Multi-level addressing
+Example:
+![Image]({{ site.baseurl }}/assets/img/ux/send.png)
+
+In the address field, users should be able to input both crypto address and FIO Crypto Handle, with some indication that both of these would work in the field.
+
+Example:
+![Image]({{ site.baseurl }}/assets/img/ux/sendto.png)
+
+The confirmation page should showcase both crypto address and FIO Crypto Handle.
+## Multi-level addressing
 
 It is important to note, that the native blockchain public addresses returned by [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) can have additional parameters appended to it like this:
 
