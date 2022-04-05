@@ -8,7 +8,11 @@ description: Overview of the Process of Onboarding on the FIO Community
 
 # Overview of the Process of Onboarding on the FIO Community
 
+<<<<<<< HEAD
 This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see  [FIO Bounty Program Frequently Asked Questions](https://developers.fioprotocol.io/docs/contribute/bounty-faq)for information on contributing without being in an employment relationship. 
+=======
+This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see [FIO Bounty Program Frequently Asked Questions](https://developers.fioprotocol.io/docs/contribute/bounty-faq) for information on contributing without being in an employment relationship.
+>>>>>>> a8ff1fb5ffe32f8e55345dc250ab6a2799c6dd79
 
 ## How do I begin an employment relationship with the FIO foundation on the FIO protocol?
 
@@ -40,6 +44,7 @@ The following pages provide assistance with onboarding with FIO:
 |---|---|
 |[Create Your Worker Proposal]({{site.baseurl}}/docs/contribute/onboarding-workerprop) |Describes the process for creating new worker proposals|
 |[Request a FIO Email Address]({{site.baseurl}}/docs/contribute/onboarding-email)|Describes the process for requesting an email in the @fioprotocol.io domain.|
-|[Set Up Your Environment]({{site.baseurl}}/docs/contribute/onboarding-tools)|Describes the tools you'll use to contribute to FIO.|
+|[Gather Important Tools for Contributing to FIO]({{site.baseurl}}/docs/contribute/onboarding-tools)|Describes the tools you'll use to contribute to FIO.|
+|[Set up your Development Environment]({{site.baseurl}}/docs/contribute/onboarding-devenviron)|Primarily for developers) Describes the process for setting up your own Development Server and Test Environment that you'll use to contribute to FIO.|
 |[Set Up Process for Payment]({{site.baseurl}}/docs/contribute/onboarding-getpaid)|Describes the process for getting paid.|
 |[Learn Everything You Can](https://fioprotocol.atlassian.net/wiki/spaces/FC/pages/310575668/FIO+Protocol+Training+for+New+Community+Workers)|Provides Links to FIO Protocol Training for New Community Workers.|
