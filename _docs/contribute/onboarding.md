@@ -2,13 +2,17 @@
 layout: page-dev
 title: Overview of Onboarding
 description: Overview of the Process of Onboarding on the FIO Community
-redirect_from:
-    - /docs/contribute/onboarding
+
+
 ---
 
 # Overview of the Process of Onboarding on the FIO Community
 
+<<<<<<< HEAD
+This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see  [FIO Bounty Program Frequently Asked Questions](https://developers.fioprotocol.io/docs/contribute/bounty-faq)for information on contributing without being in an employment relationship. 
+=======
 This area of the devhub addresses ways you can enter into an employment relationship with the FIO protocol. There are also non employment models of interacting with FIO you may wish to consider. If so, please see [FIO Bounty Program Frequently Asked Questions](https://developers.fioprotocol.io/docs/contribute/bounty-faq) for information on contributing without being in an employment relationship.
+>>>>>>> a8ff1fb5ffe32f8e55345dc250ab6a2799c6dd79
 
 ## How do I begin an employment relationship with the FIO foundation on the FIO protocol?
 
