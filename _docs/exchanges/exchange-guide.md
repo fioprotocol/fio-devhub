@@ -41,8 +41,8 @@ There are two main integration activities for exchanges. The first step is to [l
 |Integration |Summary	|
 |---|---|
 |FIO Token |[List the FIO Token]({{site.baseurl}}/docs/integration-guide/token-listing) |
-|Deposits |[Enable crypto deposits using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/handle-deposit) |
-|Withdrawals |[Enable crypto withdrawals using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/handle-withdraw) |
+|Deposits |[Enable crypto deposits using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/handle-receive) |
+|Withdrawals |[Enable crypto withdrawals using FIO Crypto Handles and FIO Requests]({{site.baseurl}}/docs/integration-guide/fio-request) |
 
 ---
 ## Phase 4: Configure your Technology Provider ID (TPID)

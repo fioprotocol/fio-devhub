@@ -17,9 +17,9 @@ docs/fio-protocol/fio-address
 
 Once the NBPA is obtained, the wallet Send transaction should execute as if the user entered or scanned the NBPA.
 
-## Withdraw Using a FIO Crypto Handle via FIO Send
+## Withdraw Cryptocurrency Using a FIO Crypto Handle via FIO Send
 
-To enable withdrawals using a FIO Crypto Handle, an exchange would would first ask for the FIO Crypto Handle of the user receiving the funds. Next, the corresponding public address for that chain is looked-up using [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) and the transfer is executed by the Exchange on the native chain.
+To enable withdrawals using a FIO Crypto Handle, the platform would would first ask for the FIO Crypto Handle of the user receiving the funds. Next, the corresponding public address for that chain is looked-up using [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) and the transfer is executed by the platform on the native chain.
 
 ## UX/UI Considerations
 FIO Send should be accessible from each cryptocurrency wallet page.  So, for example, if I want to send BTC, I should be able to go to the BTC wallet and do a FIO send.

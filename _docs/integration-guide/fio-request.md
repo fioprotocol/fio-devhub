@@ -22,12 +22,14 @@ FIO Request is a perfect mechanism for recurring payments, where a merchant can 
 
 In order to enable FIO Protocol on an e-commerce site, the merchant will need to simply collect the FIO Crypto Handle from the customer on the site and initiate a FIO Request to that address for the required amount of cryptocurrency at checkout. The process of recognizing the payment would remain unchanged.
 
+## Deposit Using a FIO Request
+
+If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address#fio-addresses), they could send a [FIO Request]({{site.baseurl}}/docs/general-functions/fio-request) from the exchange to a FIO Crypto Handle of a FIO-integrated wallet or exchange. (e.g., `alice@mywallet`). The user would then login to the wallet and approve the FIO Request. Once approved, the wallet would execute the transfer on the native chain.
 ## Withdrawing Using a FIO Request
 
 If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) or if users provided the exchange, ahead of time, with a list of FIO Crypto Handles which the user owns, they could also [send a FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request) from their wallet to the exchange’s FIO Crypto Handle (either generic, e.g. `withdrawals@myexchange`, or unique, e.g. `alice@myexchange`).
 
 The user would then login to the exchange and approve the [FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request). Once approved, the exchange would execute the transfer on the native chain.
-
 ## FIO Requests and FIO Data
 
 One of the key features of FIO Protocol is the ability to request crypto using FIO Request. The user requesting funds (Payee) can send a FIO Request to a user who is asked to pay (Payer), by only using the Payer’s FIO Crypto Handle.
