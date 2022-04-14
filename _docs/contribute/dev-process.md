@@ -25,7 +25,7 @@ The FIO Core team does NOT do scrum, sprint, or any strict develeopment process.
 |Description  |Links |
 |---|---|
 |FIO is an open community so you can see and learn any aspect of FIO. Check out the list of approved improvement proposals!| [FIO Improvement Proposals](https://github.com/fioprotocol/fips) |
-|The FIO developer hub (devhub) provides documentation assist the community with understanding FIO |[FIO Devhub](https://developers.fioprotocol.io/docs/developers/)|
+|The FIO developer hub (devhub) provides documentation assist the community with understanding FIO. |[FIO Devhub](https://developers.fioprotocol.io/docs/developers/)|
 |FIO uses smart contracts to implement all business logic. Smart contracts are implemented in C++.|[FIO Smart Contracts](https://github.com/fioprotocol/fio.contracts) |
 |FIO is a copy (or fork) of the EOSIO chain so you can use any dev docs for EOSIO to help you in learning about FIO.
 FIO has “core code”, the operating system upon which the smart contracts execute (called the FIO Core, and implemented in C++). |[FIO Core](https://github.com/fioprotocol/fio) |
