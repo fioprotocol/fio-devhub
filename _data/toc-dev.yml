@@ -6,6 +6,8 @@
   links:
     - title: FIO Improvement Proposals
       url: "docs/contribute/fips"
+    - title: FIO Development Process
+      url: "docs/contribute/dev-process"
     - title: Bug Bounty Program
       url: "docs/contribute/bounty"
       children:
