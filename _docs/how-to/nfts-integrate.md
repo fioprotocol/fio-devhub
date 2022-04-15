@@ -33,8 +33,10 @@ Here are the parameters that need to be passed in when sending a user to the das
 
 ### Example URL that an NFT site would use to send a user to the dashboard:
 
+This is an example URL that you would build.  Note that your spcifics will difer based on the user's input.
+```
 https://dashboard.fioprotocol.io/ref/uniqueone?action=SIGNNFT&chain_code=ETH&contract_address=FIO5CniznG2z6yVPc4as69si711R1HJMAAnC3Rxjd4kGri4Kp8D8P&token_id=ETH&url=ifg://dfs.sdfs/sdfs&hash=f83klsjlgsldkfjsdlf&metadata={"creator_url":"https://www.google.com.ua/"}&r=https://www.google.com.ua/
-
+```
 Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT.  (See example screenshot below.)
 
 ![Image]({{ site.baseurl }}/assets/img/nft/NFTLandingScreen.png)
