@@ -6,7 +6,7 @@ description: Integrate NFT Signatures using the FIO Dashboard
 
 # Integrate NFT Signatures using the FIO Dashboard
 
-The FIO Dashboard provides a quick and easy integration for platforms who want to provide the ability for their users to sign their NFTs.  Check out Blockchain Wayne's video showing the unique.one integration flow: [https://www.youtube.com/watch?v=gL5So0LJEKw](https://www.youtube.com/watch?v=gL5So0LJEKw)
+The FIO Dashboard provides a quick and easy integration for platforms who want to provide the ability for their users to sign their NFTs.  Check out Blockchain Wayne's video showing the unique.one integration flow: [https://www.youtube.com/watch?v=gL5So0LJEKw](https://www.youtube.com/watch?v=gL5So0LJEKw){:target="_blank"}
 
 ## Step One: Set Up your Landing Page
 
@@ -33,13 +33,13 @@ Here are the parameters that need to be passed in when sending a user to the das
 
 ### Example URL that an NFT site would use to send a user to the dashboard:
 
-This is an example URL that you would build.  Note that your spcifics will difer based on the user's input.
-```
-https://dashboard.fioprotocol.io/ref/uniqueone?action=SIGNNFT&chain_code=ETH&contract_address=FIO5CniznG2z6yVPc4as69si711R1HJMAAnC3Rxjd4kGri4Kp8D8P&token_id=ETH&url=ifg://dfs.sdfs/sdfs&hash=f83klsjlgsldkfjsdlf&metadata={"creator_url":"https://www.google.com.ua/"}&r=https://www.google.com.ua/
-```
+This is an example URL that you would build.  Note that your specifics will differ based on the user's input.
+
+ [https://dashboard.fioprotocol.io/ref/uniqueone?action=SIGNNFT&chain_code=ETH&contract_address=FIO5CniznG2z6yVPc4as69si711R1HJMAAnC3Rxjd4kGri4Kp8D8P&token_id=ETH&url=ifg://dfs.sdfs/sdfs&hash=f83klsjlgsldkfjsdlf&metadata={"creator_url":"https://www.google.com.ua/"}&r=https://www.google.com.ua/](https://dashboard.fioprotocol.io/ref/uniqueone?action=SIGNNFT&chain_code=ETH&contract_address=FIO5CniznG2z6yVPc4as69si711R1HJMAAnC3Rxjd4kGri4Kp8D8P&token_id=ETH&url=ifg://dfs.sdfs/sdfs&hash=f83klsjlgsldkfjsdlf&metadata={"creator_url":"https://www.google.com.ua/"}&r=https://www.google.com.ua/){:target="_blank"}
+
 Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT.  (See example screenshot below.)
 
-![Image]({{ site.baseurl }}/assets/img/nft/NFTLandingScreen.png)
+![Image]({{ site.baseurl }}/assets/img/nft/nftlandingscreen.png)
 
 Your user can expect this experience while on your FIO Dashboard landing page:
 - Their NFT will be stored server-side by FIO Dashboard
@@ -52,6 +52,6 @@ Your user can expect this experience while on your FIO Dashboard landing page:
 
 ### Example User Interface
 
-You can check out a sample UX design here: [https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen](https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen)
+You can check out a sample UX design here: [https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen](https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen){:target="_blank"}
 
 
