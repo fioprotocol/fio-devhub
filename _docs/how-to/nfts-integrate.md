@@ -39,7 +39,7 @@ This is an example URL that you would build.  Note that your specifics will diff
 
 Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT.  (See example screenshot below.)
 
-![Image]({{ site.baseurl }}/assets/img/nft/nfltndingscreen.png)
+![Image]({{ site.baseurl }}/assets/img/nft/nftlandingscreen.png)
 
 Your user can expect this experience while on your FIO Dashboard landing page:
 - Their NFT will be stored server-side by FIO Dashboard
