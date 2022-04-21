@@ -58,8 +58,5 @@ We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/i
 
 When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 
-## Join the FIO community!
-
-FIO Protocol is only as strong as its community of developers, integrators, and users. We therefore ask that that integation partners [participate in FIO governance by voting your user's tokens]({{site.baseurl}}/docs/integration-guide/token-governance).
 
 
