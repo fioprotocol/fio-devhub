@@ -10,10 +10,6 @@
       url: "docs/integration-guide/integrator-overview"
     - title: Integration Checklist
       url: "docs/integration-guide/integrator-checklist"
-    - title: Earn FIO with your TPID
-      url: "docs/general-functions/tpid"
-    - title: Participate in Governance
-      url: "docs/integration-guide/token-governance"
 - title: "FIO Token Support"
   url: "docs/integration-guide/token-support"
   links:
