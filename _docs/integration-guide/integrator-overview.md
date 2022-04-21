@@ -7,8 +7,6 @@ description: Getting Started with Your Integration
 
 The following is a step-by-step walkthrough of the integration process. It begins by reviewing FIO Protocol and tools websites available to support integration. Next, it reviews the different categories of features that are available for integration. Lastly, it summarizes how to set up a test environment and outlines the requirements for QA and acceptance testing.
 
-![Image]({{ site.baseurl }}/assets/img/integration/integration-process.png)
-
 ## Step 1: Get familiar with FIO Protocol
 
 Before starting your integration, we recommend you first familiarize yourself with FIO Protocol by reviewing following resources:

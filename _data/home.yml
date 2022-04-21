@@ -7,7 +7,7 @@
   - heading: For Integrators
     text: Get started with integrating FIO protocol into your wallet or exchange
     button: INTEGRATION GUIDE
-    url: docs/integration-guide/
+    url: docs/integration-guide
   - heading: Recipes
     text: Use our library of code examples to jumpstart your integration
     button: RECIPES
