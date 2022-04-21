@@ -2,7 +2,7 @@
 layout: null
 excluded_in_search: true
 //---
-(function () {
+$(document).ready(function () {
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
 			vars = query.split("&");
@@ -105,4 +105,4 @@ excluded_in_search: true
 	}
 
 	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
-})();
+});
