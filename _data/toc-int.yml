@@ -2,12 +2,12 @@
 
 - pagetitle: Integration Guide
 - title: "Integration Overview"
-  url: "docs/integration-guide"
+  url: "docs/integration-overview"
   links:
-    - title: Benefits & Bounties
-      url: "docs/integration-guide/integrator-benefits"      
     - title: Overview of Integration
       url: "docs/integration-guide/integrator-overview"
+    - title: Benefits & Bounties
+      url: "docs/integration-guide/integrator-benefits"      
     - title: Integration Checklist
       url: "docs/integration-guide/integrator-checklist"
 - title: "FIO Token Support"
