@@ -32,7 +32,7 @@ A FIO Crypto Handle consists of a username and a domain delimited by an @ symbol
 |Max Chars | 64 (including FIO Domain) | 62 |
 |Characters allowed	|ASCII a-z 0-9 - (dash) with single @ (at sign) |Domains may contain ASCII a-z 0-9 - (dash) |
 
-** *The dash can not be the first or last character of the username or domain* 
+** *The dash can not be the first or last character of the crypto handle or domain* 
 
 #### FIO Crypto Handle validation using regex
 
