@@ -1,7 +1,7 @@
-//---
+---
 layout: null
 excluded_in_search: true
-//---
+---
 $(document).ready(function () {
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
@@ -105,4 +105,4 @@ $(document).ready(function () {
 	}
 
 	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
-});
+}());
