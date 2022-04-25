@@ -38,13 +38,16 @@ Using /add_bundled_transactions as an example:
 |end_point |value |Fee FIO |Fee USD|
 |---|---|---|---|
 |/add_bundled_transactions |2000000000 |10.000000000 |$2.00 |
-|/add_nft |60000000 |0.300000000 |$0.06 |
+|/add_nft |30000000 |0.150000000 |$0.03 |
 |/add_pub_address |30000000 |0.150000000 |$0.03 |
 |/auth_delete |20000000 |0.100000000 |$0.02 |
 |/auth_link |20000000 |0.100000000 |$0.02 |
 |/auth_update |50000000 |0.250000000 |$0.05, charged per 1,000 bytes |
 |/burn_fio_address |60000000 |0.300000000 |$0.06  |
+|/buy_domain |20000000 |0.100000000 |$0.02 |
 |/cancel_funds_request |60000000 |0.300000000 |$0.06  |
+|/cancel_list_domain |20000000 |0.100000000 |$0.02 |
+|/list_domain |30000000 |0.150000000 |$0.03 |
 |/msig_approve |20000000 |0.100000000 |$0.02 |
 |/msig_cancel |20000000 |0.100000000 |$0.02 |
 |/msig_exec |20000000 |0.100000000 |$0.02 |
@@ -59,19 +62,25 @@ Using /add_bundled_transactions as an example:
 |/register_producer |10000000000 |50.000000000 |$10.00 |
 |/register_proxy |1000000000 |5.000000000 |$1.00 |
 |/reject_funds_request |30000000 |0.150000000 |$0.03 |
-|/remove_all_nfts |60000000 |0.300000000 |$0.06 |
+|/remove_all_nfts |30000000 |0.150000000 |$0.03 |
 |/remove_all_pub_addresses|60000000 |.300000000 |$0.06 |
 |/remove_nft |60000000 |0.300000000 |$0.06|
-|/remove_pub_address |60000000 |0.300000000 |$0.06 |
+|/remove_pub_address |30000000 |0.150000000 |$0.03 |
 |/renew_fio_address (deprecated) |2000000000 |10.000000000 |$2.00 |
 |/renew_fio_domain  |40000000000 |200.000000000 |$40.00 |
 |/set_fio_domain_public |30000000 |0.150000000 |$0.03 |
+|/set_marketplace_config |30000000 |0.150000000 |$0.03 |
+|/stake_fio_tokens |30000000 |0.150000000 |$0.03 |
+|/submit_bundled_transactions |10000000 |0.150000000 |$0.03 |
+|/submit_fee_multiplier |30000000 |0.150000000 |$0.03 |
+|/submit_fee_ratios |30000000 |0.150000000 |$0.03 |
 |/transfer_fio_address |60000000 |0.300000000 |$0.06 |
 |/transfer_fio_domain  |100000000 |0.500000000  |$0.10 |
 |/transfer_locked_tokens |300000000 |1.500000000 |$0.30 |
 |/transfer_tokens_pub_key |100000000 |0.500000000  |$0.10 |
 |/unregister_producer |20000000 |0.100000000 |$0.02 |
 |/unregister_proxy  |20000000 |0.100000000 |$0.02 |
+|/unstake_fio_tokens |30000000 |0.150000000 |$0.03 |
 |/vote_producer |30000000 |0.150000000 |$0.03 |
 
 
@@ -93,7 +102,7 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		},
 		{
 			"end_point": "add_nft",
-			"value": 60000000
+			"value": 30000000
 		},
 		{
 			"end_point": "add_pub_address",
@@ -109,15 +118,27 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		},
 		{
 			"end_point": "auth_update",
-			"value": 50000000
+			"value": 20000000
 		},
 		{
 			"end_point": "burn_fio_address",
 			"value": 60000000
 		},
 		{
+			"end_point": "buy_domain",
+			"value": 20000000
+		},
+		{
 			"end_point": "cancel_funds_request",
 			"value": 60000000
+		},
+		{
+			"end_point": "cancel_list_domain",
+			"value": 20000000
+		},
+		{
+			"end_point": "list_domain",
+			"value": 30000000
 		},
 		{
 			"end_point": "msig_approve",
@@ -157,11 +178,11 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		},
 		{
 			"end_point": "register_fio_address",
-			"value": 40000000000
+			"value": 2000000000
 		},
 		{
 			"end_point": "register_fio_domain",
-			"value": 50000000
+			"value": 40000000000
 		},
 		{
 			"end_point": "register_producer",
@@ -177,7 +198,7 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		},
 		{
 			"end_point": "remove_all_nfts",
-			"value": 60000000
+			"value": 30000000
 		},
 		{
 			"end_point": "remove_all_pub_addresses",
@@ -185,11 +206,11 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		},
 		{
 			"end_point": "remove_nft",
-			"value": 60000000
+			"value": 30000000
 		},
 		{
 			"end_point": "remove_pub_address",
-			"value": 60000000
+			"value": 30000000
 		},
 		{
 			"end_point": "renew_fio_address",
@@ -202,6 +223,26 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 		{
 			"end_point": "set_fio_domain_public",
 			"value": 30000000
+		},
+		{
+			"end_point": "set_marketplace_config",
+			"value": 30000000
+		},
+		{
+			"end_point": "stake_fio_tokens",
+			"value": 30000000
+		},
+		{
+			"end_point": "submit_bundled_transactions",
+			"value": 10000000
+		},
+		{
+			"end_point": "submit_fee_multiplier",
+			"value": 10000000
+		},
+		{
+			"end_point": "submit_fee_ratios",
+			"value": 10000000
 		},
 		{
 			"end_point": "transfer_fio_address",
@@ -228,6 +269,10 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 			"value": 20000000
 		},
 		{
+			"end_point": "unstake_fio_tokens",
+			"value": 30000000
+		},
+		{
 			"end_point": "vote_producer",
 			"value": 30000000
 		}
@@ -240,7 +285,8 @@ The following data can be used with [setfeevote]({{site.baseurl}}/pages/api/fio-
 
 ```sh
 
-clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"end_point": "add_bundled_transactions","value": 2000000000},{"end_point": "add_nft","value": 60000000},{"end_point": "add_pub_address","value": 30000000},{"end_point": "auth_delete","value": 20000000},{"end_point": "auth_link","value": 20000000},{"end_point": "auth_update","value": 50000000},{"end_point": "burn_fio_address","value": 60000000},{"end_point": "cancel_funds_request","value": 60000000},{"end_point": "msig_approve","value": 20000000},{"end_point": "msig_cancel","value": 20000000},{"end_point": "msig_exec","value": 20000000},{"end_point": "msig_invalidate","value": 20000000},{"end_point": "msig_propose","value": 50000000},{"end_point": "msig_unapprove","value": 20000000},{"end_point": "new_funds_request","value": 60000000},{"end_point": "proxy_vote","value": 30000000},{"end_point": "record_obt_data","value": 60000000},{"end_point": "register_fio_address","value": 40000000000},{"end_point": "register_fio_domain","value": 50000000},{"end_point": "register_producer","value": 10000000000},{"end_point": "register_proxy","value": 1000000000},{"end_point": "reject_funds_request","value": 30000000},{"end_point": "remove_all_nfts","value": 60000000},{"end_point": "remove_all_pub_addresses","value": 60000000},{"end_point": "remove_nft","value": 60000000},{"end_point": "remove_pub_address","value": 60000000},{"end_point": "renew_fio_address","value": 2000000000},{"end_point": "renew_fio_domain","value": 40000000000},{"end_point": "set_fio_domain_public","value": 30000000},{"end_point": "transfer_fio_address","value": 60000000},{"end_point": "transfer_fio_domain","value": 100000000},{"end_point": "transfer_locked_tokens","value": 300000000},{"end_point": "transfer_tokens_pub_key","value": 100000000},{"end_point": "unregister_producer","value": 20000000},{"end_point": "unregister_proxy","value": 20000000},{"end_point": "vote_producer","value": 30000000}],"actor":"BP_ACTOR"}' -p BP_ACTOR@active
+clio -u https://API_NODE_URL push action fio.fee setfeevote '{"fee_ratios":[{"end_point": "add_bundled_transactions","value": 2000000000},{"end_point": "add_nft","value": 30000000},{"end_point": "add_pub_address","value": 30000000},{"end_point": "auth_delete","value": 20000000},{"end_point": "auth_link","value": 20000000},{"end_point": "auth_update","value": 20000000},{"end_point": "burn_fio_address","value": 60000000},{"end_point": "buy_domain","value": 20000000},{"end_point": "cancel_funds_request","value": 60000000},{"end_point": "cancel_list_domain","value": 20000000},{"end_point": "list_domain","value": 30000000},{"end_point": "msig_approve","value": 20000000},{"end_point": "msig_cancel","value": 20000000},{"end_point": "msig_exec","value": 20000000},{"end_point": "msig_invalidate","value": 20000000},{"end_point": "msig_propose","value": 50000000},{"end_point": "msig_unapprove","value": 20000000},{"end_point": "new_funds_request","value": 60000000},{"end_point": "proxy_vote","value": 30000000},{"end_point": "record_obt_data","value": 60000000},{"end_point": "register_fio_address","value": 40000000000},{"end_point": "register_fio_domain","value": 50000000},{"end_point": "register_producer","value": 10000000000},{"end_point": "register_proxy","value": 1000000000},{"end_point": "reject_funds_request","value": 30000000},{"end_point": "remove_all_nfts","value": 30000000},{"end_point": "remove_all_pub_addresses","value": 60000000},{"end_point": "remove_nft","value": 30000000},{"end_point": "remove_pub_address","value": 30000000},{"end_point": "renew_fio_domain","value": 40000000000},{"end_point": "set_fio_domain_public","value": 30000000},{"end_point": "set_marketplace_config","value": 30000000},{"end_point": "stake_fio_tokens","value": 30000000},{"end_point": "submit_bundled_transactions","value": 30000000},{"end_point": "submit_fee_multiplier","value": 30000000},{"end_point": "submit_fee_ratios","value": 30000000},{"end_point": "transfer_fio_address","value": 60000000},{"end_point": "transfer_fio_domain","value": 100000000},{"end_point": "transfer_locked_tokens","value": 300000000},{"end_point": "transfer_tokens_pub_key","value": 100000000},{"end_point": "unregister_producer","value": 20000000},{"end_point": "unregister_proxy","value": 20000000},{"end_point": "unstake_fio_tokens","value": 30000000},
+{"end_point": "vote_producer","value": 30000000}],"actor":"BP_ACTOR"}' -p BP_ACTOR@active
 
 ```
 
