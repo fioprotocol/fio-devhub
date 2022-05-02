@@ -70,6 +70,12 @@ If you are using parameters which are not yet part of the standard, please submi
 * If you do not support ability to accept returned parameters, consider warning the user that the FIO Crypto Handle they used contains information which will not be used.
 * **Note:** The application should direct users to mapping their tokens after registering a FIO Handle (or unmapping if the platform maps all tokens automatically).
 
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Mapping of blockchain addresses:
+-  User is able to connect their FIO Crypto Handle to their crypto/tokens
+-  User is able to disconnect their FIO Crypto Handle
+-  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/handle-mapping))
 ### Privacy
 
 Currently NBPA mappings are stored on the FIO Chain unencrypted. It is therefore possible for an observer to connect multiple NBPAs via their parent FIO Crypto Handle.

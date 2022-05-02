@@ -19,6 +19,19 @@ The easiest way to facilitate a FIO Crypto Handle registration is to redirect th
 * If a user is attempting to use a FIO service, but the user hasn’t registered a FIO address, the platform should alert the user that a FIO registration is necessary and direct them to the right place.
 * After registering a FIO Handle, the user shoud receive an alert/confirmation that the address has successfully been registered.
 
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Crypto Handle:
+
+If using a unique FIO Crypto Handle for each user:
+-  Exchange has set up a FIO Crypto Handle
+-  User can register a FIO Crypto Handle using other crypto
+-  User can register additional FIO Crypto Handles
+-  User can add bundles to their existing FIO Crypto Handles (replaces Renew Crypto Handle)
+
+If using the same FIO Crypto Handle for each user:
+-  User can register a new FIO Crypto Handle
+
 #### FIO Private/Public Key
 
 You will require a FIO Private/Public key pair to be generated and stored inside the wallet. See [Private/Public Keys]({{site.baseurl}}/docs/fio-protocol/keys) for more information including testing examples.

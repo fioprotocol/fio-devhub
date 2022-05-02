@@ -44,3 +44,12 @@ For example: `rGVV5nh9UjJckufycb6WZAGUsZGFvPsTpX?dt=test.do.not.send.funds`
 The parameters represent additional information required to execute a send, for example a destination tag for XRP. Therefore the string has to be parsed for uri-like parameters.
 
 Please review [Multi-level Addressing]({{site.baseurl}}/docs/integration-guide/handle-mapping#multi-level-addressing) section of the Integration Guide for more details.
+
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Send:
+-  User is able to send crypto using a FIO Crypto Handle (alice@exchange) for the destination address
+-  User is able to attach a FIO Memo when both the sending and receving user have FIO Crypto Handles (optional)
+-  User selects an invalid FIO Crypto Handle, results in error
+-  User selects valid FIO Crypto Handle, but the Chain or Token Code has not been mapped for that FIO Crypto Handle, results in error
+-  Additional parameters returned from a FIO Crypto Handle mapped to a [multi-level address]({{site.baseurl}}/docs/integration-guide/handle-mapping#multi-level-addressing) are handled as expected

@@ -47,6 +47,26 @@ Please read [Encrypting FIO Data]({{site.baseurl}}/docs/general-functions/encryp
 * When sending a FIO request, the user should be able to choose which FIO Handle to send from (assuming the user has multiple addresses)
 * When accepting a FIO Request, the user should be able to choose which FIO Handle to accept from (assuming the user has multiple addresses)
 
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Request:
+**Sent FIO Requests**
+
+-  User is able to send a FIO Request to a valid FIO Crypto Handle
+-  User is able to add a memo when sending a FIO Request
+-  User is able to view sent FIO Requests
+-  Sent Requests show the FIO Crypto Handle of the recipient, the token being requested, the amount of the request, request memo, and the status of the request (requested, rejected, received)
+-  User who sent Request is able to *cancel* the Request
+
+**Received FIO Requests**
+
+-  User is able to view pending FIO Requests
+-  Pending Requests show the FIO Crypto Handle of the user that sent the Request, the token being requested, the amount of the Request, and the Request memo
+-  User who recieved a Request is able to *reject* the Request
+-  User who recieved a Request is able to confirm and send crypto in response to the Request
+-  User responding to a Request is able to change the amount of the Request (optional)
+-  User responding to a Request is able to update the Request memo (optional)
+
 ## Implementation Details
 
 |Feature  |Implementation |

@@ -8,8 +8,6 @@
       url: "docs/integration-guide/"
     - title: Benefits & Bounties
       url: "docs/integration-guide/integrator-benefits"      
-    - title: Integration Checklist
-      url: "docs/integration-guide/integrator-checklist"
 - title: "FIO Token Support"
   url: "docs/integration-guide/token-support"
   links:

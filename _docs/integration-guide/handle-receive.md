@@ -43,3 +43,8 @@ The inbound transaction can be identified by reading the OBT Data using [/get_ob
 
 The [`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) action does not accept a memo field. To [attach a FIO Data memo]({{site.baseurl}}/docs/general-functions/fio-data) to a FIO token transfer, a [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) transaction should be sent after the tokens are transferred and include the token transfer transaction id. [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) requires that both payer and payee have a FIO Crypto Handle. **If either party does not have a FIO Crypto Handle then transfer of memo is not supported**.
 
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for Receiving to a FIO Crypto Handle:
+- From a different wallet, a user is able to enter a FIO Crypto Handle that has a connected Token and Chain code and send using the returned mapped address
+- If the sender and receiver both have a FIO Crypto Handle, a FIO memo was included, and FIO OBT transaction was created, the receiving wallet should show the memo (optional)
