@@ -6,7 +6,7 @@ description: Devnet Testing
 
 # Devnet Testing
 
-There are three categories of Devnet testing:
+There are several categories of Devnet testing:
 
 1. Local update testing - Testing the addaction, createfee, and contract updates in a local environments to develop scripts to support devnet testing.
 2. Contract testing - Testing all new contract actions associated with the rollout of the release
