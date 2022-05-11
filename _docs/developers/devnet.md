@@ -11,6 +11,8 @@ There are three categories of Devnet testing:
 1. Local update testing - Testing the addaction, createfee, and contract updates in a local environments to develop scripts to support devnet testing.
 2. Contract testing - Testing all new contract actions associated with the rollout of the release
 3. Fork testing - Testing the incremental rollout of chain code
+4. Performance testing - Testing feature performance in a full environment
+5. QA testing - Running regression tests in a full environment
 
 ## Local testing
 
@@ -90,6 +92,13 @@ The original 3 nodes plus 6 new nodes, for a total of 9 nodes, will now be upgra
 
 The original 3 nodes plus 12 nodes, for a total of 15 nodes, should now be upgraded.
 
+## Performance testing
+
+Some projects have devnet-level performance test considerations. When a release includes the need for performance testing then tests must be run and findings published to the wiki for the release.
+
+## QA testing
+
+QA regression tests should be run against the devnet for each release. 
 
 ## Reference Notes
 
