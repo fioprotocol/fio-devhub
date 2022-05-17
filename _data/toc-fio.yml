@@ -54,4 +54,6 @@
       children:
         - title: Top FIO token holders
           url: "docs/chain/analytics-token-holders"
+    - title: Protocols
+      url: "docs/protocol"
 
