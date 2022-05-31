@@ -1,42 +1,67 @@
 ---
 layout: page-int
-title: Submitting Transactions
-description: Submitting Transactions
+title: FIO Transactions
+description: FIO Transactions
 redirect_from:
     - /docs/integration-guide/transactions
 ---
 
-# Submitting Transactions
+# FIO Transactions
 
 Transactions go through various stages during their lifespan. First, a transaction is created in an application or a FIO-integrated client by bundling actions into a transaction. Next, the transaction is sent to a locally connected node, which in turn relays it to the active producing nodes for validation and execution via the peer-to-peer network. Next, the validated transaction is pushed to a block by the active producer on schedule along with other transactions. Finally the block that contains the transaction is pushed to all other nodes for validation. When a supermajority of producers have validated the block, and the block becomes irreversible, the transaction gets permanently recorded in the blockchain and it is considered immutable.
 
-This section descr
-
-|Content  |Summary |
-|---|---|
-| [Building and submitting a transaction]({{site.baseurl}}/docs/general-functions/transactions#building-and-submitting-a-transaction) | High level overview of the transaction process. |
-| [Quick start - Using the SDK]({{site.baseurl}}/docs/general-functions/transactions#quick-start---using-the-sdk) | Getting started with the FIO SDK. |
-| [Creating a prepared transaction]({{site.baseurl}}/docs/general-functions/transactions#creating-a-prepared-transaction) | Creating a prepared transaction with the FIO SDK. |
-| [More details on transactions]({{site.baseurl}}/docs/general-functions/transactions#more-details-on-transactions) | Digs into the details of transaction packaging and signing. |
-
----
-## Building and submitting a transaction
-
-The process for creating a transaction digest (serializing the transaction) and signing the serialized transaction are depicted below.
-
-![Image]({{ site.baseurl }}/assets/img/transaction-signing.png)
-
-The chain ID identifies the actual FIO blockchain and consists of a hash of its genesis state, which depends on the blockchain’s initial configuration parameters. Before signing the transaction, the application first computes a digest of the transaction. The digest value is a SHA-256 hash of the chain ID, the transaction instance, and the context free data if the transaction has any context free actions. Any instance fields get serialized before computing any cryptographic hashes to avoid including reference fields (memory addresses) in the hash computation.
+More details on the transaction lifecycle can be found in the Transactions Protocol Guide]({{site.baseurl}}/docs/XXXXXXXXX). This section focuses on the steps needed to package, sign and submit transactions to the FIO chain.
 
 ---
 ## Quick start - Using the SDK
 
 FIO offers [several SDKs]({{site.baseurl}}/docs/sdk/using-the-api) that simplify the process of building and submitting a transaction. Refer to the [Javascript SDK examples]({{site.baseurl}}/docs/sdk/transfer-fio-tokens-example) and the [Javascript SDK examples repository](https://github.com/fioprotocol/fiosdk_typescript-examples){:target="_blank"} to get up and running with FIO.
 
-Using the SDK in this manner combines the packaging, signing, and sending of a FIO transaction into a single function call. For integrators who want to separate the packaging and signing of the transaction from the sending of the transaction to the chain, the SDK offers methods for [preparing transactions]({{site.baseurl}}/docs/general-functions/transactions#creating-a-prepared-transaction). 
+The SDK allows for different levels of control when packaging and signing transactions for the FIO Chain. For example, integrators may want to:
 
----
-## Creating a prepared transaction
+* Package, sign, and send a FIO transaction in a single function call
+* Separate the packaging and signing of the transaction from the submitting of the transaction to the chain by creating a prepared transaction
+* Separate the signing of the transaction from the packaging to allow for "offline" signing of the transaction
+
+The following sections detail these three options in more detail.
+
+
+### Single function call
+
+The simplest way to use the FIO SDK to enable transaction with the FIO chain is to simply create a FIOSDK object and pass in the correct action parameters to the `genericAction` function. An example of this can be found in the [Transfer FIO Token Javascript SDK example]({{site.baseurl}}/docs/sdk/transfer-fio-tokens-example).
+
+There are two parts to submitting a transaction using `genericAction`:
+
+1) Create a new FIOSDK object:
+
+```javascript
+  user = new FIOSDK(
+    privateKey,
+    publicKey,
+    baseUrl,
+    fetchJson
+  )
+```
+
+2) Call `genericAction` with the correct action data:
+
+```javascript
+const result = await user.genericAction('pushTransaction', {
+  action: 'trnsfiopubky',
+  account: 'fio.token',
+  data: {
+    payee_public_key: 'FIO6cqcmx7pyuYkG9omdr9juQEhksQEkTvpJhfwxkj42k2PhU7EWA',
+    amount: 1000000000,
+    max_fee: 1000000000,
+    tpid: 'tpid@wallet'
+  }
+})
+```
+
+Here we are executing the `trnsfiopubky` action from the `fio.token` contract. The **action and account parameters** and the **data parameters** for this function call can be found in the [FIO API documentation](https://developers.fioprotocol.io/pages/api/fio-api/#options-trnsfiopubky){:target="_blank"}.
+
+
+### Creating a prepared transaction
 
 The FIO SDK offers some helper functions for integrators who wish to separate the creation of the transaction from the sending of the transaction. This is helpful if you want to have the ability to inspect the transaction prior to submitting and if you want to have the ability to re-submit the same transaction in cases where the initial transaction send fails.
 
@@ -56,34 +81,202 @@ const transferFioPreparedTxn = async () => {
 
   let preparedTrx;
 
-  try {
-    user.setSignedTrxReturnOption(true);
-    preparedTrx = await user.genericAction('pushTransaction', {
+  user.setSignedTrxReturnOption(true);
+  preparedTrx = await user.genericAction('pushTransaction', {
+    action: 'trnsfiopubky',
+    account: 'fio.token',
+    data: {
+      payee_public_key: payeeKey,
+      amount: amount,
+      max_fee: max_fee,
+      tpid: ''
+    }
+  });
+
+  const result = await user.executePreparedTrx('transfer_tokens_pub_key', preparedTrx);
+  user.setSignedTrxReturnOption(false);
+};
+```
+
+
+### Offline signing of transactions
+
+For integrators who want to limit access to the FIO private keys, the FIO SDK offers methods that separate the serialization and signing of transactions.
+
+This [fiosdk_typescript example](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fio.serialize-sign.js){:target="_blank"} demonstrates how to use the FIO Javascript SDK to enable offline signing of transactions. First, it creates a serialized transaction without requiring any FIO keys. It then passes the serialized transaction to the sign method to generate the signature.
+
+```javascript
+const {FIOSDK } = require('@fioprotocol/fiosdk')
+fetch = require('node-fetch')
+const createHash = require('create-hash');
+const properties = require('./properties.js')
+
+const fetchJson = async (uri, opts = {}) => {
+  return fetch(uri, opts)
+}
+
+const baseUrl = properties.server + '/v1/'
+
+const privateKey = properties.privateKey,
+  publicKey = properties.publicKey,
+  payeeKey = '',  // FIO Public Key of the payee
+  amount = 1000000000,
+  max_fee = 100000000000
+
+
+const main = async () => {
+
+  user = new FIOSDK(
+      '',
+      '',
+      baseUrl,
+      fetchJson
+  )
+
+  const chainData = await user.transactions.getChainDataForTx();
+
+  const transaction = await user.transactions.createRawTransaction({
       action: 'trnsfiopubky',
       account: 'fio.token',
       data: {
+          payee_public_key: payeeKey,
+          amount: amount,
+          max_fee: max_fee,
+          tpid: ''
+      },
+      publicKey,
+      chainData,
+  });
+
+  const { serializedContextFreeData, serializedTransaction } = await user.transactions.serialize({
+      chainId: chainData.chain_id,
+      transaction,
+  });
+  
+  // Pre-compute transaction ID
+  const txnId = createHash('sha256').update(serializedTransaction).digest().toString('hex');
+
+  const signedTransaction = await user.transactions.sign({
+      chainId: chainData.chain_id,
+      privateKeys: [privateKey],
+      transaction,
+      serializedTransaction,
+      serializedContextFreeData,
+  });
+
+  const result = await user.executePreparedTrx('transfer_tokens_pub_key', signedTransaction);
+}
+
+main();
+```
+
+### Pre-compute transaction ID
+
+Pre-computing the transaction ID for a FIO transaction is useful for integrators wanting to confirm transactions on the FIO chain. To calculate the `transaction_id` for a FIO transaction prior to sending it to the blockchain, you perform a SHA-256 hash of the `packed_trx`.
+
+For example, here is a typical transaction you might pass to `push_transaction`:
+
+```shell
+txn:  { signatures:
+   [ 'SIG_K1_Km62xn9thv3LYQv356PJMj9bP5ZwHRWZ2CgGan75sbcMfeZ7gtLrD1yukDiLgmdPVLZV3tpH4FW4A96ZKs5U42uAsnuyDb' ],
+  compression: 0,
+  packed_context_free_data: '',
+  packed_trx:
+   '1958cb60285764a002ba0000000001003056372503a85b0000c6eaa6645232013059393021cea2d800000000a8ed32326812656274657374314066696f746573746e657402034243480342434818626974636f696e636173683a617364666173646661736466044441534804444153481764617368616464726573736173646661736466617364660046c323000000003059393021cea2d80000' }
+```
+
+The `packed_trx` field contains the serialized transaction. The "Offline signing of transactions" code above provides an example of how to pre-compute the transaction ID from this serialized transaction.
+
+`const txnId = createHash('sha256').update(serializedTransaction).digest().toString('hex');`
+
+You can also manually view the pre-computed transaction ID by plugging the `packed_trx` hex into the Binary hash field of a calculator and checking the SHA-256 result. 
+
+[Pre-compute transaction ID lookup example](https://www.fileformat.info/tool/hash.htm?hex=1958cb60285764a002ba0000000001003056372503a85b0000c6eaa6645232013059393021cea2d800000000a8ed32326812656274657374314066696f746573746e657402034243480342434818626974636f696e636173683a617364666173646661736466044441534804444153481764617368616464726573736173646661736466617364660046c323000000003059393021cea2d80000){:target="_blank"} 
+
+
+---
+## Using fiojs to package and send transactions
+
+The FIO SDK wraps the [fiosjs library](https://github.com/fioprotocol/fiojs){:target="_blank"} to provide convenience methods for creating and submitting transactions to the FIO chain. Integrators who want to limit the number of third party libraries the embed or who want lower level access to FIO functionality in their applications can access the `fiojs` library directly in their applications.
+
+This [fiojs example](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fiojs.token-trnsfiopubky.js){:target="_blank"} demonstrates how to use the `fiojs` library to create a `trnsfiopubky` transaction on the FIO chain:
+
+```javascript
+const { Fio } = require('@fioprotocol/fiojs');
+const { TextEncoder, TextDecoder } = require('text-encoding');
+const fetch = require('node-fetch');
+const properties = require('./properties.js')
+
+const httpEndpoint = properties.server
+
+const privateKey = properties.privateKey,
+  publicKey = properties.publicKey,
+  account = properties.account,
+  payeeKey = '',  // FIO Public Key of the payee
+  amount = 1000000000,
+  maxFee = 100000000000
+
+const fiojsTrnsfiopubky = async () => {
+  info = await (await fetch(httpEndpoint + '/v1/chain/get_info')).json();
+  blockInfo = await (await fetch(httpEndpoint + '/v1/chain/get_block', {body: `{"block_num_or_id": ${info.last_irreversible_block_num}}`, method: 'POST'})).json()
+  chainId = info.chain_id;
+  currentDate = new Date();
+  timePlusTen = currentDate.getTime() + 10000;
+  timeInISOString = (new Date(timePlusTen)).toISOString();
+  expiration = timeInISOString.substr(0, timeInISOString.length - 1);
+
+  transaction = {
+    expiration,
+    ref_block_num: blockInfo.block_num & 0xffff,
+    ref_block_prefix: blockInfo.ref_block_prefix,
+    actions: [{
+      account: 'fio.token',
+      name: 'trnsfiopubky',
+      authorization: [{
+        actor: account,
+        permission: 'active',
+      }],
+      data: {
         payee_public_key: payeeKey,
         amount: amount,
-        max_fee: max_fee,
-        tpid: ''
+        max_fee: maxFee,
+        tpid: '',
+        actor: account
       }
-    });
-    console.log('Prepared transaction: ', preparedTrx);
-  } catch (err) {
-    console.log('Error preparedTrx: ', err);
-    console.log('Json error==> : ', JSON.stringify(err.json.fields));
-  }
+    }]
+  };
 
-  try {
-    const result = await user.executePreparedTrx('transfer_tokens_pub_key', preparedTrx);
-    console.log('Executed transaction: ', result);
-    user.setSignedTrxReturnOption(false);
-  } catch (err) {
-    console.log('Error transaction_id: ', err);
-    console.log('Json error==> : ', JSON.stringify(err));
-  }
+  abiMap = new Map()
+  tokenRawAbi = await (await fetch(httpEndpoint + '/v1/chain/get_raw_abi', {body: `{"account_name": "fio.token"}`, method: 'POST'})).json()
+  abiMap.set('fio.token', tokenRawAbi)
+ 
+  var privateKeys = [privateKey];
+  
+  const tx = await Fio.prepareTransaction({
+    transaction,
+    chainId,
+    privateKeys,
+    abiMap,
+    textDecoder: new TextDecoder(),
+    textEncoder: new TextEncoder()
+  });
 
+  pushResult = await fetch(httpEndpoint + '/v1/chain/push_transaction', {
+      body: JSON.stringify(tx),
+      method: 'POST',
+  });
+  
+  json = await pushResult.json();
+
+  if (json.type) {
+    console.log('Error: ', json.fields[0].error);
+  } else {
+    console.log('Success. Transaction ID: ', json.transaction_id)
+  }
+   
 };
+
+fiojsTrnsfiopubky();
 ```
 
 ---

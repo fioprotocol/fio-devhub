@@ -1,35 +1,57 @@
 ---
 layout: page-int
-title: FIO Token Support
-description: FIO Token Support
+title: FIO Token Support for Exchanges
+description: FIO Token Support for Exchanges
 ---
 
-# FIO Token Support
+# Supporting FIO token deposits and withdrawals on Exchanges
 
-### Transferring FIO token
+---
+## Enabling FIO token deposits
 
-Tokens on the FIO Chain are transferred using [/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) method.
+There are two main methods for enabling FIO token deposits: using a unique FIO Public Key for every user and using FIO Crypto Handles and FIO Requests for FIO deposits. While some exchanges prefer to use a single key for all deposits, this method is not recommended for FIO. The different methods are explained below.
 
-The method requires payee FIO Public Key. The key is hashed down to an account name and funds are transferred to that account. If that account does not exist, it gets created automatically.
+#### Using a unique FIO Public Key for every user
 
-The native EOSIO transfer action is not supported.
+Similar to UTXO-based chains, to accept FIO token deposit, an exchange may generate a unique FIO Public Key for every user or deposit. Unlike EOSIO, FIO Chain does not require that key to be assigned to an existing account before funds are sent to it. Once a token transfer is initiated to that Public Key, the account will be [created automatically]({{site.baseurl}}/docs/fio-protocol/accounts-permissions#fio-accounts).
 
-### Transaction memo
+When using a unique [FIO Public Key]({{site.baseurl}}/docs/fio-protocol/keys) for deposits, you can look for the `trnsfiopubky` transactions with target `payee_public_key` in every block. You can get transactions in every block by running [/get_block]({{site.baseurl}}/pages/api/fio-api/#post-/get_block) at every block height.
 
-[/transfer_tokens_pub_key]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To attach a memo to a FIO token transfer, a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) transaction should be sent after the tokens are transferred and include the token transfer transaction id. [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) requires that both payer and payee have a FIO Crypto Handle. If either party does not have a FIO Crypto Handle transfer of memo is not supported.
+##### *trnsfiopubky* via Multisig
 
-### Checking token balance
+It is important to note that [/get_block]({{site.baseurl}}/pages/api/fio-api/#post-/get_block) **will not** return a `trnsfiopubky` transaction if it was executed as part of a [Multisig]({{site.baseurl}}/docs/fio-protocol/multisig) as that transaction is executed via inline contract actions and only shows up as inline traces, which are not returned by [/get_block]({{site.baseurl}}/pages/api/fio-api/#post-/get_block).
 
-Token balance can be obtained by passing FIO Public Key to [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance) API method.
+In order to properly recognize transfers made using [Multisig]({{site.baseurl}}/docs/fio-protocol/multisig) you should monitor [/get_block]({{site.baseurl}}/pages/api/fio-api/#post-/get_block) for executed transaction status:
+```
+"transactions": [   {
+      "status": "executed",
+      "cpu_usage_us": 7929,
+      "net_usage_words": 0,
+      "trx": "fa206c2e47af50873dfe08a03802918113c1832e3f42b26e1b20ad77b66ccf20"
+}]
+```
 
-### Transaction history
+Next, fetch inline traces using `/v1/history/get_transaction` and returned trx. This requires access to a [History node]({{site.baseurl}}/docs/chain/node-history).
 
-See [History node]({{site.baseurl}}/docs/chain/node-history)
+#### Using a single FIO Public Key for all deposits
 
-### TPID
+[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) does not accept a memo field. To [attach a memo to a FIO token transfer]({{site.baseurl}}/docs/general-functions/fio-data), both payer and payee must have a [FIO Crypto Handle]({{site.baseurl}}/docs/fio-protocol/fio-address) and a [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) has to be sent every time a user deposits FIO. Because it is difficult to ensure that wallets transferring FIO to the exchange will always attach an OBT record, it is not recommended that exchanges use the "single FIO Public Key" method for enabling FIO deposits. 
 
-Do not forget to include your TPID in the request to earn portion of fees paid.
+{% include alert.html type="warning" title="transfer_tokens_pub_key does not accept a memo field"  content="FIO does not support EOSIO memo fields. Therefore, it is not recommended that exchanges use the *Single FIO Public Key for all deposits* method for enabling FIO deposits." %}
 
-### Additional Resources
+Refer to [deposit using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-receive) for more information on how to use FIO Crypto Handles and FIO Requests to enable FIO deposits.
 
-* [Account balances and history](https://gist.github.com/blockpane/a5a62539ceeae963ce3ed69a9dd53663){:target="_blank"}
+#### Using FIO Crypto Handles and FIO Requests for FIO deposits
+
+See: [Deposit Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/handle-receive).
+
+---
+## Enabling FIO token withdrawals
+
+#### Using a FIO Public Key
+
+With this option, the user’s withdrawal area on the exchange would ask for a FIO Public Key and the amount of withdrawals. The transfer would be executed using the[`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) action and metadata recorded using [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) action.
+
+#### Using FIO Crypto Handles and FIO Requests for FIO withdrawals
+
+See: [Withdraw Crypto using FIO Crypto Handles]({{site.baseurl}}/docs/integration-guide/fio-request).

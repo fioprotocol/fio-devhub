@@ -7,7 +7,9 @@
     - title: Overview of Integration
       url: "docs/integration-guide/"
     - title: Benefits & Bounties
-      url: "docs/integration-guide/integrator-benefits"      
+      url: "docs/integration-guide/integrator-benefits"
+- title: "Submitting FIO Transactions"
+  url: "docs/general-functions/transactions"
 - title: "FIO Token Support"
   url: "docs/integration-guide/token-support"
   links:
@@ -42,8 +44,6 @@
 - title: Important General Functions
   url: "docs/general-functions"
   links:
-    - title: Submit a Transaction
-      url: "docs/general-functions/transactions"
     - title: Encrypt Data
       url: "docs/general-functions/encryption"
     - title: Generate Actor from Pub Key
@@ -52,8 +52,6 @@
       url: "docs/general-functions/linkauth"
     - title: Get FIO Names from Table
       url: "docs/general-functions/fio-names-from-table"
-    - title: Pre-compute transaction ID
-      url: "docs/general-functions/txn-id"
 - title: "API, SDKs and Libraries"
   url: "docs/sdk"
   links:
