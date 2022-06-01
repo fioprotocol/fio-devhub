@@ -12,5 +12,7 @@
       url: "docs/bp/fee-setting"
     - title: Claiming Rewards
       url: "docs/bp/claiming-rewards"
+    - title: Chain Administration
+      url: "docs/bp/chain-admin"
     - title: BP Release Tasks
       url: "docs/bp/release-checklist"
