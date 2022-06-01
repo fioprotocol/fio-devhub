@@ -6,7 +6,7 @@ redirect_from:
     - /docs/integration-guide/fio-request
 ---
 
-# FIO Requests
+# FIO Requests: What is it?
 
 A FIO Request is a transaction in which a payee is requesting funds from a payer using FIO Crypto Handles (aka FIO Addresses).  The details of FIO Requests are private and only readable by the counter parties to the transaction.  
 
@@ -22,6 +22,7 @@ FIO Request is a perfect mechanism for recurring payments, where a merchant can 
 
 In order to enable FIO Protocol on an e-commerce site, the merchant will need to simply collect the FIO Crypto Handle from the customer on the site and initiate a FIO Request to that address for the required amount of cryptocurrency at checkout. The process of recognizing the payment would remain unchanged.
 
+# How do I Do It?
 ## Deposit Using a FIO Request
 
 If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address#fio-addresses), they could send a [FIO Request]({{site.baseurl}}/docs/general-functions/fio-request) from the exchange to a FIO Crypto Handle of a FIO-integrated wallet or exchange. (e.g., `alice@mywallet`). The user would then login to the wallet and approve the FIO Request. Once approved, the wallet would execute the transfer on the native chain.
@@ -39,8 +40,20 @@ FIO Request data, such as amount, currency, and memo field are encrypted and onl
 {% include alert.html type="info" title="FIO Request does not use mapped addresses"  content="The crypto public address specified in FIO Request does NOT have to be the same as public_address mapped using /add_pub_address" %}
 
 Please read [Encrypting FIO Data]({{site.baseurl}}/docs/general-functions/encryption) to better understand how encryption works.
+# Here are the Calls:
 
-### UX/UI Considerations
+**Implementation Details:**
+
+|Feature  |Implementation |
+|---|---|
+| Submitting new FIO Request | To request funds, Payee’s wallet should submit a new FIO Request using [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) API method. |
+| Fetching pending FIO Requests | The Payer’s wallet can fetch all new and pending FIO Requests using [/get_pending_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_pending_fio_requests) API method. |
+| Fetching received FIO Requests |The Payer’s wallet can fetch all FIO Requests that have been received by the provided FIO public key using [/get_received_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_received_fio_requests) API method.|
+| Rejecting a FIO Request | The Payer’s wallet can reject a FIO Request, which will remove it from the pending list, using [/reject_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-rejectfndreq) API Method. |
+| Fetching sent FIO Requests | The Payee’s wallet can fetch all sent FIO Requests and its current status using [/get_sent_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_sent_fio_requests) API method. 
+| Recording FIO Data | Anytime crypto is sent using FIO Crypto Handle, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer. See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/general-functions/fio-data) for more information on using FIO data. |
+
+## UX/UI Considerations
 * Provide notifications for incoming requests (push notifications and in-app notifications).
 * Make sending FIO Requests accessible from a cryptocurrency’s wallet page.
 * Provide notifications that FIO Request has successfully been sent.
@@ -67,16 +80,7 @@ The following lists the items that should be tested to confirm support for FIO R
 -  User responding to a Request is able to change the amount of the Request (optional)
 -  User responding to a Request is able to update the Request memo (optional)
 
-## Implementation Details
 
-|Feature  |Implementation |
-|---|---|
-| Submitting new FIO Request | To request funds, Payee’s wallet should submit a new FIO Request using [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) API method. |
-| Fetching pending FIO Requests | The Payer’s wallet can fetch all new and pending FIO Requests using [/get_pending_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_pending_fio_requests) API method. |
-| Fetching received FIO Requests |The Payer’s wallet can fetch all FIO Requests that have been received by the provided FIO public key using [/get_received_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_received_fio_requests) API method.|
-| Rejecting a FIO Request | The Payer’s wallet can reject a FIO Request, which will remove it from the pending list, using [/reject_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-rejectfndreq) API Method. |
-| Fetching sent FIO Requests | The Payee’s wallet can fetch all sent FIO Requests and its current status using [/get_sent_fio_requests]({{site.baseurl}}/pages/api/fio-api/#post-/get_sent_fio_requests) API method. 
-| Recording FIO Data | Anytime crypto is sent using FIO Crypto Handle, optional metadata such as amount, currency, and memo, may be recorded on the FIO Chain. FIO Data is encrypted and only readable by Payee and Payer. See [How to Record and Retrieve FIO Data]({{site.baseurl}}/docs/general-functions/fio-data) for more information on using FIO data. |
 
 ### Example flow
 
