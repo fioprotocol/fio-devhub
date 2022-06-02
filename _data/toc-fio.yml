@@ -56,4 +56,12 @@
           url: "docs/chain/analytics-token-holders"
     - title: Protocols
       url: "docs/protocol"
-
+      children:
+        - title: Consensus Protocol
+          url: "docs/protocol/consensus"
+        - title: Transaction Protocol
+          url: "docs/protocol/transactions"
+        - title: Network and Peer-to-peer Protocol
+          url: "docs/protocol/network_peer"
+        - title: Accounts and Permissions
+          url: "docs/protocol/accounts"
