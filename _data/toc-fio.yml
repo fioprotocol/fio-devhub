@@ -22,6 +22,15 @@
       url: "docs/chain/eosio"
     - title: RAM, CPU, & NET limits
       url: "docs/chain/resources"
+    - title: Protocol Guides
+      url: "docs/protocol"
+      children:
+        - title: Consensus Protocol
+          url: "docs/protocol/consensus"
+        - title: Transaction Protocol
+          url: "docs/protocol/transactions"
+        - title: Network and Peer-to-peer Protocol
+          url: "docs/protocol/network_peer"
     - title: Building a Node
       url: "docs/chain/node-build"
       children:
@@ -54,14 +63,3 @@
       children:
         - title: Top FIO token holders
           url: "docs/chain/analytics-token-holders"
-    - title: Protocols
-      url: "docs/protocol"
-      children:
-        - title: Consensus Protocol
-          url: "docs/protocol/consensus"
-        - title: Transaction Protocol
-          url: "docs/protocol/transactions"
-        - title: Network and Peer-to-peer Protocol
-          url: "docs/protocol/network_peer"
-        - title: Accounts and Permissions
-          url: "docs/protocol/accounts"

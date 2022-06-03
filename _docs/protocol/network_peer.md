@@ -73,13 +73,14 @@ The Sync Manager implements the functionality for syncing block state between th
 - Head Catch-Up: node is about to sync with another peer's HEAD block.
 - In-Sync: both LIB and HEAD blocks are in sync with the other peers.
 
-If the node’s LIB or head block is behind, the node will generate sync request messages to retrieve the missing blocks from the connected peer. Similarly, if a connected peer’s LIB or head block is behind, the node will send notice messages to notify the node about which blocks it needs to sync with. For more information about sync modes see 3. Operation Modes.
+If the node’s LIB or head block is behind, the node will generate sync request messages to retrieve the missing blocks from the connected peer. Similarly, if a connected peer’s LIB or head block is behind, the node will send notice messages to notify the node about which blocks it needs to sync with.
 
 #### 2.3.2. Dispatch Manager
 The Dispatch Manager maintains the state of blocks and loose transactions received by the node. The state contains basic information to identify a block or a transaction and it is maintained within two indexed lists of block states and transaction states:
 
 - Block State List: list of block states managed by node for all blocks received.
 - Transaction State List: list of transaction states managed by node for all transactions received.
+
 This makes it possible to locate very quickly which peer has a given block or transaction.
 
 ##### 2.3.2.1. Block State
@@ -107,7 +108,7 @@ The block_num stores the node's head block number when the transaction is receiv
 The list of transaction states is indexed by transaction ID, expiration time, block number, and connection ID for faster lookup. This allows to query the list for any transactions given one or more of the indexed attributes.
 
 ##### 2.3.2.3. State Recycling
-As the LIB block advances (see 3.3.1. LIB Catch-Up Mode), all blocks prior to the new LIB block are considered finalized, so their state is removed from the local list of block states, including the list of block states owned by each peer in the list of connections maintained by the node. Likewise, transaction states are removed from the list of transactions based on expiration time. Therefore, after a transaction expires, its state is removed from all lists of transaction states.
+As the LIB block advances, all blocks prior to the new LIB block are considered finalized, so their state is removed from the local list of block states, including the list of block states owned by each peer in the list of connections maintained by the node. Likewise, transaction states are removed from the list of transactions based on expiration time. Therefore, after a transaction expires, its state is removed from all lists of transaction states.
 
 The lists of block states and transaction states have a light footprint and feature high rotation, so they are maintained in memory for faster access. The actual contents of the blocks and transactions received by a node are stored temporarily in the fork database and the various incoming queues for applied and unapplied transactions, respectively.
 
@@ -122,21 +123,25 @@ The Connection List contains the connection state of each peer. It keeps informa
 - Handshake Sent Count: the number of handshake messages sent to the peer.
 - Syncing: whether or not the node is syncing with the peer.
 - Protocol Version: the internal protocol version implemented by the peer’s Net Plugin.
+
 The block state consists of the following fields:
 
 - Block ID: a hash of the serialized contents of the block.
 - Block number: the actual block number since genesis.
+
 The transaction state consists of the following fields:
 
 - Transaction ID: a hash of the serialized contents of the transaction.
 - Block number: the actual block number the transaction was included in.
 - Expiration time: the time in seconds for the transaction to expire.
+
 ### 2.4. Net Serializer
 The Net Serializer has two main roles:
 
 - Serialize objects and messages that need to be transmitted over the network.
 - Serialize objects and messages that need to be cryptographically hashed.
-In the first case, each serialized object or message needs to get deserialized at the other end upon receipt from the network for further processing. In the latter case, serialization of specific fields within an object instance is needed to generate cryptographic hashes of its contents. Most IDs generated for a given object type (action, transaction, block, etc.) consist of a cryptographic hash of the relevant fields from the object instance.
+
+In the first case, each serialized object or message needs to get deserialized at the other end upon receipt from the network for further processing. In the second case, serialization of specific fields within an object instance is needed to generate cryptographic hashes of its contents. Most IDs generated for a given object type (action, transaction, block, etc.) consist of a cryptographic hash of the relevant fields from the object instance.
 
 ## 3. Operation Modes
 From an operational standpoint, a node can be in either one of three states with respect to a connected peer:
@@ -144,16 +149,18 @@ From an operational standpoint, a node can be in either one of three states with
 - In-Sync mode: node is in sync with peer, so no blocks are required from that peer.
 - LIB Catch-Up mode: node requires blocks since LIB block is behind that peer’s LIB.
 - HEAD Catch-Up mode: node requires blocks since HEAD block is behind that peer’s Head.
+
 The operation mode for each node is stored in a sync manager context within the Net Plugin of the nodeos service. Therefore, a node is always in either in-sync mode or some variant of catchup mode with respect to its connected peers. This allows the node to switch back and forth between catchup mode and in-sync mode as the LIB and head blocks are updated and new fresh blocks are received from other peers.
 
 ### 3.1. Block ID
-The EOSIO software checks whether two blocks match or hold the same content by comparing their block IDs. A block ID is a function that depends on the contents of the block header and the block number (see Consensus Protocol: 5.1. Block Structure). Checking whether two blocks are equal is crucial for syncing a node’s local chain with that of its peers. To generate the block ID from the block contents, the block header is serialized and a SHA-256 digest is created. The most significant 32 bits are assigned the block number while the least significant 224 bits of the hash are retained. Note that the block header includes the root hash of both the transaction merkle tree and the action merkle tree. Therefore, the block ID depends on all transactions included in the block as well as all actions included in each transaction.
+The FIO software checks whether two blocks match or hold the same content by comparing their block IDs. A block ID is a function that depends on the contents of the block header and the block number. Checking whether two blocks are equal is crucial for syncing a node’s local chain with that of its peers. To generate the block ID from the block contents, the block header is serialized and a SHA-256 digest is created. The most significant 32 bits are assigned the block number while the least significant 224 bits of the hash are retained. Note that the block header includes the root hash of both the transaction merkle tree and the action merkle tree. Therefore, the block ID depends on all transactions included in the block as well as all actions included in each transaction.
 
 ### 3.2. In-Sync Mode
 During in-sync mode, the node's head block is caught up with the peer's head block, which means the node is in sync block-wise. When the node is in-sync mode, it does not request further blocks from peers, but continues to perform the other functions:
 
 - Validate transactions, drop them if invalid; forward them to other peers if valid.
 - Validate blocks, drop them if invalid; forward them to other peers upon request if valid.
+
 Therefore, this mode trades bandwidth in favor of latency, being particularly useful for validating transactions that rely on TaPoS (transaction as proof of stake) due to lower processing overhead.
 
 Note that loose transactions are always forwarded if valid and not expired. Blocks, on the other hand, are only forwarded if valid and if explicitly requested by a peer. This reduces network overhead.
@@ -163,39 +170,23 @@ A node is in catchup mode when its head block is behind the peer’s LIB or the 
 
 1. Sync the node’s LIB from the nearest common ancestor + 1 up to the peer’s LIB.
 2. Sync the node’s head from the nearest common ancestor + 1 up to the peer’s head.
+
 Therefore, the node’s LIB block is updated first, followed by the node’s head block.
-
-#### 3.3.1. LIB Catch-Up Mode
-Case 1 above, where the node’s LIB block needs to catch up with the peer’s LIB block, is depicted in the below diagram, before and after the sync (Note: inapplicable branches have been removed for clarity):
-
-
-
-In the above diagram, the node’s local chain syncs up with the peer’s local chain by appending finalized blocks 91 and 92 (the peer’s LIB) to the node’s LIB (block 90). Note that this discards the temporary fork consisting of blocks 91n, 92n, 93n. Also note that these nodes have an “n” suffix (short for node) to indicate that they are not finalized, and therefore, might be different from the peer’s. The same applies to unfinalized blocks on the peer; they end in “p” (short for peer). After syncing, note that both the LIB (lib) and the head block (hb) have the same block number on the node.
-
-#### 3.3.2. Head Catch-Up Mode
-After the node’s LIB block is synced with the peer’s, there will be new blocks pushed to either chain. Case 2 above covers the case where the peer’s chain is longer than the node’s chain. This is depicted in the following diagram, which shows the node and the peer’s local chains before and after the sync:
-
-In either case 1 or 2 above, the syncing process in the node involves locating the first common ancestor block starting from the node’s head block, traversing the chains back, and ending in the LIB blocks, which are now in sync (see 3.3.1. LIB Catch-Up Mode). In the worst case scenario, the synced LIBs are the nearest common ancestor. In the above diagram, the node’s chain is traversed from head block 94n, 93n, etc. trying to match blocks 94p, 93p, etc. in the peer’s chain. The first block that matches is the nearest common ancestor (block 93n and 93p in the diagram). Therefore, the following blocks 94p and 95p are retrieved and appended to the node’s chain right after the nearest common ancestor, now re-labeled 93n,p (see 3.3.3. Block Retrieval process). Finally, block 95p becomes the node’s head block and, since the node is fully synced with the peer, the node switches to in-sync mode.
-
-#### 3.3.3. Block Retrieval
-After the common ancestor is found, a sync request message is sent to retrieve the blocks needed by the node, starting from the next block after the nearest common ancestor and ending in the peer’s head block.
-
-To make effective use of bandwidth, the required blocks are obtained from various peers, rather than just one, if necessary. Depending on the number of blocks needed, the blocks are requested in chunks by specifying the start block number and the end block number to download from a given peer. The node uses the list of block states to keep track of which blocks each peer has, so this information is used to determine which connected peers to request block chunks from. This process is depicted in the diagram below:
-
-When both LIB and head blocks are caught up with respect to the peer, the operation mode in the Sync Manager is switched from catch-up mode to in-sync mode.
 
 ### 3.4. Mode Switching
 Eventually, both the node and its peer receive new fresh blocks from other peers, which in turn push the blocks to their respective local chains. This causes the head blocks on each chain to advance. Depending on which chain grows first, one of the following actions occur:
 
 - The node sends a catch up request message to the peer with its head block info.
 - The node sends a catch up notice message to inform the peer it needs to sync.
-In the first case, the node switches the mode from in-sync to head catchup mode. In the second case, the peer switches to head catchup mode after receiving the notice message from the node. In practice, in-sync mode is short-lived. In a busy EOSIO blockchain, nodes spend most of their time in catchup mode validating transactions and syncing their chains after catchup messages are received.
+
+In the first case, the node switches the mode from in-sync to head catchup mode. In the second case, the peer switches to head catchup mode after receiving the notice message from the node. In practice, in-sync mode is short-lived. In a busy blockchain, nodes spend most of their time in catchup mode validating transactions and syncing their chains after catchup messages are received.
 
 4. Protocol Algorithm
-The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks. Starting EOSIO v2.0, a node also forwards block IDs of unvalidated blocks it has received. In general, the simplified process is as follows:
+The p2p protocol algorithm runs on every node, forwarding validated transactions and validated blocks. In general, the simplified process is as follows:
 
 1. A node requests data or sends a control message to a peer.
 2. If the request can be fulfilled, the peer executes the request; repeat 1.
+
 The data messages contain the block contents or the transaction contents. The control messages make possible the syncing of blocks and transactions between the node and its peers (see Protocol Messages). In order to allow such synchronization, each node must be able to retrieve information about its own state of blocks and transactions as well as that of its peers.
 
 ### 4.1. Node/Peers Status
@@ -205,6 +196,7 @@ Before attempting to sync state, each node needs to know the current status of i
 - All nodes can find out which blocks and transactions their peers have.
 - Each node can find out which blocks and transactions it has requested.
 - All nodes can find out when each node has received a given transaction.
+
 To perform these queries, and thereafter when syncing state, the Net Plugin defines specific communication messages to be exchanged between the nodes. These messages are sent by the Net Plugin when transmitted and received over a TCP connection.
 
 ### 4.2. Protocol Messages
@@ -218,6 +210,7 @@ The p2p protocol defines the following control messages for peer to peer node co
 |notice_message	|informs peer which blocks and transactions node currently has.|
 |request_message	|informs peer which blocks and transaction node currently needs.|
 |sync_request_message	|requests peer a range of blocks given their start/end block numbers.|
+
 The protocol also defines the following data messages for exchanging the actual contents of a block or a loose transaction between peers on the p2p network:
 
 |Data Message	|Description|
@@ -225,6 +218,7 @@ The protocol also defines the following data messages for exchanging the actual 
 |packed_transaction_v0	|serialized contents of a packed transaction v0 (no pruned CFD).|
 |signed_block	|serialized contents of a signed block v1 (with pruned context-free data support).|
 |trx_message_v1	|serialized contents of transaction ID and packed transaction v1 (supports pruned CFD).|
+
 #### 4.2.1. Handshake Message
 The handshake message is sent by a node when connecting to another peer. It is used by the connecting node to pass its chain state (LIB number/ID and head block number/ID) to the peer. It is also used by the peer to perform basic validation on the node the first time it connects, such as whether it belongs to the same blockchain, validating that fields are within range, detecting inconsistent block states on the node, such as whether its LIB is ahead of the head block, etc. The handshake message consists of the following fields:
 
@@ -244,12 +238,14 @@ The handshake message is sent by a node when connecting to another peer. It is u
 |os	|operating system where node runs. This is detected automatically.|
 |agent	|the name supplied by node to identify itself among its peers.|
 |generation	|counts handshake_message invocations; detects first call for validation.|
+
 If all checks succeed, the peer proceeds to authenticate the connecting node based on the --allowed-connection setting specified for that peer's net plugin when nodeos started:
 
 - Any: connections are allowed without authentication.
 - Producers: peer key is obtained via p2p protocol.
 - Specified: peer key is provided via settings.
 - None: the node does not allow connection requests.
+
 The peer key corresponds to the public key of the node attempting to connect to the peer. If authentication succeeds, the receiving node acknowledges the connecting node by sending a handshake message back, which the connecting node validates in the same way as above. Finally, the receiving node checks whether the peer’s head block or its own needs syncing. This is done by checking the state of the head block and the LIB of the connecting node with respect to its own. From these checks, the receiving node determines which chain needs syncing.
 
 #### 4.2.2. Chain Size Message
@@ -260,6 +256,7 @@ The chain size message was defined for future use, but it is currently not imple
 |last_irreversible_block_id	|a hash of the serialized contents of the LIB block.|
 |head_num	|the actual block count of the head block since genesis.|
 |head_id	|a hash of the serialized contents of the head block.|
+
 The chain size message is superseded by the handshake message, which also sends the status of the LIB and head blocks, but includes additional information so it is preferred.
 
 #### 4.2.3. Go Away Message
@@ -268,6 +265,7 @@ The go away message is sent to a peer before closing the connection. It is usual
 |Message Field	|Description|
 |reason	|an error code signifying the reason to disconnect from peer.|
 |node_id	|the node ID for the disconnecting node; used for duplicate notification.|
+
 The current reason codes are defined as follows:
 
 - No reason: indicate no error actually; the default value.
@@ -292,12 +290,14 @@ The time message is used to synchronize events among peers, measure time interva
 |rec	|receive timestamp; set when a message arrives from the network.|
 |xmt	|transmit timestamp; set when a message is placed on the send queue.|
 |dst	|destination timestamp; set when marking the end of a time interval.|
+
 #### 4.2.5. Notice Message
 The notice message is sent to notify a peer which blocks and loose transactions the node currently has. The notice message consists of the following fields :
 
 |Message Field	|Description|
 |known_trx	|sorted list of known transaction IDs node has available.|
 |known_blocks	|sorted list of known block IDs node has available.|
+
 Notice messages are lightweight since they only contain block IDs and transaction IDs, not the actual block or transaction.
 
 #### 4.2.6. Request Message
@@ -306,17 +306,20 @@ The request message is sent to notify a peer which blocks and loose transactions
 |Message Field	|Description|
 |req_trx	|sorted list of requested transaction IDs required by node.|
 |req_blocks	|sorted list of requested block IDs required by node.|
+
 #### 4.2.7. Sync Request Message
 The sync request message requests a range of blocks from peer. The sync request message consists of the following fields:
 
 |Message Field	|Description|
 |start_block	|start block number for the range of blocks to receive from peer.|
 |end_block	|end block number for the range of blocks to receive from peer.|
+
 Upon receipt of the sync request message, the peer sends back the actual blocks for the range of block numbers specified.
 
 ### 4.3. Message Handler
 The p2p protocol uses an event-driven model to process messages, so no polling or looping is involved when a message is received. Internally, each message is placed in a queue and the next message in line is dispatched to the corresponding message handler for processing. At a high level, the message handler can be defined as follows:
----
+
+```
    receiver/read handler:
       if handshake message:
          verify that peer's network protocol is valid
@@ -331,10 +334,12 @@ The p2p protocol uses an event-driven model to process messages, so no polling o
          validate transaction; drop if invalid, forward if valid
       else
          close the connection
----
+```
+
 ### 4.4. Send Queue
 Protocol messages are placed in a buffer queue and sent to the appropriate connected peer. At a higher level, a node performs the following operations with each connected peer in a round-robin fashion:
----
+
+```
    send/write loop:
       if peer knows the LIB:
          if peer does not know we have a block or transaction:
@@ -349,6 +354,7 @@ Protocol messages are placed in a buffer queue and sent to the appropriate conne
       else:
          assume peer is in catchup mode (operating on request/response)
          wait for notice of sync from the read loop
----
+```
+
 ## 5. Protocol Improvements
 Any software updates to the p2p protocol must also scale progressively and consistently across all nodes. This translates into installing updates that reduce operation downtime and potentially minimize it altogether while deploying new functionality in a backward compatible manner, if possible. On the other hand, data throughput can be increased by taking measures that minimize message footprint, such as using data compression and binary encoding of the protocol messages.
