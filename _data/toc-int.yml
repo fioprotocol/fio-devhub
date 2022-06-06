@@ -15,9 +15,7 @@
   links:
     - title: FIO Token Support
       url: "docs/integration-guide/token-support"
-    - title: Listing the FIO Token
-      url: "docs/integration-guide/token-listing"
-    - title: Get Account Balance and Txn History
+    - title: Account Balances and Txn History
       url: "docs/general-functions/txn-history"
 - title: "FIO Crypto Handles"
   url: "docs/integration-guide/handle-registration"

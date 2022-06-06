@@ -10,7 +10,7 @@ redirect_from:
 
 Transactions go through various stages during their lifespan. First, a transaction is created in an application or a FIO-integrated client by bundling actions into a transaction. Next, the transaction is sent to a locally connected node, which in turn relays it to the active producing nodes for validation and execution via the peer-to-peer network. Next, the validated transaction is pushed to a block by the active producer on schedule along with other transactions. Finally the block that contains the transaction is pushed to all other nodes for validation. When a supermajority of producers have validated the block, and the block becomes irreversible, the transaction gets permanently recorded in the blockchain and it is considered immutable.
 
-More details on the transaction lifecycle can be found in the Transactions Protocol Guide]({{site.baseurl}}/docs/XXXXXXXXX). This section focuses on the steps needed to package, sign and submit transactions to the FIO chain.
+More details on the transaction lifecycle can be found in the [Transactions Protocol Guide]({{site.baseurl}}/docs/protocol/transactions). This section focuses on the steps needed to package, sign and submit transactions to the FIO chain.
 
 ---
 ## Quick start - Using the SDK
@@ -19,9 +19,9 @@ FIO offers [several SDKs]({{site.baseurl}}/docs/sdk/using-the-api) that simplify
 
 The SDK allows for different levels of control when packaging and signing transactions for the FIO Chain. For example, integrators may want to:
 
-* Package, sign, and send a FIO transaction in a single function call
-* Separate the packaging and signing of the transaction from the submitting of the transaction to the chain by creating a prepared transaction
-* Separate the signing of the transaction from the packaging to allow for "offline" signing of the transaction
+* Package, sign, and send a FIO transaction in a **single function call**
+* Separate the packaging and signing of the transaction from the submitting of the transaction to the chain by **creating a prepared transaction**
+* Separate the signing of the transaction from the packaging to allow for **"offline" signing of the transaction**
 
 The following sections detail these three options in more detail.
 
@@ -63,9 +63,9 @@ Here we are executing the `trnsfiopubky` action from the `fio.token` contract. T
 
 ### Creating a prepared transaction
 
-The FIO SDK offers some helper functions for integrators who wish to separate the creation of the transaction from the sending of the transaction. This is helpful if you want to have the ability to inspect the transaction prior to submitting and if you want to have the ability to re-submit the same transaction in cases where the initial transaction send fails.
+The FIO SDK offers some helper functions for integrators who wish to separate the creation of the transaction from the sending of the transaction. This is helpful if you want to have the ability to inspect the transaction prior to submitting it or if you want to have the ability to re-submit the same transaction in cases where the initial transaction send fails.
 
-In the Typescript SDK, when preparing a transaction, setting `setSignedTrxReturnOption` to `true` will cause calls to the `genericaAction` action method to return a prepared transaction without submitting it to the chain. Once the prepared transaction has been captured, it can then be sent to the chain using `executePreparedTrx`. 
+In the Typescript SDK, when preparing a transaction, setting `setSignedTrxReturnOption` to `true` will cause calls to the `genericAction` action method to return a prepared transaction without submitting it to the chain. Once the prepared transaction has been captured, it can then be sent to the chain using `executePreparedTrx`. 
 
 The following is an example using `setSignedTrxReturnOption` and `executePreparedTrx` to create and send a prepared transaction. The full working example can be found in the [fiosdk_typescript-examples repo](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fiosdk.prepared-txn.js){:target="_blank"}.
 
@@ -101,7 +101,7 @@ const transferFioPreparedTxn = async () => {
 
 ### Offline signing of transactions
 
-For integrators who want to limit access to the FIO private keys, the FIO SDK offers methods that separate the serialization and signing of transactions.
+For integrators who want to limit access to FIO private keys, the FIO SDK offers methods that separate the serialization and signing of transactions.
 
 This [fiosdk_typescript example](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fio.serialize-sign.js){:target="_blank"} demonstrates how to use the FIO Javascript SDK to enable offline signing of transactions. First, it creates a serialized transaction without requiring any FIO keys. It then passes the serialized transaction to the sign method to generate the signature.
 
@@ -197,7 +197,7 @@ You can also manually view the pre-computed transaction ID by plugging the `pack
 ---
 ## Using fiojs to package and send transactions
 
-The FIO SDK wraps the [fiosjs library](https://github.com/fioprotocol/fiojs){:target="_blank"} to provide convenience methods for creating and submitting transactions to the FIO chain. Integrators who want to limit the number of third party libraries the embed or who want lower level access to FIO functionality in their applications can access the `fiojs` library directly in their applications.
+The FIO SDK wraps the [fiosjs library](https://github.com/fioprotocol/fiojs){:target="_blank"} to provide convenience methods for creating and submitting transactions to the FIO chain. Integrators who want to limit the number of third party libraries they embed or who want lower level access to FIO functionality in their applications can access the `fiojs` library directly in their applications.
 
 This [fiojs example](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fiojs.token-trnsfiopubky.js){:target="_blank"} demonstrates how to use the `fiojs` library to create a `trnsfiopubky` transaction on the FIO chain:
 
@@ -287,7 +287,7 @@ This section outlines the details of how transactions are packaged, signed, and 
 {% include alert.html type="info" content="The examples in this section are for informational purposes. The FIO SDKs have simplified the process of creating transactions by performing all serialization and signing automatically." %}
 
 There are four main steps, outlined below, for creating a transaction:
-1. Structure and serialize a transaction
+1. Create a transaction digest
 2. Sign the seralized transaction
 3. Push the transaction to an API node
 4. Verification of the transaction by the node
