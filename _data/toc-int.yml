@@ -83,7 +83,7 @@
       url: "docs/how-to/governance"
     - title: Sign NFTs
       url: "docs/how-to/sign-nfts"
-    - title: Integrate NFT Signatures through the Dashboard
-      url: "docs/how-to/nfts-integrate"
+    - title: Integrate through the Dashboard
+      url: "docs/how-to/integrate-dashboard"
     - title: FIO Staking Developers Guide
       url: "docs/how-to/staking"
