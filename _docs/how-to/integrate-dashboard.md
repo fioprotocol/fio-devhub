@@ -6,9 +6,11 @@ description: Integrate NFT Signatures using the FIO Dashboard
 
 # Integrate using the FIO Dashboard
 
-The FIO Dashboard provides a quick and easy integration for platforms who want to provide FIO capabilities to their users. Integrating with the FIO dashboard allows platforms to present their branding and a contained flow, providing the user with a clear path to perform a specific action (as opposed to the normal dashboard user experience where all the dashboard functionality is available to the user). 
+The FIO Dashboard provides a quick and easy integration for platforms who want to provide FIO capabilities to their users. Integrating with the FIO dashboard allows platforms to present their branding while enabling thier users to take advantage of FIO features such as registering crypto handles and sending FIO Requests.
 
-For example, platforms can provide the ability to sign NFTs using the FIO dashboard. Check out Blockchain Wayne's video showing the unique.one integration flow: [https://www.youtube.com/watch?v=gL5So0LJEKw](https://www.youtube.com/watch?v=gL5So0LJEKw){:target="_blank"}.  (Other features are also planned.)
+It is also possible to create "contained user flows" in the dashboard which users with a clear path to perform a specific action (as opposed to the normal dashboard user experience where all the dashboard functionality is available to the user). 
+
+The following outlines the steps to take to integrate with the FIO Dashboard. 
 
 ## Step One: Set Up your Landing Page
 
@@ -16,17 +18,38 @@ Work with your FIO BizDev Account Representative to create your platform's brand
 
 ## Step Two: Create your User Experience in your Platform
 
-This step looks different for every partner.  Basically, you need to  provide a user interface to allow your users to select the action they want to perform.  (For example, to allow a user to sign an NFT, the interface would allow the user to select the NFT to sign.) Then, your platform will capture the relevant parameters for the action and build a URL to pass those parameters to the FIO Dashboard.
+This step looks different for every partner.  Basically, you need to  provide a user interface to allow your users to link off to the FIO Dashboard. Your platform should capture the relevant parameters and build a URL to pass those parameters to the FIO Dashboard.
 
 ### Parameters
 
 Here are the parameters that need to be passed in when sending a user to the dashboard:
 
-|Feature |Required Parameters |
+|Feature |Parameters |
 |---|---|
-|Sign NFTs |action - Action parameters (e.g., SIGNNFT for NFT Signatures)<br> chain_code - Chain code<br> contract_address - Contract address<br>token_id - Token id<br>url - Token url <br>hash - Token hash<br>metadata - Token metadata containing creator_url. Format is: {"creator_url": "https://..."}<br>r - redirect url (the URL to return the user to the originating site) |
+|Sign NFTs |* action - Action parameters (e.g., SIGNNFT for NFT Signatures)<br>r - redirect url (the URL to return the user to the originating site) |
 
-## Dashboard User Experience
+\* Required parameter
+
+### Example User Interface
+
+(Need to get this from the Dashboard group. They are building a generic landing page that can be used to demo the Dashboard linking feature.)
+
+## Step Three: Create action-specific integration links (optional)
+
+In some cases, you may want to limit the FIO Dashboard functionality available to your users.  The FIO Dashboard provides a user interface that allow your users to link off to the FIO Dashboard or to to select a specific action they want to perform. For example, platforms can provide the ability to sign NFTs using the FIO dashboard. 
+
+The folowing action-specific integrations are supported by FIO Dashboard. For each action, specific parameters must be passed in the URL. 
+
+|Action |Description |Parameters |Example URL |
+|---|---|---|---|
+|addnft |Sign an NFT by mapping it to a FIO Crypto Handle | action - Action parameters (e.g., SIGNNFT for NFT Signatures)<br> chain_code - Chain code<br> contract_address - Contract address<br>token_id - Token id<br>url - Token url <br>hash - Token hash<br>metadata - Token metadata containing creator_url. Format is: {"creator_url": "https://..."}<br>r - redirect url (the URL to return the user to the originating site) |  [Example URL](https://dashboard.fioprotocol.io/ref/uniqueone?action=SIGNNFT&chain_code=ETH&contract_address=FIO5CniznG2z6yVPc4as69si711R1HJMAAnC3Rxjd4kGri4Kp8D8P&token_id=ETH&url=ifg://dfs.sdfs/sdfs&hash=f83klsjlgsldkfjsdlf&metadata={"creator_url":"https://www.google.com.ua/"}&r=https://www.google.com.ua/){:target="_blank"} |
+
+
+Partners must create their own user interface to collect the paramters required by the link. For example, in some cases you may want to only provide provide the ability for your users to sign NFTs and not show them all of the other FIO features. Your platform would capture the relevant parameters for the action and build a URL to pass those parameters to the FIO Dashboard.
+
+Check out Blockchain Wayne's video showing the unique.one integration flow: [https://www.youtube.com/watch?v=gL5So0LJEKw](https://www.youtube.com/watch?v=gL5So0LJEKw){:target="_blank"}.  (Other features are also planned.)
+
+### Action-specific Dashboard User Experience
 
 Your user can expect this experience while on your FIO Dashboard landing page:
 - The user will be contained to a landing page
@@ -53,6 +76,6 @@ Your interface will build the URL, which then will take your user to your platfo
 ![Image]({{ site.baseurl }}/assets/img/nft/nftlandingscreen.png)
 
 
-## Example User Interface
+### Example User Interface
 
 You can check out a sample UX design here: [https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen](https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen){:target="_blank"}
