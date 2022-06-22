@@ -12,15 +12,26 @@ For example, platforms can provide the ability to sign NFTs using the FIO dashbo
 
 ## Step One: Set Up your Landing Page
 
-Work with your FIO BizDev Account Representative to create your platform's branded landing page.
+Work with your FIO BizDev Account Representative to create your platform's branded landing page.  You will be asked to provide the following:
+
+- List of domains you want users to register their FCH
+- Logo
+- Welcome text
+- TPID - so that you can receive portion of all fees paid ([see more info on TPID]({{site.baseurl}}/docs/how-to/tpid))
+- Back link to your site
 
 ## Step Two: Create your User Experience in your Platform
 
-This step looks different for every partner.  Basically, you need to  provide a user interface to allow your users to select the action they want to perform.  (For example, to allow a user to sign an NFT, the interface would allow the user to select the NFT to sign.) Then, your platform will capture the relevant parameters for the action and build a URL to pass those parameters to the FIO Dashboard.
+This step looks different for every partner.  Basically, you need to  provide a user interface to allow your users to select the action they want to perform.  Then, your platform will capture the relevant parameters for the action and build a URL to pass those parameters to the FIO Dashboard.  
 
-### Parameters
+- At a minimum, you can link your users to the Dashboard using url/ref/{refcode_provided}
+- Reference an example landing page below:
 
-Here are the parameters that need to be passed in when sending a user to the dashboard:
+![Image]({{ site.baseurl }}/assets/img/nft/nftlandingscreen.png)
+
+## Contained Flow
+
+If you want your user to perform a specific action (e.g. register for a FIO Crypto Handle or sign an NFT) and then be redirected back to your site, you can pass additional url parameters: 
 
 |Feature |Required Parameters |
 |---|---|
@@ -48,10 +59,7 @@ This is an example URL that you would build.  Note that your specifics will diff
 
 ---
 
-Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT.  (See example screenshot below.)
-
-![Image]({{ site.baseurl }}/assets/img/nft/nftlandingscreen.png)
-
+Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT. 
 
 ## Example User Interface
 
