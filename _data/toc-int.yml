@@ -1,36 +1,38 @@
 
 
 - pagetitle: Integration Guide
-- title: "Integration Overview"
+- title: Integration Overview
   url: "docs/integration-guide/"
   links:
     - title: Overview of Integration
       url: "docs/integration-guide/"
     - title: Benefits & Bounties
       url: "docs/integration-guide/integrator-benefits"
-- title: "Submitting FIO Transactions"
+- title: Submitting FIO Transactions
   url: "docs/general-functions/transactions"
-- title: "FIO Token Support"
+- title: FIO Token
   url: "docs/integration-guide/token-support"
   links:
     - title: FIO Token Support
       url: "docs/integration-guide/token-support"
     - title: Account Balances and Txn History
       url: "docs/general-functions/txn-history"
-- title: "FIO Crypto Handles"
+- title: FIO Crypto Handles
   url: "docs/integration-guide/handle-registration"
   links:
-    - title: Register FIO Crypto Handles 
+    - title: Register FIO Crypto Handles
       url: "docs/integration-guide/handle-registration"
-    - title: Map Public Addresses
-      url: "docs/integration-guide/handle-mapping"
     - title: Receive to a FIO Crypto Handle
       url: "docs/integration-guide/handle-receive"
+    - title: Map Public Addresses
+      url: "docs/integration-guide/handle-mapping"
 - title: FIO Send
   url: "docs/integration-guide/fio-send"
 - title: FIO Request
   url: "docs/integration-guide/fio-request"
   links:
+    - title: Supporting FIO Requests
+      url: "docs/integration-guide/fio-request"
     - title: Attach Memo to FIO Request with FIO Data
       url: "docs/general-functions/fio-data"
 - title: FIO Custom Domains
@@ -63,9 +65,5 @@
       url: "docs/sdk/fio-request-example"
     - title: Example - Review Pending Requests
       url: "docs/sdk/review-pending-fio-requests-example"       
-    - title: Go SDK
-      url: "docs/sdk/go"
-    - title: Kotlin SDK
-      url: "docs/sdk/kotlin"
-    - title: iOS Swift SDK
-      url: "docs/sdk/swift"
+    - title: Other SDKs
+      url: "docs/sdk/othersdks"

@@ -16,6 +16,4 @@ This section contains the following content:
 |---|---|
 | [Using the API]({{site.baseurl}}/docs/sdk/using-the-api) | Overview of the FIO API and the different testnet and mainnet environments. |
 | [Typescript SDK]({{site.baseurl}}/docs/sdk/typescript) | Getting started with the Typescript SDK. |
-| [Go SDK]({{site.baseurl}}/docs/sdk/go) | Links to the Go libraries. |
-| [Kotlin SDK]({{site.baseurl}}/docs/sdk/kotlin) |Links to the Kotlin SDK. |
-| [Swift SDK]({{site.baseurl}}/docs/sdk/swift) |Links to the Swift iOS SDK. |
+| [Other SDKs]({{site.baseurl}}/docs/sdk/go) | Links to other opensource FIO SDKs and libraries. |

@@ -4,15 +4,18 @@ title: FIO Domain
 description: FIO Domain
 ---
 
-## FIO Crypto Handle registration using the FIO Registration Site
+# FIO Custom Domains
 
 Foundation for Interwallet Operability has developed and is hosting a website which allows for registration of FIO Crypto Handles and Domains in exchange for payment in Bitcoin, Bitcoin Cash, DAI, Ethereum, Litecoin, and USD Coin.
 
 Wallets wanting to offer their customers ability to purchase FIO Crypto Handles with currencies other than FIO, can use the site. There are several ways to enable FIO Crypto Handle and Domain registration including linking to the registration site, accessing the registration API, and hosting an internal instance of the registration site.
 
+---
+## FIO Domain Registration using the FIO Registration Site
+
 #### Linking to the FIO Registration Site
 
-The easiest integration option is to simply link off to the registration site and pass the user’s FIO Public Key. URL formats are as follows:
+The easiest way to facilitate a FIO Domain registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Domain can be properly assigned to the owner. To learn more see FIO registration site.
 
 **Link to FIO Domain/FIO Crypto Handle selection Page**
 
@@ -26,31 +29,19 @@ Example of the FIO registration site UI:
 
 ![Image]({{ site.baseurl }}/assets/img/integration/reg-example.png)
 
-#### Using the Registration API
-
-If you prefer to have full control over the payment process, you can simply obtain the crypto currency payment address and amount in different currencies and build payment screens inside the wallet. Once the payment is received, the FIO Crypto Handle is automatically registered.
-
-See the [Registration API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
-
----
-## FIO Custom Domain Registration using the FIO Registration Site
-
-#### Linking to the FIO Registration Site
-
-The easiest way to facilitate a FIO Domain registration is to redirect the users to a Foundation for Interwallet Operability website which enables registration and payment with common crypto currencies, such as Bitcoin. FIO Public Key needs to be passed to the website, so that the FIO Domain can be properly assigned to the owner. To learn more see FIO registration site.
+### Registering Crypto Handles on Custom Domains
 
 When a new FIO Domain is registered, it is set to Private, meaning only the owner of the FIO Domain can register FIO Crypto Handles on it. Therefore, FIO Crypto Handle registrations on custom domains have to be implemented inside the wallet (not via FIO registration site). See [FIO Crypto Handle and Domain Registration using the FIO API]({{site.baseurl}}/docs/integration-guide/handle-registration#fio-address-and-domain-registration-using-the-fio-api) for details.
 
 {% include alert.html type="info" title="Registering custom addresses on private custom domains" content="Users who have registered a custom FIO Domain and who have not set it to public must sign all FIO Crypto Handle registrations on that domain with their private key. Therefore, FIO Crypto Handle registrations on private custom domains can only be implemented inside the wallet. The FIO Registration site cannot be used to register custom addresses on users' private custom domains." %}
 
-#### Using the Registration API
+### Using the Registration API
 
 If you prefer to have full control over the payment process, you can simply obtain the crypto currency payment address and amount in different currencies and build payment screens inside the wallet. Once the payment is received, the FIO Crypto Handle is automatically registered.
 
-See the [Registrageneral-functionstion API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
+See the [Registration API]({{site.baseurl}}/pages/api/fio-reg-api/) for more details
 
----
-## Getting set-up to use the registration site
+### Getting set-up to use the registration site
 
 Before you can get started with option using the FIO registraiton site, a profile for your wallet has to be established. Please submit support request with the following information:
 
@@ -61,10 +52,9 @@ Before you can get started with option using the FIO registraiton site, a profil
 * Would you like to allow users to register domains as well. **Please note: that hosted website does not support ability to register FIO Crypto Handles on private domains so users cannot easily add a FIO Crypto Handle to the domain they register.**
 
 ---
-## FIO Crypto Handle and Domain Registration using the FIO API
+## FIO Domain Registration using the FIO API
 
 For wallets desiring full control over the registration user experience or wanting to support FIO Crypto Handle registrations on custom (set to Private) FIO Domains, a full suite of FIO Crypto Handle registration and bundle renewal API methods are available.
-
 
 #### Registering/renewing FIO Domains
 
@@ -73,10 +63,6 @@ FIO Domains can be registered using the [regdomain]({{site.baseurl}}/pages/api/f
 #### Fetching user’s FIO Crypto Handles and Domains
 
 FIO Crypto Handles and Domains currently owned by the user may be fetched using [/get_fio_names]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_names) API method.
-
-#### Fetching user’s FIO Crypto Handles only
-
-FIO Crypto Handles currently owned by the user may be fetched using [/get_fio_addresses]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_addresses) API method.
 
 #### Fetching user’s FIO Domains only
 
