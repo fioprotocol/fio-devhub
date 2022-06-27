@@ -60,7 +60,3 @@ This is an example URL that you would build.  Note that your specifics will diff
 ---
 
 Your interface will build the URL, which then will take your user to your platform's landing page on the FIO Dashboard.  Your user can then create their FIO Crypto Handle and sign their NFT. 
-
-## Example User Interface
-
-You can check out a sample UX design here: [https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen](https://xd.adobe.com/view/4ed48848-8442-411d-bbd8-ac8c189b7183-1b87/?fullscreen){:target="_blank"}
