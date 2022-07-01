@@ -6,7 +6,7 @@ redirect_from:
     - /docs/integration-guide/fio-receive
 ---
 
-# Receive Deposits to a FIO Crypto Handle
+# Receive Deposits using a FIO Crypto Handle
 
 [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) (aka FIO Addresses) are human-readable wallet identifiers (such as john@edge or alice@gold) which eliminate the need to see, or even know of, blockchain public addresses. Enabling deposits using [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) give exchange users friendly interwallet operability, making deposits easy and near error-free, dramatically reducing support tickets.
 
@@ -20,7 +20,12 @@ Please read [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/h
 
 Please note that a user may have multiple FIO Crypto Handles owned by a single key, and the UX should accommodate that.
 
-## Using a unique FIO Crypto Handle for each user
+---
+## Special considerations for Exchanges
+
+Because a FIO Crypto Handle is mapped to a single FIO Public Key, exchanges that traditionally use a single key for all of their deposits have to decide how they want to accomodate FIO deposits using a FIO Crypto Handle. There are two options: using a unique FIO Crypto Handle for each user, or using the same Crypto Handle for all users.
+
+### Using a unique FIO Crypto Handle for each user
 
 For example, to accept crypto deposits using FIO Crypto Handles, an exchange may [register a unique FIO Crypto Handle for each user]({{site.baseurl}}/docs/integration-guide/handle-registration) of the exchange, and display it in their deposit area, e.g. alice@myexchange.
 
@@ -28,8 +33,7 @@ To deposit tokens of any supported cryptocurrency to their account the user woul
 
 Each [FIO Crypto Handle may be mapped]({{site.baseurl}}/docs/integration-guide/handle-mapping) using the [`addaddress`]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) action to either the same crypto public address for all users, or a unique crypto public address for each user.
 
----
-## Using the same FIO Crypto Handle for all users
+### Using the same FIO Crypto Handle for all users
 
 Alternatively, an exchange may [register a single deposit FIO Crypto Handle]({{site.baseurl}}/docs/integration-guide/handle-registration) for all users of the exchange, and display it their deposit area (e.g. deposits@myexchange).
 
@@ -43,6 +47,7 @@ The inbound transaction can be identified by reading the OBT Data using [/get_ob
 
 The [`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) action does not accept a memo field. To [attach a FIO Data memo]({{site.baseurl}}/docs/general-functions/fio-data) to a FIO token transfer, a [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) transaction should be sent after the tokens are transferred and include the token transfer transaction id. [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) requires that both payer and payee have a FIO Crypto Handle. **If either party does not have a FIO Crypto Handle then transfer of memo is not supported**.
 
+---
 ## Quality Assurance Checklist
 
 The following lists the items that should be tested to confirm support for Receiving to a FIO Crypto Handle:

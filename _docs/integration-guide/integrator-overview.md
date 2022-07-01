@@ -14,7 +14,7 @@ Before starting your integration, we recommend you first familiarize yourself wi
 * [What is FIO Protocol?]({{site.baseurl}}/docs/fio-protocol/)
 * [FIO API Reference Guide]({{site.baseurl}}/pages/api/fio-api)
 * Review how [FIO packages and signs transactions]({{site.baseurl}}/docs/general-functions/transactions) for the FIO chain
-* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/), [Kotlin]({{site.baseurl}}/docs/sdk/kotlin), and [iOS]({{site.baseurl}}/docs/sdk/swift)
+* SDK Guides for [Typescript]({{site.baseurl}}/docs/sdk/typescript/)
 * Review [Sample UX and Demos]({{site.baseurl}}/docs/integration-guide/sample-ux) from other FIO integrations
 
 Next, reach out to the FIO team to set up a joint Telegram or Discord channel. This will give you access to account management, product management, and developer resources.

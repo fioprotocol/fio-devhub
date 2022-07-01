@@ -6,12 +6,11 @@ description: Account balances and history
 
 # Retrieving account balances and history
 
-*(Thanks to [blockpane](https://github.com/fioprotocol/fio-go/tree/master/_example/_blocks){:target="_blank"} for the original version of these notes.)*
-
 There are many options available for wallets, exchanges, and information providers for presenting a user's balance and history. Not all approaches are appropriate for all applications, and how an organization integrates other blockchains may affect the strategy. The following summarizes a few of the approaches tried with FIO to help explain some of the choices available during integration.
 
 These methods mostly assume the integrator will be self-hosting their own FIO node. However, some of the options mentioned here can work with [publicly available v1 history nodes and Hyperion](https://github.com/fioprotocol/fio.mainnet#api-endpoints){:target="_blank"}.
 
+---
 ## UX/UI Considerations
 
 * Completed FIO Requests and FIO Send should show up on the respective cryptocurrency’s transaction page.
@@ -28,6 +27,8 @@ There is one **very important** thing to note about fee collection: it is an int
 
 ---
 ## Getting account information
+
+*(Thanks to [blockpane](https://github.com/fioprotocol/fio-go/tree/master/_example/_blocks){:target="_blank"} for the original version of these notes.)*
 
 There are two approaches to getting account and transaction information: on-demand queries and pre-processing the data.
 
