@@ -5,7 +5,7 @@ description: Getting Started with Your Integration
 ---
 # Getting Started with your Integration 
 
-The following is a step-by-step overview to help you get started in the integration process. It begins by reviewing FIO Protocol and tools websites available to support integration. Next, it reviews the different categories of features that are available for integration. Lastly, it summarizes how to set up a test environment and outlines the requirements for QA and acceptance testing.
+The following is a step-by-step walkthrough of the integration process. It begins by reviewing FIO Protocol and tools websites available to support integration. Next, it reviews the different categories of features that are available for integration. Lastly, it summarizes how to set up a test environment and outlines the requirements for QA and acceptance testing.
 
 ## Step 1: Get familiar with FIO Protocol
 
@@ -51,6 +51,8 @@ Refer to [Setting up your test environment]({{site.baseurl}}/docs/chain/testnet#
 ## Step 5: Perform Client testing and FIO acceptance testing
 
 Once you have completed your initial integration you should perform internal testing against the FIO Testnet. 
+
+We’ve created a [list of test cases]({{site.baseurl}}/docs/integration-guide/integrator-checklist) that should be completed prior to moving to production.
 
 When you’ve successfully performed all the relevant test cases and you feel comfortable that your integration meets requirements, contact FIO to initiate a review by the FIO product team. Final FIO acceptance testing should occur against FIO Mainnet. 
 

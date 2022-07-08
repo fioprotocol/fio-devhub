@@ -3601,7 +3601,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/how-to/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3668,7 +3668,7 @@ paths:
                         * memo_return - Stellar
                         * payment_id - Monero
 
-                        See [Mapping Public Addresses](/docs/how-to/mapping)
+                        See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   required:
                     - chain_code
                     - token_code
@@ -3711,7 +3711,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: add_pub_address_model
       tags:
@@ -3847,7 +3847,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/how-to/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3928,7 +3928,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_pub_address_model
       tags:
@@ -4081,7 +4081,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_all_pub_addresses_model
       tags:
@@ -9517,7 +9517,7 @@ paths:
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to /push_transaction.
 
 
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
 
 
         Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
@@ -9562,7 +9562,7 @@ paths:
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to a FIO API endpoint.
 
 
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
 
 
         Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
@@ -10117,7 +10117,7 @@ paths:
         A transaction instance consists of a transaction header and the list of action instances and transaction
         extensions that make the actual transaction. The transaction header includes information necessary to assess
         the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution.
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
       summary: Transaction schema
       operationId:
       parameters:
@@ -10660,7 +10660,7 @@ definitions:
       Max 296 characters
 
 
-      See [Encrypting FIO Data](/docs/how-to/encryption)
+      See [Encrypting FIO Data](/docs/general-functions/encryption)
       for more information.
     properties:
       payee_public_address:

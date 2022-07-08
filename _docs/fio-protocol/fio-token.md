@@ -46,3 +46,9 @@ Data returned includes 9 decimal points, e.g. 705906876.848960519
 To return data in Smallest Units of FIO (SUFs), add /suf to end point, e.g. <https://fioprotocol.io/supply/suf>{:target="_blank"}
 
 To return the data as json, add ?json=true top end point, e.g. <https://fioprotocol.io/supply?json=true>{:target="_blank"}
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Token Support:
+-  Receive FIO Tokens to wallet using FIO Public Key
+-  Send FIO Tokens using FIO Public Key
+-  FIO transaction history is avaialable including sent FIO (including fees) received FIO

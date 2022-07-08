@@ -61,5 +61,5 @@ curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_actions -d '{
 
 #### Additional Resources
 
-* [Account balances and history]({{site.baseurl}}/docs/how-to/txn-history)
+* [Account balances and history]({{site.baseurl}}/docs/general-functions/txn-history)
 

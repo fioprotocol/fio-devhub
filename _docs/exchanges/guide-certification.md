@@ -31,13 +31,13 @@ If using the same FIO Crypto Handle for each user:
 -  User is able to attach a FIO Memo when both the sending and receving user have FIO Crypto Handles (optional)
 -  User selects an invalid FIO Crypto Handle, results in error
 -  User selects valid FIO Crypto Handle, but the Chain or Token Code has not been mapped for that FIO Crypto Handle, results in error
--  Additional parameters returned from a FIO Crypto Handle mapped to a [multi-level address]({{site.baseurl}}/docs/how-to/mapping#multi-level-addressing) are handled as expected
+-  Additional parameters returned from a FIO Crypto Handle mapped to a [multi-level address]({{site.baseurl}}/docs/integration-guide/handle-mapping#multi-level-addressing) are handled as expected
 
 **Mapping blockchain public addresses**
 
 -  User is able to connect their FIO Crypto Handle to their crypto/tokens
 -  User is able to disconnect their FIO Crypto Handle
--  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/how-to/mapping))
+-  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/handle-mapping))
 
 **Receive to FIO Crypto Handle**
 

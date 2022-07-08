@@ -42,7 +42,7 @@ Regex validation may be used. For example, the following regex may be used to va
 
 ### Mapping a FIO Crypto Handle to crypto public addresses
 
-See [Mapping Public Addresses](/docs/how-to/mapping) in the Integration Guide.
+See [Mapping Public Addresses](/docs/integration-guide/handle-mapping) in the Integration Guide.
 
 ### FIO Crypto Handles Do Not Expire
 

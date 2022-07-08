@@ -18,6 +18,6 @@ To enable withdrawals using a FIO Crypto Handle, an exchange would would first a
 ---
 ## Using a FIO Request
 
-If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) or if users provided the exchange, ahead of time, with a list of FIO Crypto Handles which the user owns, they could also [send a FIO Request]({{site.baseurl}}/docs/how-to/fio-request) from their wallet to the exchange’s FIO Crypto Handle (either generic, e.g. `withdrawals@myexchange`, or unique, e.g. `alice@myexchange`).
+If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address) or if users provided the exchange, ahead of time, with a list of FIO Crypto Handles which the user owns, they could also [send a FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request) from their wallet to the exchange’s FIO Crypto Handle (either generic, e.g. `withdrawals@myexchange`, or unique, e.g. `alice@myexchange`).
 
-The user would then login to the exchange and approve the [FIO Request]({{site.baseurl}}/docs/how-to/fio-request). Once approved, the exchange would execute the transfer on the native chain.
+The user would then login to the exchange and approve the [FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request). Once approved, the exchange would execute the transfer on the native chain.

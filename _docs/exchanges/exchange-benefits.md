@@ -50,7 +50,7 @@ The Foundation for Interwallet Operability (FIO) will facilitate listing of the 
 ---
 ### FIO Staking integration reward
 
-FIO Staking offers a new incentive to exchanges which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide]({{site.baseurl}}/docs/how-to/staking) for more details.
+FIO Staking offers a new incentive to exchanges which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide]({{site.baseurl}}/docs/integration-guide/staking) for more details.
 
 ---
 ### Block Production

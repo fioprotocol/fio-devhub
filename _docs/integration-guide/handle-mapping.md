@@ -8,16 +8,16 @@ redirect_from:
 
 # Mapping Public Addresses
 
-## Overview
-
 One of the key utilities of the FIO Protocol is the ability to send crypto using a [FIO Crypto Handle](https://kb.fioprotocol.io/fio-protocol/fio-addresses){:rel="nofollow noopener noreferrer" target="_blank"} (aka FIO Address), instead of complicated Native Blockchain Public Address (NBPA) such as 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B on Ethereum.
 
 A wallet can very easily look-up the NBPA using the [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) method. However, before this can happen the wallet hosting the FIO Crypto Handle must first map the NBPA to the FIO Crypto Handle.
 
+---
 ## How Does a FIO Crypto Handle map to public addresses?
 
 Applications that enable users to manage their private keys (such as crypto wallets) which integrate the FIO Protocol have two options on enabling mapping of associated public addresses to the human readable FIO Crypto Handle.  First, the product may automatically map all public addresses enabled in the product to the FIO Crypto Handle by signing a mapping transaction on the FIO blockchain.  Second, the product may enable users to select which chains to map to their FIO Crypto Handle through a radio button or similar interface.  In either of these implementations users never have to see nor interact with their public addresses to accomplish mapping.
 
+---
 ## Mapping Native Public Blockchain Addresses (NBPA) to a FIO Crypto Handle
 
 To map NBPA to a FIO Crypto Handle use the [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
@@ -62,20 +62,7 @@ If you are using parameters which are not yet part of the standard, please submi
 
 [See example of a Testnet FIO Crypto Handle which has public addresses with parameters](https://fio.bloks.io/address/multilevel@fiotest){:rel="nofollow noopener noreferrer" target="_blank"}.
 
-#### What should a wallet do?
-
-When resolving a FIO Crypto Handle, expect that the returned public address will contain URI parameters.
-Most common is memo. If you receive a memo, insert it into the memo (or equivalent) parameter for the native transaction on that blockchain.
-If you receive any of the other parameters above, insert it into corresponding parameter for the native transaction on that blockchain.
-If you do not support ability to accept returned parameters, consider warning the user that the FIO Crypto Handle they used contains information which will not be used.
-
-### Privacy
-
-Currently NBPA mappings are stored on the FIO Chain unencrypted. It is therefore possible for an observer to connect multiple NBPAs via their parent FIO Crypto Handle.
-
-It is therefore important that integrating wallets clearly communicate this to their users, so that they can make an educated decision on which NBPAs to map. In addition users should understand that due to the nature of blockchain once NBPA has been published on the blockchain it will be accessible indefinitely, even if it is later “removed” from current mappings.
-
-## Changing or removing NBPAs
+### Changing or removing NBPAs
 
 NBPA mappings can be changed using the same [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
@@ -94,7 +81,7 @@ This mapping serves two distinct purposes:
    * **The associate private key is accessible and available in the wallet to decrypt that data.** Wallets should not allow users to map a random FIO Public Key.
    * **If a user tries to remove FIO Public key mapping, they should be advised that they will not be able to receive a FIO Request or Record OBT Data in the future until a valid FIO Public key is added back.**
 
-### Mapping FIO Crypto Handle to bank accounts
+### Mapping FIO Crypto Handles to bank accounts
 
 FIO Crypto Handle can also be mapped to bank account information required to route fiat transactions. For this purpose *chain_code*: FIAT should be used and *token_code* should correspond to the banking standard used.
 
@@ -115,3 +102,27 @@ To map FIO Crypto Handle to an IBAN bank account:
 	"public_address": "{'iban':'DE89370400440532013000'}"
 }
 ```
+
+---
+## Privacy
+
+Currently NBPA mappings are stored on the FIO Chain unencrypted. It is therefore possible for an observer to connect multiple NBPAs via their parent FIO Crypto Handle.
+
+It is therefore important that integrating wallets clearly communicate this to their users, so that they can make an educated decision on which NBPAs to map. In addition users should understand that due to the nature of blockchain once NBPA has been published on the blockchain it will be accessible indefinitely, even if it is later “removed” from current mappings.
+
+---
+## UX/UI Considerations
+
+* When resolving a FIO Crypto Handle, expect that the returned public address will contain URI parameters.
+* Most common is memo. If you receive a memo, insert it into the memo (or equivalent) parameter for the native transaction on that blockchain.
+* If you receive any of the other parameters above, insert it into corresponding parameter for the native transaction on that blockchain.
+* If you do not support ability to accept returned parameters, consider warning the user that the FIO Crypto Handle they used contains information which will not be used.
+* **Note:** The application should direct users to mapping their tokens after registering a FIO Handle (or unmapping if the platform maps all tokens automatically).
+
+---
+## Quality Assurance Checklist
+
+The following lists the items that should be tested to confirm support for FIO Mapping of blockchain addresses:
+-  User is able to connect their FIO Crypto Handle to their crypto/tokens
+-  User is able to disconnect their FIO Crypto Handle
+-  Disconnecting the main FIO wallet is disabled (see [Mapping Public Addresses]({{site.baseurl}}/docs/integration-guide/handle-mapping))
