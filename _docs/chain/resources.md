@@ -12,30 +12,34 @@ The FIO Chain inherits EOSIO resource management, but makes a number of modifica
 
 Every new account will have initial RAM allocated to 25600 bytes (25K). Every time an account pays a fee or covers a transaction from a bundle, that account’s RAM will be permanently increased by the number associated with the executed action. In case of multi-action transactions, each action will increment the RAM independently.
 
-|Action	|Increase amount in bytes|
+|Transaction |Action |Increase amount in bytes |
 |---|---|
-|ADDADDRESS	|512|
-|ADDNFT	|3,584|
-|APPROVE	|1,024|
-|CANCELFUNDS	|512|
-|LINKAUTH	|1,024|
-|NEWFUNDSREQUEST	|4,098|
-|PROPOSE	|1,024 per 1,000 bytes of trx size|
-|RECORDOBT	|4,098|
-|REGDOMAIN	|2,560|
-|REGADDRESS	|2,560|
-|REGPROXY	|1,024|
-|REGPRODUCER	|1,024|
-|REJECTFUNDS	|512|
-|RENEWADDRESS (deprecated)	|1,024|
-|RENEWDOMAIN	|1,024|
-|SETDOMPUB	|256|
-|TRNSPBKY	|1024|
-|UPDATEAUTH	|1,024 per 1,000 bytes of trx size|
-|VOTEPRODUCER	|1,024|
-|VOTEPROXY	|512|
-|XFERADDRESS	|512|
-|XFERDOMAIN	|512|
+|Transfer FIO tokens |trnsfiopubky |1024|
+|Transfer locked FIO tokens |trnsloctoks |1024 + 64 * number of lock periods |
+|Map blockchain public address |addaddress |512|
+|Request funds |newfundsreq |3120|
+|Cancel funds request |cancelfndreq |512|
+|Reject funds request |rejectfndreq |512|
+|Record other blockchain transaction metadata|recordobt |4098|
+|Register Address |regaddress |2560|
+|Renew Address (deprecated) |renewaddress |1024|
+|Transfer Address |xferaddress |512|
+|Register Domain |regdomain |2560|
+|Renew Domain |renewdomain |1024|
+|Make Domain public |setdomainpub |256|
+|Transfer Domain |xferdomain |512|
+|Map NFT Signature to a FIO Crypto Handle|addnft |2048|
+|Stake FIO Tokens |stakefio |512|
+|Unstake FIO Tokens |unstakefio |512|
+|List domain on marketplace |listdomain |1536|
+|Vote on block producers |voteproducer |1024|
+|Proxy votes to registered proxy |voteproxy |512|
+|Register as a proxy |regproxy |1024|
+|Register as block producer |regproducer |1024|
+|Set fee ratios* |setfeevote |4000|
+|msig_propose |propose |Variable based on transaction |
+|auth_link |linkauth |1024|
+|auth_update |updateauth |1024|
 
 #### Example
 

@@ -33,8 +33,14 @@
           url: "docs/contribute/onboarding-workerprop"
         - title: Worker Proposal Checklist
           url: "docs/contribute/onboarding-workerpropcheck"
-        - title: Tools for Working with FIO
-          url: "docs/contribute/onboarding-tools"
+        - title: Request a FIO Email Address
+          url: "docs/contribute/onboarding-email"
+        - title: Gather Important Tools for Contributing to FIO
+          url: "docs/contribute/onboarding-tools"        
+        - title: Set Up your FIO Environment
+          url: "docs/contribute/onboarding-devenviron"
+        - title: Set up Your Payment Request
+          url: "docs/contribute/onboarding-getpaid"
 - title: Blockchain Developers Guide
   url: "docs/developers"
   links:

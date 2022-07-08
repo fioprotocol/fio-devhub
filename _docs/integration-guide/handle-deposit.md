@@ -39,4 +39,12 @@ The [`trnsfiopubky`]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) a
 ---
 ## Using a FIO Request
 
-If users of the exchange were assigned unique [FIO Crypto Handles]({{site.baseurl}}/docs/fio-protocol/fio-address#fio-addresses), they could send a [FIO Request]({{site.baseurl}}/docs/general-functions/fio-request) from the exchange to a FIO Crypto Handle of a FIO-integrated wallet or exchange. (e.g., `alice@mywallet`). The user would then login to the wallet and approve the FIO Request. Once approved, the wallet would execute the transfer on the native chain.
+An exchange may send a FIO Request to user's wallet for the amount of crypto currency the user wants to deposit. Here's the workflow:
+* User logs into exchange and selects cryptocurrency and amount of deposit
+* User specifies a FIO Crypto Handle where they want to receive the request
+* Exchange sends a FIO Request for desired amount of deposit and cryptocurrency to specified FIO Crypto Handle and includes deposit public address and assigns the FIO Request ID to specific user. Because of the ability to identify unique deposits using FIO Data, the **exchange may reuse the same deposit public address for with other users' deposits**
+* User accepts the request in their wallet
+* The sending wallet executes native blockchain transaction and records the transaction ID using [`recordobt`]({{site.baseurl}}/pages/api/fio-api/#options-recordobt)
+* Exchange fetches FIO Data using [`get_obt_data`]({{site.baseurl}}/pages/api/fio-api/#options-get_obt_data) which contains native blockchain transaction ID and FIO Request ID which is matched to specific user
+* Exchange receives native blockchain transaction and matches its transaction ID to what was received from FIO Data
+* Exchange credit the user which had been issued the specific FIO Request
