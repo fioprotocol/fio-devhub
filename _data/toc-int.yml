@@ -12,6 +12,11 @@
       url: "docs/integration-guide/integration-dashboard"
 - title: Submitting FIO Transactions
   url: "docs/general-functions/transactions"
+  links:
+    - title: FIO Transactions
+      url: "docs/general-functions/transactions"
+    - title: Pre-compute Transaction ID
+      url: "docs/general-functions/txn-id"
 - title: FIO Token
   url: "docs/integration-guide/token-support"
   links:
