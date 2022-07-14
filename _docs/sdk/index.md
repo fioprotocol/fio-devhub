@@ -16,4 +16,4 @@ This section contains the following content:
 |---|---|
 | [Using the API]({{site.baseurl}}/docs/sdk/using-the-api) | Overview of the FIO API and the different testnet and mainnet environments. |
 | [Typescript SDK]({{site.baseurl}}/docs/sdk/typescript) | Getting started with the Typescript SDK. |
-| [Other SDKs]({{site.baseurl}}/docs/sdk/go) | Links to other opensource FIO SDKs and libraries. |
+| [Other SDKs]({{site.baseurl}}/docs/sdk/othersdks) | Links to other opensource FIO SDKs and libraries. |
