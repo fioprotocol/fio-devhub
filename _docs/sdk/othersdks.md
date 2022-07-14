@@ -7,8 +7,6 @@ redirect_from:
     - /docs/sdk-go
     - /docs/sdk-swift
 
-redirect_from:
-    - /docs/exchanges/exchange-token-deposit
 ---
 
 # Other FIO SDK

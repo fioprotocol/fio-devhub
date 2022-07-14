@@ -125,7 +125,7 @@ feed.xml) and documentation pages.
 ## Navigation
 
 Whether you place your page under "pages" or "docs," for those pages that you want added to the navigation, 
-you should add them to `_data/toc.yml`. If you've defined a `permalink` in the
+you should add them to appropriate `_data/toc-xxx.yml` file. If you've defined a `permalink` in the
 front end matter, you can use that (e.g., "About" below). If you haven't and
 want to link to docs, the url is the path starting with the docs folder.
 Here is an example (currently the active example):
