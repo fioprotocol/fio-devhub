@@ -86,8 +86,10 @@ Please note that when user unstakes tokens multiple times, there may be multiple
 When user has staked tokens, it's possible to compute their currently accrued rewards by using the values returned by [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance) call:
 
 ```
-amount of staking rewards accrued = (srps * roe) - staked
+amount of staking rewards accrued to user = (srps * roe * 0.9) - staked
 ```
+
+{% include alert.html type="info" title="User staking rewards" content="When showing staking rewards to wallet or exchange users, note that 90% of the staking reward goes to the user and the remaining 10% is paid to the TPID (or stays in the staking pool if no TPID is given)" %}
 
 A prorated amount of staking rewards accrued can also be used to compute partial unstaking. For example if user is has 1000 tokens staked and plans to unstake 200 tokens, they will receive 20% (200/1000) of total amount of staking rewards accrued.
 
