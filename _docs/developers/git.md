@@ -9,7 +9,7 @@ description: Git Branching and Release
 |Branch |Purpose |Branch from |Naming |
 |---|---|---|---|
 |master |The master branch should always reflect what is on Mainnet. | |master |
-|develop |The develop branch serves as an integration branch for features, epics, and bugs. Before a release branch is cut, develop should be rebased from master to capture any hotfixes to previous releases. |master  |develop  |
+|develop |The develop branch serves as an integration branch for features, epics, and bugs. Before a release branch is cut, develop should have commits from master merged to capture any hotfixes to previous releases. |master  |develop  |
 |release |Release branches are stable branches that are currently being released, or have been previously released to Testnet or Mainnet. The release branch is cut after code freeze to prepare for devnet and Testnet testing. The tip of this branch should be always in the production-ready state for that particular release. I.e., you should always be able to hotfix to a release branch. Release branches are created for every major and minor release. |develop  |release/v1.1.x  |
 |feature/epic |A feature (or epic) branch is the main unit of work. Features are developed in separate branches, promoted to develop for testing, and then promoted to release and master branches in a continuous cycle. |develop  |feature/devname(optional)-epic#-fip#-epicname <br> (e.g., "feature/eric-BD-1580-fip6-lock-tokens")  |
 |bug |Bug branches  |develop, feature  |bug/bug#-description <br> (e.g., bug/BD-1841-wallet-requests )  |
@@ -18,14 +18,14 @@ description: Git Branching and Release
 ## Feature development
 
 1. Developer creates feature branch off of develop or other target branch (e.g., feature/fip6-lock-tokens)
-2. Developer frequently rebases feature branch with latest from develop. This will grab the latest code and reattach the feature branch to the new root of develop.
+2. Developer frequently merge into the feature branch with the latest from develop. This will grab the latest code and reattach the feature branch to the new root of develop.
 3. Developer uses [Development Milestone Checklist](https://fioprotocol.atlassian.net/wiki/spaces/FD/pages/35553326/template+FIP-nn+Development+Milestone+Checklist){:target="_blank"} to guide design, development, and unit testing of feature
 4. Developer creates draft PR and requests code review from all core devs, security, release management, and QA
 5. Developer hands off the feature to QA
 6. QA creates system tests tests and open bugs
 7. Developer fixes bugs and updates PR
 8. Developer
-    * Rebases feature branch from target branch (e.g., develop) and builds locally
+    * Merge into feature branch from target branch (e.g., develop) and builds locally
     * Re-runs javascript tests on local build
     * Moves PR out of draft to ready for review
 9. Release manager merges to target branch (e.g., develop) and runs system tests
@@ -38,7 +38,7 @@ description: Git Branching and Release
 
 1. The develop branch is the release candidate branch and and is used for release testing
 2. Merge all features and bugs into develop
-3. Rebase develop from master
+3. Merge changes from master into develop
 4. Create release branch from develop
 5. Install release branch on DEV server
 6. Run fio.test system tests
