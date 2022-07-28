@@ -31,9 +31,9 @@ The SDK allows for different levels of control when packaging and signing transa
 The following sections detail these three options in more detail.
 
 ## Consideration: Choosing the max_fee
-FIO is a fee-based protocol, so all transactions require a fee. (Refer to [FIO Fees and Bundled Transactions]({{site.baseurl}}/docs/fio-protocol/fio-fees)). 
+FIO is a fee-based protocol, so all transactions require a fee. Note that get_fee returns the exact fee at the moment of the call, but there is a small possibility the fee could change because it is dynamically calculated based on votes by Block Producers. (Refer to [FIO Fees and Bundled Transactions]({{site.baseurl}}/docs/fio-protocol/fio-fees)). 
 
-The max_fee parameter is required.  Note, however, that: 
+Thus, the max_fee parameter is required.  Note, however, that: 
 - The max_fee put in actions does not impact what is actually paid. The actual fee is always paid as long as the max_fee is greater than the actual fee.
 - So, the integrator may want to put a small buffer on top of any fee returned by get_fee (e.g., 10%).
 
