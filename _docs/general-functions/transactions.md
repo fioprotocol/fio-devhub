@@ -8,9 +8,14 @@ redirect_from:
 
 # FIO Transactions
 
-Transactions go through various stages during their lifespan. First, a transaction is created in an application or a FIO-integrated client by bundling actions into a transaction. Next, the transaction is sent to a locally connected node, which in turn relays it to the active producing nodes for validation and execution via the peer-to-peer network. Next, the validated transaction is pushed to a block by the active producer on schedule along with other transactions. Finally the block that contains the transaction is pushed to all other nodes for validation. When a supermajority of producers have validated the block, and the block becomes irreversible, the transaction gets permanently recorded in the blockchain and it is considered immutable.
+Transactions go through various stages during their lifespan:
+- First, a transaction is created in an application or a FIO-integrated client by bundling actions into a transaction. 
+- Next, the transaction is sent to a locally connected node, which in turn relays it to the active producing nodes for validation and execution via the peer-to-peer network. 
+- Next, the validated transaction is pushed to a block by the active producer on schedule along with other transactions. 
+- Finally the block that contains the transaction is pushed to all other nodes for validation. When a supermajority of producers have validated the block, and the block becomes irreversible, the transaction gets permanently recorded in the blockchain and it is considered immutable.
 
 More details on the transaction lifecycle can be found in the [Transactions Protocol Guide]({{site.baseurl}}/docs/protocol/transactions). This section focuses on the steps needed to package, sign and submit transactions to the FIO chain.
+
 
 ---
 ## Quick start - Using the SDK
@@ -25,6 +30,12 @@ The SDK allows for different levels of control when packaging and signing transa
 
 The following sections detail these three options in more detail.
 
+## Consideration: Choosing the max_fee
+FIO is a fee-based protocol, so all transactions require a fee. (Refer to [FIO Fees and Bundled Transactions]({{site.baseurl}}/docs/fio-protocol/fio-fees)). 
+
+The max_fee parameter is required.  Note, however, that: 
+- The max_fee put in actions does not impact what is actually paid. The actual fee is always paid as long as the max_fee is greater than the actual fee.
+- So, the integrator may want to put a small buffer on top of any fee returned by get_fee (e.g., 10%).
 
 ### Single function call
 
