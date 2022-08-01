@@ -44,8 +44,9 @@ Your user can expect this experience while on your FIO Dashboard landing page:
 - The user will be required to log-in or create account
 - The user will be required to pick existing FIO Crypto Handle to sign with or register a new one
 - Domains to show will be linked to partner_id
-- Upon picking/registering their FIO Crypto Handle, the user will be redirected to confirm the action with all relevant information pre-populated and not changeable.
-- Upon performing the cation, and if redirect_url has been provided, the user will be redirected and (optionally) encrypted payload (e.g.their NFT) will be attached.
+- Upon picking/registering their FIO Crypto Handle, the user will be redirected to confirm the action with all relevant information pre-populated and not changeable
+- Upon performing the action, and if redirect_url has been provided, the user will be redirected back to the original site
+- The referring site can then query the API using [/get_nfts_hash]({{site.baseurl}}/pages/api/fio-api/#post-/get_nfts_hash) to get the FIO Crypto Handle of the signer
 
 
 ### Example Use Case
