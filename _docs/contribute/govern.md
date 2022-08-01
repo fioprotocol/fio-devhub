@@ -8,9 +8,7 @@ description: Participate in governance
 
 FIO, like EOSIO, uses a delegated proof-of-stake (DPoS) architecture. This is different than proof-of-work chains like BTC and ETH.
 
-In our DPoS chain, there are 21 block producers who essentially control the chain. These block producers are voted upon by FIO Token holders who either proxy their vote to someone who knows what they are doing, or vote directly for a set of Block Producers. Thus, token holders actually do govern the chain through their voting for block producers.
-
-2/3 + 1 of the 21 BPs (so, 15 BPs) can update the chain with anything they want. Usually they just install software developed by the FIO development team, which indirectly comes via the foundation. But the DPoS system is based on trust, and assuming a BP could get 15 of their fellow BPs to join them, really they could do whatever they want.
+In FIOs DPoS chain, there are 21 block producers who control the chain. It requires approval by 2/3 + 1 of the 21 BPs (so, 15 BPs) to update the chain. These block producers are voted upon by FIO Token holders who either proxy their vote or vote directly for a set of Block Producers. Thus, token holders govern the chain through their voting for block producers. 
 
 So, it is important to vote or proxy your vote if you are a FIO Token holder.
 
