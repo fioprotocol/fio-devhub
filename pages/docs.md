@@ -33,23 +33,122 @@ redirect_from:
 
 # Documentation
 
-Welcome to the {{ site.title }} Documentation pages!
-
 ## Table of Contents
 
  <div class="section-index">
-    {% for section in site.data.toc %}
-        <li class="td-sidebar-nav__section-title">
-            <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h4>
-        </li>
+    {% for section in site.data.toc-fio %}
+        {% if section.pagetitle %}
+            <li class="td-sidebar-nav__section-title">
+                <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.pagetitle }}</a></b></h4>
+            </li>
+        {% else %}
+            <div class="entry">
+                <li class="td-sidebar-nav__section-title">
+                    <h6><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h6>
+                </li>
+            </div>
+        {% endif %}
         {% if section.links %}
             {% for entry in section.links %}
-                <div class="entry">
+                <div class="entry2">
                     <li class="td-sidebar-nav__section-title">
-                        <h6><a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a></h6>
+                        <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a>
                     </li>
                 </div>
             {% endfor %}
         {% endif %}
     {% endfor %}
+    <p>
+    {% for section in site.data.toc-int %}
+        {% if section.pagetitle %}
+            <li class="td-sidebar-nav__section-title">
+                <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.pagetitle }}</a></b></h4>
+            </li>
+        {% else %}
+            <div class="entry">
+                <li class="td-sidebar-nav__section-title">
+                    <h6><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h6>
+                </li>
+            </div>
+        {% endif %}
+        {% if section.links %}
+            {% for entry in section.links %}
+                <div class="entry2">
+                    <li class="td-sidebar-nav__section-title">
+                        <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a>
+                    </li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    <p>
+    {% for section in site.data.toc-bp %}
+        {% if section.pagetitle %}
+            <li class="td-sidebar-nav__section-title">
+                <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.pagetitle }}</a></b></h4>
+            </li>
+        {% else %}
+            <div class="entry">
+                <li class="td-sidebar-nav__section-title">
+                    <h6><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h6>
+                </li>
+            </div>
+        {% endif %}
+        {% if section.links %}
+            {% for entry in section.links %}
+                <div class="entry2">
+                    <li class="td-sidebar-nav__section-title">
+                        <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a>
+                    </li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    <p>
+    {% for section in site.data.toc-dev %}
+        {% if section.pagetitle %}
+            <li class="td-sidebar-nav__section-title">
+                <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.pagetitle }}</a></b></h4>
+            </li>
+        {% else %}
+            <div class="entry">
+                <li class="td-sidebar-nav__section-title">
+                    <h6><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h6>
+                </li>
+            </div>
+        {% endif %}
+        {% if section.links %}
+            {% for entry in section.links %}
+                <div class="entry2">
+                    <li class="td-sidebar-nav__section-title">
+                        <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a>
+                    </li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    <p>
+    {% for section in site.data.toc-eu %}
+        {% if section.pagetitle %}
+            <li class="td-sidebar-nav__section-title">
+                <h4><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.pagetitle }}</a></b></h4>
+            </li>
+        {% else %}
+            <div class="entry">
+                <li class="td-sidebar-nav__section-title">
+                    <h6><b><a href="{% if section.url %}{{ site.baseurl }}/{{ section.url }}{% else %}{{ section.external_url }}{% endif %}" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">{{ section.title }}</a></b></h6>
+                </li>
+            </div>
+        {% endif %}
+        {% if section.links %}
+            {% for entry in section.links %}
+                <div class="entry2">
+                    <li class="td-sidebar-nav__section-title">
+                        <a href="{% if entry.url %}{{ site.baseurl }}/{{ entry.url }}{% else %}{{ entry.external_url }}{% endif %}" class="align-left pl-0 pr-2">{{ entry.title }}</a>
+                    </li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
  </div>

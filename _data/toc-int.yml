@@ -1,6 +1,7 @@
 
 
 - pagetitle: Integration Guide
+  url: "docs/integration-guide/"
 - title: Integration Overview
   url: "docs/integration-guide/"
   links:

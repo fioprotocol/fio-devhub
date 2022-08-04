@@ -18545,7 +18545,11 @@ html body .md-typeset .headerlink {
 }
 
 .section-index .entry {
-    padding: .75rem
+    text-indent: 1em
+}
+
+.section-index .entry2 {
+    text-indent: 2em
 }
 
 .section-index h5 {
