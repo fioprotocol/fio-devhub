@@ -58,7 +58,7 @@ redirect_from:
             {% endfor %}
         {% endif %}
     {% endfor %}
-    <p>
+    <br>
     {% for section in site.data.toc-int %}
         {% if section.pagetitle %}
             <li class="td-sidebar-nav__section-title">
@@ -81,7 +81,7 @@ redirect_from:
             {% endfor %}
         {% endif %}
     {% endfor %}
-    <p>
+    <br>
     {% for section in site.data.toc-bp %}
         {% if section.pagetitle %}
             <li class="td-sidebar-nav__section-title">
@@ -104,7 +104,7 @@ redirect_from:
             {% endfor %}
         {% endif %}
     {% endfor %}
-    <p>
+    <br>
     {% for section in site.data.toc-dev %}
         {% if section.pagetitle %}
             <li class="td-sidebar-nav__section-title">
@@ -127,7 +127,7 @@ redirect_from:
             {% endfor %}
         {% endif %}
     {% endfor %}
-    <p>
+    <br>
     {% for section in site.data.toc-eu %}
         {% if section.pagetitle %}
             <li class="td-sidebar-nav__section-title">
