@@ -49,5 +49,4 @@ New user bounties are additional tokens which will be minted and allocated to TP
   * The TPID will receive a total of 20 FIO (4 regular payout, 16 bonus)
 * Once 125,000,000 tokens have been minted for the purpose of the bonus, it will no longer be paid.
 
-
-
+You can find the total New User Bounty tokens minted in [the fio.tpid > bounties table on bloks.io](https://fio.bloks.io/contract?tab=Tables&account=fio.tpid&scope=fio.tpid&limit=100&table=bounties){:rel="nofollow noopener noreferrer" target="_blank"}.
