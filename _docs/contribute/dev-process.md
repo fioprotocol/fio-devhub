@@ -1,10 +1,10 @@
 ---
 layout: page-dev
-title: Overview of the FIO Development Process
-description: Overview of the Process for Contributing to FIO
+title: FIO Community Development Process
+description: FIO Community Development Process
 ---
 
-# Overview of the FIO Community Development Process
+# FIO Community Development Process
 
 ## FIO Team Environment Information and Links
 
@@ -23,6 +23,6 @@ FIO has “core code”, the operating system upon which the smart contracts exe
 
 The FIO Core Tech team uses a wiki to record working documents and other project artifacts. This is a typical project:
 
-- [FIP — on GitHub](https://github.com/fioprotocol/fips/blob/master/fip-0041.md)
-- [Project artifacts and details on wiki](https://fioprotocol.atlassian.net/wiki/spaces/FD/pages/478838846/FIP-41+Enable+token+locking+for+existing+accounts)
+- [FIP — on GitHub](https://github.com/fioprotocol/fips/blob/master/fip-0041.md){:rel="nofollow noopener noreferrer" target="_blank"}
+- [Project artifacts and details on wiki](https://fioprotocol.atlassian.net/wiki/spaces/FD/pages/478838846/FIP-41+Enable+token+locking+for+existing+accounts){:rel="nofollow noopener noreferrer" target="_blank"}
 
