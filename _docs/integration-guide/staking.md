@@ -12,7 +12,7 @@ This guide is intended to help integrators with FIO Staking integration into the
 
 ## How FIO Staking works
 ### High level
-* User has to vote, proxy, or [auto-proxy]({{site.baseurl}}/docs/how-to/governance) their FIO Tokens.
+* User has to vote, proxy, or [auto-proxy]({{site.baseurl}}/docs/integration-guide/token-governance) their FIO Tokens.
 * User decides what amount of their FIO Tokens to stake.
 * User stakes FIO Tokens, which are now locked and not spendable until unstake + 7 days.
 * 25% of all FIO Chain fees collected plus [daily mint](https://github.com/fioprotocol/fips/blob/master/fip-0021.md#staking-rewards-reserves){:target="_blank"} is redirected to a pool to be distributed among all stakers.
@@ -28,10 +28,10 @@ After staking launches on Mainnet (planned for January 2022), staking rewards wi
 Integrators are encouraged to launch staking integration before the activation date to offer the greatest benefit to their users.
 
 ### Integrator incentive
-FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID]({{site.baseurl}}/docs/how-to/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID]({{site.baseurl}}/docs/how-to/tpid). If [TPID]({{site.baseurl}}/docs/how-to/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers.
+FIO Staking offers a new incentive to integrators which lets them earn 11% of the staking reward paid out to their users. When the user unstakes their FIO Tokens, the staking reward is computed and 90% of it is paid out to the user staking. If a [TPID]({{site.baseurl}}/docs/general-functions/tpid) was supplied in the unstake call, the remaining 10% (or 11.11% of what was paid to the user) is credited to that [TPID]({{site.baseurl}}/docs/general-functions/tpid). If [TPID]({{site.baseurl}}/docs/general-functions/tpid) is not supplied, that amount remains in treasury and increases staking reward for all remining stakers.
 
 ## How to implement voting, proxy, or auto-proxy
-The easiest way to achieve this objective is for the integrator (not the User) to [register as a proxy]({{site.baseurl}}/docs/contribute/voting-reg-proxy), [vote for block producers]({{site.baseurl}}/docs/contribute/voting) and insert the FIO Crypto Handle of their proxy into the TPID field of every call made by the user.
+The easiest way to achieve this objective is for the integrator (not the User) to [register as a proxy]({{site.baseurl}}/docs/contribute/govern-reg-proxy), [vote for block producers]({{site.baseurl}}/docs/contribute/govern-voting) and insert the FIO Crypto Handle of their proxy into the TPID field of every call made by the user.
 
 Alternatively, the integrator may choose to let the User vote their tokens directly, but that would require the development of a voting UI inside the wallet or exchange.
 
@@ -49,7 +49,7 @@ When tokens are unstaked, the reward amount is automatically deposited into the 
 
 When tokens are locked they cannot be transferred, or used to pay a FIO Chain fee. However, they can be voted.
 
-Make sure you supply your [TPID]({{site.baseurl}}/docs/how-to/tpid) to receive integrator's incentive.
+Make sure you supply your [TPID]({{site.baseurl}}/docs/general-functions/tpid) to receive integrator's incentive.
 
 ## Understanding user's FIO balance
 ### Getting user's balance
@@ -86,8 +86,10 @@ Please note that when user unstakes tokens multiple times, there may be multiple
 When user has staked tokens, it's possible to compute their currently accrued rewards by using the values returned by [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance) call:
 
 ```
-amount of staking rewards accrued = (srps * roe) - staked
+amount of staking rewards accrued to user = (srps * roe * 0.9) - staked
 ```
+
+{% include alert.html type="info" title="User staking rewards" content="When showing staking rewards to wallet or exchange users, note that 90% of the staking reward goes to the user and the remaining 10% is paid to the TPID (or stays in the staking pool if no TPID is given)" %}
 
 A prorated amount of staking rewards accrued can also be used to compute partial unstaking. For example if user is has 1000 tokens staked and plans to unstake 200 tokens, they will receive 20% (200/1000) of total amount of staking rewards accrued.
 

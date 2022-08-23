@@ -43,3 +43,7 @@ The Typescript SDK uses a singleton model requiring initialization in the constr
 * `fetchjson` - A reference to fetchJson, used for http post/get calls 
 
 Once initialized, the fioSdk object can be used to send transactions to the FIO blockchain. Refer to the [Typescript SDK Github] for more usage details and the [fiosdk_typescript-examples repo](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/fiosdk.prepared-txn.js){:target="_blank"} for examples.
+
+## Typescript SDK Examples Repository
+
+The [fiosdk_typescript-examples repository](https://github.com/fioprotocol/fiosdk_typescript-examples){:rel="nofollow noopener noreferrer" target="_blank"} has a number of code samples that are useful for integration testing. Refer to the [Readme](https://github.com/fioprotocol/fiosdk_typescript-examples/blob/main/README.md){:rel="nofollow noopener noreferrer" target="_blank"} for setup and run instructions.

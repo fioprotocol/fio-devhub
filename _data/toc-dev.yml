@@ -1,6 +1,7 @@
 
 
 - pagetitle: FIO Developers
+  url: "docs/contribute"
 - title: How to Contribute
   url: "docs/contribute"
   links:
@@ -65,5 +66,3 @@
       url: "docs/developers/tools"
     - title: Devnet Testing
       url: "docs/developers/devnet"
-- title: Blog
-  url: blog

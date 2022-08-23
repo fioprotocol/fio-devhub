@@ -32,7 +32,7 @@ A FIO Crypto Handle consists of a username and a domain delimited by an @ symbol
 |Max Chars | 64 (including FIO Domain) | 62 |
 |Characters allowed	|ASCII a-z 0-9 - (dash) with single @ (at sign) |Domains may contain ASCII a-z 0-9 - (dash) |
 
-** *The dash can not be the first or last character of the username or domain* 
+** *The dash can not be the first or last character of the crypto handle or domain* 
 
 #### FIO Crypto Handle validation using regex
 
@@ -42,7 +42,7 @@ Regex validation may be used. For example, the following regex may be used to va
 
 ### Mapping a FIO Crypto Handle to crypto public addresses
 
-See [Mapping Public Addresses](/docs/how-to/mapping) in the Integration Guide.
+See [Mapping Public Addresses](/docs/integration-guide/handle-mapping) in the Integration Guide.
 
 ### FIO Crypto Handles Do Not Expire
 
@@ -82,11 +82,9 @@ If the renewal fee for a FIO Domain is not paid by its expiration date, the foll
 Note: FIO Crypto Handles are referred to as "fio_address" in the calls.
 
 |Days after expiration date |Domain actions disallowed |Address actions disallowed |
-
-|---|---|---|---
+|---|---|---|
 |0 - 30 | setdomainpub <br> xferdomain |regaddress|
 |31 - 90 |setdomainpub <br> xferdomain |regaddress <br> renewaddress <br> addaddress <br> newfundsreq (Payee FIO Crypto Handle only) <br> rejectfndreq (Payer FIO Crypto Handle only) <br> recordobt (Payer FIO Crypto Handle only) <br> regproducer <br> regproxy <br> voteproxy <br> bpclaim |
-
 |On day 90 |Domain is burned and can be re-registered by any user. |All addresses on that domain and associated data are burned. |
 
 It's important to note that anyone can renew a domain as long as they are willing to pay the renewal fee. This ensures that users with FIO Crypto Handles on abandoned domain, can continue to use it. 

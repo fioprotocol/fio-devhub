@@ -1,34 +1,65 @@
 
 
-- pagetitle: Integrator Guide
-- title: "Wallet Integration Guide"
-  url: "docs/integration-guide"
+- pagetitle: Integration Guide
+  url: "docs/integration-guide/"
+- title: Integration Overview
+  url: "docs/integration-guide/"
   links:
+    - title: Overview of Integration
+      url: "docs/integration-guide/"
     - title: Benefits & Bounties
-      url: "docs/integration-guide/wallet-benefits"      
-    - title: Integration Guide
-      url: "docs/integration-guide/guide"
-    - title: Sample UX & Demos
-      url: "docs/integration-guide/sample-ux"
-    - title: FIO Token Support
-      url: "docs/integration-guide/fio-token-support"
-    - title: Integration Checklist
-      url: "docs/integration-guide/guide-certification"
-- title: "Exchange Integration Guide"
-  url: "docs/exchanges"
+      url: "docs/integration-guide/integrator-benefits"
+    - title: Integration through the FIO Dashboard
+      url: "docs/integration-guide/integrate-dashboard"
+- title: Submitting FIO Transactions
+  url: "docs/general-functions/transactions"
   links:
-    - title: Benefits & Incentives
-      url: "docs/exchanges/exchange-benefits"
-    - title: Integration Guide
-      url: "docs/exchanges/exchange-guide"
-    - title: Listing the FIO Token
-      url: "docs/exchanges/token-listing"
-    - title: Deposit using FIO Crypto Handles
-      url: "docs/exchanges/crypto-deposit"
-    - title: Withdraw using FIO Crypto Handles
-      url: "docs/exchanges/crypto-withdraw"
-    - title: Integration Checklist
-      url: "docs/exchanges/guide-certification"
+    - title: FIO Transactions
+      url: "docs/general-functions/transactions"
+    - title: Pre-compute Transaction ID
+      url: "docs/general-functions/txn-id"
+- title: FIO Token
+  url: "docs/integration-guide/token-support"
+  links:
+    - title: FIO Token Support
+      url: "docs/integration-guide/token-support"
+    - title: Account Balances and Txn History
+      url: "docs/general-functions/txn-history"
+- title: FIO Crypto Handles
+  url: "docs/integration-guide/handle-registration"
+  links:
+    - title: Register FIO Crypto Handles
+      url: "docs/integration-guide/handle-registration"
+    - title: Receive to a FIO Crypto Handle
+      url: "docs/integration-guide/handle-receive"
+    - title: Map Public Addresses
+      url: "docs/integration-guide/handle-mapping"
+- title: FIO Send
+  url: "docs/integration-guide/fio-send"
+- title: FIO Request
+  url: "docs/integration-guide/fio-request"
+  links:
+    - title: Supporting FIO Requests
+      url: "docs/integration-guide/fio-request"
+    - title: Attach Memo to FIO Request with FIO Data
+      url: "docs/general-functions/fio-data"
+- title: FIO Custom Domains
+  url: "docs/integration-guide/fio-domain"
+- title: FIO Staking
+  url: "docs/integration-guide/staking"
+- title: FIO NFT Signatures
+  url: "docs/integration-guide/sign-nfts"
+- title: Important General Functions
+  url: "docs/general-functions"
+  links:
+    - title: Encrypt Data
+      url: "docs/general-functions/encryption"
+    - title: Generate Actor from Pub Key
+      url: "docs/general-functions/actor-account"
+    - title: Add permissions with linkauth
+      url: "docs/general-functions/linkauth"
+    - title: Get FIO Names from Table
+      url: "docs/general-functions/fio-names-from-table"
 - title: "API, SDKs and Libraries"
   url: "docs/sdk"
   links:
@@ -42,46 +73,5 @@
       url: "docs/sdk/fio-request-example"
     - title: Example - Review Pending Requests
       url: "docs/sdk/review-pending-fio-requests-example"       
-    - title: Go SDK
-      url: "docs/sdk/go"
-    - title: Kotlin SDK
-      url: "docs/sdk/kotlin"
-    - title: iOS Swift SDK
-      url: "docs/sdk/swift"
-- title: How to Guides
-  url: "docs/how-to"
-  links:
-    - title: Send to a FIO Crypto Handle
-      url: "docs/how-to/fio-send"
-    - title: Register FIO Crypto Handles & Domains
-      url: "docs/how-to/registration"
-    - title: Submit a Transaction
-      url: "docs/how-to/transactions"
-    - title: Map Public Addresses
-      url: "docs/how-to/mapping"
-    - title: Receive to a FIO Crypto Handle
-      url: "docs/how-to/fio-receive"
-    - title: Use FIO Requests
-      url: "docs/how-to/fio-request"
-    - title: Record and Retrieve FIO Data
-      url: "docs/how-to/fio-data"
-    - title: Encrypt Data
-      url: "docs/how-to/encryption"
-    - title: Generate Actor from Pub Key
-      url: "docs/how-to/actor-account"
-    - title: Add permissions with linkauth
-      url: "docs/how-to/linkauth"
-    - title: Get FIO Names from Table
-      url: "docs/how-to/fio-names-from-table"
-    - title: Earn FIO with your TPID
-      url: "docs/how-to/tpid"
-    - title: Get Account Balance and Txn History
-      url: "docs/how-to/txn-history"
-    - title: Pre-compute transaction ID
-      url: "docs/how-to/txn-id"
-    - title: Participate in Governance
-      url: "docs/how-to/governance"
-    - title: Sign NFTs
-      url: "docs/how-to/sign-nfts"
-    - title: FIO Staking Developers Guide
-      url: "docs/how-to/staking"
+    - title: Other SDKs
+      url: "docs/sdk/othersdks"

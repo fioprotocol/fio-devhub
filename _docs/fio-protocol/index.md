@@ -52,11 +52,11 @@ The FIO Protocol currently provides several features, with a robust roadmap of f
 
 #### FIO Request
 
-A [FIO Request]({{site.baseurl}}/docs/how-to/fio-request) is a transaction in which a payee is requesting funds from payer using FIO Crypto Handles. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
+A [FIO Request]({{site.baseurl}}/docs/integration-guide/fio-request) is a transaction in which a payee is requesting funds from payer using FIO Crypto Handles. The payee first encrypts all sensitive metadata (e.g. currency, amount, public address of payee, memo, etc.) using Diffie-Hellman key method , which derives a shared secret from the payee private key and the payer public key and places the transaction on the FIO Chain. The payer polls the FIO Chain, decrypts the metadata inside their wallet and uses the information to pre-populate the send transaction, which is broadcasted to the native blockchain without involving the FIO Protocol.
 
 #### FIO Data
 
-In addition, the payer places a [metadata about the native blockchain transaction]({{site.baseurl}}/docs/how-to/fio-data)  (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
+In addition, the payer places a [metadata about the native blockchain transaction]({{site.baseurl}}/docs/general-functions/fio-data)  (e.g. native blockchain transaction id, refund address, memo, hash of off-chain metadata, etc.) on the FIO Chain. Just like the request, the metadata would be encrypted using Diffie-Hellman key method.
 
 ## Resources
 

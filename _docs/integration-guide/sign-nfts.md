@@ -25,7 +25,8 @@ To sign an NFT, use the [addnft]({{site.baseurl}}/pages/api/fio-api/#options-add
 |metadata|Currently only creator url is supported, e.g. artist’s website, in a JSON format like this: "{\"creator_url\":\"https://yahoo.com/\"}"|
 
 ## How to change NFTs
-To change chain_code, contract_address, or token_id, first remove the NFT, the add it back in. To change any other value, resubmit [addnft]({{site.baseurl}}/pages/api/fio-api/#options-addnft) action with new parameters.
+- To change chain_code, contract_address, or token_id, first remove the NFT, then add it back in. 
+- To change any other value, resubmit [addnft]({{site.baseurl}}/pages/api/fio-api/#options-addnft) action with new parameters.
 
 ## How to remove NFTs
 To remove NFTs association from FIO Crypto Handle use the [remnft]({{site.baseurl}}/pages/api/fio-api/#options-remnft) to remove individual NFTs or [remallnfts]({{site.baseurl}}/pages/api/fio-api/#options-remallnfts) to remove all NFTs.

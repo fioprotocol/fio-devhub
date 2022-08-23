@@ -4,23 +4,23 @@
     text: Get familiar with the FIO protocol, and contribute to the FIO blockchain
     button: EXPLORE THE PLATFORM
     url: docs/fio-protocol
-  - heading: For Wallets
-    text: Get started with integrating FIO protocol into your wallet
-    button: INTEGRATE WALLET
-    url: docs/wallets
-  - heading: For Exchanges
-    text: Get started with integrating FIO protocol into your exchange
-    button: INTEGRATE EXCHANGE
-    url: docs/exchanges
+  - heading: For Integrators
+    text: Get started with integrating FIO protocol into your wallet or exchange
+    button: INTEGRATION GUIDE
+    url: docs/integration-guide
+  - heading: Recipes
+    text: Use our library of code examples to jumpstart your integration
+    button: RECIPES
+    url: docs/integration-guide
+  - heading: For Developers
+    text: Get started contributing to the FIO protocol 
+    button: FIO DEVELOPERS
+    url: docs/integration-guide
   - heading: API References
     text: Consult our documentation for FIO APIs and SDKs
     button: EXPLORE APIs
     url: /pages/api/fio-api/
-  - heading: Recipes
-    text: Use our library of code examples to jumpstart your integration
-    button: RECIPES
-    url: docs/recipes
   - heading: Explore NFTs
     text: Learn about NFTs and using your FIO Signature to sign your NFTs
     button: SIGN YOUR NFTS
-    url: docs/how-to/sign-nfts
+    url: docs/integration-guide/sign-nfts

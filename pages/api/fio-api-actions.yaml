@@ -3601,7 +3601,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/how-to/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3668,7 +3668,7 @@ paths:
                         * memo_return - Stellar
                         * payment_id - Monero
 
-                        See [Mapping Public Addresses](/docs/how-to/mapping)
+                        See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   required:
                     - chain_code
                     - token_code
@@ -3711,7 +3711,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: add_pub_address_model
       tags:
@@ -3847,7 +3847,7 @@ paths:
                 maxItems: 5
                 description: >-
                   Maximum of 5 token codes can be mapped to single FIO Crypto Handle (aka FIO Address)
-                  at any one time. See [Mapping Public Addresses](/docs/how-to/mapping)
+                  at any one time. See [Mapping Public Addresses](/docs/integration-guide/handle-mapping)
                   for details.
                 items:
                   type: object
@@ -3928,7 +3928,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_pub_address_model
       tags:
@@ -4081,7 +4081,7 @@ paths:
             The `data` object which needs to be included in the transaction instance.
 
 
-            Please read [Mapping Public Addresses](/docs/how-to/mapping) to
+            Please read [Mapping Public Addresses](/docs/integration-guide/handle-mapping) to
             better understand how public address mappings work.
       operationId: rem_all_pub_addresses_model
       tags:
@@ -8857,11 +8857,18 @@ paths:
             application/json:
               type: invalid_signature
               message: Request signature not valid or not allowed.
-      summary: Burn expired FIO Crypto Handles and Domains
+      summary: Burn expired Domains
       description: >-
-        This is a maintenance call and is intended to burn FIO Crypto Handles (aka FIO Addresses) and Domains which have passed their
-        expiration date and need to be removed from state. It is envisioned that this call will be made by BPs
-        as good stewards of the blockchain and to free-up state file. This is a signed call, but is free to make.
+        This is a maintenance call and is intended to burn Domains which have passed their
+        expiration date and need to be removed from state. When a domain is burned, all FIO Crypto Handles 
+        and any NFT Signatures attached to those Crypto Handles are also burned.
+        
+        
+        It is envisioned that this call will be made by BPs
+        as good stewards of the blockchain and to free-up state file. 
+        
+        
+        This is a signed call, but is free to make.
 
 
         This section defines the object which needs to be created before it's
@@ -8879,6 +8886,112 @@ paths:
         * name: `burnexpired`
       operationId: burn_expired_model
       parameters: []
+      tags:
+        - Block Producer Actions
+  burnnfts:
+    options:
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              block_num:
+                type: integer
+                description: FIO block number
+                example: 133625562
+              transaction_id:
+                type: string
+                description: FIO transaction ID
+                example: e216eed1a8bd801b1234441c301e5a68c49b6ea3ebce06d0075ec5428eca8901
+              status:
+                type: string
+                description: Status
+                example: OK
+        '400':
+          description: |-
+            Possible triggers:
+            * No work to be performed
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                example: invalid_input
+              message:
+                type: string
+                example: An invalid request was sent in, please check the nested errors for details.
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: nftburnq
+                    value:
+                      type: string
+                      example: "0"
+                    error:
+                      type: string
+                      example: Nothing to burn
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Burn NFT Signatures
+      description: >-
+        This is a maintenance call and is intended to burn FIO NFT Signatures that were removed using the
+        `remallnfts` action. 
+        
+        
+        It is envisioned that this call will be made by BPs
+        as good stewards of the blockchain and to free-up state file. 
+        
+        
+        This is a signed call, but is free to make.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+        ### `actions` parameters
+
+        * account: `fio.address`
+
+        * name: `burnnfts`
+      operationId: burn_nfts_model
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
       tags:
         - Block Producer Actions
   /push_transaction:
@@ -9404,7 +9517,7 @@ paths:
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to /push_transaction.
 
 
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
 
 
         Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
@@ -9449,7 +9562,7 @@ paths:
         All transactions must be [packed and signed](/pages/api/fio-api/#options-packed_transaction) prior to submitting them to a FIO API endpoint.
 
 
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
 
 
         Every action is defined by a [FIO Action data object](/pages/api/fio-api/#tag--Actions) that identifies what will be
@@ -10004,7 +10117,7 @@ paths:
         A transaction instance consists of a transaction header and the list of action instances and transaction
         extensions that make the actual transaction. The transaction header includes information necessary to assess
         the inclusion of the transaction in a block based on its expiration time, which is computed when the transaction is pushed for execution.
-        See [Submitting Transactions](/docs/how-to/transactions) for more details.
+        See [Submitting Transactions](/docs/general-functions/transactions) for more details.
       summary: Transaction schema
       operationId:
       parameters:
@@ -10547,7 +10660,7 @@ definitions:
       Max 296 characters
 
 
-      See [Encrypting FIO Data](/docs/how-to/encryption)
+      See [Encrypting FIO Data](/docs/general-functions/encryption)
       for more information.
     properties:
       payee_public_address:

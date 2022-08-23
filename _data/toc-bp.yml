@@ -1,6 +1,7 @@
 
 
 - pagetitle: Block Producers
+  url: "docs/bp"
 - title: Block Producers
   url: "docs/bp"
   links:
@@ -12,5 +13,7 @@
       url: "docs/bp/fee-setting"
     - title: Claiming Rewards
       url: "docs/bp/claiming-rewards"
-    - title: BP Release Tasks
-      url: "docs/bp/release-checklist"
+    - title: Chain Administration
+      url: "docs/bp/chain-admin"
+    - title: Chain Multisigs
+      url: "docs/bp/msig"

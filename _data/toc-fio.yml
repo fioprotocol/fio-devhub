@@ -1,4 +1,5 @@
 - pagetitle: About FIO Protocol
+  url: "docs/fio-protocol"
 
 - title: FIO Protocol Overview
   url: "docs/fio-protocol/index"
@@ -15,6 +16,10 @@
       url: "docs/fio-protocol/fio-fees"
     - title: Accounts & Permissions
       url: "docs/fio-protocol/accounts-permissions"
+    - title: Earn FIO with your TPID
+      url: "docs/general-functions/tpid"
+    - title: Participate in Governance
+      url: "docs/integration-guide/token-governance"
 - title: About the FIO Chain
   url: "docs/chain"
   links:
@@ -22,6 +27,15 @@
       url: "docs/chain/eosio"
     - title: RAM, CPU, & NET limits
       url: "docs/chain/resources"
+    - title: Protocol Guides
+      url: "docs/protocol"
+      children:
+        - title: Consensus Protocol
+          url: "docs/protocol/consensus"
+        - title: Transaction Protocol
+          url: "docs/protocol/transactions"
+        - title: Network and Peer-to-peer Protocol
+          url: "docs/protocol/network_peer"
     - title: Building a Node
       url: "docs/chain/node-build"
       children:
@@ -54,4 +68,3 @@
       children:
         - title: Top FIO token holders
           url: "docs/chain/analytics-token-holders"
-

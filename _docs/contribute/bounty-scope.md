@@ -15,8 +15,6 @@ This includes:
 * fio -  https://github.com/fioprotocol/fio
 * fio.contracts - https://github.com/fioprotocol/fio.contracts
 * fiosdk_typescript - https://github.com/fioprotocol/fiosdk_typescript
-* fiosdk_ kotlin - https://github.com/fioprotocol/fiosdk_kotlin
-* fiosdk_ios - https://github.com/fioprotocol/fiosdk_ios
 * fio.registrations - https://github.com/fioprotocol/fio-registrations
 * fio.dashboard - https://github.com/fioprotocol/fio-dashboard
 * fio.oracle - https://github.com/fioprotocol/fio.oracle
