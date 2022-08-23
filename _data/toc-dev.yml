@@ -45,6 +45,8 @@
 - title: Blockchain Developers Guide
   url: "docs/developers"
   links:
+    - title: FIO Development Process
+      url: "docs/contribute/dev-process"
     - title: Versioning
       url: "docs/developers/versioning"
     - title: Git Branching & Release
