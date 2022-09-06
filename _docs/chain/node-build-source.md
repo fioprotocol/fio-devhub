@@ -37,7 +37,11 @@ git pull --recurse-submodules
 
 #### Build FIO Binaries
 
-The build script first installs all dependencies and then builds FIO. The script supports these Operating Systems. To run it, first change to the `~/fioprotocol/fio` folder, then launch the script:
+The build script first installs all dependencies and then builds FIO. The script has several options, including '-P' (pinned build), '-i' (install directory), and '-o' (build type, i.e. Release, Debug, etc.). Providing no options will use default options, i.e. a local build directory, $HOME/fio, as the install directory.
+
+{% include alert.html type="danger" title="An operational FIO build requires clang 8" content="FIO chain requires clang v8 as part of the LLVM requirements. When executing the build, specify '-P' for a 'pinned' build to ensure the correct LLVM versions are used." %}
+
+To build, first change to the `~/fioprotocol/fio` folder, then execute the script as follows:
 
 ```shell
 cd ~/fioprotocol/fio/scripts
@@ -46,9 +50,7 @@ cd ~/fioprotocol/fio/scripts
 
 The build process writes temporary content to the `fio/build` folder. After building, the program binaries can be found at `fio/build/programs`.
 
-{% include alert.html type="danger" title="FIO build requires clang 8" content="FIO chain requires clang v8 as part of the LLVM requirements. FIO recommends using a '-P' pinned build to ensure the correct LLVM versions are used." %}
-
-To confirm your clang version, first get the install directory for nodeos (e.g., `/usr/local/bin/nodeos`): 
+To confirm your clang version, go to the build directory or if inspecting an installed binary, the install directory (e.g., `~/fio`, `/usr/local/bin/nodeos`, etc.). To locate a running instance of fio: 
 
 ```shell
 ps -ef | grep nodeos
@@ -57,16 +59,16 @@ ps -ef | grep nodeos
 Next, insert your nodeos dir in the following command:
 
 ```shell
-strings /usr/local/bin/nodeos |grep -i clang |head -10
+strings /usr/local/bin/nodeos | grep -i clang | head -10
 ```
 
 #### Install FIO Binaries
 
-For ease of contract development, content can be installed at the `~/fio` folder using the fio_install.sh script within the `fio/scripts` folder. Adequate permission is required to install on system folders:
+For ease of contract development, FIO will be installed in the `~/fio` folder using the fio_install.sh script within the `fio/scripts` folder. Adequate permission is required to install in system folders, e.g., `/usr/local/bin/nodeos`.
+
+{% include alert.html type="info" title="FIO Installation Recommended" content="After building FIO successfully, it is recommended to install the FIO binaries to a system location, i.e. /usr/local/bin. Note that running the install script will install FIO at the location designated during build with the '-i' option. Again the default location is '~/fio/x.y/bin' where x.y is the FIO release version" %}
 
 ```shell
 cd ~/fioprotocol/fio/scripts
 ./fio_install.sh
 ```
-
-{% include alert.html type="info" title="FIO Installation Recommended" content="After building FIO successfully, it is highly recommended to install the FIO binaries from their default build directory. This copies the FIO binaries to a central location, such as ~/fio/x.y/bin, where x.y is the FIO release version" %}

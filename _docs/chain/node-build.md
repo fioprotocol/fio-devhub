@@ -9,7 +9,7 @@ There are a number of paths to set up a FIO Node. This section walks through sev
 
 This section contains the following content:
 
-|Content  |Summary |
+|Content|Summary|
 |---|---|
 | [Building from source]({{site.baseurl}}/docs/chain/node-build-source) | Describes how to compile and build a node from source. Building from source is only recommended for Producers and other advanced developers. |
 | [Docker installation]({{site.baseurl}}/docs/chain/node-build-docker) | This is the fastest method for installing a FIO API node. It leverages Docker to install FIO .deb files. |
@@ -18,4 +18,6 @@ This section contains the following content:
 | [V1 History configuration]({{site.baseurl}}/docs/chain/node-build-history) |Configuration information if the light-history (v1 history) feature is needed. |
 | [nodeos Replay]({{site.baseurl}}/docs/chain/node-build-replay) |Instructions on speeding up node setup by replaying from a snapshot, blocks.log, or V1 History archive. |
 | [Validating your node]({{site.baseurl}}/docs/chain/node-build-validate) |Information on validating your node once you have it up and running. |
+| [Summary Script]({{site.baseurl}}/docs/chain/node-build-script) |Script to perform a manual installation of the FIO blockchain with optional snapshot/history startup. |
+| [Install Cleanup]({{site.baseurl}}/docs/chain/node-build-cleanup) | Instructions on how to remove a FIO installation and cleanup your node of FIO install artifacts. |
 

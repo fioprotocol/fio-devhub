@@ -6,21 +6,23 @@ description: fio-wallet (keosd)
 
 # fio-wallet (keosd)
 
-The EOSIO `keosd` wallet was renamed to `fio-wallet` to make it easier for Block Producers to run both EOSIO and FIO commands in the same environment.
+`fio-wallet` is a key manager for storing private keys and signing digital messages. It provides a secure key storage medium for keys to be encrypted at rest in the associated wallet file. `fio-wallet` also defines a secure enclave for signing transaction created by cleos or a third part library.
 
-`fio-wallet` is a key manager service daemon for storing private keys and signing digital messages. It provides a secure key storage medium for keys to be encrypted at rest in the associated wallet file. `fio-wallet` also defines a secure enclave for signing transaction created by cleos or a third part library.
+{% include alert.html type="info" title="keosd/fio-wallet" content="The EOSIO `keosd` wallet was renamed to `fio-wallet` to make it easier for Block Producers to run both EOSIO and FIO commands in the same environment." %}
 
 When a wallet is unlocked with the corresponding password, clio can request `fio-wallet` to sign a transaction with the appropriate private keys.
 
-{% include alert.html type="info" title="fio-wallet users"  content="fio-wallet is intended to be used by developers only." %}
+{% include alert.html type="info" title="fio-wallet users" content="fio-wallet is intended to be used only by developers and possibly operators. This is for several reasons including security, scalability, and efficiency." %}
 
 ## Starting fio-wallet
 
-For most users, the easiest way to use `fio-wallet` is to have clio launch it automatically. Wallet files will be created in the default directory (~/fio-wallet).
+Fio-wallet is installed as a service daemon, when installing a FIO Release package. If installed this way, it will be located in /usr/local/bin and, if started as a service via systemctl, will use the configuration files located in /var/lib/fio/fio-wallet. See [Enabling fio-wallet]({{site.baseurl}}/docs/chain/node-build-wallet).
 
-{% include alert.html type="info" title="fio-wallet config file"  content="When clio starts fio-wallet automatically it does not use the fio-wallet config.ini file located in ~/fio-wallet. Running fio-wallet manually will use the settings in ~/fio-wallet." %}
+For most users, the easiest way to run and use `fio-wallet` is to have clio launch it. Wallet files will be created in the default directory (~/fio-wallet).
 
-`fio-wallet` can be launched manually from the terminal by running:
+{% include alert.html type="info" title="fio-wallet config file" content="When clio starts fio-wallet, it will write out a config.ini in ~/fio-wallet if one does not exist, however, it does not use this config.ini, using default parameters instead, i.e. --unix-socket-path fio-wallet.sock. Running fio-wallet manually will use the settings in ~/fio-wallet/config.ini." %}
+
+`fio-wallet` may also be launched manually from the terminal by running:
 
 ```
 fio-wallet
@@ -38,7 +40,7 @@ The location of the wallet data folder can be specified on the command line with
 
 **IP and port**
 
-By default `fio-wallet` starts on port `8900`. Update the `config.ini` file to change the local IP and port:
+By default `fio-wallet` will listen on a unix socket, i.e. fio-wallet.sock. To configure `fio-wallet` to listen on a http port either specify the command-line parameter, `--http-server-address` on startup or update the `config.ini` file as follows to point to a local IP and port. HTTPS addresses are set via the `https-server-address` attribute.
 
 ```
 # The local IP and port to listen for incoming http connections; leave blank to disable. (eosio::http_plugin)
@@ -47,7 +49,7 @@ http-server-address = localhost:8900
 
 **Other options**
 
-For a list of all commands known to `fio-wallet`, simply run it with no arguments:
+For a list of all commands known to `fio-wallet`, simply run it as follows:
 
 ```
 fio-wallet --help
@@ -59,9 +61,9 @@ The most effective way to stop `fio-wallet` is to find the `fio-wallet` process 
 
 ## Handling large numbers of FIO keys in fio wallet
 
-If you are using the default settings for fio-wallet, you may encounter errors when attempting to sign a transaction with wallets containing larger numbers of keys (30,000+ keys). The failure is caused because requests to the `nodeos` API are exceeding the maximum payload size allowed for incoming requests.
+If you are using the default settings for fio-wallet, you may encounter errors when attempting to sign a transaction with wallets containing a large numbers of keys (30,000+ keys). The failure is caused because requests to the `nodeos` API exceed the maximum payload size allowed for incoming requests.
 
-To prevent this failure, add the following to `/etc/fio/nodeos/config.ini` when using a large number of keys in the wallet:
+To prevent this failure, add the following to the fio-wallet configuration, either on the command line on startup, in `~/fio-wallet/config.ini` or in `/var/lib/fio-wallet/config.ini` depending on your use case:
 
 ```
 max-body-size=10485760
@@ -70,7 +72,21 @@ http-max-bytes-in-flight-mb=5000
 
 ## FIO Wallet API Commands
 
-The following commands assume you have 
+When running `fio-wallet` in its default configuration, using a unix socket, interact with it using the format, `unix://` along with the path to the wallet socket.
+
+Using a full path, i.e. '/home/ubuntu/fio-wallet/fio-wallet.sock'. Note the leading '/'.
+
+```
+clio --wallet-url unix:///home/ubuntu/fio-wallet/fio-wallet.sock wallet list
+```
+
+Using a relative path, i.e. '../fio-wallet/fio-wallet.sock'
+```
+clio --wallet-url unix://../fio-wallet/fio-wallet.sock wallet list
+```
+Note that providing no arguments to wallet, i.e. 'list' in the case above, will display all possible wallet sub-commands.
+
+The following commands are used when `fio-wallet` is running and listening on port 8900 (http-server-address = 127.0.0.1:8900).
 
 ##### Create new wallet
 
