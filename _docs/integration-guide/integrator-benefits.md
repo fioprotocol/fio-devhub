@@ -2,6 +2,9 @@
 layout: page-int
 title: Benefits & Bounties for Wallets
 description: Benefits & Bounties for Wallets
+redirect_from:
+    - /docs/integration-guide/tpid
+    - /docs/general-functions/tpid
 ---
 
 # Benefits & Bounties 
@@ -35,29 +38,61 @@ The sky’s the limit. Exchanges that complete integration and an ability to dep
 |250,000|$250,000|
 |1,000,000|$1,000,000|
 
-### User Bounties
-
-Wallets that complete integration of FIO Crypto Handle registration and include the ability to send and receive with FIO Crypto Handles currently earn FIO Tokens roughly equal to $1 for each user that registers a FIO Crypto Handle. And for grant qualified wallets, the Foundation for Interwallet Operability will sponsor a certain number of free FIO Crypto Handles for your wallet's users. You still earn the TPID fee even on those FIO Crypto Handles paid for by the Foundation.
-
-In addition, if your wallet enables FIO Domain registration, you currently would obtain roughly $20 in FIO Tokens directly from the blockchain for user registrations for custom FIO Domains.
-
 ### Technology Provider ID (TPID) Fees
 
-10% of all FIO token fees from FIO Crypto Handles and Domains registered inside of a wallet or exchange are credited to the wallet or exchange through their TPID.
+To increase the adoption of the FIO Protocol among existing blockchain ecosystem participants, every interaction with the FIO blockchain can be tagged with a **Technology Provider ID (TPID)**, which is a valid FIO Crypto Handle (aka FIO Address). The TPID FIO Crypto Handle receives 10% of all [fees]({{site.baseurl}}/docs/fio-protocol/fio-fees) collected from all transactions with that mapped TPID.
+
+In the example below, the owner of rewards@wallet will receive a portion of the fees payed by the user to register purse@alice.
+
+```
+{
+  "fio_address": "purse@alice",
+  "owner_fio_public_key": "FIO8PRe4WRZJj5mkem6qVGKyvNFgPsNnjNN6kPhh6EaCpzCVin5Jj",
+  "max_fee": 30000000000,
+  "tpid": "rewards@wallet",
+  "actor": "aftyershcu22"
+}
+```
+
+*TPIDs are not paid when a transaction is processed as a bundled transaction and no fee was charged.*
+
+#### Payouts to TPIDs
+
+TPIDs *virtual* accounts get incremented every time a qualifying fee is paid. An integrator TPID which has accrued 100 FIO or more can call the [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint to claim their rewards. When called, the entire balance from the virtual account is transferred to the TPID FIO Crypto Handle.
+
+The [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) endpoint processes payments across all TPIDs each time it is called. If a TPID has accrued 100 FIO or more in rewards, the reward will be paid out. It is expected that Block Producers will call [/pay_tpid_rewards]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) on a regular basis, although any member of the community can call the endpoint and initate the payout. The call is free and only modifies the blockchain if there are transactions that need processing. This call will only trigger an action if it is made at least 60 seconds after the previous time it was called.
+
+If a TPID virtual account does not reference a valid FIO Crypto Handle (e.g. the Address has expired and was burned since the fees were accrued) the payout will transfer to the current day's BP rewards bucket.
+
+TPIDs can check reward accrual by examining [the fio.tpid > tpids table on bloks.io](https://fio.bloks.io/contract?tab=Tables&account=fio.tpid&scope=fio.tpid&limit=100&table=tpids){:rel="nofollow noopener noreferrer" target="_blank"}.
+
+### New User Bounties
+
+New user bounties are additional tokens which will be minted and allocated to TPIDs to further incentivize the adoption of the FIO Protocol. The limit for user bounties is set at 125,000,000 FIO tokens and is distributed as follows:
+
+* If a transaction is collecting a fee and TPID is present in that transaction, that TPID will receive a bonus payout equal to 40% of the transaction being collected.
+* Example:
+  * Transaction is collecting 40 FIO fee and it gets distributed as follows:
+     * 2 FIO (5% of collected fee) to Foundation
+     * 4 FIO (10% of collected fee) to TPID
+     * 24 FIO (60% of collected fee) to BP Pool
+     * 10 FIO (25% of collected fee) to the Staking Reward Pool
+  * New user bounty tokens are minted (if available)
+     * 16 FIO (40% of collected fee) to TPID
+  * The TPID will receive a total of 20 FIO (4 regular payout + 16 new user bounty)
+* Once 125,000,000 tokens have been minted for the purpose of the new user bounty, it will no longer be paid.
+
+You can find the total New User Bounty tokens minted in [the fio.tpid > bounties table on bloks.io](https://fio.bloks.io/contract?tab=Tables&account=fio.tpid&scope=fio.tpid&limit=100&table=bounties){:rel="nofollow noopener noreferrer" target="_blank"}.
 
 ### FIO Staking integration reward
 
 FIO Staking offers a new incentive to wallets which lets them earn 11% of the staking reward paid out to their users. Check out [FIO Staking Developer Guide]({{site.baseurl}}/docs/integration-guide/staking) for more details.
-
-
 
 ### Integration Airdrop 
 
 Select wallets that are known to have large numbers of users may be eligible for an additional airdrop of FIO Tokens upon completion of a full FIO integration. 
 
 To apply for an Integration Grant and obtain more information [use this brief form](https://docs.google.com/forms/d/e/1FAIpQLScU4efavwLErmJyRb1T_w9CGGLEqip2kVp1JSH-pfV7WDF--A/viewform?usp=sf_link){:rel="nofollow noopener noreferrer" target="_blank"}. 
-
-
 
 ---
 ## User Benefits and New User Growth Through FIO Marketing Programs

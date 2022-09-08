@@ -16,8 +16,6 @@
       url: "docs/fio-protocol/fio-fees"
     - title: Accounts & Permissions
       url: "docs/fio-protocol/accounts-permissions"
-    - title: Earn FIO with your TPID
-      url: "docs/general-functions/tpid"
     - title: Participate in Governance
       url: "docs/integration-guide/token-governance"
 - title: About the FIO Chain
