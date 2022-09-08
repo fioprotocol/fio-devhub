@@ -43,10 +43,11 @@ New user bounties are additional tokens which will be minted and allocated to TP
   * Transaction is collecting 40 FIO fee and it gets distributed as follows:
      * 2 FIO (5% of collected fee) to Foundation
      * 4 FIO (10% of collected fee) to TPID
-     * 34 FIO (85% of collected fee) to BP Pool
-  * New tokens are minted
-     * FIO (40% of collected fee) to TPID
-  * The TPID will receive a total of 20 FIO (4 regular payout, 16 bonus)
-* Once 125,000,000 tokens have been minted for the purpose of the bonus, it will no longer be paid.
+     * 24 FIO (60% of collected fee) to BP Pool
+     * 10 FIO (25% of collected fee) to the Staking Reward Pool
+  * New user bounty tokens are minted (if available)
+     * 16 FIO (40% of collected fee) to TPID
+  * The TPID will receive a total of 20 FIO (4 regular payout + 16 new user bounty)
+* Once 125,000,000 tokens have been minted for the purpose of the new user bounty, it will no longer be paid.
 
 You can find the total New User Bounty tokens minted in [the fio.tpid > bounties table on bloks.io](https://fio.bloks.io/contract?tab=Tables&account=fio.tpid&scope=fio.tpid&limit=100&table=bounties){:rel="nofollow noopener noreferrer" target="_blank"}.
