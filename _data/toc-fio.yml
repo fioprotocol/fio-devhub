@@ -47,10 +47,14 @@
           url: "docs/chain/node-build-wallet"
         - title: V1 History configuration
           url: "docs/chain/node-build-history"
-        - title: nodeos Replays
+        - title: Nodeos Replay
           url: "docs/chain/node-build-replay"
         - title: Validating your node
           url: "docs/chain/node-build-validate"
+        - title: Summary Script
+          url: "docs/chain/node-build-script"
+        - title: Installation removal
+          url: "docs/chain/node-build-cleanup"
     - title: History API
       url: "docs/chain/node-history"
     - title: Testnet
