@@ -7893,7 +7893,7 @@ paths:
             properties:
               fio_address:
                 type: string
-                title: FIO Crypto Handle (aka FIO Address)
+                title: The producer's FIO Crypto Handle (aka FIO Address)
                 minLength: 3
                 maxLength: 64
                 pattern: >-
@@ -7902,11 +7902,11 @@ paths:
               fio_pub_key:
                 type: string
                 title: FIO Public Key
-                description: Valid WIF Public Key with FIO Prefix
+                description: The producer's public key that is used for signing (this key may be different from the key associated with `actor`)
                 example: FIO7tHihSLJVRQ2HsiVGTXAh3RgfXQvVVPpMm8pwQtiTHQHPnY5dH
               url:
                 type: string
-                description: Url of block producer website
+                description: URL of block producer's website
                 example: 'https://bobp.io/'
               location:
                 type: integer
