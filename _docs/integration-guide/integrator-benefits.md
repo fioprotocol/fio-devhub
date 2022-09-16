@@ -68,7 +68,7 @@ TPIDs can check reward accrual by examining [the fio.tpid > tpids table on bloks
 
 ### New User Bounties
 
-New user bounties are additional tokens which will be minted and allocated to TPIDs to further incentivize the adoption of the FIO Protocol. The limit for user bounties is set at 125,000,000 FIO tokens and is distributed as follows:
+New user bounties are additional tokens which will be minted and allocated to TPIDs to further incentivize the adoption of the FIO Protocol. New user bounties are paid to the entity facilitating new FIO Crypto Handles or FIO Domain registrations. The limit for user bounties is set at 125,000,000 FIO tokens and is distributed as follows:
 
 * If a transaction is collecting a fee and TPID is present in that transaction, that TPID will receive a bonus payout equal to 40% of the transaction being collected.
 * Example:

@@ -60,6 +60,8 @@
       url: "docs/general-functions/linkauth"
     - title: Get FIO Names from Table
       url: "docs/general-functions/fio-names-from-table"
+    - title: Get Transaction Fee
+      url: "docs/general-functions/get-fee"      
 - title: "API, SDKs and Libraries"
   url: "docs/sdk"
   links:
