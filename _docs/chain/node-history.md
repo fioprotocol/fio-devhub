@@ -10,7 +10,7 @@ Refer to [Building a node]({{site.baseurl}}/docs/chain/node-build) for informati
 
 ## History API
 
-##### Get transaction
+### Get transaction
 ```
 curl -s -XPOST https://fiotestnet.blockpane.com/v1/history/get_transaction -d '{
   "id": "7a467640c8db74e578da6f4a8ea03343aa7a73e770665564292eef548fda8b87"
