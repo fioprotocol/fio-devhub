@@ -8021,7 +8021,8 @@ paths:
       summary: Unregister as block producer
       operationId: unregister_producer_model
       description: >-
-        This call unregisters an entity as a block producer.
+        This call unregisters an entity as a block producer. The call sets `is_active:0` in the producers table and
+        sets the `fio_pub_key` used for signing to a default key.
 
 
         This section defines the object which needs to be created before it's
