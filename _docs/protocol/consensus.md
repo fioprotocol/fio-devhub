@@ -43,8 +43,9 @@ The actual selection of the active producers (the producer schedule) is open for
 ### 3.3. The Consensus Process
 The consensus process consists of two parts:
 
-Producer voting/scheduling - performed by the the DPoS layer 2
-Block production/validation - performed by the native consensus layer 1
+- Producer voting/scheduling - performed by the the DPoS layer 2
+- Block production/validation - performed by the native consensus layer 1
+
 These two processes are independent and can be executed in parallel, except for the very first schedule round after the boot sequence when the blockchain’s first genesis block is created.
 
 ## 4. Producer Voting/Scheduling
@@ -154,3 +155,11 @@ Block finality is the final outcome of consensus. It is achieved after a superma
 
 #### 5.4.1. Goal of Finality
 The main point of finality is to give users confidence that transactions that were applied prior and up to the LIB block cannot be modified, rolled back, or dropped. The LIB block can also be useful for active nodes to determine quickly and efficiently which branch to build off from, regardless of which is the longest one. This is because a given branch might be longer without containing the most recent LIB, in which case a shorter branch with the most recent LIB must be selected.
+
+#### 5.4.2 Finality Timing
+
+In general, a transaction will reach finality [180 seconds after it is included in a block](https://eosio.stackexchange.com/questions/445/how-long-on-average-before-a-transaction-included-in-a-block-is-final-and-irreve). This is assuming nominal network conditions with 21 producers. Each block must be "pre-committed" to by 2/3 + 1 producers in order to be eligible for "commitment" which also requires 2/3 + 1 producers. In a nominal 21 producer network (where each producer creates 12 consecutive 0.5 second blocks), this works out to 180 blocks for minimal "pre-commitment" and another 180 blocks for actual "commitment" before finality. 
+
+2 * 180 * 0.5 seconds = 180 seconds
+
+The likelihood of a transaction reaching finality goes up considerably after the pre-commit phase but if you need chain level guaranteed finality, that is 180 seconds.
