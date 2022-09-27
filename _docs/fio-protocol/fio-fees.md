@@ -117,7 +117,8 @@ See [https://www.alohaeos.com/tools/fiofees​](https://www.alohaeos.com/tools/f
 
 |Share |Recipient|
 |---|---|
-|85% |Block Producers |
+|60% |Block Producers |
+|25% |Staking reward pool |
 |10% |Entity facilitating transaction (TPID) or, if not provided, block producers |
 |5% |Foundation |
 
