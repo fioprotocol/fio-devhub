@@ -37,6 +37,60 @@ If you are using codes which are not yet part of the standard, please submit a p
 
 [See example of a Testnet FIO Crypto Handle which has many NBPAs mapped](https://fio-test.bloks.io/address/map1@mappedaddresses){:rel="nofollow noopener noreferrer" target="_blank"}.
 
+### Chain-level Public Addresses
+
+ By specifying `*` for the `token_code` you can map all tokens for that chain to the same address. For example, you may want to map all of your ETH tokens to the same public address:
+
+ ```
+{
+  "fio_address": "purse@alice",
+  "public_addresses": [
+    {
+      "chain_code": "BTC",
+      "token_code": "BTC",
+      "public_address": "1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs"
+    },
+    {
+      "chain_code": "ETH",
+      "token_code": "*",
+      "public_address": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+    }
+  ],
+  "max_fee": 0,
+  "tpid": "rewards@wallet",
+  "actor": "aftyershcu22"
+}
+ ```
+
+ In this case, a user doing a [/get_pub_address]({{site.baseurl}}/pages/api/fio-api/#post-/get_pub_address) lookup for the ETH USDC (or any ETH token) address for `purse@alice` would get the `0xab5801a7d398351b8be11c439e05c5b3259aec9b` public address returned.
+
+ It is also possible to map both a `*` and a specific `token_code` to a single `chain_code`. For example: 
+
+  ```
+{
+  "fio_address": "purse@alice",
+  "public_addresses": [
+    {
+      "chain_code": "ETH",
+      "token_code": "USDC",
+      "public_address": "0xa635801a7d398351b8bb945439e05c5b3259b4d2"
+    },
+    {
+      "chain_code": "ETH",
+      "token_code": "*",
+      "public_address": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+    }
+  ],
+  "max_fee": 0,
+  "tpid": "rewards@wallet",
+  "actor": "aftyershcu22"
+}
+ ```
+
+ In this case, a user doing a `/get_pub_address` lookup for ETH USDC would get the first `public_address` returned. For any other ETH token, the second address would be returned.
+ 
+ See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a more detailed description of chain-level public address functionality.
+
 ### Multi-level Addressing
 
 Certain blockchains, or accounts on those blockchains, require the use of Multi-level Addressing, when, in addition to public address, additional piece of information is required to properly route a transaction.
