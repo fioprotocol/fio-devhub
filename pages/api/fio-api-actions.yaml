@@ -638,7 +638,9 @@ paths:
         Returns a public address for specified token code and FIO Crypto Handle (aka FIO Address).
 
 
-        `get_pub_address` accepts chain-level public addresses ('*' as a token_code).
+        `get_pub_address` accepts chain-level public addresses ('*' as a token_code). 
+        If token code specified in the request is not found for that blockchain, it will then check for a * token code 
+        and, if found, return the corresponding public address.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
       parameters:
@@ -3562,7 +3564,8 @@ paths:
         mapped to a FIO Crypto Handle.
 
 
-        The contract action addaddress was modified to accept chain-level public addresses.
+        The contract action addaddress was modified to accept chain-level public addresses. By
+        specifying "*" for the token code you can map all tokens for that chain to the same address.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
 
@@ -3808,7 +3811,9 @@ paths:
         See [FIP-4](https://github.com/fioprotocol/fips/blob/master/fip-0004.md) for comprehensive description of this functionality.
 
 
-        The contract action remaddress was modified to accept chain-level public addresses.
+        The contract action remaddress was modified to accept chain-level public addresses. 
+        When * is specified as token_code only that entry is removed. For example if the FIO Handle is mapped 
+        to ETH-USDC and ETH-* and the user removes ETH-* as a mapping, ETH-USDC is retained.
         See [FIP-18](https://github.com/fioprotocol/fips/blob/master/fip-0018.md) for a description of 
         chain-level public address functionality.
 
