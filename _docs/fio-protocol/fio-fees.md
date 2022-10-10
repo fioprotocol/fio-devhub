@@ -132,6 +132,11 @@ Block producer shares are distributed as follows:
 
 Although most fees are distributed within the same day, the block producer share of FIO Domain and **FIO Crypto Handle registration/renewal fees are paid out over 365 days** to properly incentivize block producers which will be processing bundled transactions over the full validity period.
 
+#### New User Bounties 
+
+New user bounties are paid to the entity facilitating new FIO Crypto Handles or FIO Domain registration. This bounty is paid automatically and in addition to normal fee distribution and is available to any entity that integrates the FIO Protocol and creates new user engagement. 
+The new user bounties are currently set to 40% of the new registration fee collected by the facilitating entity (meaning total payout will be 10% standard + 40% bounty = 50%) and will be paid until New User Bounty pool is exhausted.
+
 #### Example
 
 ![Image]({{ site.baseurl }}/assets/img/tpid.png)
