@@ -10,7 +10,7 @@ There are several methods for tracking fees paid for various transactions.
 
 ## Processesing transactions from FIO History v1 Node
 
-The [Processing Transactions](https://github.com/fioprotocol/fiosdk_typescript/tree/master/examples/FioTransactionHistory#process-transactions){:target="_blank"} github page presents an example of how to get the fees paid from a FIO History v1 Node:
+The [Processing Transactions](https://github.com/fioprotocol/fiosdk_typescript/tree/master/examples/FioTransactionHistory#process-transactions){:target="_blank"} github page presents an example of how to get the fees paid from a FIO History v1 Node:.
 
 ## Retrieving Fee from Transaction Digest
 
