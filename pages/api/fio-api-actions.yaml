@@ -10134,7 +10134,7 @@ paths:
             properties:
               expiration:
                 type: time_point_sec
-                description: The time the transaction must be confirmed by before it expires
+                description: The time the transaction must be confirmed by before it expires. The max this can be set at is 3600 seconds. The SDK default for this value is (FIO Chain head block time + 180 seconds).
               ref_block_num:
                 type: uint16_t
                 description: Lower 16 bits of a block number
