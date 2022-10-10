@@ -7218,6 +7218,137 @@ paths:
       operationId: add_nft_model
       tags:
         - Actions
+  retire:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as fee
+                type: integer
+          examples:
+            application/json:
+              status: OK
+              fee_collected: 0
+        '400':
+          description: |-
+            Possible error messages:
+            * "Minimum 1000 FIO has to be retired"
+            * "Insufficient balance"
+            * "Account staking cannot retire"
+            * "Account with partially locked balance cannot retire"  
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: amount
+                  value: '999000000000'
+                  error: Minimum 1000 FIO has to be retired
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Retire FIO Tokens
+      description: >-
+        This call allows the user to burn their FIO tokens.
+
+
+        This call does not require a fee.
+
+
+        See [FIP-22](https://github.com/fioprotocol/fips/blob/master/fip-0022.md) for a description of 
+        retire functionality.
+
+
+        This section defines the object which needs to be created before it's
+        packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in
+        `processed->action_traces->receipt->response` string.
+
+
+        ### `actions` parameters
+
+        * account: `fio.token`
+
+        * name: `retire`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              quantity:
+                type: integer
+                title: Quantity
+                description: Amount of SUFs to retire
+                example: 2000000000000
+              memo:
+                type: string
+                title: FIO Crypto Handle (aka FIO Address)
+                description: Memo text describing reason for burn
+                example: burn baby burn
+              actor:
+                type: string
+                title: Actor
+                description: Valid actor of signer. See [Generating actor](/docs/recipes/actor-account).
+                example: aftyershcu22                
+            required:
+              - quantity
+              - memo
+              - actor
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: retire
+      tags:
+        - Actions
   voteproducer:
     options:
       responses:
@@ -10134,7 +10265,7 @@ paths:
             properties:
               expiration:
                 type: time_point_sec
-                description: The time the transaction must be confirmed by before it expires
+                description: The time the transaction must be confirmed by before it expires. The max this can be set at is 3600 seconds. The SDK default for this value is (FIO Chain head block time + 180 seconds).
               ref_block_num:
                 type: uint16_t
                 description: Lower 16 bits of a block number
