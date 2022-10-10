@@ -11,6 +11,19 @@ There are many options available for wallets, exchanges, and information provide
 These methods mostly assume the integrator will be self-hosting their own FIO node. However, some of the options mentioned here can work with [publicly available v1 history nodes and Hyperion](https://github.com/fioprotocol/fio.mainnet#api-endpoints){:target="_blank"}.
 
 ---
+## Tracking transactions
+
+[trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) is the main [transaction that should be tracked]({{site.baseurl}}/docs/general-functions/transactions) for integrators wanting to show transactions that impact a user's balance.
+
+In addition to tracking FIO token transfers, integrators may also want to [track the fees paid]({{site.baseurl}}/docs/general-functions/get-fee) for contract actions. Refer to the [FIO Fees and Bundled Transactions]({{site.baseurl}}/docs/fio-protocol/fio-fees) page for the list of different fee types.
+
+There are also several contract actions that impact a user's FIO balance:
+
+* [trnsloctoks]({{site.baseurl}}/pages/api/fio-api/#options-trnsloctoks) - Tokens that are locked are not available to the user to be transferred. Refer to [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md){:target="_blank"} for more information.
+* [stakefio]({{site.baseurl}}/pages/api/fio-api/#options-stakefio) and [unstakefio]({{site.baseurl}}/pages/api/fio-api/#options-unstakefio) - When FIO token's are staked they are no longer available to transfer. Refer to the [FIO Staking Developer Guide]({{site.baseurl}}/docs/integration-guide/staking) for more information.
+* [retire]({{site.baseurl}}/pages/api/fio-api/#options-retire) - While this activity is rare, it is possible for accounts to burn some or all of their FIO tokens. Refer to [FIP-22](https://github.com/fioprotocol/fips/blob/master/fip-0022.md){:target="_blank"} for more information.
+
+---
 ## UX/UI Considerations
 
 * Completed FIO Requests and FIO Send should show up on the respective cryptocurrency’s transaction page.

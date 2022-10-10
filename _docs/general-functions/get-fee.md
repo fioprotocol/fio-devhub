@@ -4,7 +4,15 @@ title: Get transaction fee
 description: Get transaction fee
 ---
 
-# Retrieving Fee from Transaction Digest
+# Get transaction fee
+
+There are several methods for tracking fees paid for various transactions.
+
+## Processesing transactions from FIO History v1 Node
+
+The [Processing Transactions](https://github.com/fioprotocol/fiosdk_typescript/tree/master/examples/FioTransactionHistory#process-transactions){:target="_blank"} github page presents an example of how to get the fees paid from a FIO History v1 Node:
+
+## Retrieving Fee from Transaction Digest
 
 The actual FIO fees paid for transactions (versus the [max_fee]({{site.baseurl}}/docs/general-functions/transactions#consideration-choosing-the-max_fee)) can be found in the [get_transaction]({{site.baseurl}}/docs/chain/node-history#get-transaction) digest. Within the transaction digest there will be multiple traces. 
 
