@@ -31,6 +31,8 @@ Every new account will have initial RAM allocated to 25600 bytes (25K). Every ti
 |Map NFT Signature to a FIO Crypto Handle|addnft |2048|
 |Stake FIO Tokens |stakefio |512|
 |Unstake FIO Tokens |unstakefio |512|
+|Wrap FIO Tokens |wraptokens |512|
+|Wrap FIO Domain |wrapdomain |512|
 |List domain on marketplace |listdomain |1536|
 |Vote on block producers |voteproducer |1024|
 |Proxy votes to registered proxy |voteproxy |512|
