@@ -49,6 +49,8 @@
   url: "docs/integration-guide/staking"
 - title: FIO NFT Signatures
   url: "docs/integration-guide/sign-nfts"
+- title: FIO Wrapping
+  url: "docs/integration-guide/wrapping"
 - title: Important General Functions
   url: "docs/general-functions"
   links:
