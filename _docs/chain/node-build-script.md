@@ -19,7 +19,8 @@ function pause(){
 echo
 echo FIO Package Install...
 echo
-echo "Before proceeding it is recommended to clean up any previous installs"
+echo "Before proceeding it is recommended to clean up any previous installs. Go to"
+echo "[Installation Removal]({{site.baseurl}}/docs/chain/node-build-cleanup) for details."
 echo
 pause
 
@@ -63,8 +64,38 @@ fi
 # https://github.com/fioprotocol/fio/releases/download/v3.3.0/fioprotocol-3.3.0-ubuntu-18.04-amd64.deb
 
 # Release
-#release=3.4.x-latest # S3 release name
-release=3.4.0-rc1 # FIO release name
+#release=3.4.0-rc1 # FIO release package name
+#release=3.4.x-latest # S3 release package name
+#release=3.4.0 # fio.releases release package name
+release=""
+echo
+echo "The release package version is required and must match a release package located at"
+echo " - https://github.com/fioprotocol/fio/releases"
+echo "Examples include:"
+echo " - 3.4.0-rc1"
+echo " - 3.4.0"
+echo
+read -p "Enter the release package version " answer
+if [ "${answer,,}" != "" ]
+then
+  release="${answer}"
+  echo
+  read -N 1 -p "You input '${release}'. Correct (y/N)? " answer
+  if [ "${answer,,}" != "y" ]
+  then
+    echo
+    echo
+    echo Aborting install!
+    echo
+    exit 1
+  fi
+else
+  echo
+  echo
+  echo "No release package name entered, Aborting install!"
+  echo
+  exit 1
+fi
 
 # Package download options
 # S3 Bucket
@@ -93,8 +124,9 @@ rm -f $filename
 status=$( curl -L -o /dev/null --silent -Iw '%{http_code}' "${url}" )
 if [[ ${status} -ne 200 ]]; then
   echo
-  echo "File not found at ${url}!"
+  echo "File, ${filename}, was not found at URL ${url}!"
   echo Exiting...
+  echo
   exit 1
 else
   echo "Downloading FIO installation package..."
@@ -132,24 +164,23 @@ echo "  It is not recommended to do both"
 # Install blocks and snapshot
 backup_installed=false
 echo
-echo Installation of the lastest FIO snapshot and blocks log will:
-echo "  Remove current history, snapshots, state and blocks located in '/var/lib/fio'"
-echo "  Download the latest snapshot and blocks log archives from blockpane and install it into 'var/lib/fio"
+echo Installation of the lastest FIO snapshot will:
+echo "  Remove any existing history, snapshots, state and blocks located in '/var/lib/fio'"
+echo "  Download the latest snapshot archive from blockpane and install it into 'var/lib/fio"
 echo "  Update ownership to be accessible by the fio-nodeos process"
-echo "  Remove the downloaded snapshot and blocks archives."
+echo "  Remove the downloaded snapshot."
 echo
-read -N 1 -p "Install snapshot/blocks (y/N)? " answer
+read -N 1 -p "Install snapshot (y/N)? " answer
 if [ "${answer,,}" == "y" ]
 then
   echo
-  echo "Downloading FIO snapshot and blocks backups..."
+  echo "Downloading FIO snapshot backup..."
   wget https://snap.blockpane.com/${type}-latest-snap.txz
-  wget https://snap.blockpane.com/${type}-latest-blocks.txz
   echo "Cleaning target directory '/var/lib/fio'..."
   sudo rm -rf /var/lib/fio/data /var/lib/fio/history /var/lib/fio/history_index
   echo "Exracting archives to target directory..."
   sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-snap.txz
-  sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-blocks.txz
+  sudo mkdir -p /var/lib/fio/history /var/lib/fio/history_index
   sudo chown -R fio:fio /var/lib/fio
 
   rm -i ${type}-latest-snap.txz
@@ -157,30 +188,58 @@ then
 
   backup_installed=true
 else
-  # v1 History
   echo
-  echo Installation of the latest v1 history will:
+  echo Installation of the lastest FIO snapshot and blocks log will:
   echo "  Remove current history, snapshots, state and blocks located in '/var/lib/fio'"
-  echo "  Download the latest history archive from blockpane and install it into 'var/lib/fio"
+  echo "  Download the latest snapshot and blocks log archives from blockpane and install it into 'var/lib/fio"
   echo "  Update ownership to be accessible by the fio-nodeos process"
-  echo "  Remove the downloaded history archive."
+  echo "  Remove the downloaded snapshot and blocks archives."
   echo
-  read -N 1 -p "Install v1 history (y/N)? " answer
-  echo
+  read -N 1 -p "Install snapshot/blocks (y/N)? " answer
   if [ "${answer,,}" == "y" ]
   then
     echo
-    echo "Downloading FIO history backup..."
-    wget https://snap.blockpane.com/${type}-latest-history.txz
+    echo "Downloading FIO snapshot and blocks backups..."
+    wget https://snap.blockpane.com/${type}-latest-snap.txz
+    wget https://snap.blockpane.com/${type}-latest-blocks.txz
     echo "Cleaning target directory '/var/lib/fio'..."
     sudo rm -rf /var/lib/fio/data /var/lib/fio/history /var/lib/fio/history_index
-    echo "Exracting archive to target directory..."
-    sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-history.txz
+    echo "Exracting archives to target directory..."
+    sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-snap.txz
+    sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-blocks.txz
+    sudo mkdir -p /var/lib/fio/history /var/lib/fio/history_index
     sudo chown -R fio:fio /var/lib/fio
 
-    rm -i ${type}-latest-history.txz
+    rm -i ${type}-latest-snap.txz
+    rm -i ${type}-latest-blocks.txz
 
     backup_installed=true
+  else
+    # v1 History
+    echo
+    echo Installation of the latest v1 history will:
+    echo "  Remove current history, snapshots, state and blocks located in '/var/lib/fio'"
+    echo "  Download the latest history archive from blockpane and install it into 'var/lib/fio"
+    echo "  Update ownership to be accessible by the fio-nodeos process"
+    echo "  Remove the downloaded history archive."
+    echo
+    read -N 1 -p "Install v1 history (y/N)? " answer
+    echo
+    if [ "${answer,,}" == "y" ]
+    then
+      echo
+      echo "Downloading FIO history backup..."
+      wget https://snap.blockpane.com/${type}-latest-history.txz
+      echo "Cleaning target directory '/var/lib/fio'..."
+      sudo rm -rf /var/lib/fio/data /var/lib/fio/history /var/lib/fio/history_index
+      echo "Exracting archive to target directory..."
+      sudo tar -xS -I'pixz' -C /var/lib/fio -f ${type}-latest-history.txz
+      sudo chown -R fio:fio /var/lib/fio
+
+      rm -i ${type}-latest-history.txz
+
+      backup_installed=true
+    fi
   fi
 fi
 

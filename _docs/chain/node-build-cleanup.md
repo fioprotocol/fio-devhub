@@ -44,21 +44,43 @@ To fully cleanup an installation, execute the following commands:
 {% include alert.html type="warning" title="Destructive" content="Use of 'sudo' and 'rm' is for Advanced users! Use the following commands with care!" %}
 
 ```sh
+#!/usr/bin/env bash
+
+# Stop and disable fio-nodeo application
+sudo systemctl stop fio-nodeos
+sleep 5
+sudo systemctl disable fio-nodeos
+sleep 1
+
+# Stop and disable fio-wallet application
+sudo systemctl -q stop fio-wallet
+sleep 5
+sudo systemctl -q disable fio-wallet
+sleep 1
+
+# Remove installed package
 sudo apt remove fioprotocol
 
-sudo rm -rf /etc/fio
+# Remove leftover artifacts from fio package install
 sudo rm -f /usr/local/bin/cleos
 sudo rm -f /usr/local/bin/fio-cleos
+sudo rm -f /usr/local/bin/clio
 sudo rm -f /usr/local/bin/nodeos
+sudo rm -f /usr/local/bin/fio-nodeos
+sudo rm -f /usr/local/bin/fio-wallet
 
-sudo rm -rf /var/lib/fio
-sudo rm -rf /var/log/fio
+# ********************************** WARNING ***********************************
+# The following commands remove runtime data that is critical for node execution
+# Only proceed if cleanup of an outdated install is desired
+# ******************************************************************************
+# Remove configuration, blocks log, history, state
+sudo rm -ir /etc/fio
+sudo rm -ir /var/lib/fio
+sudo rm -ir /var/log/fio
 
-sudo systemctl stop fio-nodeos
-sudo systemctl disable fio-nodeos
+# Remove the fio user
+# This step is useful if not re-installing/upgrading the fio package
+#sudo /usr/sbin/deluser --system --remove-home --group fio fio
 
-sudo systemctl -q stop fio-wallet
-sudo systemctl -q disable fio-wallet
 
-sudo /usr/sbin/deluser --system --remove-home --group fio fio
 ```
