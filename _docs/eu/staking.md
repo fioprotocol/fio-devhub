@@ -10,6 +10,8 @@ redirect_from:
 ## Overview
 [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md){:target="_blank"} is introducing **FIO Staking**, an on-chain program which rewards users for participating in blockchain governance.
 
+{% include alert.html type="warning" title="Known issue with unstaking" content="In certain cases users have encountered the following error: cannot emplace locks when locks pre-exist. The workaround is to transfer a small amount of FIO (1 FIO will work) from the account to another account using /transfer_tokens_pub_key. After the token transfer, unstake will work." %}
+
 ## How FIO Staking works
 ### High level
 * User has to vote, proxy, or [auto-proxy]({{site.baseurl}}/docs/contribute/governance) their FIO Tokens.
