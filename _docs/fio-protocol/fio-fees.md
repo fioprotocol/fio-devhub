@@ -81,6 +81,8 @@ Lastly, top 21 block producers are exempt from paying certain transaction fees, 
 |Remove ALL NFT Signatures from FIO Crypto Handle |remallnfts |/remove_all_nfts |1 |
 |Stake FIO Tokens |stakefio |/stake_fio_tokens |1 |
 |Unstake FIO Tokens |unstakefio |/unstake_fio_tokens |1 |
+|Wrap FIO Tokens |wraptokens |/wrap_fio_tokens |Not eligible |
+|Wrap FIO Domain |wrapdomain |/wrap_fio_domains |Not eligible |
 |Vote on block producers |voteproducer |/vote_producer |1 |
 |Proxy votes to registered proxy |voteproxy |/proxy_vote |1 |
 |Register as a proxy |regproxy |/register_proxy |Not eligible |

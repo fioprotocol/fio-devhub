@@ -3307,7 +3307,6 @@ paths:
           description: |-
             Possible error messages:
             * "Invalid FIO Public Key"
-            * "Locked tokens can only be transferred to new account."
             * "Invalid can_vote value."
             * "Invalid amount."
             * "Insufficient balance'"
@@ -3365,8 +3364,9 @@ paths:
       summary: Transfer locked FIO tokens
       description: >-
         Transfers tokens to a new account and locks those tokens on a pre-defined schedule.
-        `trnsloctoks` was originally defined in FIP-6 but was later updated in FIP-21.
-        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) for a comprehensive description of this functionality.
+        `trnsloctoks` was originally defined in FIP-6 but was later updated in FIP-21 and FIP-41.
+        See [FIP-21](https://github.com/fioprotocol/fips/blob/master/fip-0021.md) [FIP-41](https://github.com/fioprotocol/fips/blob/master/fip-0041.md)
+        for a comprehensive description of this functionality.
 
 
         trnsloctoks action data may also be sent to the `/transfer_locked_tokens` action-specific endpoint.
@@ -3436,7 +3436,6 @@ paths:
                 description: |-
                   * FIO Crypto Handle (aka FIO Address) of the wallet which generates this transaction.
                   * This FIO Crypto Handle will be paid 10% of the fee.
-                  * See FIO Protocol#TPIDs for details.
                   * Set to empty if not known.
                 example: rewards@wallet
               actor:
@@ -7000,7 +6999,7 @@ paths:
         `processed->action_traces->receipt->response` string.
 
 
-        addnft action data may also be sent to the `/stake_fio_tokens` action-specific endpoint.
+        stakefio action data may also be sent to the `/stake_fio_tokens` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -7159,7 +7158,7 @@ paths:
         `processed->action_traces->receipt->response` string.
 
 
-        addnft action data may also be sent to the `/unstake_fio_tokens` action-specific endpoint.
+        unstakefio action data may also be sent to the `/unstake_fio_tokens` action-specific endpoint.
 
         ### `actions` parameters
 
@@ -7216,6 +7215,359 @@ paths:
           description: >-
             The `data` object which needs to be included in the transaction instance.
       operationId: add_nft_model
+      tags:
+        - Actions
+  wraptokens:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: OK
+              oracle_fee_collected:
+                title: Oracle fee collected
+                description: Amount of SUFs collected as fee for oracles
+                type: integer
+                example: 2000000000
+              fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as FIO chain fee
+                type: integer
+                example: 2000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Insufficient balance"
+            * "Invalid amount"
+            * "Invalid oracle fee value"
+            * "Invalid public address"
+            * "Invalid chain code"
+            * "Oracle fee exceeds supplied maximum"
+            * "Invalid fee value"
+            * "Fee exceeds supplied maximum"
+            * "TPID must be empty or valid FIO address"     
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: amount
+                  value: 2000000000
+                  error: Insufficient balance
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Wrap FIO Tokens
+      description: >-
+        This action allows a user to wrap their FIO tokens onto another chain. For the initial version FIO tokens on the FIO chain will be wrapped to the equivalent
+        number of WFIO tokens on the Ethereum chain. When FIO tokens are wrapped, they are first sent to an escrow contract on the FIO chain. Next, a set of 
+        oracles run by FIO validators detect the wrapped tokens and mint the equivalent amount of WFIO for the given Ethereum `public_address`.
+
+
+        When tokens are wrapped, they cannot be transferred or used to pay a fee on the FIO chain. Tokens that are Wrapped do not count towards the voting power of account.
+
+
+        Wrapped tokens may be unwrapped by calling the `unwrap` action on the Ethereum wfio contract.
+
+
+        See [FIP-17a](https://github.com/fioprotocol/fips/blob/master/fip-0017a.md) for a description of Token Wrapping functionality.
+
+
+        This section defines the object which needs to be created before it's packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in `processed->action_traces->receipt->response` string.
+
+
+        wraptokens action data may also be sent to the `/wrap_fio_tokens` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.oracle`
+
+        * name: `wraptokens`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              amount:
+                type: integer
+                title: Amount
+                description: Amount of SUFs to stake.
+                example: 1000000000
+              chain_code:
+                type: string
+                title: Chain code
+                description: Chain code of destination blockchain. Currently only 'ETH' is supported.
+                minLength: 1
+                maxLength: 10
+                pattern: >-
+                  ASCII a-z0-9, case-insensitive.
+                example: "ETH"
+              public_address:
+                type: string
+                title: Public address
+                description: Public address on destination on the Ethereum chain where wrapped tokens should be delivered.
+                example: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
+              max_oracle_fee:
+                type: integer
+                title: Max oracle fee
+                description: Maximum amount of SUFs the user is willing to pay as Oracle fee. Current fee can be found using /get_oracle_fees.
+                example: 600000000000
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Current fee can be found using /get_fee.
+                example: 10000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Crypto Handle (aka FIO Address) of the wallet which generates this transaction.
+                  * This FIO Crypto Handle will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: "rewards@wallet"
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: aftyershcu22                
+            required:
+              - amount
+              - chain_code
+              - public_address
+              - max_oracle_fee
+              - max_fee
+              - actor
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: wraptokens_model
+      tags:
+        - Actions
+  wrapdomain:
+    options:
+      responses:
+        '200':
+          description: >-
+            This section defines only the contents of the response returned in
+            `processed->action_traces->receipt->response` string. See
+            [push_transaction](#post-/push_transaction) section for the
+            definition of the actual response.
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: OK
+                example: "OK"
+              oracle_fee_collected:
+                title: Fee collected
+                description: Amount of SUFs collected as FIO chain fee
+                type: integer
+                example: 2000000000
+              fee_collected:
+                title: Oracle fee collected
+                description: Amount of SUFs collected as fee for oracles
+                type: integer
+                example: 2000000000
+        '400':
+          description: |-
+            Possible error messages:
+            * "Insufficient balance"
+            * "Invalid FIO domain"
+            * "Invalid oracle fee value"
+            * "Invalid public address"
+            * "Invalid chain code"
+            * "Oracle fee exceeds supplied maximum"
+            * "Invalid fee value"
+            * "FIO Domain expired. Renew first"
+            * "Fee exceeds supplied maximum"
+            * "FIO Domain not registered"
+            * "TPID must be empty or valid FIO address"     
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                    error:
+                      type: string
+            description: >-
+              HTTP code 400 is returned when request was malformed or contained
+              improper values. The response body will indicate the name of the
+              incorrect field, its type, and the value the service received.
+            title: Error 400
+          examples:
+            application/json:
+              type: invalid_input
+              message: >-
+                An invalid request was sent in, please check the nested errors
+                for details.
+              fields:
+                - name: fio_domain
+                  value: mycryptowallet
+                  error: FIO Domain not registered
+        '403':
+          description: |-
+            Possible triggers:
+            * Signer's FIO Public Key does not match actor
+          schema:
+            type: object
+            properties: {}
+            description: >-
+              HTTP code 403 is returned when the request signature is not valid
+              or this user is not allowed to sign this transaction.
+            title: Error 403
+          examples:
+            application/json:
+              type: invalid_signature
+              message: Request signature not valid or not allowed.
+      summary: Wrap FIO Domain
+      description: >-
+        This action allows a user to wrap their FIO domain onto another chain. For the initial version FIO domains on the FIO chain will be wrapped onto the
+        Polygon chain. When FIO domains are wrapped, they are first sent to an escrow contract on the FIO chain. Next, a set of 
+        oracles run by FIO validators detect the domain is in escrow and mint the equivalent domain NFT for the given Polygon `public_address`.
+
+
+        Wrapped domains may be unwrapped by calling the `unwrapnft` action on the Polygon fionft contract.
+
+
+        See [FIP-17b](https://github.com/fioprotocol/fips/blob/master/fip-0017b.md) for a description of Domain Wrapping functionality.
+
+
+        This section defines the object which needs to be created before it's packed and signed for [push_transaction](#post-/push_transaction) and
+        the response object returned in `processed->action_traces->receipt->response` string.
+
+
+        wrapdomain action data may also be sent to the `/wrap_fio_domains` action-specific endpoint.
+
+        ### `actions` parameters
+
+        * account: `fio.oracle`
+
+        * name: `wrapdomain`
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              fio_domain:
+                type: string
+                title: FIO Domain
+                description: The FIO Domain to be wrapped.
+                example: "alice"
+              chain_code:
+                type: string
+                title: Chain code
+                description: Chain code of destination blockchain. Currently only 'ETH' is supported.
+                minLength: 1
+                maxLength: 10
+                pattern: >-
+                  ASCII a-z0-9, case-insensitive.
+                example: "ETH"
+              public_address:
+                type: string
+                title: Public address
+                description: Public address on destination on the Ethereum chain where wrapped tokens should be delivered.
+                example: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B"
+              max_oracle_fee:
+                type: integer
+                title: Max oracle fee
+                description: Maximum amount of SUFs the user is willing to pay as Oracle fee. Current fee can be found using `/get_oracle_fees`
+                example: 600000000000
+              max_fee:
+                type: integer
+                title: Max fee
+                description: >-
+                  Maximum amount of SUFs the user is willing to pay for fee.
+                  Should be preceded by /get_fee for correct value.
+                example: 10000000000
+              tpid:
+                type: string
+                title: TPID
+                description: |-
+                  * FIO Crypto Handle (aka FIO Address) of the wallet which generates this transaction.
+                  * This FIO Crypto Handle will be paid 10% of the fee.
+                  * See FIO Protocol#TPIDs for details.
+                  * Set to empty if not known.
+                example: "rewards@wallet"
+              actor:
+                type: string
+                title: Actor
+                description: 'See [Generating actor](/docs/recipes/actor-account)'
+                example: "aftyershcu22"              
+            required:
+              - fio_domain
+              - chain_code
+              - public_address
+              - max_oracle_fee
+              - max_fee
+              - actor
+              - tpid
+          description: >-
+            The `data` object which needs to be included in the transaction instance.
+      operationId: wrapdomain_model
       tags:
         - Actions
   retire:
