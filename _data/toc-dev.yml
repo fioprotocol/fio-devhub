@@ -66,3 +66,8 @@
       url: "docs/developers/tools"
     - title: Devnet Testing
       url: "docs/developers/devnet"
+    - title: Knowledgebase
+      url: "docs/developers/kb"
+      children:
+        - title: Getting version info
+          url: "docs/developers/kb-get-version"
