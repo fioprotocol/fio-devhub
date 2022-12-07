@@ -99,6 +99,7 @@ docker ps
 
 CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                                                                  NAMES
 4756dc0abf5e   testnet_nodeos   "/usr/local/bin/fio-…"   22 minutes ago   Up 22 minutes   0.0.0.0:3856->3856/tcp, :::3856->3856/tcp, 0.0.0.0:8888->8888/tcp, :::8888->8888/tcp   testnet_nodeos_1
+
 ```
 
 **Access Docker container to run commands:**

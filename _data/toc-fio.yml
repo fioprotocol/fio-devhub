@@ -37,6 +37,8 @@
     - title: Building a Node
       url: "docs/chain/node-build"
       children:
+        - title: FIO Node Settings
+          url: "docs/chain/node-build-settings"
         - title: Building from source
           url: "docs/chain/node-build-source"
         - title: Docker installation
