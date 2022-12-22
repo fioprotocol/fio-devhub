@@ -49,11 +49,14 @@
     - title: FIO Blog
       external_url: https://medium.com/fio-blog
       blank: true
+    - title: YouTube
+      external_url: https://www.youtube.com/c/fioprotocol
+      blank: true
+    - title: FIO Store
+      external_url: https://coinmonster.store/product-category/fio/
+      blank: true
 - title: Support
   dropdown:
-  - title: Help Center
-    external_url: https://fioprotocol.atlassian.net/servicedesk/customer/portals
-    blank: true
   - title: Discord
     external_url: https://discord.gg/CNHzMm2neF
     blank: true

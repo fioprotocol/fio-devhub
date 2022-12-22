@@ -34,8 +34,6 @@
           url: "docs/contribute/onboarding-workerprop"
         - title: Worker Proposal Checklist
           url: "docs/contribute/onboarding-workerpropcheck"
-        - title: Request a FIO Email Address
-          url: "docs/contribute/onboarding-email"
         - title: Gather Important Tools for Contributing to FIO
           url: "docs/contribute/onboarding-tools"        
         - title: Set Up your FIO Environment
