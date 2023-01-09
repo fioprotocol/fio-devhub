@@ -3,7 +3,7 @@ title: Readme
 tags: 
  - jekyll
  - github
-description: Getting started with FIO Devhup using Docsy Jekyll
+description: Getting started with FIO Devhub using Docsy Jekyll
 ---
 
 This site was forked from [vsoch docsy-jekyll](https://github.com/vsoch/docsy-jekyll). Documentation can be found at <https://vsoch.github.io/docsy-jekyll/>.
