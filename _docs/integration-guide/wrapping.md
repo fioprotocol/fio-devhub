@@ -14,6 +14,15 @@ FIO Wrapping opens up new use cases for FIO Tokens and Domains such as:
 
 This guide is intended to help integrators with FIO Wrapping integration into their products.
 
+### Wrapping Contracts
+
+FIO wrapping is enabled by a multisig oracle application run in a decentralized environment on FIO Block Producer (validator) nodes. The FIO Wrapping contracts are opensource modified ERC-20 and ERC-721 contracts.
+
+|Protocol|Source Code |Mainnet Contract Address |
+|---|---|---|
+|WFIO on Ethereum|<https://github.com/fioprotocol/fio.erc20>{:target="_blank"} |[0xbEA269038Eb75BdAB47a9C04D0F5c572d94b93D5](https://etherscan.io/address/0xbEA269038Eb75BdAB47a9C04D0F5c572d94b93D5){:target="_blank"}|
+|Wrapped Domains on Polygon|<https://github.com/fioprotocol/fio.erc721>{:target="_blank"} |[0x3AB00687AE60EeA770498b59685174E3FC81C424](https://polygonscan.com/address/0x3AB00687AE60EeA770498b59685174E3FC81C424){:target="_blank"}|
+
 ---
 ## How FIO Token Wrapping works
 
@@ -92,3 +101,12 @@ FIO Domains can be viewed in Ethereum wallets that support NFTs or you can view 
 * Go to: https://opensea.io/
 * Connect your Metamask wallet that contains the key used for the wrapped domain
 * Any NFTs associated with that key will now show up. You may have to go into Opensea > More > Hidden to view the NFT (which you can then unhide)
+
+### Testnet Wrapping
+
+FIO Token and Domain Wrapping can be tested using the [FIO Testnet]({{site.baseurl}}/docs/chain/testnet) and the following 
+
+|Protocol|Source Code |Testnet Contract |
+|---|---|---|
+|WFIO on Ethereum Goerli Testnet|<https://github.com/fioprotocol/fio.erc20>{:target="_blank"} |[0xb622F030Be649aAAa9f32faa2b0C0E02986D75F2](https://goerli.etherscan.io/address/0xb622F030Be649aAAa9f32faa2b0C0E02986D75F2){:target="_blank"}|
+|Wrapped Domains on Polygon Mumbai Testnet|<https://github.com/fioprotocol/fio.erc721>{:target="_blank"} |[0x3EB054ed86087fE9Eb724895127A24D27cD8466F](https://mumbai.polygonscan.com/address/0x3EB054ed86087fE9Eb724895127A24D27cD8466F){:target="_blank"}|

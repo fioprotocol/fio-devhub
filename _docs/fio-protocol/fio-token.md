@@ -15,6 +15,17 @@ There are 1,000,000,000 Smallest Units of FIO (SUFs) inside 1 FIO. All transacti
 * Symbol: ᵮ
 * [Brand Assets](https://fioprotocol.io/brand-assets/)
 
+## WFIO Token
+
+Token holders wanting to use their FIO tokens in the Ethereum Defi ecosystem may wrap their tokens using the [FIO Dashboard](https://dashboard.fioprotocol.io){:target="_blank"}  or directly through the [wraptokens]({{site.baseurl}}/pages/api/fio-api/#options-wraptokens) action. Wrapped tokens can be used to provide liquidity in decentralized exchanges such as [Uniswap](https://info.uniswap.org/#/pools/0x937d916a12de773043139e79e58da8a4b93623ed){:target="_blank"}.
+
+FIO Token wrapping is enabled by a multisig oracle application run in a decentralized environment on FIO Block Producer (validator) nodes. The FIO token wrapping contract is a modified ERC-20 opensource contract.
+
+|Protocol|Source Code |Mainnet Contract |
+|---|---|---|
+|WFIO on Ethereum|<https://github.com/fioprotocol/fio.erc20>{:target="_blank"} |[0xbEA269038Eb75BdAB47a9C04D0F5c572d94b93D5](https://etherscan.io/address/0xbEA269038Eb75BdAB47a9C04D0F5c572d94b93D5){:target="_blank"}|
+
+For information on integrating token wrapping into your application, refer to the [wrapping developers guide]({{site.baseurl}}/docs/integration-guide/wrapping).
 ## Token Economics
 
 * Maximum Total Supply: 1,000,000,000 FIO (38,506,000 of which are permanently locked)
