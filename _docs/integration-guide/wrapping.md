@@ -28,7 +28,7 @@ FIO wrapping is enabled by a multisig oracle application run in a decentralized 
 
 ### Wrapping and unwrapping FIO Tokens
 
-Token wrapping is accomplished using the [wraptokens]({{site.baseurl}}/pages/api/fio-api/#options-wraptokens) action on the FIO chain and passing in the amount of FIO Tokens to wrap. Wrapped tokens may be unwrapped by calling the `unwrap` action on the Ethereum wfio ERC20 contract. Note that wrapping and unwrapping cannot be accomplished entirely inside the FIO Protocol and requires FIO oracle middleware software and an ERC20 contract on the Ethereum chain.
+Token wrapping is accomplished using the [wraptokens]({{site.baseurl}}/pages/api/fio-api/#options-wraptokens) action on the FIO chain and passing in the amount of FIO Tokens to wrap. Wrapped tokens may be unwrapped by calling the `unwrap` action on the Ethereum WFIO ERC20 contract. Note that wrapping and unwrapping cannot be accomplished entirely inside the FIO Protocol and requires FIO oracle middleware software and an ERC20 contract on the Ethereum chain.
 
 The following gives an overview of the token wrapping process:
 

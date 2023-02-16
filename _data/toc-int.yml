@@ -25,6 +25,11 @@
       url: "docs/integration-guide/token-support"
     - title: Account Balances and Txn History
       url: "docs/general-functions/txn-history"
+- title: WFIO Token
+  url: "docs/integration-guide/token-support-wfio"
+  links:
+    - title: WFIO Token Support
+      url: "docs/integration-guide/token-support-wfio"
 - title: FIO Crypto Handles
   url: "docs/integration-guide/handle-registration"
   links:
