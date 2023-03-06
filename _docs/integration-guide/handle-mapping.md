@@ -20,7 +20,7 @@ Applications that enable users to manage their private keys (such as crypto wall
 ---
 ## Mapping Native Public Blockchain Addresses (NBPA) to a FIO Crypto Handle
 
-To map NBPA to a FIO Crypto Handle use the [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
+To map NBPA to a FIO Crypto Handle use the [addaddress]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
 You may pass up to 5 public addresses in a single call. The call is eligible for [bundled transactions](https://kb.fioprotocol.io/fio-protocol/fio-addresses/bundling-and-fees){:rel="nofollow noopener noreferrer" target="_blank"}, so in most cases there will not be a fee to the user.
 
@@ -118,11 +118,11 @@ If you are using parameters which are not yet part of the standard, please submi
 
 ### Changing or removing NBPAs
 
-NBPA mappings can be changed using the same [/add_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
+NBPA mappings can be changed using the same [addaddress]({{site.baseurl}}/pages/api/fio-api/#options-addaddress) method.
 
-Specific NBPA mappings can be removed using [/remove_pub_address]({{site.baseurl}}/pages/api/fio-api/#options-remaddress) method.
+Specific NBPA mappings can be removed using [remaddress]({{site.baseurl}}/pages/api/fio-api/#options-remaddress) method.
 
-All NBPA mappings can be removed using [/remove_all_pub_addresses]({{site.baseurl}}/pages/api/fio-api/#options-remalladdr) method. FIO token mapping will not be removed.
+All NBPA mappings can be removed using [remalladdr]({{site.baseurl}}/pages/api/fio-api/#options-remalladdr) method. FIO token mapping will not be removed.
 
 ### FIO Public Key mapping
 
@@ -131,7 +131,7 @@ The FIO Public key which was used to register FIO Crypto Handle is automatically
 This mapping serves two distinct purposes:
 
 * When another user wants to send FIO tokens to that FIO Crypto Handle, the mapped public key will be returned in /get_pub_address to enable that transfer.
-* When another user is sending [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) or [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) to that FIO Crypto Handle, the mapped public key will be used to encrypt the data. It is therefore critical that:
+* When another user is sending [newfundsreq]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) or [recordobt]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) to that FIO Crypto Handle, the mapped public key will be used to encrypt the data. It is therefore critical that:
    * **The associate private key is accessible and available in the wallet to decrypt that data.** Wallets should not allow users to map a random FIO Public Key.
    * **If a user tries to remove FIO Public key mapping, they should be advised that they will not be able to receive a FIO Request or Record OBT Data in the future until a valid FIO Public key is added back.**
 

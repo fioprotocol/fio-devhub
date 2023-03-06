@@ -41,6 +41,11 @@
       url: "docs/integration-guide/handle-mapping"
 - title: FIO Send
   url: "docs/integration-guide/fio-send"
+  links:
+    - title: Using Crypto Handles to Send Crypto
+      url: "docs/integration-guide/fio-send"
+    - title: Attach Memo to Crypto Transaction
+      url: "docs/general-functions/fio-data"
 - title: FIO Request
   url: "docs/integration-guide/fio-request"
   links:
