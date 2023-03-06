@@ -87,7 +87,7 @@ The following lists the items that should be tested to confirm support for FIO R
 #### Alice requests 1 BTC from Bob and adds a “Invoice 123” memo
 
 * BTC public address, amount, memo and other data [are encrypted]({{site.baseurl}}/docs/general-functions/encryption)
-* [/new_funds_request]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) is submitted to FIO Chain.
+* [newfundsreq]({{site.baseurl}}/pages/api/fio-api/#options-newfundsreq) is submitted to FIO Chain.
 * /get_sent_fio_requests will return the request just sent with the status requested and all encrypted data including “Invoice 123” memo. We recommend wallets show this request with a status of “pending”.
 * /get_pending_fio_requests will not return anything as this request was for Bob, not for Alice.
 
@@ -108,7 +108,7 @@ The following lists the items that should be tested to confirm support for FIO R
 ##### Step 2
 
 * Actual amount, actual memo, transaction ID (obt_id) from Bitcoin blockchain and other data are encrypted
-* [/record_obt_data]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) is sent to FIO Chain
+* [recordobt]({{site.baseurl}}/pages/api/fio-api/#options-recordobt) is sent to FIO Chain
 
 #### Alice checks payment
 
