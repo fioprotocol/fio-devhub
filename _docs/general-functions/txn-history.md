@@ -22,6 +22,7 @@ There are also several contract actions that impact a user's FIO balance:
 * [trnsloctoks]({{site.baseurl}}/pages/api/fio-api/#options-trnsloctoks) - Tokens that are locked are not available to the user to be transferred. Refer to [FIP-6](https://github.com/fioprotocol/fips/blob/master/fip-0006.md){:target="_blank"} for more information.
 * [stakefio]({{site.baseurl}}/pages/api/fio-api/#options-stakefio) and [unstakefio]({{site.baseurl}}/pages/api/fio-api/#options-unstakefio) - When FIO token's are staked they are no longer available to transfer. Refer to the [FIO Staking Developer Guide]({{site.baseurl}}/docs/integration-guide/staking) for more information.
 * [retire]({{site.baseurl}}/pages/api/fio-api/#options-retire) - While this activity is rare, it is possible for accounts to burn some or all of their FIO tokens. Refer to [FIP-22](https://github.com/fioprotocol/fips/blob/master/fip-0022.md){:target="_blank"} for more information.
+* [tpidclaim]({{site.baseurl}}/pages/api/fio-api/#options-tpidclaim) - This is a maintenance call and is intended to pay Technology Providers (TPIDs) a percent of the fees collected for certain transactions.
 
 ---
 ## UX/UI Considerations
