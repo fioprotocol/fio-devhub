@@ -13,7 +13,7 @@ These methods mostly assume the integrator will be self-hosting their own FIO no
 ---
 ## Tracking transactions
 
-[trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) is the main [transaction that should be tracked]({{site.baseurl}}/docs/general-functions/transactions) for integrators wanting to show transactions that impact a user's balance.
+[trnsfiopubky]({{site.baseurl}}/pages/api/fio-api/#options-trnsfiopubky) is the main [transaction that should be tracked]({{site.baseurl}}/docs/general-functions/transactions) for integrators wanting to show transactions that impact a user's balance. If a wallet or exchange is crawling blocks to get transaction history, it is recommended that [trnsloctoks]({{site.baseurl}}/pages/api/fio-api/#options-trnsloctoks) be tracked to get historical FIO token transfers. Because there are other events can affect a user's balance (e.g., fees, staking, locked tokens) it is best to use [/get_fio_balance]({{site.baseurl}}/pages/api/fio-api/#post-/get_fio_balance) to get the most accurate current total FIO token balance.
 
 In addition to tracking FIO token transfers, integrators may also want to [track the fees paid]({{site.baseurl}}/docs/general-functions/get-fee) for contract actions. Refer to the [FIO Fees and Bundled Transactions]({{site.baseurl}}/docs/fio-protocol/fio-fees) page for the list of different fee types.
 
