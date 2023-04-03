@@ -70,6 +70,8 @@ max-body-size=10485760
 http-max-bytes-in-flight-mb=5000
 ```
 
+An alternative approach to avoid issues when using clio to sign transactions is to store the keys in a separate, scalable hot or cold wallet outside of `fio-wallet` and only load a key into `fio-wallet` when it is needed to sign a transaction using `clio`. Once completed, the key can be removed using `remove_key`.
+
 ## FIO Wallet API Commands
 
 When running `fio-wallet` in its default configuration, using a unix socket, interact with it using the format, `unix://` along with the path to the wallet socket.
