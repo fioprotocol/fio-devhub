@@ -10,7 +10,7 @@ This site was forked from [vsoch docsy-jekyll](https://github.com/vsoch/docsy-je
 
 # FIO Information
 
-> :warning: This repor is no longer maintained. The FIO Dev Hub has been movced to https://dev.fio.net
+> :warning: This repo is NOT maintained. The FIO Dev Hub has been moved to https://dev.fio.net
 
 For information on FIO, visit the [FIO website](https://fio.foundation).
 
